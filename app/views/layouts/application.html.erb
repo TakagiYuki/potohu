@@ -7,33 +7,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" defer ></script><!-- Font Awesome BULMA推奨フォント -->
+    
   </head>
 
   <body>
-    <header class="navbar">
-      <div class="navbar-brand"><!-- 左寄せ -->
-        <span class="navbar-item">
-          <span class="fa fa-language"></span>ここいこ。
-        </span>
-      </div>
-      <div class="navbar-end"><!-- 右寄せ -->
-        <div class="navbar-item">
-          <div class="field has-addons">
-            <div class="control">
-              <input class="input" type="text" name="search" placeholder="キーワード検索">
-            </div>
-            <div class="control">
-                <a class="button is-info"><i class="fa fa-search"></i>検索</a>
-            </div>
-          </div>
-        </div>
-      </div>
-        <div class="navbar-item">
-          <a href="#"><i class="fa fa-user"></i>ログイン</a>
-        </div>
-      </div>
-    </header>
+    <%= render 'layouts/header' %>
     <%= yield %>
   </body>
 </html>
