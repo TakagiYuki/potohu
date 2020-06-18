@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'events/new'
-  get 'areas/new'
+  namespace :admin do
+    resources :areas
+    resources :events
+  end
   resources :users
   resources :sessions
   resources :areas

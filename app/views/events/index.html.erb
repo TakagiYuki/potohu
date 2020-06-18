@@ -1,71 +1,19 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <h3>イベント追加</h3>
+<div class="index-content">
+  <div class="container">
+     <% @events.each do |event| %>
+    <div class="col-lg-4">
+      <div class="card"> <%= link_to event_path(event) do %><%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '300x235')%><% end %>
+        <h4><%= event.name %></h4>
+        <p><%= event.date %></p>
+        <p><%= event.article %></p>
+        <p><%= "開催日#{event.date}" %></p>
+        <p><%= "所在地#{event.city}" %></p>
+        <p><%= "開催場所#{event.place}" %></p>
+        <!-- <a href="blog-ici.html" class="blue-button">Read More</a> -->
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6 col-md-offset-2">
-      <%= form_with(model: @event, local: true) do |f| %>
-
-        <%= f.label :都道府県選択 %>
-        <%= f.collection_select :area_id, Area.all, :id, :number %>
-
-        <%= f.label :イベント名 %>
-        <%= f.text_field :name, class: 'form-control' %>
-
-　　　　　<%= f.label :説明文 %>
-        <%= f.text_area :article, class: 'form-control' %>
-
-        <%= f.attachment_field :image %>
-
-        <%= f.label :会場 %>
-        <%= f.text_field :place, class: 'form-control' %>
-
-        <%= f.label :住所 %>
-        <%= f.text_field :city, class: 'form-control' %>
-
-        <%= f.label :開催日 %>
-        <%= f.text_field :date, class: 'form-control' %>
-
-        <%= f.label :駐車場の有無 %>
-        <%= f.radio_button :is_parking, :"0" %>駐車場なし
-        <%= f.radio_button :is_parking, :"1" %>駐車場あり</br>
-
-        <%= f.label :イベントの表示 %>
-        <%= f.radio_button :is_valid, :"0" %>表示させない
-        <%= f.radio_button :is_valid, :"1" %>表示させる</br>
-
-        <%= f.submit "追加", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-
-    <div class="col-md-6 col-md-offset-2">
-      <table class="table table-hover table-inverse">
-        <thead>
-          <tr>
-            <th>イベント名</th>
-            <th>画像</th>
-            <th>説明文</th>
-            <th>会場</th>
-            <th>住所</th>
-            <th>開催日</th>
-            <th>駐車場の有無</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @events.each do |event| %>
-          <tr>
-            <td><%= event.name %></td>
-            <td><%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '220x165')%></td>
-            <td><%= event.article %></td>
-            <td><%= event.place %></td>
-            <td><%= event.city %></td>
-            <td><%= link_to "編集する", areas_path, class: "btn btn-primary" %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+     <% end %>
   </div>
 </div>
+
+

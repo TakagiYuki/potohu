@@ -1,0 +1,14 @@
+<div class="index-content">
+  <div class="container">
+    <div class="col-lg-4">
+      <div class="card"> <%= attachment_image_tag(@event, :image, fallback: 'no_image.jpg', size: '300x235')%>
+        <h4><%= @event.name %></h4>
+        <p><%= @event.date %></p>
+        <p><%= @event.article %></p>
+        <p><%= "開催日#{@event.date}" %></p>
+        <p><%= "所在地#{@event.city}" %></p>
+        <p><%= "開催場所#{@event.place}" %></p>
+      </div>
+    </div>
+  </div>
+</div>
