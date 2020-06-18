@@ -1,6 +1,3 @@
-<head>
-  <link rel="stylesheet" href="header.css">
-</head>
 <header>
   <h1>
     <%= link_to "ロゴ", root_path, id: "logo" %>
@@ -15,10 +12,10 @@
         <!-- <li><%#= link_to '  ログアウト', destroy_end_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-in' %></li> -->
 
       <%# else %>
-　　　　　<li><%= link_to '  イベント', events_path, class: 'glyphicon glyphicon-log-in' %></li>
-        <li><%= link_to '  エリア', areas_path, class: 'glyphicon glyphicon-log-in' %></li>
-        <li><%= link_to '  新規登録', "#", class: 'glyphicon glyphicon-log-in' %></li>
-        <li><%= link_to '  ログイン', "#", class: 'glyphicon glyphicon-log-in' %></li>
+　　　　　<li><%= link_to '  イベント', admin_events_path, class: 'glyphicon glyphicon-log-in' %></li>
+        <li><%= link_to '  エリア', admin_areas_path, class: 'glyphicon glyphicon-log-in' %></li>
+        <li><%= link_to '  新規登録', new_session_path, class: 'glyphicon glyphicon-log-in' %></li>
+        <li><%= link_to '  ログイン', new_user_path, class: 'glyphicon glyphicon-log-in' %></li>
     　<%# end %>
     </ul>
   </nav>
