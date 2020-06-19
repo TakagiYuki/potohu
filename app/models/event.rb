@@ -4,7 +4,12 @@ class Event < ApplicationRecord
   has_many :tags, through: :event_tags #タグ
   has_many :event_comments #コメント
   attachment :image #refile用
-
+  has_many :favorites #いいな
+  
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
+  enum time_status:{ 開催前: 0, 開催中: 1, 終了: 2}
   def save_events(tags)
   	#tagsテーブルのtag_nameカラムの一覧を取り出す。空だったらtrue
 	current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?

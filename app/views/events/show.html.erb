@@ -6,7 +6,6 @@
         <p><%= @event.date %></p>
         <p><%= @event.article %></p>
         <p><%= "開催日#{@event.date}" %></p>
-        <p><%= "所在地#{@event.city}" %></p>
         <p><%= "開催場所#{@event.place}" %></p>
         <%= form_with model: [@event, @event_comment] do |f| %>
           <%= f.text_area :comment, class: "form-control",placeholder: "コメントをここに" %>
