@@ -19,25 +19,18 @@
 
         <%= f.attachment_field :image %>
 
-        <%= f.label :会場 %>
-        <%= f.text_field :place, class: 'form-control' %>
-
         <%= f.label :住所 %>
-        <%= f.text_field :city, class: 'form-control' %>
+        <%= f.text_field :place, class: 'form-control' %>
 
         <%= f.label :開催日 %>
         <%= f.text_field :date, class: 'form-control' %>
 
-        <%= f.label :駐車場の有無 %>
-        <%= f.radio_button :is_parking, :"0" %>駐車場なし
-        <%= f.radio_button :is_parking, :"1" %>駐車場あり</br>
-
-        <%= f.label :イベントの表示 %>
-        <%= f.radio_button :is_valid, :"0" %>表示させない
-        <%= f.radio_button :is_valid, :"1" %>表示させる</br>
+        <%= f.label :開催ステータス %>
+        <%= f.radio_button :time_status, :"0" %>開催前
+        <%= f.radio_button :time_status, :"1" %>開催中
+　　　　　<%= f.radio_button :time_status, :"2" %>開催終了
 
         <%= f.label :tag %>
-                          <!-- ??? -->
         <%= f.text_field :tag_name %>
 
         <%= f.submit "追加", class: "btn btn-primary" %>
@@ -51,10 +44,9 @@
             <th>イベント名</th>
             <th>画像</th>
             <th>説明文</th>
-            <th>会場</th>
             <th>住所</th>
             <th>開催日</th>
-            <th>駐車場の有無</th>
+            <th>開催ステータス</th>
             <th>タグ</th>
           </tr>
         </thead>
@@ -65,9 +57,7 @@
             <td><%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '25x25')%></td>
             <td><%= event.article %></td>
             <td><%= event.place %></td>
-            <td><%= event.city %></td>
-            <td><%= event.is_parking %></td>
-            <td><%= event.is_valid %></td>
+            <td><%= event.time_status %></td>
               <td><% event.tags.each do |tag| %>
                     <%=tag.tag_name %>
                   <% end %>

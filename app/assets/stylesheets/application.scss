@@ -152,6 +152,18 @@ input {
   opacity: 0.65;
 }
 
+.index-content .card .time_status p {
+  display: inline-block;
+  margin: 20px;
+  padding: .3em;//角丸の大きさ
+  line-height: 1;
+  text-decoration: none;
+  color: #ffffff;//文字
+  background-color: #808080;
+  //border: 1px solid #0000ee;//枠
+  border-radius: 1em;//角丸
+}
+
 .index-content .blue-button {
   width: 100px;
   -webkit-transition: background-color 1s, color 1s;
