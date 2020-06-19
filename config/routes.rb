@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   resources :areas
-  resources :events
+  resources :events do
+    resources :event_comments, only: [:create, :destroy]
+  end
   root 'homes#top'
 end

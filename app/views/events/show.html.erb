@@ -8,7 +8,15 @@
         <p><%= "開催日#{@event.date}" %></p>
         <p><%= "所在地#{@event.city}" %></p>
         <p><%= "開催場所#{@event.place}" %></p>
+        <%= form_with model: [@event, @event_comment] do |f| %>
+          <%= f.text_area :comment, class: "form-control",placeholder: "コメントをここに" %>
+          <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+        <% end %>
+        <% @event.event_comments.each do |event_comment| %>
+          <%= event_comment.comment %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+
