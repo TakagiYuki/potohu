@@ -1,7 +1,8 @@
 class Event < ApplicationRecord
   belongs_to :area
-  has_many :event_tags, dependent: :destroy
-  has_many :tags, through: :event_tags
+  has_many :event_tags, dependent: :destroy #タグ
+  has_many :tags, through: :event_tags #タグ
+  has_many :event_comments #コメント
   attachment :image #refile用
 
   def save_events(tags)

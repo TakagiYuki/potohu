@@ -10,11 +10,6 @@ module SessionsHelper
       @current_user ||= User.find_by(id: session[:user_id]) #下の短縮版
       #@current_user = @current_user || User.find_by(id: session[:user_id])
       #@current_user = User.find_by(id: session[:user_id]) <= DBへのクエリ増
-      log_in user
-      redirect_to user
-    else
-      flash.now[:danger] = 'メールアドレスかパスワードが正しくありません'
-      render 'new'
     end
   end
 
