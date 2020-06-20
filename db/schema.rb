@@ -38,10 +38,14 @@ ActiveRecord::Schema.define(version: 2020_06_19_065213) do
     t.string "name"
     t.string "article"
     t.string "image_id"
-    t.string "place"
+    t.string "prefecture"
+    t.string "city"
+    t.string "street"
     t.string "date"
     t.integer "time_status"
     t.integer "area_id"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -9,7 +9,7 @@
             <div class="time_status">
               <p><%= event.time_status %></p>
             </div>
-          <p><%= "住所#{event.place}" %></p>
+          <p><%= "住所#{event.city}" %></p>
           <!-- <a href="blog-ici.html" class="blue-button">Read More</a> -->
           <% if event.favorited_by?(current_user) %>
             <%= link_to event_favorites_path(event), method: :delete, remote: true do %>

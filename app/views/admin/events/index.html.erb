@@ -5,10 +5,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6 col-md-offset-2">
+    <div class="col-md-8 col-md-offset-2">
       <%= form_with(model: @event, url:admin_events_path, local: true) do |f| %>
 
-        <%= f.label :都道府県選択 %>
+        <%= f.label :地域選択 %>
         <%= f.collection_select :area_id, Area.all, :id, :name %>
 
         <%= f.label :イベント名 %>
@@ -19,8 +19,14 @@
 
         <%= f.attachment_field :image %>
 
-        <%= f.label :住所 %>
-        <%= f.text_field :place, class: 'form-control' %>
+        <%= f.label :都道府県 %>
+        <%= f.text_field :prefecture, class: 'form-control' %>
+
+        <%= f.label :市 %>
+        <%= f.text_field :city, class: 'form-control' %>
+
+        <%= f.label :番地 %>
+        <%= f.text_field :street, class: 'form-control' %>
 
         <%= f.label :開催日 %>
         <%= f.text_field :date, class: 'form-control' %>
@@ -44,7 +50,9 @@
             <th>イベント名</th>
             <th>画像</th>
             <th>説明文</th>
-            <th>住所</th>
+            <th>県</th>
+            <th>市</th>
+            <th>番地</th>
             <th>開催日</th>
             <th>開催ステータス</th>
             <th>タグ</th>
@@ -56,11 +64,13 @@
             <td><%= event.name %></td>
             <td><%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '25x25')%></td>
             <td><%= event.article %></td>
-            <td><%= event.place %></td>
+            <td><%= event.prefecture %></td>
+            <td><%= event.city %></td>
+            <td><%= event.street %></td>
             <td><%= event.time_status %></td>
-              <td><% event.tags.each do |tag| %>
-                    <%=tag.tag_name %>
-                  <% end %>
+              <td><%# event.tags.each do |tag| %>
+                    <%#=tag.tag_name %>
+                  <%# end %>
               </td>
             <td><%= link_to "編集する", admin_areas_path, class: "btn btn-primary" %></td>
           </tr>
