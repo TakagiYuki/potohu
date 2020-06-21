@@ -12,8 +12,11 @@ class Event < ApplicationRecord
   
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
-  end
-  # enum time_status:{ 開催前: 0, 開催中: 1, 終了: 2}
+  end 
+
+  enum time_status:{ event_before: 0, event_now: 1, event_finsh: 2}
+  #開催前,開催中,開催終了
+
   def save_events(tags)
   	#tagsテーブルのtag_nameカラムの一覧を取り出す。空だったらtrue
 	current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
