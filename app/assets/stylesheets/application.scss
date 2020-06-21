@@ -144,24 +144,39 @@ input {
 }
 
 .index-content .card h4 {
-  margin: 20px;
+  margin: 20px 20px 10px 20px;//余白
 }
 
 .index-content .card p {
-  margin: 20px;
-  opacity: 0.65;
+  margin: 10px 20px 10px 20px;//余白
+  opacity: 0.65;//透明度
 }
 
-.index-content .card .time_status p {
+/* タグのデザイン */
+// .index-content .card .time_status p {
+//   display: inline-block;
+//   margin: 10px 20px 10px 20px;//余白
+//   padding: .3em;//角丸の大きさ
+//   line-height: 1;//1固定
+//   text-decoration: none;
+//   color: #ffffff;//文字
+//   background-color: #808080;
+//   //border: 1px solid #0000ee;//枠
+//   border-radius: 1em;//角丸
+// }
+/* タグのデザイン */
+.index-content .card h4 span {
   display: inline-block;
-  margin: 20px;
+  margin: 0px 20px 0px 20px;//余白
   padding: .3em;//角丸の大きさ
-  line-height: 1;
+  font-size: 14px;
+  line-height: 1;//1固定
   text-decoration: none;
   color: #ffffff;//文字
-  background-color: #808080;
+  background-color: #a9a9a9;
   //border: 1px solid #0000ee;//枠
   border-radius: 1em;//角丸
+  margin:0 0 0 auto
 }
 
 .index-content .blue-button {

@@ -9,11 +9,12 @@
 　　　　　<li><%= link_to '  イベントadmin', admin_events_path, class: 'glyphicon glyphicon-log-in' %></li>
         <li><%= link_to '  エリアadmin', admin_areas_path, class: 'glyphicon glyphicon-log-in' %></li>
         <li><%= link_to '  イベント', events_path, class: 'glyphicon glyphicon-log-in' %></li>
+        <li><%= link_to '  ログアウト', session_path(current_user), method: :delete %></li>
         <% else %>
         <li><%= link_to '  イベント', admin_events_path, class: 'glyphicon glyphicon-log-in' %></li>
         <li><%= link_to '  エリア', admin_areas_path, class: 'glyphicon glyphicon-log-in' %></li>
-        <li><%= link_to '  新規登録', new_session_path, class: 'glyphicon glyphicon-log-in' %></li>
-        <li><%= link_to '  ログイン', new_user_path, class: 'glyphicon glyphicon-log-in' %></li>
+        <li><%= link_to '  ログイン', new_session_path, class: 'glyphicon glyphicon-log-in' %></li>
+        <li><%= link_to '  新規登録', new_user_path, class: 'glyphicon glyphicon-log-in' %></li>
     　<% end %>
     </ul>
   </nav>

@@ -1,0 +1,7 @@
+ja:
+  enums:
+    event: #model名
+      time_status: #カラム名:
+        event_before: "開催前"
+        event_now: "開催中"
+        event_finsh: "開催終了"

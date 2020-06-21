@@ -2,15 +2,14 @@
   <div class="container">
     <% @events.each do |event| %>
       <div class="col-lg-4">
-        <div class="card"> <%= link_to event_path(event) do %><%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '300x235')%><% end %>
-          <h4><%= event.name %></h4>
+        <div class="card">
+          <%= link_to event_path(event) do %>
+            <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '300x235')%>
+          <% end %>
+          <h4><%= event.name %>　<span><%= event.time_status %></sapn></h4>
           <p><%= "開催日#{event.date}" %></p>
           <p><%= event.article.truncate(64) %></p>
-            <div class="time_status">
-              <p><%= event.time_status %></p>
-            </div>
           <p><%= "住所#{event.city}" %></p>
-          <!-- <a href="blog-ici.html" class="blue-button">Read More</a> -->
           <% if event.favorited_by?(current_user) %>
             <%= link_to event_favorites_path(event), method: :delete, remote: true do %>
               <span class="glyphicon glyphicon-heart"><%= event.favorites.count%></span>
@@ -25,7 +24,25 @@
       </div>
     <% end %>
   </div>
-</div>
+
+  <h5>人気のイベント(全国)</h5>
+  <div class="container">
+    <% count = 1 %>
+      <% @events_ranking.each do |event| %>
+        <div class="col-lg-2">
+          <div class="card">
+            <%= "いいね数 #{count}位" %>
+            <%= link_to event_path(event) do %>
+              <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '180x141')%>
+            <% end %>
+            <span class="glyphicon glyphicon-heart"><%= event.favorites.count%></span>
+            <% count += 1 %>
+          </div>
+        </div>
+      <% end %>
+  </div>
+  <h5>area_id(1)に属した人気のイベント</h5>
+ </div>
 
 
 
