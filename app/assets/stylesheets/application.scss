@@ -1,86 +1,137 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import 'bootstrap-datetimepicker';
 
+.main {
+    width: 100%; /* 横幅 */
+    height: 800px; /* 高さ（多めに設定） */
+    background-color: white; /* 背景色 */
+}
+.blog {
+    width: 100px;
+    height: 800px;
+    background-color: white;
+    float: left; /* 要素を左揃えで並べる */
+}
+.sidebar {
+    width: 100px;
+    height: 800px;
+    background-color: white;
+    float: left; /* 要素を左揃えで並べる */
+}
 * {
    box-sizing: border-box;
 }
 
-#logo {
-  font-family: 'Nothing You Could Do', cursive;
-}
-
+//ブラウザ間の差を無くす
 body {
-   margin: 0;//ブラウザ間の差を無くす
-   padding: 0;//ブラウザ間の差を無くす
+   margin: 0;
+   padding: 0;
    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
-   background-color: #ffffff;
+   background-color: #fff;
+   letter-spacing : 0.2em;
+   padding-top: 30px;/*追記部分*/
 }
 
 header {
-    width: 100%;
-    padding: 20px 4% 10px;//header内側の余白
-    background-color: #fff;//背景色には白
-    //position: fixed;//絶対位置(スクロールしてもheadder固定)
-    top: 0;
-    display: flex;//header直下の子要素のレイアウトをコントロール可能に
-    align-items: center;//縦方向の中心
+   padding: 20px 4% 10px;//内側の余白
+   position: fixed;
+   top: 0;//固定位置
+   width: 100%;
+   background-color: #fff;//背景色
+   display: flex;//固定
+   align-items: center;//縦方向の中心
+   z-index: 1;
 }
-
-header::after {
-    content: "";
-    display: block;
-    clear: both;
-}
-
-h1 {//ロゴの大きさ調整
+h1 {
    margin: 0; padding: 0;
    font-size: 20px;
 }
-
-a {//aタグの文字色と、余計なアンダーラインを消す
-  text-decoration: none;
-  color: #4b4b4b;
+a {
+   text-decoration: none;//アンダーラインの消去
+   color: #000000;
 }
-
-ul {//「・」を非表示にし、無駄な余白をなくす
-   list-style: none;
-   margin: 0;
+nav {
+   margin: 0 0 0 auto;
+}
+ul {
+   list-style: none;//「・」を非表示
+   margin: 0;//余白を消去
    display: flex;//横並びに
 }
-
 li {
-   margin: 0 0 0 15px;//余白の調整
-   font-size: 16px;//文字の大きさ調整
+   margin: 0 0 0 15px;
+   font-size: 14px;
 }
 
-li mypicture {
-   margin: 0 0 100px 15px;//余白の調整
+.main-visual {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   //height: 100px;
+   //background: url('image001.jpg') top center / cover no-repeat;
+}
+h2 {
+   margin: 0;
+   font-size: 30px;
+   font-weight: normal;
+   color: #000000;
 }
 
-nav {
-   margin: 0 0 0 auto;//左マージンに「auto」
+/*下からフェードイン*/
+.fade-in-bottom {
+   opacity: 0;
+   animation-name: fadein-bottom;
+   animation-duration: 1.5s;//時間
+   animation-timing-function: ease-out;//終盤はスロー
+   animation-fill-mode: none;//アニメーション終了後消える
+   z-index: 6;
 }
-
-span#link {
-  border-bottom:solid 1px blue; //ログインページのリンク先
-  color: blue;
+@keyframes fadein-bottom {
+   0% {
+      opacity: 0;
+      transform: translateY(60px);//20px下にずらす
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(40px);//元の位置に戻る
+   }
 }
-
-.admin-header {
-  background-color: #ffffff;  //adminのヘッダー
+/*左からフェードイン*/
+.fade-in-left {
+   opacity: 0;
+   animation-name: fadein-left;
+   animation-duration: 1.5s;
+   animation-timing-function: ease-out;
+   animation-fill-mode: forwards;//アニメーション終了後キープ
+}
+@keyframes fadein-left {
+   0% {
+      opacity: 0;
+      transform: translateX(-20px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+/*右からフェードイン*/
+.fade-in-right {
+   opacity: 0;
+    animation-name: fadein-right;
+   animation-duration: 1.5s;
+   animation-timing-function: ease-out;
+   animation-fill-mode: forwards;
+}
+@keyframes fadein-right {
+   0% {
+      opacity: 0;
+      transform: translateX(20px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(0);
+   }
 }
 /* forms */
 /* formの余白 */
@@ -109,6 +160,8 @@ input {
     color: $state-danger-text;
   }
 }
+
+/* indexコンテナ */
 .index-content a:hover {
   color: black;
   text-decoration: none;
@@ -128,6 +181,7 @@ input {
 }
 
 .index-content .card {
+  width: 460px;
   background-color: #FFFFFF;
   padding: 0;
   -webkit-border-radius: 4px;
@@ -138,7 +192,7 @@ input {
 }
 
 .index-content .card img {
-  width: 100%;
+  width: 460px;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
@@ -153,19 +207,75 @@ input {
 }
 
 /* タグのデザイン */
-// .index-content .card .time_status p {
-//   display: inline-block;
-//   margin: 10px 20px 10px 20px;//余白
-//   padding: .3em;//角丸の大きさ
-//   line-height: 1;//1固定
-//   text-decoration: none;
-//   color: #ffffff;//文字
-//   background-color: #808080;
-//   //border: 1px solid #0000ee;//枠
-//   border-radius: 1em;//角丸
-// }
+.index-content .card p span {
+  display: inline-block;
+  margin: 0px 20px 0px 20px;//余白
+  padding: .3em;//角丸の大きさ
+  font-size: 14px;
+  line-height: 1;//1固定
+  text-decoration: none;
+  color: #ffffff;//文字
+  background-color: #a9a9a9;
+  //border: 1px solid #0000ee;//枠
+  border-radius: 1em;//角丸
+  margin:0 0 0 auto
+}
+/* いいね */
+.index-content .card p em {
+  width: 100%;
+  margin-left: auto;
+}
+
+
+/* index-sub-コンテナ */
+.index-sub-content a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.index-sub-content {
+  margin-bottom: 20px;
+  padding: 50px;
+}
+
+.index-sub-content .row {
+  margin-top: 20px;
+}
+
+.index-sub-content a {
+  color: black;
+}
+
+.index-sub-content .card {
+  width: 180px;
+  background-color: #FFFFFF;
+  padding: 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;//
+}
+
+.index-sub-content .card img {
+  width: 180px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.index-sub-content .card h4 {
+  margin: 10px 10px 5px 10px;//余白
+  font-size: 14px;
+}
+
+.index-sub-content .card p {
+  margin: 10px 10px 5px 10px;//余白
+  opacity: 0.65;//透明度
+  font-size: 12px;
+}
+
 /* タグのデザイン */
-.index-content .card h4 span {
+.index-sub-content .card p span {
   display: inline-block;
   margin: 0px 20px 0px 20px;//余白
   padding: .3em;//角丸の大きさ
@@ -179,24 +289,8 @@ input {
   margin:0 0 0 auto
 }
 
-.index-content .blue-button {
-  width: 100px;
-  -webkit-transition: background-color 1s, color 1s;
-  /* For Safari 3.1 to 6.0 */
-  transition: background-color 1s, color 1s;
-  min-height: 20px;
-  background-color: #002E5B;
-  color: #ffffff;
-  border-radius: 4px;
-  text-align: center;
-  font-weight: lighter;
-  margin: 0px 20px 15px 20px;
-  padding: 5px 0px;
-  display: inline-block;
+.index-sub-content .card p em {
+  width: 100%;
+  margin-left: auto;
 }
 
-@media (max-width: 768px) {
-  .index-content .col-lg-4 {
-    margin-top: 20px;
-  }
-}

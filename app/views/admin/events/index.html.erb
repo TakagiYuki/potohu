@@ -29,12 +29,17 @@
         <%= f.text_field :street, class: 'form-control' %>
 
         <%= f.label :開催日 %>
-        <%= f.text_field :date, class: 'form-control' %>
+         <div class='input-group date datepicker'>
+           <%= f.text_field :date, class: 'form-control',placeholder: '日付' %>
+           <span class="input-group-addon">
+             <span class="glyphicon glyphicon-calendar"></span>
+           </span>
+         </div>
 
         <%= f.label :開催ステータス %>
-        <%= f.radio_button :time_status, :"0" %>開催前
-        <%= f.radio_button :time_status, :"1" %>開催中
-　　　　　<%= f.radio_button :time_status, :"2" %>開催終了
+        <%= f.radio_button :time_status, :event_before %>開催前
+        <%= f.radio_button :time_status, :event_now %>開催中
+　　　　　<%= f.radio_button :time_status, :event_finsh %>開催終了
 
         <%= f.label :tag %>
         <%= f.text_field :tag_name %>
@@ -67,6 +72,7 @@
             <td><%= event.prefecture %></td>
             <td><%= event.city %></td>
             <td><%= event.street %></td>
+            <td><%= event.date %></td>
             <td><%= event.time_status %></td>
               <td><%# event.tags.each do |tag| %>
                     <%#=tag.tag_name %>

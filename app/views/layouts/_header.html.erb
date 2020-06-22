@@ -1,8 +1,8 @@
 <header>
-  <h1>
+  <h1 class=fade-in-left>
     <%= link_to "ロゴ", root_path, id: "logo" %>
   </h1>
-  <nav class="pc-nav">
+  <nav class="pc-nav fade-in-right">
     <ul>
       <% if logged_in? %>
         <li><%= "#{current_user.name}" %></li>
