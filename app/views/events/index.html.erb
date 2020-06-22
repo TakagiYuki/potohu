@@ -41,16 +41,11 @@
           <p><%= "開催日 #{event.date}" %> <span><%= event.time_status_i18n %></sapn></p>
           <p><%= event.article.truncate(64) %></p>
           <p>場所 <%= event.prefecture%> <%= event.city%>
-          <% if event.favorited_by?(current_user) %>
-            <%= link_to event_favorites_path(event), method: :delete, remote: true do %>
-              <em class="glyphicon glyphicon-heart"><%= event.favorites.count%></em>
-            <% end %>
+          
+          <div id="favorites_buttons_<%= event.id %>">
+             <%= render partial: 'favorites/favorite', locals: { event: event} %>
+          </div>
 
-            <% else %>
-              <%= link_to event_favorites_path(event), method: :post, remote: true do %><!--いいねしてない時 -->
-              <em class="glyphicon glyphicon-heart-empty"><%= event.favorites.count %></em></p>
-            <% end %>
-          <% end %>
         </div>
       </div>
     <% end %>
