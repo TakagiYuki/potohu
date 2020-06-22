@@ -1,40 +1,74 @@
+
+<div class="panel panel-default genrebar" >
+  <div class="panel-heading">
+    <h4 class="text-center">エリア検索</h4>
+  </div>
+  <table class="table">
+    <tbody>
+    <% @areas.each do |area| %>
+      <tr>
+        <td><%= link_to area.name, events_path(area_id: area.id) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+    <!-- ジャンルidに紐づく商品を表示する-->
+    <% if params[:genre_id] %>
+      <%= 商品一覧 %>
+    <% end %>
+
+
+<h1>event search</h1>
+<%= form_with url: search_events_path, method: :get, local: true do |f| %>
+  <%#= f.text_field :prefecture %>
+  <%= f.select :prefecture, [['北海道',0],['青森',1]] %>
+    <%= f.submit :search %>
+<% end %>
+
 <div class="index-content">
-  <div class="container">
+  <div class="container-fluid"><!-- 流動的 -->
+    <h3><center>のイベント</center></h3>
+    <hr>
+    <h3><%= @events.count %>件のイベントを表示</h3>
     <% @events.each do |event| %>
-      <div class="col-lg-4">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <div class="card">
           <%= link_to event_path(event) do %>
             <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '300x235')%>
           <% end %>
-          <h4><%= event.name %>　<span><%= event.time_status %></sapn></h4>
-          <p><%= "開催日#{event.date}" %></p>
+          <h4><%= event.name %></h4>
+          <p><%= "開催日 #{event.date}" %> <span><%= event.time_status_i18n %></sapn></p>
           <p><%= event.article.truncate(64) %></p>
-          <p><%= "住所#{event.city}" %></p>
+          <p>場所 <%= event.prefecture%> <%= event.city%>
           <% if event.favorited_by?(current_user) %>
             <%= link_to event_favorites_path(event), method: :delete, remote: true do %>
-              <span class="glyphicon glyphicon-heart"><%= event.favorites.count%></span>
+              <em class="glyphicon glyphicon-heart"><%= event.favorites.count%></em>
             <% end %>
 
             <% else %>
               <%= link_to event_favorites_path(event), method: :post, remote: true do %><!--いいねしてない時 -->
-              <span class="glyphicon glyphicon-heart-empty"><%= event.favorites.count %></span>
+              <em class="glyphicon glyphicon-heart-empty"><%= event.favorites.count %></em></p>
             <% end %>
           <% end %>
         </div>
       </div>
     <% end %>
   </div>
-
+</div>
+<div class="index-sub-content">
   <h5>人気のイベント(全国)</h5>
   <div class="container">
     <% count = 1 %>
       <% @events_ranking.each do |event| %>
-        <div class="col-lg-2">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
           <div class="card">
             <%= "いいね数 #{count}位" %>
             <%= link_to event_path(event) do %>
               <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '180x141')%>
             <% end %>
+            <h4><%= event.name %></h4>
+            <p>場所 <%= event.prefecture%> <%= event.city%></p>
             <span class="glyphicon glyphicon-heart"><%= event.favorites.count%></span>
             <% count += 1 %>
           </div>
@@ -43,6 +77,6 @@
   </div>
   <h5>area_id(1)に属した人気のイベント</h5>
  </div>
-
+</div>
 
 

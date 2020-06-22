@@ -17,9 +17,11 @@ gem 'rails-i18n'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 # 画像サイズ変更
 gem "refile-mini_magick"
-# GoogleMapApi
-# gem 'geocoder'
-# gem 'gmaps4rails'
+# カレンダー表示
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+# 日本語化対応
+gem 'enum_help'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

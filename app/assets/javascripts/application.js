@@ -17,3 +17,14 @@
 //= require underscore
 //= require_tree .
 //= require jquery_ujs
+//= require moment
+//= require bootstrap-datetimepicker
+//= require moment/ja.js
+
+
+var data = {'data-format': 'yyyy-MM-dd hh:mm:ss' };
+$(function(){
+    $('.datepicker').attr(data);
+    $('.datepicker').datetimepicker({locale: 'ja'});
+});
+
