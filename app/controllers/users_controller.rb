@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @data = [[”北海道”, 50],[”青森”, 50]]
   end
 
   def edit

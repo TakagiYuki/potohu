@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <h3>エリア追加</h3>
+      <hr>
     </div>
   </div>
   <div class="row">
@@ -28,8 +29,8 @@
           <% @areas.each do |area| %>
           <tr>
             <td><%= area.name %></td>
-            <td><%= link_to "編集する", edit_admin_area_path(area), class: "btn btn-primary" %></td>
-            <td><%= link_to "消去する", admin_area_path(area), method: :delete, class: "btn btn-primary", "data-confirm" => "本当に削除しますか？" %></td>
+            <td><%= link_to "編集", edit_admin_area_path(area), class: "btn btn-primary" %></td>
+            <td><%= link_to "消去", admin_area_path(area), method: :delete, class: "btn btn-primary", "data-confirm" => "本当に削除しますか？" %></td>
           <% end %>
         </tbody>
       </table>
