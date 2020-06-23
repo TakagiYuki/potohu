@@ -293,4 +293,56 @@ input {
   width: 100%;
   margin-left: auto;
 }
+//User情報
+body {
+  background: #f2f2f2;
+}
 
+.box {
+  padding: 60px 0px;
+}
+
+.box-part {
+  background: #FFF;
+  border-radius: 10px;
+  padding: 60px 10px;
+  margin: 30px 0px;
+}
+
+.text {
+  margin: 20px 0px;
+}
+
+.fa {
+  color: #4183D7;
+}
+
+// .new {
+//   position: relative;
+//   width: 500px;
+//   height: 400px;
+// }
+// .new:before {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 0;
+//   height: 0;
+//   border-top: 35px solid #f00;
+//   border-right: 35px solid transparent;
+// }
+// .new:after {
+//   content: "NEW!!";
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   font-size: xx-small;
+//   color: #FFF;
+//   transform: rotate(-45deg) translate(-5px, 5px);
+// }
+// .new img {
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }

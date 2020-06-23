@@ -1,0 +1,95 @@
+<div class="box">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <div class="box-part text-center">
+          <i class="fa fa-twitter fa-3x" aria-hidden="true"></i>
+          <div class="title">
+            <h3><%= @user.id %></h3>
+          </div>
+          <div class="text">
+            <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+          </div>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["geochart"]});
+      google.setOnLoadCallback(drawRegionsMap);
+ 
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Region', 'Data'],
+          <%= @data.each.map||
+          ['北海道', 50],
+          ['青森', 0],
+          ['岩手', 0],
+          ['宮城', 0],
+          ['秋田', 0],
+          ['山形', 0],
+          ['福島', 0],
+          ['茨城', 0],
+          ['栃木', 0],
+          ['群馬', 0],
+          ['埼玉', 0],
+          ['千葉', 0],
+          ['東京', 0],
+          ['神奈川', 0],
+          ['新潟', 0],
+          ['富山', 0],
+          ['石川', 0],
+          ['福井', 0],
+          ['山梨', 0],
+          ['長野', 0],
+          ['岐阜', 0],
+          ['静岡', 0],
+          ['愛知', 0],
+          ['三重', 0],
+          ['滋賀', 0],
+          ['京都', 0],
+          ['大阪', 0],
+          ['兵庫',0],
+          ['奈良', 0],
+          ['和歌山', 0],
+          ['鳥取', 63],
+          ['島根', 62],
+          ['岡山', 61],
+          ['広島', 79],
+          ['山口', 60],
+          ['徳島', 64],
+          ['香川', 64],
+          ['愛媛', 64],
+          ['高知', 62],
+          ['福岡', 71],
+          ['佐賀', 63],
+          ['長崎', 63],
+          ['熊本', 53],
+          ['大分', 53],
+          ['宮崎', 53],
+          ['鹿児島', 54],
+          ['沖縄', 53]
+        ]);
+
+        var options = {
+        region: 'JP',
+        resolution: 'provinces',
+        legend: 'none'
+      };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="regions_div" style="width: 900px; height: 500px;"></div>
+  </body>
