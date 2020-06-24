@@ -1,0 +1,2 @@
+$("textarea").val("");//textareaを空に　　　　　　　　　　　　　　　　　　　　　　　　　パーシャルの保存先 パーシャルに渡す変数
+$('.comment_<%= @event.id %>').html("<%= j(render 'events/comment', event_comments: @event.event_comments ) %>");

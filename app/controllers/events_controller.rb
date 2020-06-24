@@ -17,6 +17,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @event_comment = EventComment.new
+    @event_comments = @event.event_comments
   end
 
   def search
