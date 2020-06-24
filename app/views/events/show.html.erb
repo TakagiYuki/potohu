@@ -7,69 +7,18 @@
         <p><%= @event.article %></p>
         <p><%= "開催日#{@event.date}" %></p>
         <p><%= "開催場所#{@event.city}" %></p>
-        <%= form_with model: [@event, @event_comment] do |f| %>
+
+        <!-- コメントパーシャル書き換える-->
+        <table class="show-tb comment_<%= @event.id %>">
+        <%= render 'comment', event_comments: @event.event_comments %>
+
+
+        <%= form_with model:[@event, @event_comment], data: {remote: true} do |f| %>
           <%= f.text_area :comment, class: "form-control",placeholder: "コメントをここに" %>
-          <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+          <%= f.submit "送信する" %>
         <% end %>
-        <% @event.event_comments.each do |event_comment| %>
-          <%= event_comment.comment %>
-        <% end %>
+
       </div>
     </div>
   </div>
 </div>
-
-  <h2>Your MAP</h2>
-  <div id='map' class="<%= @event.prefecture + @event.city + @event.street %>"></div>
-
-<style>
-#map{
-  width: 400px;
-  height: 400px;
-}
-</style>
-
-<script>
-/*
-mapを関数の外で定義(codeAddressでも使うため)
-geocoderを用意
-*/
-
-let map//ピンの位置
-let geocoder//緯度経度
-
-function initMap(){
-  ////////////////////初期設定//////////////////////////////////
-  map = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: -34.397, lng: 150.644},
-  zoom: 15
-  });
-  // geocoderを初期化
-  geocoder = new google.maps.Geocoder()
-  //住所を緯度経度に変換 .attrでクラスを取得 変換結果と処理の状況
-  geocoder.geocode( { 'address': $('#map').attr('class')}, function(results, status) {
-    if (status == 'OK') {
-　 // map.setCenterでresults[0](緯度経度)に地図が移動
-      map.setCenter(results[0].geometry.location);
-
-///// google.maps.MarkerでMap上の指定位置にマーカーが立つ//////
-  // Markerを初期化
-      var marker = new google.maps.Marker({
-          map: map,//ピンの位置
-          position: results[0].geometry.location//クリックいち
-      });
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-    }
-  });
-
-}
-////////////////////????//////////////////////////////////
-function codeAddress(){
-  // 入力を取得
-  let inputAddress = document.getElementById('address').value;
-
-  // geocodingしたあとmapを移動
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=MYKEY=initMap" async defer></script>
