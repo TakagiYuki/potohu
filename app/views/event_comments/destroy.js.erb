@@ -1,0 +1,1 @@
+$(".comment_<%= @event.id %>").html("<%= j(render 'events/comment',  event_comments: @event.event_comments ) %>")

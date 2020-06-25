@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :event_comments #コメント
   has_many :favorites #いいな
+  attachment :image #refile用
   before_save :downcase_email #小文字で保存
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i #フォーマット
 
