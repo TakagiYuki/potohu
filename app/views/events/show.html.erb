@@ -1,24 +1,97 @@
 <div class="index-content">
-  <div class="container">
-    <div class="col-lg-4">
-      <div class="card"> <%= attachment_image_tag(@event, :image, fallback: 'no_image.jpg', size: '300x235')%>
+  <div class="container-fluid">
+    <h3><center><%= @event.name %></center></h3>
+    <hr>
+    <div class="col-lg-6">
+      <div class="card">
+       <%= attachment_image_tag(@event, :image, fallback: 'no_image.jpg', size: '300x235')%>
         <h4><%= @event.name %></h4>
         <p><%= @event.date %></p>
         <p><%= @event.article %></p>
         <p><%= "開催日#{@event.date}" %></p>
         <p><%= "開催場所#{@event.city}" %></p>
-
-        <!-- コメントパーシャル書き換える-->
-        <table class="show-tb comment_<%= @event.id %>">
-        <%= render 'comment', event_comments: @event.event_comments %>
-
-
-        <%= form_with model:[@event, @event_comment], data: {remote: true} do |f| %>
-          <%= f.text_area :comment, class: "form-control",placeholder: "コメントをここに" %>
-          <%= f.submit "送信する" %>
-        <% end %>
-
       </div>
+    </div>
+    <div class="col-lg-6">
+      <div id='map' class="<%= @event.prefecture + @event.city + @event.street %>"></div>
     </div>
   </div>
 </div>
+<!-- コメントパーシャル書き換える-->
+
+    <h3><center>コメント</center></h3>
+    <hr>
+    
+<div class="modal fade" id="sampleModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+        <h4 class="modal-title">本文</h4>
+      </div>
+        <%= form_with model:[@event, @event_comment], data: {remote: true} do |f| %>
+          <%= f.text_area :comment, class: "form-control",placeholder: "コメントをここに" %>
+      <div class="modal-footer">
+        <%= f.submit "投稿する", class:"btn btn-default" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class=" comment_<%= @event.id %>"></div>
+        <%= render 'comment', event_comments: @event.event_comments %>
+
+<style>
+#map{
+  width: 400px;
+  height: 400px;
+}
+</style>
+
+<script>
+let map//ピンの位置
+let geocoder//緯度経度
+
+function initMap(){
+  ////////////////////初期設定//////////////////////////////////
+  map = new google.maps.Map(document.getElementById('map'), {
+  center: {lat: -34.397, lng: 150.644},
+  zoom: 15
+  });
+  // geocoderを初期化
+  geocoder = new google.maps.Geocoder()
+  //住所を緯度経度に変換 .attrでクラスを取得 変換結果と処理の状況
+  geocoder.geocode( { 'address': $('#map').attr('class')}, function(results, status) {
+    if (status == 'OK') {
+　 // map.setCenterでresults[0](緯度経度)に地図が移動
+      map.setCenter(results[0].geometry.location);
+
+///// google.maps.MarkerでMap上の指定位置にマーカーが立つ//////
+  // Markerを初期化
+      var marker = new google.maps.Marker({
+          map: map,//ピンの位置
+          position: results[0].geometry.location//クリックいち
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+
+}
+////////////////////????//////////////////////////////////
+function codeAddress(){
+  // 入力を取得
+  let inputAddress = document.getElementById('address').value;
+
+  // geocodingしたあとmapを移動
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHs5xzfpk4vrnZIKTNyDKDr4gD4guJ4Q&callback=initMap" async defer></script>
+
+
+<!-- モーダル・ダイアログ -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sampleModal">
+  クチコミをする
+</button>

@@ -8,23 +8,16 @@ class EventCommentsController < ApplicationController
 	  @event_comment.save
   end
 
-
-# def create
-#     @event = Event.find(params[:event_id])
-#     @event_new = Event.new
-#     @evevnt_comment = @event.event_comments.new(event_comment_params)
-#     @event_comment.user_id = current_user.id
-#     if @event_comment.save
-#       flash[:success] = "Comment was successfully created."
-#     else
-#       @event_comments = EventComment.where(id: @event)
-#     end
-#   end
+  def destroy
+    @event_comment = EventComment.find(params[:event_id])
+    @event = @event_comment.event
+    @event_comment.destroy
+  end
 
   private
-	def event_comment_params
+	  def event_comment_params
 	    params.require(:event_comment).permit(:comment)
-	end
+	  end
 
 end
 

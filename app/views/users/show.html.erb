@@ -5,7 +5,10 @@
         <div class="box-part text-center">
           <i class="fa fa-twitter fa-3x" aria-hidden="true"></i>
           <div class="title">
-            <h3><%= @user.id %></h3>
+            <%= attachment_image_tag(@user, :image, fallback: 'no_image.jpg', size: '40x40',
+            class: "img-circle")%>
+            <h3><%= @user.name %></h3>
+            <h3><%= @user.image %></h3>
           </div>
           <div class="text">
             <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
@@ -18,7 +21,7 @@
 </div>
 
 
-
+<!-- img-circle pull-left profile-img" -->
   <head>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
@@ -27,8 +30,8 @@
  
       function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable([
+         
           ['Region', 'Data'],
-          <%= @data.each.map||
           ['北海道', 50],
           ['青森', 0],
           ['岩手', 0],
