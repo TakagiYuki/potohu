@@ -15,7 +15,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @data = [[”北海道”, 50],[”青森”, 50]]
   end
 
   def edit
@@ -26,11 +25,21 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to @user
-    else
+    elsez
       render 'edit'
     end
   end
   
+  #guest_userログイン用
+  def new_guest
+    user = User.find_or_create_by(email: 'guest@example.com') do |user|
+      user.name = "ゲスト"
+      user.password = "ProgrammingIsVeryInteresting"
+    end
+    log_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
   private
     def user_params
       params.require(:user).permit(:name, :email, :password,

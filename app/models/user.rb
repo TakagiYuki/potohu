@@ -5,9 +5,9 @@ class User < ApplicationRecord
   before_save :downcase_email #小文字で保存
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i #フォーマット
 
-  validates :name,
-    presence: true, #存在すること
-    length: { maximum: 50 } #上限値
+  # validates :name,
+  #   presence: true, #存在すること
+  #   length: { maximum: 50 } #上限値
 
   validates :email,
     presence: true, #存在すること

@@ -9,9 +9,6 @@ class EventsController < ApplicationController
       @area = Area.find(params[:area_id])
       @events = @area.events
     end
-
-    #@events1 = Event.where(area_id: 1).find(Favorite.group(:event_id).order('count(event_id) desc').limit(4).pluck(:event_id))
-    Event.where(area_id: 1, id: Favorite.group(:event_id).order('count(event_id) desc').limit(4).pluck(:event_id))
   end
 
   def show
@@ -21,8 +18,8 @@ class EventsController < ApplicationController
   end
 
   def search
-    if params[:prefecture].present?
-      @events = Event.where('prefecture LIKE ?', "%#{params[:prefecture]}%")
+    if params[:name].present?
+      @events = Event.where('name LIKE ?', "%#{params[:name]}%")
     else
       @events = Event.none
     end
