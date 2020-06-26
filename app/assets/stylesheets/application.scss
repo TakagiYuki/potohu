@@ -23,7 +23,7 @@
    box-sizing: border-box;
 }
 
-//ブラウザ間の差を無くす
+ブラウザ間の差を無くす
 body {
    margin: 0;
    padding: 0;
@@ -69,7 +69,7 @@ li {
    justify-content: center;
    align-items: center;
    //height: 100px;
-   //background: url('image001.jpg') top center / cover no-repeat;
+   //background: url(top.jpg) top center / cover no-repeat;
 }
 h2 {
    margin: 0;
@@ -84,17 +84,18 @@ h2 {
    animation-name: fadein-bottom;
    animation-duration: 1.5s;//時間
    animation-timing-function: ease-out;//終盤はスロー
-   animation-fill-mode: none;//アニメーション終了後消える
+   //animation-fill-mode: none;//アニメーション終了後消える
+   animation-fill-mode: forwards;//アニメーション終了後キープ
    z-index: 6;
 }
 @keyframes fadein-bottom {
    0% {
       opacity: 0;
-      transform: translateY(60px);//20px下にずらす
+      transform: translateY(500px);//20px下にずらす
    }
    100% {
       opacity: 1;
-      transform: translateY(40px);//元の位置に戻る
+      transform: translateY(350px);//元の位置に戻る
    }
 }
 /*左からフェードイン*/
@@ -137,7 +138,7 @@ h2 {
 /* formの余白 */
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
+  //width: 100%;
   margin-bottom: 15px;
 }
 
@@ -316,7 +317,7 @@ body {
 .fa {
   color: #4183D7;
 }
-//新規商品
+//新規イベント
 .new {
   position: relative;
 }
@@ -343,4 +344,131 @@ body {
 .new img {
   object-fit: cover;
 }
+//ランキング1
+.rank1 {
+  position: relative;
+}
+.rank1:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 35px solid #ffd700;
+  border-right: 35px solid transparent;
+}
+.rank1:after {
+  content: "1位";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 12px;
+  font-weight:bold;
+  color: black;
+  transform: rotate(-45deg) translate(-2px, 3px);
+}
+.rank1 img {
+  object-fit: cover;
+}
 
+//ランキング2
+.rank2 {
+  position: relative;
+}
+.rank2:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 35px solid #c0c0c0;
+  border-right: 35px solid transparent;
+}
+.rank2:after {
+  content: "2位";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 12px;
+  font-weight:bold;
+  color: black;
+  transform: rotate(-45deg) translate(-2px, 3px);
+}
+.rank2 img {
+  object-fit: cover;
+}
+
+//ランキング3
+.rank3 {
+  position: relative;
+}
+.rank3:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 35px solid #d2691e;
+  border-right: 35px solid transparent;
+}
+.rank3:after {
+  content: "3位";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 12px;
+  font-weight:bold;
+  color: black;
+  transform: rotate(-45deg) translate(-2px, 3px);
+}
+.rank3 img {
+  object-fit: cover;
+}
+//ランキング4
+.rank4 {
+  position: relative;
+}
+.rank4:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 35px solid #fffacd;
+  border-right: 35px solid transparent;
+}
+.rank4:after {
+  content: "4位";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 12px;
+  font-weight:bold;
+  color: black;
+  transform: rotate(-45deg) translate(-2px, 3px);
+}
+.rank4 img {
+  object-fit: cover;
+}
+//table
+table{
+  border-collapse:separate;
+  border-spacing: 5px;
+}
+
+table th{
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px 0;
+  width: 8%;
+}
+
+table th{
+  background-color: #d3d3d3;
+  color: white;
+  border:solid 1px #808080;
+}

@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 # Area.create!(
 #   [{name: '北海道'}, {name: '青森県'}, {name: '岩手県'}, {name: '宮城県'}, {name: '秋田県'},
 #    {name: '山形県'}, {name: '福島県'}, {name: '茨城県'}, {name: '栃木県'}, {name: '群馬県'},
@@ -18,6 +11,12 @@
 #    {name: '鹿児島県'}, {name: '沖縄県'}
 #   ]
 # )
+
+User.create!(name:  "admin_user",
+             email: "admin@admin.com",
+             password:              "admin98",
+             password_confirmation: "admin98",
+             is_admin: true)
 
 Area.create!(
   [{name: '北海道'}, {name: '東北'}, {name: '関東'}, {name: '中部'}, {name: '関西'},
@@ -41,6 +40,6 @@ Event.create!(
     {name: 'ねぶた', article: '隅田川花火大（すみだがわはなびたいかい）は、東京都の隅田川沿い（台東区浅草（右岸）・墨田区向島（左岸）周辺）の河川敷において毎年7月最終土曜日に行われる花火大会である。毎年8月に開催される江戸川区花火大会とともに東京二大花火大会の一つに数えられる。',
     image:File.open("./app/assets/images/image006.jpg"),
     prefecture: '青森', city:'台東区', street:'今戸1-1-10',
-    date: "2020年8月24日", time_status: 0, area_id: 2},
+    date: "2020年8月24日", time_status: 0, area_id: 1},
   ]
 )

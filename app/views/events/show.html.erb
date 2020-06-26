@@ -29,19 +29,22 @@
         <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
         <h4 class="modal-title">本文</h4>
       </div>
-        <%= form_with model:[@event, @event_comment], data: {remote: true} do |f| %>
+        
+
+
+        
+    </div>
+  </div>
+</div>
+<%= form_with model:[@event, @event_comment], data: {remote: true} do |f| %>
           <%= f.text_area :comment, class: "form-control",placeholder: "コメントをここに" %>
       <div class="modal-footer">
         <%= f.submit "投稿する", class:"btn btn-default" %>
       </div>
       <% end %>
-    </div>
-  </div>
-</div>
-
-<div class=" comment_<%= @event.id %>"></div>
+<div class=" comment_<%= @event.id %>">
         <%= render 'comment', event_comments: @event.event_comments %>
-
+</div>
 <style>
 #map{
   width: 400px;
@@ -88,7 +91,7 @@ function codeAddress(){
 }
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHs5xzfpk4vrnZIKTNyDKDr4gD4guJ4Q&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=  &callback=initMap" async defer></script>
 
 
 <!-- モーダル・ダイアログ -->

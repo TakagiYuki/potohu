@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'bcrypt', '3.1.12'
 # 日本語化
 gem 'rails-i18n'
+gem 'enum_help'
 # 画像投稿
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 # 画像サイズ変更
@@ -20,8 +21,11 @@ gem "refile-mini_magick"
 # カレンダー表示
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
-# 日本語化対応
-gem 'enum_help'
+# 環境変数化
+gem 'dotenv-rails'
+# ページネーション
+gem 'kaminari'
+
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
