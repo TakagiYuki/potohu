@@ -25,7 +25,8 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'dotenv-rails'
 # ページネーション
 gem 'kaminari'
-
+# javascript
+gem 'gon'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -83,3 +84,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# MySQLを利用
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
