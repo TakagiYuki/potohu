@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   end
   root 'homes#top'
   post '/users/guest_new', to: 'users#new_guest'
+  post '/users/admin_new', to: 'users#new_admin'
 end

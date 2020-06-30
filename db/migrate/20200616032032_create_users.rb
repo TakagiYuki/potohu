@@ -4,54 +4,54 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :email
       t.string :image_id
-      t.boolean :is_admin, default: false
-      t.integer :counter_hokaido
-      t.integer :counter_aomori
-      t.integer :counter_iwate
-      t.integer :counter_miyagi
-      t.integer :counter_akita
-      t.integer :counter_yamagata
-      t.integer :counter_hukushima
-      t.integer :counter_ibaraki
-      t.integer :counter_tochigi
-      t.integer :counter_gunma
-      t.integer :counter_saitama
-      t.integer :counter_chiba
-      t.integer :counter_tokyo
-      t.integer :counter_kanagawa
-      t.integer :counter_niigata
-      t.integer :counter_toyama
-      t.integer :counter_ishikawa
-      t.integer :counter_hukui
-      t.integer :counter_yamanashi
-      t.integer :counter_nagano
-      t.integer :counter_gihu
-      t.integer :counter_shizuoka
-      t.integer :counter_aichi
-      t.integer :counter_mie
-      t.integer :counter_shiga
-      t.integer :counter_kyoto
-      t.integer :counter_osaka
-      t.integer :counter_hyogo
-      t.integer :counter_nara
-      t.integer :counter_wakayama
-      t.integer :counter_tottori
-      t.integer :counter_shimane
-      t.integer :counter_okayama
-      t.integer :counter_hiroshima
-      t.integer :counter_yamaguchi
-      t.integer :counter_tokushima
-      t.integer :counter_kagawa
-      t.integer :counter_ehime
-      t.integer :counter_kouchi
-      t.integer :counter_hukuoka
-      t.integer :counter_saga
-      t.integer :counter_nagasaki
-      t.integer :counter_kumamoto
-      t.integer :counter_oita
-      t.integer :counter_miyazaki
-      t.integer :counter_kagoshima
-      t.integer :counter_okinawa
+      t.boolean :admin, default: false
+      t.integer :counter_hokkaido, default: 0
+      t.integer :counter_aomori, default: 0
+      t.integer :counter_iwate, default: 0
+      t.integer :counter_miyagi, default: 0
+      t.integer :counter_akita, default: 0
+      t.integer :counter_yamagata, default: 0
+      t.integer :counter_hukushima, default: 0
+      t.integer :counter_ibaraki, default: 0
+      t.integer :counter_tochigi, default: 0
+      t.integer :counter_gunma, default: 0
+      t.integer :counter_saitama, default: 0
+      t.integer :counter_chiba, default: 0
+      t.integer :counter_tokyo, default: 0
+      t.integer :counter_kanagawa, default: 0
+      t.integer :counter_niigata, default: 0
+      t.integer :counter_toyama, default: 0
+      t.integer :counter_ishikawa, default: 0
+      t.integer :counter_hukui, default: 0
+      t.integer :counter_yamanashi, default: 0
+      t.integer :counter_nagano, default: 0
+      t.integer :counter_gihu, default: 0
+      t.integer :counter_shizuoka, default: 0
+      t.integer :counter_aichi, default: 0
+      t.integer :counter_mie, default: 0
+      t.integer :counter_shiga, default: 0
+      t.integer :counter_kyoto, default: 0
+      t.integer :counter_osaka, default: 0
+      t.integer :counter_hyogo, default: 0
+      t.integer :counter_nara, default: 0
+      t.integer :counter_wakayama, default: 0
+      t.integer :counter_tottori, default: 0
+      t.integer :counter_shimane, default: 0
+      t.integer :counter_okayama, default: 0
+      t.integer :counter_hiroshima, default: 0
+      t.integer :counter_yamaguchi, default: 0
+      t.integer :counter_tokushima, default: 0
+      t.integer :counter_kagawa, default: 0
+      t.integer :counter_ehime, default: 0
+      t.integer :counter_kouchi, default: 0
+      t.integer :counter_hukuoka, default: 0
+      t.integer :counter_saga, default: 0
+      t.integer :counter_nagasaki, default: 0
+      t.integer :counter_kumamoto, default: 0
+      t.integer :counter_oita, default: 0
+      t.integer :counter_miyazaki, default: 0
+      t.integer :counter_kagoshima, default: 0
+      t.integer :counter_okinawa, default: 0
       t.timestamps
     end
   end

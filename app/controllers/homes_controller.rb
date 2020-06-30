@@ -23,3 +23,5 @@ class HomesController < ApplicationController
   end
 end
 
+# if params[:area_id]
+ # @events_ranking_area1 = Event.where(area_id: params[:area_id], id: Favorite.group(:event_id).order('count(event_id) desc').pluck(:event_id))
