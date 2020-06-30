@@ -1,6 +1,8 @@
 <div class="box">
   <div class="container">
     <div class="row">
+      <h3>マイページ</h3>
+        <hr>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <div class="box-part text-center">
           <i class="fa fa-twitter fa-3x" aria-hidden="true"></i>
@@ -8,13 +10,15 @@
             <%= attachment_image_tag(@user, :image, fallback: 'no_image.jpg', size: '40x40',
             class: "img-circle")%>
             <h3><%= @user.name %></h3>
-            <h3><%= @user.image %></h3>
           </div>
           <div class="text">
             <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
           </div>
           <a href="#">Learn More</a>
         </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <div id="regions_div" style="width: 900px; height: 500px;"></div>
       </div>
     </div>
   </div>
@@ -28,54 +32,55 @@
 
       function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable([
-          ['Region', 'Data'],
-          ['北海道', 1],
-          ['青森', 0],
-          ['岩手', 0],
-          ['宮城', 0],
-          ['秋田', 0],
-          ['山形', 0],
-          ['福島', 0],
-          ['茨城', 0],
-          ['栃木', 0],
-          ['群馬', 0],
-          ['埼玉', 0],
-          ['千葉', 0],
-          ['東京', 0],
-          ['神奈川', 0],
-          ['新潟', 0],
-          ['富山', 0],
-          ['石川', 0],
-          ['福井', 0],
-          ['山梨', 0],
-          ['長野', 0],
-          ['岐阜', 0],
-          ['静岡', 0],
-          ['愛知', 0],
-          ['三重', 0],
-          ['滋賀', 0],
-          ['京都', 0],
-          ['大阪', 0],
-          ['兵庫',0],
-          ['奈良', 0],
-          ['和歌山', 0],
-          ['鳥取', 63],
-          ['島根', 62],
-          ['岡山', 61],
-          ['広島', 79],
-          ['山口', 60],
-          ['徳島', 64],
-          ['香川', 64],
-          ['愛媛', 64],
-          ['高知', 62],
-          ['福岡', 71],
-          ['佐賀', 63],
-          ['長崎', 63],
-          ['熊本', 53],
-          ['大分', 53],
-          ['宮崎', 53],
-          ['鹿児島', 54],
-          ['沖縄', 53]
+
+          ['Region', '訪問回数'],
+          ['北海道', gon.user.counter_hokkaido],
+          ['青森', gon.user.counter_aomori],
+          ['岩手', gon.user.counter_iwate],
+          ['宮城', gon.user.counter_miyagi],
+          ['秋田', gon.user.counter_akita],
+          ['山形', gon.user.counter_yamagata],
+          ['福島', gon.user.counter_hukushima],
+          ['茨城', gon.user.counter_ibaraki],
+          ['栃木', gon.user.counter_tochigi],
+          ['群馬', gon.user.counter_gunma],
+          ['埼玉', gon.user.counter_saitama],
+          ['千葉', gon.user.counter_chiba],
+          ['東京', gon.user.counter_tokyo],
+          ['神奈川', gon.user.counter_kanagawa],
+          ['新潟', gon.user.counter_niigata],
+          ['富山', gon.user.counter_toyama],
+          ['石川', gon.user.counter_ishikawa],
+          ['福井', gon.user.counter_hukui],
+          ['山梨', gon.user.counter_yamanashi],
+          ['長野', gon.user.counter_nagano],
+          ['岐阜', gon.user.counter_gihu],
+          ['静岡', gon.user.counter_shizuoka],
+          ['愛知', gon.user.counter_aichi],
+          ['三重', gon.user.counter_mie],
+          ['滋賀', gon.user.counter_shiga],
+          ['京都', gon.user.counter_kyoto],
+          ['大阪', gon.user.counter_osaka],
+          ['兵庫',gon.user.counter_hyogo],
+          ['奈良', gon.user.counter_nara],
+          ['和歌山', gon.user.counter_wakayama],
+          ['鳥取', gon.user.counter_tottori],
+          ['島根', gon.user.counter_shimane],
+          ['岡山', gon.user.counter_okayama],
+          ['広島', gon.user.counter_hiroshima],
+          ['山口', gon.user.counter_yamaguchi],
+          ['徳島', gon.user.counter_tokushima],
+          ['香川', gon.user.counter_kagawa],
+          ['愛媛', gon.user.counter_ehime],
+          ['高知', gon.user.counter_kouchi],
+          ['福岡', gon.user.counter_hukuoka],
+          ['佐賀', gon.user.counter_saga],
+          ['長崎', gon.user.counter_nagasaki],
+          ['熊本', gon.user.counter_kumamoto],
+          ['大分', gon.user.counter_oita],
+          ['宮崎', gon.user.counter_miyazaki],
+          ['鹿児島', gon.user.counter_kagoshima],
+          ['沖縄', gon.user.counter_okinawa]
         ]);
 
         var options = {
@@ -91,5 +96,5 @@
     </script>
   </head>
   <body>
-    <div id="regions_div" style="width: 900px; height: 500px;"></div>
+    
   </body>

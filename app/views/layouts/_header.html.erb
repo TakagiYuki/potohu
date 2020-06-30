@@ -1,24 +1,30 @@
 <header>
   <h1 class=fade-in-left>
-    <%= link_to "ロゴ", root_path, id: "logo" %>
+    <%= link_to "ここいこ。", root_url, id: "logo" %>
   </h1>
   <nav class="pc-nav fade-in-right">
     <ul>
-      <% if logged_in? %>
-        <li><%= "#{current_user.email}" %></li>
-        <li><%= "#{current_user.name}" %></li>
-　　　　　<li><%= link_to '  イベントadmin', admin_events_path, class: 'glyphicon glyphicon-log-in' %></li>
-        <li><%= link_to '  エリアadmin', admin_areas_path, class: 'glyphicon glyphicon-log-in' %></li>
+      <!-- adminユーザー -->
+      <% if logged_in? && current_user.admin %>
+        <li><%= "ようこそ#{current_user.name}さん" %></li>
+　　　　　<li><%= link_to '  イベント作成', admin_events_path, class: 'glyphicon glyphicon-log-in' %></li>
+        <li><%= link_to '  エリア作成', admin_areas_path, class: 'glyphicon glyphicon-log-in' %></li>
         <li><%= link_to '  イベント', events_path, class: 'glyphicon glyphicon-log-in' %></li>
-        <li><%= link_to '　会員ページ', user_path(current_user), class: 'glyphicon glyphicon-log-in' %></li>
-        <li><%= link_to '  ログアウト', session_path(current_user), method: :delete %></li>
+        <li><%= link_to '  ログアウト', session_path(current_user), method: :delete, class: 'glyphicon glyphicon-log-in' %></li>
 
+      <!-- ユーザー -->
+      <% elsif logged_in? && !current_user.admin %>
+      <li><%= link_to '　ホーム', root_url, class: 'glyphicon glyphicon-log-in' %></li>
+      <li><%= link_to '　マイページ', user_path(current_user), class: 'glyphicon glyphicon-log-in' %></li>
+      <li><%= link_to '  ログアウト', session_path(current_user), method: :delete, class: 'glyphicon glyphicon-log-in' %></li>
+
+      <!-- ログインしていないユーザー -->
       <% else %>
-        <li><%= link_to '  イベント', admin_events_path, class: 'glyphicon glyphicon-log-in' %></li>
-        <li><%= link_to '  エリア', admin_areas_path, class: 'glyphicon glyphicon-log-in' %></li>
+        <li><%= link_to '　ホーム', root_url, class: 'glyphicon glyphicon-log-in' %></li>
         <li><%= link_to '  ログイン', new_session_path, class: 'glyphicon glyphicon-log-in' %></li>
         <li><%= link_to '  新規登録', new_user_path, class: 'glyphicon glyphicon-log-in' %></li>
-        <%= link_to 'ゲストログイン（閲覧用）', users_guest_new_path, method: :post %>
+        <li><%= link_to '  簡単ログイン(user)', users_guest_new_path, method: :post, class: 'glyphicon glyphicon-log-in' %></li>
+        <li><%= link_to '  簡単ログイン(admin)', users_admin_new_path, method: :post, class: 'glyphicon glyphicon-log-in' %></li>
     　<% end %>
     </ul>
   </nav>

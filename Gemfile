@@ -27,7 +27,8 @@ gem 'dotenv-rails'
 gem 'kaminari'
 # javascript
 gem 'gon'
-
+# font-awesome
+gem 'font-awesome-sass'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server

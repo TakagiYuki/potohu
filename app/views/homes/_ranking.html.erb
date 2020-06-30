@@ -1,15 +1,19 @@
-  <% events_ranking_area.first(4).each do |event| %>
-  <% i=1 %>
+  <% events_ranking_area.first(4).each_with_index do |event,i| %>
+
       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
         <div class="card">
           <%= link_to event_path(event) do %>
-            <div class="rank">
+            <div class="rank<%= i %>">
               <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '180x141')%>
             </div>
           <% end %>
             <h4><%= event.name.truncate(9) %></h4>
-            <p>場所 <%= event.prefecture%> <%= event.city%></p>
-            <span class="glyphicon glyphicon-heart"><%= event.favorites.count%></span>
+            <p><%= event.prefecture%>|<%= event.city%></p>
+            <p>開催期間<%= event.date%></p>
+            <!-- <div class="favorite"> -->
+              <%#= render 'ranking', events_ranking_area: @events_ranking_area %>
+            <!-- </div> -->
         </div>
       </div>
     <% end %>
+    

@@ -1,6 +1,8 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import 'bootstrap-datetimepicker';
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
 
 .main {
     width: 100%; /* 横幅 */
@@ -26,7 +28,7 @@
 ブラウザ間の差を無くす
 body {
    margin: 0;
-   padding: 0;
+   // padding: 0;
    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
    background-color: #fff;
    letter-spacing : 0.2em;
@@ -34,11 +36,11 @@ body {
 }
 
 header {
-   padding: 20px 4% 10px;//内側の余白
+   padding: 10px 4% 10px;//内側の余白
    position: fixed;
    top: 0;//固定位置
    width: 100%;
-   background-color: #fff;//背景色
+   background-color: #ffffff;//背景色
    display: flex;//固定
    align-items: center;//縦方向の中心
    z-index: 1;
@@ -236,7 +238,7 @@ input {
 
 .index-sub-content {
   margin-bottom: 20px;
-  padding: 50px;
+  padding: 10px;
 }
 
 .index-sub-content .row {
@@ -249,6 +251,7 @@ input {
 
 .index-sub-content .card {
   width: 180px;
+  height: 260px;
   background-color: #FFFFFF;
   padding: 0;
   -webkit-border-radius: 4px;
@@ -290,24 +293,17 @@ input {
   margin:0 0 0 auto
 }
 
-.index-sub-content .card p em {
-  width: 100%;
-  margin-left: auto;
-}
 //User情報
-body {
-  background: #f2f2f2;
-}
 
 .box {
   padding: 60px 0px;
 }
 
 .box-part {
-  background: #FFF;
+  background: #dcdcdc;
   border-radius: 10px;
   padding: 60px 10px;
-  margin: 30px 0px;
+  margin: 0px 0px;
 }
 
 .text {
@@ -345,6 +341,34 @@ body {
   object-fit: cover;
 }
 //ランキング1
+.rank0 {
+  position: relative;
+}
+.rank0:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 35px solid #ffd700;
+  border-right: 35px solid transparent;
+}
+.rank0:after {
+  content: "1位";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 12px;
+  font-weight:bold;
+  color: black;
+  transform: rotate(-45deg) translate(-2px, 3px);
+}
+.rank0 img {
+  object-fit: cover;
+}
+
+//ランキング2
 .rank1 {
   position: relative;
 }
@@ -355,11 +379,11 @@ body {
   left: 0;
   width: 0;
   height: 0;
-  border-top: 35px solid #ffd700;
+  border-top: 35px solid #c0c0c0;
   border-right: 35px solid transparent;
 }
 .rank1:after {
-  content: "1位";
+  content: "2位";
   position: absolute;
   top: 0;
   left: 0;
@@ -372,7 +396,7 @@ body {
   object-fit: cover;
 }
 
-//ランキング2
+//ランキング3
 .rank2 {
   position: relative;
 }
@@ -383,11 +407,11 @@ body {
   left: 0;
   width: 0;
   height: 0;
-  border-top: 35px solid #c0c0c0;
+  border-top: 35px solid #d2691e;
   border-right: 35px solid transparent;
 }
 .rank2:after {
-  content: "2位";
+  content: "3位";
   position: absolute;
   top: 0;
   left: 0;
@@ -399,8 +423,7 @@ body {
 .rank2 img {
   object-fit: cover;
 }
-
-//ランキング3
+//ランキング4
 .rank3 {
   position: relative;
 }
@@ -411,37 +434,10 @@ body {
   left: 0;
   width: 0;
   height: 0;
-  border-top: 35px solid #d2691e;
-  border-right: 35px solid transparent;
-}
-.rank3:after {
-  content: "3位";
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 12px;
-  font-weight:bold;
-  color: black;
-  transform: rotate(-45deg) translate(-2px, 3px);
-}
-.rank3 img {
-  object-fit: cover;
-}
-//ランキング4
-.rank4 {
-  position: relative;
-}
-.rank4:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
   border-top: 35px solid #fffacd;
   border-right: 35px solid transparent;
 }
-.rank4:after {
+.rank3:after {
   content: "4位";
   position: absolute;
   top: 0;
@@ -451,7 +447,7 @@ body {
   color: black;
   transform: rotate(-45deg) translate(-2px, 3px);
 }
-.rank4 img {
+.rank3 img {
   object-fit: cover;
 }
 //table
@@ -472,3 +468,10 @@ table th{
   color: white;
   border:solid 1px #808080;
 }
+
+em.green {
+    color: #008000;
+}
+//いいね
+.flag_green{color:#e54747;}
+

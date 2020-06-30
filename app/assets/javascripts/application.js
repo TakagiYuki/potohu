@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
 //= require underscore
@@ -27,4 +26,3 @@ $(function(){
     $('.datepicker').attr(data);
     $('.datepicker').datetimepicker({locale: 'ja'});
 });
-

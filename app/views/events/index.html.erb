@@ -1,24 +1,10 @@
+<div class="index-content">
+  <div class="container-fluid"><!-- 流動的 -->
 
-
-
-<div class="panel panel-default genrebar" >
-  <div class="panel-heading">
-    <h4 class="text-center">エリア検索</h4>
-  </div>
-  <table class="table">
-    <tbody>
-    <% @areas.each do |area| %>
-      <tr>
-        <td><%= link_to area.name, events_path(area_id: area.id) %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
-
-
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sampleModal">
-  モーダル・ダイアログ 呼び出し
+<h3>都道府県から探す</h3>
+<hr>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sampleModal"><span class="glyphicon glyphicon-search"></span>
+  都道府県検索
 </button>
 
 <!-- モーダル・ダイアログ -->
@@ -30,28 +16,38 @@
         <h4 class="modal-title">タイトル</h4>
       </div>
       <div class="modal-body">
-
-
-
+        <%= form_with scope: :search, url: search_events_path, method: :get, local: true do |f| %>
+          <%= f.radio_button :prefecture, :"北海道" %>北海道
+          <%= f.radio_button :prefecture, :"青森県" %>青森県
+          <%= f.radio_button :prefecture, :"岩手県" %>岩手県
+          <%= f.radio_button :prefecture, :"宮城県" %>宮城県
+          <%= f.radio_button :prefecture, :"秋田県" %>秋田県
+          <%= f.radio_button :prefecture, :"山形県" %>山形県
+          <%= f.radio_button :prefecture, :"福島県" %>福島県
+          <%= f.radio_button :prefecture, :"茨城県" %>茨城県
+          <%= f.radio_button :prefecture, :"栃木県" %>栃木県
+          <%= f.radio_button :prefecture, :"群馬県" %>群馬県
+          <%= f.radio_button :prefecture, :"埼玉県" %>埼玉県
+          <%= f.radio_button :prefecture, :"千葉県" %>千葉県
+          <%= f.radio_button :prefecture, :"東京都" %>東京都
+          <%= f.radio_button :prefecture, :"神奈川県" %>神奈川県
+          <%= f.radio_button :prefecture, :"新潟県" %>新潟県
+          <%= f.radio_button :prefecture, :"富山県" %>富山県
+          <%= f.radio_button :prefecture, :"石川県" %>石川県
+          <%= f.radio_button :prefecture, :"福井県" %>福井県
+          <%= f.radio_button :prefecture, :"山梨県" %>山梨県
+          <%= f.radio_button :prefecture, :"長野県" %>長野県
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-        <button type="button" class="btn btn-primary">ボタン</button>
+        <%= f.submit :search %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
 
-<%= form_with scope: :search, url: search_events_path, method: :get, local: true do |f| %>
-<%= f.text_field :name %>
-  <%= f.radio_button :name, :"北海道" %>北海道
-  <%#= f.select :prefecture, [['北海道',0],['青森',1]] %>
-    <%= f.submit :search %>
-<% end %>
 
-
-<div class="index-content">
-  <div class="container-fluid"><!-- 流動的 -->
     <h3><center><%= "#{@area.name}エリアのイベント" %></center></h3>
     <hr>
     <h3><%= @events.count %>件のイベントを表示</h3>
@@ -74,27 +70,5 @@
     <% end %>
   </div>
 </div>
-<div class="index-sub-content">
-  <h5>人気のイベント(全国)</h5>
-  <div class="container">
-    <% count = 1 %>
-      <% @events_ranking.each do |event| %>
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-          <div class="card">
-            <%= "いいね数 #{count}位" %>
-            <%= link_to event_path(event) do %>
-              <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '180x141')%>
-            <% end %>
-            <h4><%= event.name %></h4>
-            <p>場所 <%= event.prefecture%> <%= event.city%></p>
-            <span class="glyphicon glyphicon-heart"><%= event.favorites.count%></span>
-            <% count += 1 %>
-          </div>
-        </div>
-      <% end %>
-  </div>
-  <h5>area_id(1)に属した人気のイベント</h5>
- </div>
 </div>
-
 

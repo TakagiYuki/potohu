@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    gon.user = @user
   end
 
   def edit
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-  
+
   #guest_userログイン用
   def new_guest
     user = User.find_or_create_by(email: 'guest@example.com') do |user|
@@ -38,6 +39,17 @@ class UsersController < ApplicationController
     end
     log_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
+  #guest_adminログイン用
+  def new_admin
+    user = User.find_or_create_by(email: 'guest_admin@admin.com') do |user|
+      user.name = "ゲストadmin"
+      user.password = "ProgrammingIsVeryInterestingAdmin"
+      user.admin = true
+    end
+    log_in user
+    redirect_to root_path, notice: 'adminユーザーとしてログインしました。'
   end
 
   private
