@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     gon.user = @user
+    @favorites = Favorite.where(user_id: @user_id) #user1さんのいいねを取得　いいねが持ってるイベントidを取得
   end
 
   def edit

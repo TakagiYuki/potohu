@@ -1,5 +1,5 @@
 class Admin::EventsController < ApplicationController
-
+  before_action :admin_user
   def index
   	@event = Event.new
   	@events = Event.all
@@ -39,6 +39,12 @@ class Admin::EventsController < ApplicationController
   end
 
   private
+    def admin_user
+      if !logged_in? || !current_user.admin?
+        redirect_to(root_url)
+      end
+    end
+
     def event_params
       params.require(:event).permit(:name, :article,
       :image, :prefecture, :city, :street, :date, :time_status, :area_id)

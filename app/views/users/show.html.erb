@@ -1,3 +1,4 @@
+<% provide(:title, 'マイページ') %>
 <div class="box">
   <div class="container">
     <div class="row">
@@ -5,16 +6,15 @@
         <hr>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <div class="box-part text-center">
-          <i class="fa fa-twitter fa-3x" aria-hidden="true"></i>
           <div class="title">
-            <%= attachment_image_tag(@user, :image, fallback: 'no_image.jpg', size: '40x40',
+            <%= attachment_image_tag(@user, :image, fallback: 'no_image.jpg', size: '60x60',
             class: "img-circle")%>
             <h3><%= @user.name %></h3>
           </div>
           <div class="text">
-            <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+            <span><%= "現在の都道府県値は#{@user.counter_hokkaido+@user.counter_aomori+@user.counter_iwate+@user.counter_miyagi+@user.counter_akita+@user.counter_yamagata+@user.counter_hukushima+@user.counter_ibaraki+@user.counter_tochigi+@user.counter_gunma+@user.counter_saitama+@user.counter_chiba+@user.counter_tokyo+@user.counter_kanagawa+@user.counter_niigata+@user.counter_toyama+@user.counter_ishikawa+@user.counter_hukui+@user.counter_yamanashi+@user.counter_nagano+@user.counter_gihu+@user.counter_shizuoka+@user.counter_aichi+@user.counter_mie+@user.counter_shiga+@user.counter_kyoto+@user.counter_osaka+@user.counter_hyogo+@user.counter_nara+@user.counter_wakayama+@user.counter_tottori+@user.counter_shimane+@user.counter_okayama+@user.counter_hiroshima+@user.counter_yamaguchi+@user.counter_tokushima+@user.counter_kagawa+@user.counter_ehime+@user.counter_kouchi+@user.counter_hukuoka+@user.counter_saga+@user.counter_nagasaki+@user.counter_kumamoto+@user.counter_oita+@user.counter_miyazaki+@user.counter_kagoshima+@user.counter_okinawa}点です。" %></span>
           </div>
-          <a href="#">Learn More</a>
+          <p><%= link_to "User情報変更", edit_user_path(@user), class: "btn btn-primary" %></p>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -24,6 +24,10 @@
   </div>
 </div>
 
+ <% @favorites.each do |favorite| %>
+    <% event = Event.find_by(id: favorite.event_id) %>
+    <%= event.name %>
+  <% end %>
   <head>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
@@ -90,11 +94,30 @@
       };
 
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
-
+        function selectHandler() {
+            var selectedItem = chart.getSelection()[0];
+            var row = selectedItem.row
+            if (selectedItem) {
+                switch (row){
+                    case 0:
+                        url ="https://www.google.co.jp/";
+                        break;
+                    case 1:
+                        url ="http://www.yahoo.co.jp/";
+                        break;
+                }
+                window.location.href = url;
+            }
+        }
+        google.visualization.events.addListener(chart, 'select', selectHandler);
         chart.draw(data, options);
       }
     </script>
   </head>
-  <body>
-    
-  </body>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6 mx-auto">
+      
+    </div>
+  </div>
+</div>
