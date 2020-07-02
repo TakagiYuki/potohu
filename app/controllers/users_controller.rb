@@ -16,6 +16,16 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     gon.user = @user
+    # @favorites = @user.favorites
+    # event.prefecture = "北海道"
+    #   if params[:event.prefecture]
+    #     event.prefecture = params[:event.prefecture]
+    #    else
+    #     event.prefecture = "北海道"
+    #   end
+    @favorites = @user.favorites
+    # Event.where(prefecture: event.prefecture, id: Favorite.group(:event_id).pluck(:event_id))
+    #.groupでFavorite内のevent_idを全取得 .pluckでカラムの値を取得 最終的にいいねが多いevent_idからeventを取得
   end
 
   def edit

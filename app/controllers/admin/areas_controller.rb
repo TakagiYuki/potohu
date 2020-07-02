@@ -1,4 +1,5 @@
 class Admin::AreasController < ApplicationController
+  before_action :admin_user
   def index
   	@area = Area.new
   	@areas = Area.all
@@ -34,6 +35,12 @@ class Admin::AreasController < ApplicationController
   end
 
   private
+    def admin_user
+      if !logged_in? || !current_user.admin?
+        redirect_to(root_url)
+      end
+    end
+
     def area_params
       params.require(:area).permit(:name)
     end

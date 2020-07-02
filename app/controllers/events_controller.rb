@@ -13,13 +13,13 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @events = Event.where(prefecture: @event.prefecture).limit(4)
     @event_comment = EventComment.new
     @event_comments = @event.event_comments
   end
 
   def search
     if params[:search][:prefecture].present?
-      p 22222
       @events = Event.where('prefecture LIKE ?', "%#{params[:search][:prefecture]}%")
     else
       @events = Event.none

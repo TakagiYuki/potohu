@@ -1,3 +1,4 @@
+<% provide(:title, 'イベント作成') %>
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
@@ -48,9 +49,8 @@
         <%= f.label :開催ステータス %>
         <%= f.radio_button :time_status, :event_before %>開催前
         <%= f.radio_button :time_status, :event_now %>開催中
-　　　　　<%= f.radio_button :time_status, :event_finsh %>開催終了
-        <%= f.radio_button :is_invalid, :"0" %>有効
-        <%= f.submit "追加", class: "btn btn-primary" %>
+        <%= f.radio_button :time_status, :event_finsh %>開催終了<br><br>
+        <%= f.submit "イベント追加", class: "btn btn-primary" %>
       <% end %>
     </div>
 
