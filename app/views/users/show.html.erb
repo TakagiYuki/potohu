@@ -14,7 +14,9 @@
           <div class="text">
             <span><%= "現在の都道府県値は#{@user.counter_hokkaido+@user.counter_aomori+@user.counter_iwate+@user.counter_miyagi+@user.counter_akita+@user.counter_yamagata+@user.counter_hukushima+@user.counter_ibaraki+@user.counter_tochigi+@user.counter_gunma+@user.counter_saitama+@user.counter_chiba+@user.counter_tokyo+@user.counter_kanagawa+@user.counter_niigata+@user.counter_toyama+@user.counter_ishikawa+@user.counter_hukui+@user.counter_yamanashi+@user.counter_nagano+@user.counter_gihu+@user.counter_shizuoka+@user.counter_aichi+@user.counter_mie+@user.counter_shiga+@user.counter_kyoto+@user.counter_osaka+@user.counter_hyogo+@user.counter_nara+@user.counter_wakayama+@user.counter_tottori+@user.counter_shimane+@user.counter_okayama+@user.counter_hiroshima+@user.counter_yamaguchi+@user.counter_tokushima+@user.counter_kagawa+@user.counter_ehime+@user.counter_kouchi+@user.counter_hukuoka+@user.counter_saga+@user.counter_nagasaki+@user.counter_kumamoto+@user.counter_oita+@user.counter_miyazaki+@user.counter_kagoshima+@user.counter_okinawa}点です。" %></span>
           </div>
-          <p><%= link_to "User情報変更", edit_user_path(@user), class: "btn btn-primary" %></p>
+            <% if @user == current_user %>
+               <p><%= link_to "User情報変更", edit_user_path(@user), class: "btn btn-primary" %></p>
+            <% end %>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -25,8 +27,7 @@
 </div>
 
  <% @favorites.each do |favorite| %>
-    <% event = Event.find_by(id: favorite.event_id) %>
-    <%= event.name %>
+    <%= favorite.event.name %>
   <% end %>
   <head>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -105,6 +106,9 @@
                     case 1:
                         url ="http://www.yahoo.co.jp/";
                         break;
+                    case 2:
+                        url ="http://localhost:3000/events?event.prefecture=岩手県";
+                        break;
                 }
                 window.location.href = url;
             }
@@ -117,7 +121,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-6 mx-auto">
-      
+
     </div>
   </div>
 </div>

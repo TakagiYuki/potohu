@@ -13,7 +13,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @events = Event.where(prefecture = @event.prefecture)
+    @events = Event.where(prefecture: @event.prefecture).limit(4)
     @event_comment = EventComment.new
     @event_comments = @event.event_comments
   end
