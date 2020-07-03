@@ -8,29 +8,10 @@
   <%= image_tag asset_path("top.jpg", alt: "ゲーム画像1", size:'600x600') %>
 </div>
 
-
-<div class="index-sub-content">
-  <div class="container">
-  	<h3>新着のイベント</h3>
-    <hr>
-      <% @events_new.first(4).each do |event| %>
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-          <div class="card">
-            <%= link_to event_path(event) do %>
-              <div class="new">
-                <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '180x141')%>
-              </div>
-            <% end %>
-            <h4><%= event.name.truncate(9) %></h4>
-            <p><%= event.prefecture%> | <%= event.city%></p>
-            <p>開催期間<%= event.date%></p>
-            <div id="favorites_buttons_<%= event.id %>">
-              <%= render partial: 'favorites/favorite', locals: { event: event} %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-  </div>
+<div class="container">
+  <h3>新着のイベント</h3>
+  <hr>
+  <%= render 'events/event_small_content', events: @events_new %>
 </div>
 
 <div class="index-sub-content">
@@ -68,7 +49,7 @@
 
   <div class="main">
     <div class="blog"></div>
-        <div class="sidebar">
-        	<div id="map"></div>
-        </div>
-    </div>
+      <div class="sidebar">
+        <div id="map"></div>
+      </div>
+  </div>
