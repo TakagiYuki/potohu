@@ -1,86 +1,49 @@
 <% provide(:title, 'イベント作成') %>
 <div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <h3>イベント追加</h3>
-      <hr>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <%= form_with(model: @event, url:admin_events_path, local: true) do |f| %>
-
-        <%= f.label :地域選択 %><br>
-        <%= f.collection_select :area_id, Area.all, :id, :name, class: 'form-control' %><br>
-
-        <%= f.label :イベント名 %>
-        <%= f.text_field :name, class: 'form-control' %>
-
-        <%= f.label :説明文 %>
-        <%= f.text_area :article, class: 'form-control' %>
-
-        <%= f.label :画像選択 %>
-        <%= f.attachment_field :image %>
-
-        <%= f.label :都道府県 %>
-        <%= f.select :prefecture, {北海道:'北海道',青森県:'青森県',岩手県:'岩手県',宮城県:'宮城県',秋田県:'秋田県',山形県:'山形県',福島県:'福島県',
-                                       茨城県:'茨城県',栃木県:'栃木県',群馬県:'群馬県',埼玉県:'埼玉県',千葉県:'千葉県',東京都:'東京都',神奈川県:'神奈川県',
-                                       新潟県:'新潟県',富山県:'富山県',石川県:'石川県',福井県:'福井県',山梨県:'山梨県',長野県:'長野県',
-                                       岐阜県:'岐阜県',静岡県:'静岡県',愛知県:'愛知県',三重県:'三重県',
-                                       滋賀県:'滋賀県',京都府:'京都府',大阪府:'大阪府',兵庫県:'兵庫県',奈良県:'奈良県',和歌山県:'和歌山県',
-                                       鳥取県:'鳥取県',島根県:'島根県',岡山県:'岡山県',広島県:'広島県',山口県:'山口県',
-                                       徳島県:'徳島県',香川県:'香川県',愛媛県:'愛媛県',高知県:'高知県',
-                                       福岡県:'福岡県',佐賀県:'佐賀県',長崎県:'長崎県',熊本県:'熊本県',大分県:'大分県',宮崎県:'宮崎県',鹿児島県:'鹿児島県', 沖縄県:'沖縄県'},{ include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
-
-        <%= f.label :市 %>
-        <%= f.text_field :city, class: 'form-control' %>
-
-        <%= f.label :番地 %>
-        <%= f.text_field :street, class: 'form-control' %>
-
-        <%= f.label :開催日 %>
-          <div class='input-group date datepicker'>
-            <%= f.text_field :date, class: 'form-control',placeholder: '日付' %>
-            <span class="input-group-addon">
-              <span class="glyphicon glyphicon-calendar"></span>
-           </span>
-          </div>
+  <% now1 = Time.new.in_time_zone('Tokyo') %><!-- 現在時刻 -->
+  <%= p now1.hour %>
+  <h3>イベント追加</h3>
+  <hr>
+  <!-- 入力フォーム -->
+  <%= render 'admin/events/event_form', url: "/admin/events" %>
+  <!-- イベント表示 -->
+  <div class="col-md-12">
+    <table class="table table-inverse">
+      <thead>
+        <tr>
           <br>
-        <%= f.label :開催ステータス %>
-        <%= f.radio_button :time_status, :event_before %>開催前
-        <%= f.radio_button :time_status, :event_now %>開催中
-        <%= f.radio_button :time_status, :event_finsh %>開催終了<br><br>
-        <%= f.submit "イベント追加", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-
-    <div class="col-md-12">
-      <table class="table table-hover table-inverse">
-        <thead>
-          <tr>
-           <br><th>イベント名</th>
-            <th>県</th>
-            <th>市</th>
-            <th>番地</th>
-            <th>開催日</th>
-            <th>ステータス</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @events.each do |event| %>
-          <tr>
-            <td><%= event.name %></td>
-            <td><%= event.prefecture %></td>
-            <td><%= event.city %></td>
-            <td><%= event.street %></td>
-            <td><%= event.date %></td>
-            <td><%= event.time_status_i18n %></td>
-            <td><%= link_to "編集", edit_admin_event_path(event), class: "btn btn-primary" %></td>
-            <td><%= link_to "消去", admin_event_path(event), method: :delete, class: "btn btn-primary", "data-confirm" => "本当に削除しますか？" %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+          <th class="col-md-1">image</th>
+          <th class="col-md-3">event</th>
+          <th class="col-md-2">prefacture</th>
+          <th class="col-md-2">非表示/表示</th>
+          <th class="col-md-2">開催日</th>
+          <th class="col-md-2">ステータス</th>
+          <th class="col-md-1">編集</th>
+          <th class="col-md-1">消去</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @events.each do |event| %>
+        <tr>
+          <td class="text-center"><%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '90x60')%></td>
+          <td><%= event.name %></td>
+          <td><%= event.prefecture %></td>
+          <td><%= event.is_valid %></td>
+          <td><%= event.start_time %></td>
+          <td><%= event.time_status_i18n %></td>
+          <td class="text-center">
+            <%= link_to edit_admin_event_path(event), method: :get do %>
+              <i class="fas fa-edit sync-alt_green"></i>
+            <% end %>
+          </td>
+          <td class="text-center">
+            <%= link_to admin_event_path(event), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
+              <i class="fa fa-times times_red"></i>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

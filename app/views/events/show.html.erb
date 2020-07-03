@@ -1,64 +1,42 @@
 <% provide(:title, '観光地情報') %>
-<div class="index-learge-content">
-  <div class="container-fluid">
-    <h3><center><%= @event.name %></center></h3>
-    <hr>
-    <div class="col-lg-6">
-      <div class="card">
-        <%= attachment_image_tag(@event, :image, fallback: 'no_image.jpg', size: '300x260')%>
-        <h4><%= @event.name.truncate(20) %></h4>
-        <p><%= @event.date %></p>
-        <p><%= @event.article %></p>
-        <p><%= "開催場所#{@event.city}" %></p>
-        <div id="favorites_buttons_<%= @event.id %>">
-          <%= render partial: 'favorites/favorite', locals: { event: @event} %>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6">
-      <div id='map' class="<%= @event.prefecture + @event.city + @event.street %>"></div>
-    </div>
+<div class="container">
+  <h3>
+    <center><%= @event.name %></center>
+  </h3>
+  <hr>
+</div>
+
+<div class="container">
+  <!-- イベント詳細 -->
+  <%= render 'events/event_learge_content' %>
+
+  <!-- マップ表示 -->
+  <div class="col-lg-6">
+    <div id='map' class="<%= @event.prefecture + @event.city + @event.street %>"></div>
   </div>
 </div>
 
-<div class="index-sub-content">
-  <div class="container">
-    <h3>近くのイベント</h3>
+<div class="container">
+  <h3>近くのイベント</h3>
+  <hr>
+<%= render 'events/event_small_content', events: @events %>
+</div>
+
+<div class="container">
+  <div class="col-6">
+    <h3>コメント
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleModal">
+        投稿をする
+      </button>
+    </h3>
     <hr>
-      <% @events.each do |event| %>
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-          <div class="card">
-            <%= link_to event_path(event) do %>
-              <div class="new">
-                <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '180x141')%>
-              </div>
-            <% end %>
-            <h4><%= event.name.truncate(9) %></h4>
-            <p><%= event.prefecture%> | <%= event.city%></p>
-            <p>開催期間<%= event.date%></p>
-            <div id="favorites_buttons_<%= event.id %>">
-              <%= render partial: 'favorites/favorite', locals: { event: event} %>
-            </div>
-          </div>
-        </div>
-      <% end %>
   </div>
 </div>
 
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-6 mx-auto">
-      <h3>コメント
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleModal">
-          投稿をする
-        </button></h3>
-      <hr>
-    </div>
-  </div>
-</div>
 <div class=" comment_<%= @event.id %>">
-        <%= render 'comment', event_comments: @event.event_comments %>
+  <%= render 'comment', event_comments: @event.event_comments %>
 </div>
+
 <style>
 #map{
   width: 400px;
@@ -94,14 +72,6 @@ function initMap(){
       alert('Geocode was not successful for the following reason: ' + status);
     }
   });
-
-}
-////////////////////????//////////////////////////////////
-function codeAddress(){
-  // 入力を取得
-  let inputAddress = document.getElementById('address').value;
-
-  // geocodingしたあとmapを移動
 }
 </script>
 

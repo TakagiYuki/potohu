@@ -9,6 +9,8 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.string :street
       t.string :date
       t.integer :time_status
+      t.boolean :is_valid, default: false
+      t.time :start_time
       t.integer :area_id
       t.float :latitude
       t.float :longitude
