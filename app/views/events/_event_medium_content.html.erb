@@ -1,3 +1,4 @@
+<% now = Time.new %><!-- 現在時刻 -->
 <div class="index-content">
   <% @events.each do |event| %>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -7,7 +8,10 @@
           <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '300x260')%>
         <% end %>
         <h4><%= event.name.truncate(20) %></h4>
-        <p><%= "開催日 #{event.date}" %> <span><%= event.time_status_i18n %></sapn></p>
+        <p><%= "開催日 #{event.date}" %>
+          <%# if event.start_time < now %>
+            <span><%= event.time_status_i18n %></sapn>
+          </p>
         <p><%= event.article.truncate(74) %></p>
         <p>場所 <%= event.prefecture%> <%= event.city%>
         <div id="favorites_buttons_<%= event.id %>">
