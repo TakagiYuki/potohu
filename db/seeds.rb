@@ -1,9 +1,14 @@
 
-User.create!(name:  "admin_user",
-             email: "admin@admin.com",
-             password:              "admin98",
-             password_confirmation: "admin98",
-             admin: true)
+
+if User.find_by(email: "admin@admin.com").nil?
+    User.create!(
+        name:  "admin_user",
+        email: "admin@admin.com",
+        password:              "admin98",
+        password_confirmation: "admin98",
+        admin: true
+    )
+end
 
 Area.create!(
   [{name: '北海道'}, {name: '東北'}, {name: '関東'}, {name: '中部'}, {name: '関西'},
