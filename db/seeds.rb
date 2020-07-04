@@ -10,11 +10,20 @@ if User.find_by(email: "admin@admin.com").nil?
     )
 end
 
-Area.create!(
-  [{name: '北海道'}, {name: '東北'}, {name: '関東'}, {name: '中部'}, {name: '関西'},
-   {name: '中国'}, {name: '四国'}, {name: '九州・沖縄'}
-  ]
-)
+if Area.find_by(name: '北海道').nil?
+    Area.create!(
+        [
+            {name: '北海道'},
+            {name: '東北'},
+            {name: '関東'},
+            {name: '中部'},
+            {name: '関西'},
+            {name: '中国'},
+            {name: '四国'},
+            {name: '九州・沖縄'}
+        ]
+    )
+end
 
 Event.create!(
   [{name: '青い池', article: 'この池は1988年12月に噴火した十勝岳の堆積物による火山泥流災害を防ぐため、美瑛川本流に複数建設された堰堤のひとつに水が溜まったものである。
