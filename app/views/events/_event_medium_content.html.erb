@@ -3,7 +3,7 @@
   <% @events.each do |event| %>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
       <div class="card">
-        <% if event.is_valid == true %>
+        <%# if event.is_valid == true %>
         <%= link_to event_path(event) do %>
           <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '300x260')%>
         <% end %>
@@ -17,7 +17,7 @@
         <div id="favorites_buttons_<%= event.id %>">
            <%= render partial: 'favorites/favorite', locals: { event: event} %>
         </div>
-        <% end %>
+        <%# end %>
       </div>
     </div>
   <% end %>
