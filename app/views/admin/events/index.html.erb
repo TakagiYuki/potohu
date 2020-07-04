@@ -28,7 +28,7 @@
           <td class="text-center"><%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '90x60')%></td>
           <td><%= event.name %></td>
           <td><%= event.prefecture %></td>
-          <td><%= event.is_valid %></td>
+          <td><%#= event.is_valid %></td>
           <td><%= event.start_time %></td>
           <td><%= event.time_status_i18n %></td>
           <td class="text-center">
