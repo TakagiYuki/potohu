@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 2020_07_03_002714) do
     t.string "street"
     t.string "date"
     t.integer "time_status"
-    t.boolean "is_valid", default: false
     t.time "start_time"
     t.integer "area_id"
     t.float "latitude"
