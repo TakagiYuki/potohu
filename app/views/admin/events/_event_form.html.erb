@@ -40,14 +40,16 @@
     <%= f.radio_button :time_status, :event_now %>開催中
     <%= f.radio_button :time_status, :event_finsh %>開催終了<br><br>
 
-    <%#= f.label :"非表示/表示" %>
-    <%# #if @event.is_valid == true %>
-      <%#= f.radio_button :is_valid, :"0" %>非表示
-      <%#= f.radio_button :is_valid, :"1", {:checked => true} %>表示<br><br>
-    <%# else %>
-      <%#= f.radio_button :is_valid, :"0",  {:checked => true} %>非表示
-      <%#= f.radio_button :is_valid, :"1" %>表示<br><br>
-    <%# end %>
+    <%= begin %>
+    <%= f.label :"非表示/表示" %>
+    <% if @event.is_valid == true %>
+      <%= f.radio_button :is_valid, :"0" %>非表示
+      <%= f.radio_button :is_valid, :"1", {:checked => true} %>表示<br><br>
+    <% else %>
+      <%= f.radio_button :is_valid, :"0",  {:checked => true} %>非表示
+      <%= f.radio_button :is_valid, :"1" %>表示<br><br>
+    <% end %>
+    <%＝ end %>
 
     <%= f.submit "保存", class: "btn btn-primary" %>
     <%#= link_to "戻る", admin_events_path, class: "btn btn-primary" %>
