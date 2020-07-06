@@ -84,7 +84,6 @@
             <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '300x235')%>
           <% end %>
           <h4><%= event.name %></h4>
-          <p><%= "開催日 #{event.date}" %> <span><%= event.time_status_i18n %></sapn></p>
           <p><%= event.article.truncate(64) %></p>
           <p>場所 <%= event.prefecture%> <%= event.city%>
           <div id="favorites_buttons_<%= event.id %>">

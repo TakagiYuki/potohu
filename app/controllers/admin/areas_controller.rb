@@ -7,12 +7,12 @@ class Admin::AreasController < ApplicationController
 
   def create
   	@area = Area.new(area_params)
-  	if @area.save
-  	  redirect_to admin_areas_path
+  	if @area.save!
+      @areas = Area.all
   	else
-  	  @areas = Area.all
-  	  render 'index'
+  	  
   	end
+    render 'create.js.erb'
   end
 
   def edit

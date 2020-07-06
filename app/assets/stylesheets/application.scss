@@ -42,10 +42,10 @@ header {
    position: fixed;
    top: 0;//固定位置
    width: 100%;
-   background-color: #fffffc;//背景色
+   background-color: #ffffff;//背景色
    display: flex;//固定
    align-items: center;//縦方向の中心
-   z-index: 1;
+   z-index: 3;
 }
 h1 {
    margin: 0; padding: 0;
@@ -64,7 +64,7 @@ ul {
    display: flex;//横並びに
 }
 li {
-   margin: 0 0 0 15px;
+   margin: 0 0 0 30px;//ヘッダー縦幅調整
    font-size: 14px;
 }
 
@@ -123,7 +123,7 @@ h2 {
 /*右からフェードイン*/
 .fade-in-right {
    opacity: 0;
-    animation-name: fadein-right;
+   animation-name: fadein-right;
    animation-duration: 1.5s;
    animation-timing-function: ease-out;
    animation-fill-mode: forwards;
@@ -538,8 +538,99 @@ table th{
 em.green {
     color: #008000;
 }
-//いいね
+//アイコン
 .flag_green{color:#e54747;}
 .times_red{color:#e54747;}
 .sync-alt_green{color:#32cd32;}
+
+//swiper
+.slide-img img {
+  width: 100%;
+  height: 500px;
+}
+.swiper-slide .slide-content h1,
+.swiper-slide .slide-content h2,
+.swiper-slide .slide-content h3 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FFF;
+  font-size: 30px;
+  text-shadow: 2px 2px rgba(0,0,0,0.3);
+}
+.swiper-slide .slide-content p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FFF;
+  text-shadow: .5px .5px rgba(0,0,0,0.6);
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+}
+.swiper-slide .slide-content .caption {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  color: #FFF;
+  font-size: 16px;
+  background-color: rgba(0,127,127,0.5);
+  padding: 3px 8px;
+}
+.top{
+  position: absolute;
+  top: 18%;
+  left: 5%;
+  z-index: 2;
+}
+.select-hokkaido{
+  position: absolute;
+  top: 18%;
+  left: 5%;
+  z-index: 2;
+}
+.select-tohoku{
+  position: absolute;
+  top: 18%;
+  left: 5%;
+  z-index: 2;
+}
+.select-kanto{
+  position: absolute;
+  top: 18%;
+  left: 5%;
+  z-index: 2;
+}
+.select-cyubu{
+  position: absolute;
+  top: 18%;
+  left: 5%;
+  z-index: 2;
+}
+.select-kansai{
+  position: absolute;
+  top: 18%;
+  left: 5%;
+  z-index: 2;
+}
+.select-cyugoku{
+  position: absolute;
+  top: 18%;
+  left: 5%;
+  z-index: 2;
+}
+.select-shikoku{
+  position: absolute;
+  top: 18%;
+  left: 5%;
+  z-index: 2;
+}
+.select-kyusyu{
+  position: absolute;
+  top: 18%;
+  left: 5%;
+  z-index: 2;
+}
 
