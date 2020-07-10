@@ -26,3 +26,7 @@ $(function(){
     $('.datepicker').attr(data);
     $('.datepicker').datetimepicker({locale: 'ja'});
 });
+
+$(function () {
+	$('[data-toggle="tooltip"]').tooltip();
+});

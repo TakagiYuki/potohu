@@ -14,23 +14,23 @@
       <div class="slide-content">
         <h1>ここいこ。へようこそ</h1>
         <p>お気に入りの観光地を探してみよう</p>
-        <div class="caption">caption 01<%= link_to root_url %></div>
+        <!-- <div class="caption">caption 01<%#=link_to root_url  %></div> -->
       </div>
     </div><!-- end of .swiper-slide -->
     <div class="swiper-slide">
       <div class="slide-img"><img src="assets/img_02.jpg" alt=""></div>
       <div class="slide-content">
-        <h2>Slide Title 02</h2>
-        <p>Ipsa, quis ex repudiandae eum </p>
-        <div class="caption">caption 02</div>
+        <h2></h2>
+        <p></p>
+        <div class="caption"><%=link_to "Click to go on a trip !", root_url, :style=>"color:white;" %></div>
       </div>
     </div><!-- end of .swiper-slide -->
     <div class="swiper-slide">
       <div class="slide-img"><img src="assets/img_03.jpg" alt=""></div>
       <div class="slide-content">
-        <h3>Slide Title 03</h3>
-        <p>Ullam rerum quasi libero esse </p>
-        <div class="caption">caption 03</div>
+        <h3></h3>
+        <p></p>
+        <div class="caption"><%=link_to "Click to go on a trip !", root_url, :style=>"color:white;" %></div>
       </div>
     </div><!-- end of .swiper-slidet -->
   </div><!-- end of .swiper-wrapper -->
@@ -48,6 +48,51 @@
 <%= render 'homes/select_cyugoku' %>
 <%= render 'homes/select_shikoku' %>
 <%= render 'homes/select_kyusyu' %>
+
+<div class="container">
+  <h3>カテゴリーから探す</h3>
+  <hr>
+<div class="contents-frame">
+<div class="container">
+<div class="row">
+  <div class="col-xs-6 col-md-3">
+    <%#= link_to user_favorites_path(id: 1) %>
+    <a href="events/tag/1" class="thumbnail">
+      <div class="tag-content">
+        <img src="/assets/tag_01.jpg" alt="画像" width="252px" height="200px">
+        <p>自然</p>
+      </div>
+    </a>
+  </div>
+  <div class="col-xs-6 col-md-3">
+    <a href="events/tag/2" class="thumbnail">
+      <div class="tag-content">
+        <img src="/assets/tag_02.jpg" alt="画像" width="252px" height="200px">
+        <p>歴史</p>
+      </div>
+    </a>
+  </div>
+  <div class="col-xs-6 col-md-3">
+    <a href="events/tag/3" class="thumbnail">
+      <div class="tag-content">
+        <img src="/assets/tag_03.jpg" alt="画像" width="252px" height="200px">
+        <p>体験</p>
+      </div>
+    </a>
+  </div>
+  <div class="col-xs-6 col-md-3">
+    <a href="events/tag/4" class="thumbnail">
+      <div class="tag-content">
+        <img src="/assets/tag_04.jpg" alt="画像" width="252px" height="200px">
+        <p>舞台</p>
+      </div>
+    </a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
 
 <div class="container">
   <h3>新着のイベント</h3>
@@ -82,6 +127,8 @@
     </div>
   </div>
 </div>
+
+
 
 <div class="container">
   <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">

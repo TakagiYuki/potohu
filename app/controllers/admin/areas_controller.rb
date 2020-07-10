@@ -12,7 +12,6 @@ class Admin::AreasController < ApplicationController
   	else
   	  
   	end
-    render 'create.js.erb'
   end
 
   def edit
@@ -22,16 +21,15 @@ class Admin::AreasController < ApplicationController
   def update
     @area = Area.find(params[:id])
       if @area.update(area_params)
-        redirect_to admin_areas_path
       else
         render edit
     end
   end
 
   def destroy
-    area = Area.find(params[:id])
-    area.destroy
-    redirect_to admin_areas_path
+    @area = Area.find(params[:id])
+    @areas = Area.all
+    @area.destroy
   end
 
   private

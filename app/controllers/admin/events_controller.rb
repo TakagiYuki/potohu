@@ -8,11 +8,9 @@ class Admin::EventsController < ApplicationController
   def create
   	@event = Event.new(event_params)
   	if @event.save!
-  	  redirect_to admin_events_path
+      @events = Event.all
   	else
-      @event = Event.new
-  	  @events = Event.all
-  	  render 'index'
+
   	end
   end
 
@@ -44,7 +42,7 @@ class Admin::EventsController < ApplicationController
 
     def event_params
       params.require(:event).permit(:name, :article,
-      :image, :prefecture, :city, :street, :area_id, :open_time_sunday, :close_time_sunday, :is_valid)
+      :image, :prefecture, :city, :street, :area_id, :open_time_sunday, :close_time_sunday, :is_valid, tag_ids:[])
     end
 end
 
