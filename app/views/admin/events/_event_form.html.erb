@@ -1,5 +1,5 @@
 <div class="col-lg-6">
-  <%= form_with(model: @event, url:url, local: true) do |f| %>
+  <%= form_with(model: @event, url:url, remote: true) do |f| %>
   <%= render 'shared/error_messages', db: @event %>
     <%= f.label :地域選択 %><br>
     <%= f.collection_select :area_id, Area.all, :id, :name, class: 'form-control' %><br>
@@ -40,7 +40,15 @@
       <%= f.radio_button :is_valid, :"0",  {:checked => true} %>非表示
       <%= f.radio_button :is_valid, :"1" %>表示<br><br>
     <% end %>
-    
+
+    <%= f.label :name, 'タグ' %>
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+      <%= tag.label do %>
+        <%= tag.check_box %>
+        <%= tag.text %>
+      <% end %>
+    <% end %>
+
     <%= f.submit "保存", class: "btn btn-primary" %>
     <%#= link_to "戻る", admin_events_path, class: "btn btn-primary" %>
   <% end %>

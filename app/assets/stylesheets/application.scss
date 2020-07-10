@@ -340,6 +340,12 @@ input {
   font-size: 12px;
 }
 
+.index-sub-content .card span {
+  margin: 5px 2px 5px 2px;//余白
+  opacity: 0.65;//透明度
+  font-size: 12px;
+}
+
 /* タグのデザイン */
 .index-sub-content .card p span {
   display: inline-block;
@@ -581,56 +587,71 @@ em.green {
 }
 .top{
   position: absolute;
-  top: 18%;
-  left: 5%;
+  top: 100px;
+  left: 68px;
   z-index: 2;
 }
 .select-hokkaido{
   position: absolute;
-  top: 18%;
-  left: 5%;
+  top: 100px;
+  left: 380px;
   z-index: 2;
 }
 .select-tohoku{
   position: absolute;
-  top: 18%;
-  left: 5%;
-  z-index: 2;
+  top: 300px;
+  left: 340px;
+  z-index: 3;
 }
 .select-kanto{
   position: absolute;
-  top: 18%;
-  left: 5%;
+  top: 380px;
+  left: 310px;
   z-index: 2;
 }
 .select-cyubu{
   position: absolute;
-  top: 18%;
-  left: 5%;
-  z-index: 2;
+  top: 290px;
+  left: 220px;
+  z-index: 3;
 }
 .select-kansai{
   position: absolute;
-  top: 18%;
-  left: 5%;
+  top: 410px;
+  left: 240px;
   z-index: 2;
 }
 .select-cyugoku{
   position: absolute;
-  top: 18%;
-  left: 5%;
-  z-index: 2;
+  top: 350px;
+  left: 110px;
+  z-index: 3;
 }
 .select-shikoku{
   position: absolute;
-  top: 18%;
-  left: 5%;
+  top: 440px;
+  left: 160px;
   z-index: 2;
 }
 .select-kyusyu{
   position: absolute;
-  top: 18%;
-  left: 5%;
-  z-index: 2;
+  top: 400px;
+  left: 10px;
+  z-index: 3;
 }
 
+.tag-content {
+  position: relative;
+  }
+
+.tag-content p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  /*文字の装飾は省略*/
+  }

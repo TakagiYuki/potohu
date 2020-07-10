@@ -21,8 +21,17 @@ class EventsController < ApplicationController
   def search
     if params[:search][:prefecture].present?
       @events = Event.where('prefecture LIKE ?', "%#{params[:search][:prefecture]}%")
+
+    elsif params[:search][:name].present?
+      p("aaa")
+      @events = []
+      @tags = Tag.where( 'name LIKE ?', "%#{params[:search][:name]}%")
+      @tags.each do|tag|
+        @events << tag.event
+      end
     else
       @events = Event.none
     end
   end
 end
+

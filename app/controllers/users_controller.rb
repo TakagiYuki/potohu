@@ -41,6 +41,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def favorite
+    @user = User.find(params[:id])
+    @user_favorites = @user.favorites
+  end
+
   #guest_userログイン用
   def new_guest
     user = User.find_or_create_by(email: 'guest@example.com') do |user|

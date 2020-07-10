@@ -1,9 +1,7 @@
-<% now = Time.new %><!-- 現在時刻 -->
 <div class="index-content">
-  <% @events.each do |event| %>
+  <% events.each do |event| %>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
       <div class="card">
-        <%# if event.is_valid == true %>
         <%= link_to event_path(event) do %>
           <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '300x260')%>
         <% end %>
@@ -11,10 +9,12 @@
           </p>
         <p><%= event.article.truncate(74) %></p>
         <p>場所 <%= event.prefecture%> <%= event.city%>
+        <% event.tags.each do |tag| %>
+          <span class="label label-default"><%= tag.name %></span>
+        <% end %>
         <div id="favorites_buttons_<%= event.id %>">
            <%= render partial: 'favorites/favorite', locals: { event: event} %>
         </div>
-        <%# end %>
       </div>
     </div>
   <% end %>

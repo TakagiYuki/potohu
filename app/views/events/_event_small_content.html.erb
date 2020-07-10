@@ -9,7 +9,9 @@
         <% end %>
         <h4><%= event.name.truncate(9) %></h4>
         <p><%= event.prefecture%> | <%= event.city%></p>
-        <p>開催期間<%#= event.date%></p>
+          <% event.tags.each do |tag| %>
+            <p><%= tag.name %></p>
+          <% end %>
         <div id="favorites_buttons_<%= event.id %>">
           <%= render partial: 'favorites/favorite', locals: { event: event} %>
         </div>

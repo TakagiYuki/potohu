@@ -5,6 +5,10 @@
         <h4><%= @event.name.truncate(20) %></h4>
         <p><%= simple_format(@event.article) %></p>
         <p><%= "開催場所#{@event.city}" %></p>
+　　　　　<% @event.tags.each do |tag| %>
+          <span class="label label-default"><%= @tag.name %></span>
+        <% end %>
+        </p>
         <div id="favorites_buttons_<%= @event.id %>">
           <%= render partial: 'favorites/favorite', locals: { event: @event} %>
         </div>
@@ -12,19 +16,19 @@
     </div>
 </div>
 
-  <% now = Time.new.in_time_zone('Tokyo') %><!-- 現在時刻 -->
-  <% now_sec = now.hour * 3600 + now.min * 60 %> <!-- 秒換算 -->
-  <% open_time_sunday_sec = @event.open_time_sunday.hour * 3600 + @event.open_time_sunday.min * 60 %> <!-- 秒換算 -->
-  <% close_time_sunday_sec = @event.close_time_sunday.hour * 3600 + @event.close_time_sunday.min * 60 %> <!-- 秒換算 -->
+  <%# now = Time.new.in_time_zone('Tokyo') %><!-- 現在時刻 -->
+  <%# now_sec = now.hour * 3600 + now.min * 60 %> <!-- 秒換算 -->
+  <%# open_time_sunday_sec = @event.open_time_sunday.hour * 3600 + @event.open_time_sunday.min * 60 %> <!-- 秒換算 -->
+  <%# close_time_sunday_sec = @event.close_time_sunday.hour * 3600 + @event.close_time_sunday.min * 60 %> <!-- 秒換算 -->
   <br>
-<%= open_time_sunday_sec %>
-<%= close_time_sunday_sec %>
-<%= now_sec %>
-<% if Date.today.wday ==0 && now_sec < close_time_sunday_sec && open_time_sunday_sec < now_sec %>
-  <%= "営業中" %>
-<% elsif Date.today.wday ==0 && now_sec > close_time_sunday_sec || open_time_sunday_sec > now_sec  %>
-  <%= "閉店" %>
-<% else %>
-  <%= "ccc" %>
-<% end %>
+<%#= open_time_sunday_sec %>
+<%#= close_time_sunday_sec %>
+<%#= now_sec %>
+<%# if Date.today.wday ==0 && now_sec < close_time_sunday_sec && open_time_sunday_sec < now_sec %>
+  <%#= "営業中" %>
+<%# elsif Date.today.wday ==0 && now_sec > close_time_sunday_sec || open_time_sunday_sec > now_sec  %>
+  <%#= "閉店" %>
+<%# else %>
+  <%#= "ccc" %>
+<%# end %>
   <%# if Date.today.wday ==0 %>

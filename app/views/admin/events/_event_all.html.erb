@@ -4,13 +4,15 @@
       <tr>
         <br>
         <th class="col-md-1">image</th>
-        <th class="col-md-3">event</th>
-        <th class="col-md-2">prefacture</th>
-        <th class="col-md-2">非表示/表示</th>
-        <th class="col-md-2">開催日</th>
-        <th class="col-md-2">ステータス</th>
+        <th class="col-md-1">event</th>
+        <th class="col-md-1">prefacture</th>
+        <th class="col-md-1">非表示/表示</th>
         <th class="col-md-1">編集</th>
         <th class="col-md-1">消去</th>
+        <th class="col-md-1">タグ1</th>
+        <th class="col-md-1">タグ2</th>
+        <th class="col-md-1">タグ3</th>
+        <th class="col-md-1">タグ4</th>
       </tr>
     </thead>
     <tbody>
@@ -20,8 +22,6 @@
         <td><%= event.name %></td>
         <td><%= event.prefecture %></td>
         <td><%= event.is_valid %></td>
-        <td><%= event.open_time_sunday %></td>
-        <td><%= event.close_time_sunday %></td>
         <td class="text-center">
           <%= link_to edit_admin_event_path(event), method: :get do %>
             <i class="fas fa-edit sync-alt_green"></i>
@@ -32,6 +32,9 @@
             <i class="fa fa-times times_red"></i>
           <% end %>
         </td>
+        <% event.tags.each do |tag| %>
+          <td><%= tag.name %></td>
+        <% end %>
       </tr>
       <% end %>
     </tbody>

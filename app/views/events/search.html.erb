@@ -65,6 +65,8 @@
           <%= f.radio_button :prefecture, :"宮崎県" %>宮崎県<br>
           <%= f.radio_button :prefecture, :"鹿児島県" %>鹿児島県
           <%= f.radio_button :prefecture, :"沖縄県" %>沖縄県
+
+          <%= f.text_field :name %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
@@ -80,14 +82,14 @@
     <% @events.each do |event| %>
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <div class="card">
-          <%= link_to event_path(event) do %>
-            <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '300x235')%>
-          <% end %>
+          <%#= link_to event_path(event) do %>
+            <%#= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '300x235')%>
+          <%# end %>
           <h4><%= event.name %></h4>
-          <p><%= event.article.truncate(64) %></p>
-          <p>場所 <%= event.prefecture%> <%= event.city%>
-          <div id="favorites_buttons_<%= event.id %>">
-             <%= render partial: 'favorites/favorite', locals: { event: event} %>
+          <p><%#= event.article.truncate(64) %></p>
+          <p>場所 <%#= event.prefecture%> <%#= event.city%>
+          <!-- <div id="favorites_buttons_<%#= event.id %>"> -->
+             <%#= render partial: 'favorites/favorite', locals: { event: event} %>
           </div>
 
         </div>

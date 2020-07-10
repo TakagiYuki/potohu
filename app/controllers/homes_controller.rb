@@ -13,12 +13,20 @@ class HomesController < ApplicationController
 	    area_id = 1
       end
 	@events_ranking_area = Event.where(area_id: area_id, id: Favorite.group(:event_id).order('count(event_id) desc').limit(4).pluck(:event_id))
-    
   end
 
   def show
 	@event = Event.find(params[:id])
 	@event_comment = EventComment.new
+  end
+
+  def tag
+    @events = []
+    @tag = Tag.find(params[:id])
+    event_tags = EventTag.where(tag_id: params[:id]).includes(:event)
+    event_tags.each do |event_tag|
+    	@events << event_tag.event
+    end
   end
 end
 
