@@ -5,8 +5,11 @@ class Event < ApplicationRecord
   has_many :event_comments #コメント
   attachment :image #refile用
   has_many :favorites #いいな
-  
+
+
   scope :enabled, -> {where(is_valid: true)}
+
+  validates :name, presence: true
   #validates :prefecture, presence: true
   #validates :city, presence: true
   #validates :street, presence: true

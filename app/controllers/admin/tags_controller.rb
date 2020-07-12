@@ -6,10 +6,12 @@ class Admin::TagsController < ApplicationController
   
   def create
   	@tag = Tag.new(tag_params)
-  	  if @tag.save!
-        @tags = Tag.all
+  	  if @tag.save
+        flash[:success] = "登録完了"
         redirect_to admin_tags_path
   	  else
+        @tags = Tag.all
+        render 'index'
   	  end
   end
 
@@ -22,7 +24,7 @@ class Admin::TagsController < ApplicationController
       if @tag.update(tag_params)
         redirect_to admin_tags_path
       else
-        render edit
+        render 'edit'
     end
   end
   

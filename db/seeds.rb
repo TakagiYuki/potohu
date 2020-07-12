@@ -1,5 +1,3 @@
-
-
 if User.find_by(email: "admin@admin.com").nil?
     User.create!(
         name:  "admin_user",
@@ -87,44 +85,49 @@ Event.create!(
     area_id: 2},
 
     {name: '仙台城', article: '仙台城は、現在の宮城県仙台市青葉区の青葉山にあった日本の城である。雅称は「青葉城」で「五城楼」の別名もある。 国の史跡。',
-    image:open("./public/中尊寺.jpg"),
+    image:open("./public/仙台城.jpg"),
     prefecture: '宮城県', city: '仙台市', street: '青葉区川内1',
     area_id: 2},
     {name: '蔵王の御釜', article: '御釜は、宮城県刈田郡蔵王町と同県柴田郡川崎町の境界付近にある火口湖で、五色沼とも呼ばれる。蔵王連峰の中央部の最も標高の高いエリアにあり、しばしば蔵王連峰の象徴として見られている。宮城県と山形県の県境から至近であり、宮城県のみならず山形県の名所としても紹介される。',
-    image:open("./public/浄土ヶ浜.jpg"),
+    image:open("./public/蔵王の御釜.jpg"),
     prefecture: '宮城県', city:'刈田郡蔵王町', street:'遠刈田温泉倉石岳国有地内国有林内',
     area_id: 2},
     {name: '仙台うみの杜水族館', article: '仙台うみの杜水族館は、宮城県仙台市宮城野区高砂中央公園内に所在する民間水族館である。横浜八景島と仙台水族館開発が連携して運営を行う。',
-    image:open("./public/龍泉洞.jpg"),
+    image:open("./public/仙台うみの杜水族館.jpg"),
     prefecture: '宮城県', city:'仙台市', street:'宮城野区中野4丁目6',
     area_id: 2},
 
     {name: '千秋公園', article: '千秋公園は、秋田県秋田市にある都市公園である。',
-    image:open("./public/中尊寺.jpg"),
+    image:open("./public/千秋公園.jpg"),
     prefecture: '秋田県', city: '秋田市', street: '千秋公園1',
     area_id: 2},
     {name: 'なまはげ館', article: 'なまはげ館は、秋田県男鹿市にある資料館である。',
-    image:open("./public/浄土ヶ浜.jpg"),
+    image:open("./public/なまはげ館.jpg"),
     prefecture: '秋田県', city:'男鹿市北浦', street:' 真山水喰沢',
     area_id: 2},
     {name: 'たつこ像', article: '永遠の若さと美貌を得るために泉の水を飲み干し、龍になったと伝えられる美しい娘・辰子の像。',
-    image:open("./public/龍泉洞.jpg"),
+    image:open("./public/たつこ像.jpg"),
     prefecture: '秋田県', city:'仙北市', street:'西木町西明寺字潟尻',
-    area_id: 2},
-    {name: '秋田ふるさと村', article: '秋田ふるさと村は、秋田県横手市にある秋田県立のテーマパーク。愛称はKamakuland。正式名称は秋田県ふるさと村',
-    image:open("./public/八甲田ロープウェー.jpg"),
-    prefecture: '秋田県', city:'横手市', street:'赤坂富ケ沢62-46',
     area_id: 2},
 
     {name: '銀山温泉', article: 'NHK連続テレビ小説『おしん』の舞台となったことで一躍脚光を浴び、 全国的にその名を知られることになった。',
-    image:open("./public/中尊寺.jpg"),
+    image:open("./public/銀山温泉.jpg"),
     prefecture: '山形県', city: '尾花沢市', street: '大字銀山新畑',
     area_id: 2},
-    {name: '霞城公園', article: '霞城公園は、山形市の中心部にある城址公園。',
-    image:open("./public/浄土ヶ浜.jpg"),
-    prefecture: '山形県', city:'山形市', street:'霞城町1番7号',
-    area_id: 2},
 
+
+
+
+
+
+
+
+
+{name: '羊山公園', article:'羊山公園は、埼玉県秩父市大宮にある公園。一面に芝桜が植えられた「芝桜の丘」で知られ、毎年4月上旬から5月上旬の開花時期には多くの観光客でにぎわう。',
+    image:open("./public/羊山公園.jpg"),
+    prefecture: '埼玉県', city: '秩父市', street: '大宮6360',
+    area_id: 3},
+    
     {name: '東京スカイツリー', article: '東京スカイツリーは、東京都墨田区押上1-1-2にある電波塔である。観光・商業施設やオフィスビルが併設されており、電波塔を含め周辺施設は「東京スカイツリータウン」と呼ばれている。2012年5月に電波塔・観光施設として開業した。',
     image:open("./public/東京スカイツリー.jpg"),
     prefecture: '東京都', city: '墨田区', street: '押上1丁目1-2',
@@ -142,10 +145,36 @@ Event.create!(
     prefecture: '東京都', city:'武蔵野市', street:'御殿山1丁目18-31',
     area_id: 3},
 
+    {name: '東京ディズニーランド', article:'東京ディズニーランドは、千葉県浦安市舞浜にあるディズニーリゾートを形成する日本のディズニーパーク。'
+    image:open("./public/東京ディズニーランド.jpg"),
+    prefecture: '千葉県', city: '浦安市', street: '舞浜1-1',
+    area_id: 3},
+
+    {name: '鎌倉大仏殿高徳院', article:'高徳院は、神奈川県鎌倉市長谷にある浄土宗の寺院。本尊は「鎌倉大仏」「長谷の大仏」として知られる阿弥陀如来像。山号は大異山。詳しくは大異山高徳院清浄泉寺という。開基と開山はともに不詳である。 2004年2月27日、境内一帯が「鎌倉大仏殿跡」の名称で国の史跡に指定された。',
+    image:open("./public/鎌倉大仏殿高徳院.jpg"),
+    prefecture: '神奈川県', city: '鎌倉市', street: '長谷4丁目2−28',
+    area_id: 4},
+
+    {name: '国営越後丘陵公園', article:'国営越後丘陵公園は、新潟県長岡市にある国営公園。',
+    image:open("./public/国営越後丘陵公園.jpg"),
+    prefecture: '新潟県', city: '長岡市', street: '宮本東方町字三ツ又1950-1',
+    area_id: 4},
+
+    {name: '黒部ダム', article:'黒部ダムは、富山県東部の立山町を流れる黒部川水系の黒部川に建設された水力発電専用のダムである。1956年着工、太田垣士郎指揮のもと、171人の殉職者と7年の歳月をかけて、1961年1月に送電を開始し1963年に完成した。貯水量2億トン。 ',
+    image:open("./public/黒部ダム.jpg"),
+    prefecture: '富山県', city: '中新川郡立山町', street: '芦峅寺6',
+    area_id: 4},
+
+    {name: '兼六園', article:'兼六園は、石川県金沢市に存在する日本庭園である。国の特別名勝に指定されている。広さは約11.7ヘクタール。 17世紀中期、加賀藩によって金沢城の外郭に造営された藩庭を起源とする江戸時代を代表する池泉回遊式庭園であり、岡山市の後楽園と水戸市の偕楽園と並んで日本三名園の1つに数えられる。',
+    image:open("./public/兼六園.jpg"),
+    prefecture: '石川県', city: '金沢市', street: '兼六町1',
+    area_id: 4},
+
     {name: '河童橋', article: '河童橋とは、長野県松本市安曇上高地の梓川に架かる木製の吊橋。',
     image:open("./public/河童橋.jpg"),
     prefecture: '長野県', city: '松本市', street: '安曇上高地',
     area_id: 4},
+
     {name: '軽井沢銀座商店街', article: '観光スポットとして知られる商店街。地場の食材を使用する飲食店、食料品を含める土産物店、雑貨や衣料品を販売するショップが立ち並ぶ。',
     image:open("./public/image004.jpg"),
     prefecture: '長野県', city:'北佐久郡軽井沢町', street:'大字軽井沢５４１',
@@ -209,6 +238,16 @@ Event.create!(
     image:open("./public/image006.jpg"),
     prefecture: '香川県', city:'香川郡直島町', street:'2252-2',
     area_id: 7},
+
+
+
+
+
+
+
+
+
+
 
     {name: '沖縄美ら海水族館', article: '沖縄美ら海水族館は、沖縄本島北西部の本部半島備瀬崎近くにある国営沖縄記念公園・海洋博覧会地区の 水族館。一般財団法人沖縄美ら島財団が管理・運営している。「チュらうみ」とは沖縄の方言で「清〔きよ〕ら海」という意味。',
     image:open("./public/image001.jpg"),

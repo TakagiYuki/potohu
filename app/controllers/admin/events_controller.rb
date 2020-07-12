@@ -21,16 +21,16 @@ class Admin::EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
       if @event.update(event_params)
-        redirect_to edit_admin_event_path
+        # redirect_to edit_admin_event_path
       else
-        render edit
+        # render edit
     end
   end
 
   def destroy
-    event = Event.find(params[:id])
-    event.destroy
-    redirect_to admin_events_path
+    @event = Event.find(params[:id])
+    @events = Event.all
+    @event.destroy
   end
 
   private

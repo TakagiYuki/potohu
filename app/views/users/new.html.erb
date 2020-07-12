@@ -4,7 +4,7 @@
     <h1>新規登録</h1>
     <hr>
     <%= form_with(model: @user, local: true) do |f| %>
-      <%= render 'shared/error_messages' %>
+      <%= render 'shared/error_messages', db:@user %>
 
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>

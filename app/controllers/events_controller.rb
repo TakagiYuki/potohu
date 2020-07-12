@@ -19,19 +19,37 @@ class EventsController < ApplicationController
   end
 
   def search
-    if params[:search][:prefecture].present?
+    # @events = Event.joins(:tags).where(tags.name: "自然")
+    # @events = Event.joins(:tags).where('tags.name LIKE ?', "%#{params[:search][:name]}%")
+    
+    # モデルクラス.where( "列名 LIKE ? AND 列名 LIKE ? ", "条件1", "条件2")
+    #byebug
+    # {"utf8"=>"✓", "search"=>{"prefecture"=>"北海道", "name"=>""}, "commit"=>"search"}
+    # {"utf8"=>"✓", "search"=>{"name"=>""}, "commit"=>"search"}
+    if params[:search][:prefecture].present? && params[:search][:name].empty?
+      p ("aaa")
       @events = Event.where('prefecture LIKE ?', "%#{params[:search][:prefecture]}%")
 
-    elsif params[:search][:name].present?
-      p("aaa")
-      @events = []
-      @tags = Tag.where( 'name LIKE ?', "%#{params[:search][:name]}%")
-      @tags.each do|tag|
-        @events << tag.event
-      end
+    elsif params[:search][:prefecture].blank? && params[:search][:name].present?
+      p ("bbb")
+      @events = Event.joins(:tags).where('tags.name LIKE ?', "%#{params[:search][:name]}%")
     else
-      @events = Event.none
+      p ("ccc")
+      @events = Event.joins(:tags).where('events.prefecture LIKE ? AND tags.name LIKE ?', "%#{params[:search][:prefecture]}%","%#{params[:search][:name]}%")
+
+      #@events = Event.none
     end
   end
 end
+
+    # elsif params[:search][:name].present?
+    #   @tags = Tag.where( 'name LIKE ?', "%#{params[:search][:name]}%")
+    #   #byebug
+    #   @tags.each do|tag|
+    #     @events << tag.events
+    #   end
+    #   byebug
+    # else
+    #   @events = Event.none
+    # end
 

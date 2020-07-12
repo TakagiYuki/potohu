@@ -5,7 +5,9 @@
   </h3>
   <hr>
   <!-- イベント表示 -->
-  <%= render 'events/event_learge_content' %>
+  <div id="event_update">
+    <%= render 'events/event_learge_content' %>
+  </div>
   <!-- 入力フォーム -->
   <%= render 'admin/events/event_form', url: "/admin/events/#{@event.id}" %>
 </div>

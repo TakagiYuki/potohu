@@ -1,12 +1,12 @@
 <!-- ログインしてて、いいねしてる時 -->
 <% if logged_in? && event.favorited_by?(current_user) %></p>
   <%= link_to event_favorites_path(event), method: :delete, remote: true do %>
-    <i class="fas fa-flag flag_green"><%= event.favorites.count%></i>
+    <i class="fas fa-heart flag_green"><%= event.favorites.count%></i>
   <% end %>
 
   <!-- ログインしてない時 -->
   <% elsif !logged_in? %>
-    <i class="far fa-flag" data-toggle="modal" data-target="#favoriteModal"><%= event.favorites.count%></i>
+    <i class="far fa-heart" data-toggle="modal" data-target="#favoriteModal"><%= event.favorites.count%></i>
 
     <!-- モーダル・ダイアログ -->
 	<div class="modal fade" id="favoriteModal" tabindex="-1">
@@ -30,6 +30,6 @@
   <!--ログインしてて、いいねしてない時 -->
   <% else %>
     <%= link_to event_favorites_path(event), method: :post, remote: true do %>
-      <i class="far fa-flag"><%= event.favorites.count%></i>
+      <i class="far fa-heart"><%= event.favorites.count%></i>
     <% end %>
 <% end %>
