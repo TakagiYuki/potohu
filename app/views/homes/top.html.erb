@@ -4,6 +4,7 @@
 <div class="top">
   <img src="/assets/map-japan.png" alt="画像" width="400px" height="400px">
   <%#= image_tag asset_path("map-japan.png", alt: "", size:'100x200') %>
+
 </div>
 
 <!-- スライダー -->
@@ -59,7 +60,9 @@
     <%#= link_to user_favorites_path(id: 1) %>
     <a href="events/tag/1" class="thumbnail">
       <div class="tag-content">
-        <img src="./public/tag_01.jpg" alt="画像" width="252px" height="200px">
+        <!-- <img src="./public/tag_01.jpg" alt="画像" width="252px" height="200px"> -->
+        <%= image_tag asset_path("tag_01.jpg", alt: "", size:'252x100') %>
+        <%= image_tage 'test.jpg', size: '100x200' %>
         <p>自然</p>
       </div>
     </a>
