@@ -148,7 +148,7 @@ Event.create!(
     area_id: 4},
 
     {name: '黒部ダム', article:'黒部ダムは、富山県東部の立山町を流れる黒部川水系の黒部川に建設された水力発電専用のダムである。1956年着工、太田垣士郎指揮のもと、171人の殉職者と7年の歳月をかけて、1961年1月に送電を開始し1963年に完成した。貯水量2億トン。 ',
-    image:open("./public/黒部ダム.jpg"),
+    image:open("./public/kurobedamu.jpg"),
     prefecture: '富山県', city: '中新川郡立山町', street: '芦峅寺6',
     area_id: 4},
 
@@ -158,7 +158,7 @@ Event.create!(
     area_id: 4},
 
     {name: '河童橋', article: '河童橋とは、長野県松本市安曇上高地の梓川に架かる木製の吊橋。',
-    image:open("./public/河童橋.jpg"),
+    image:open("./public/kappabashi.jpg"),
     prefecture: '長野県', city: '松本市', street: '安曇上高地',
     area_id: 4},
 
@@ -167,7 +167,7 @@ Event.create!(
     prefecture: '長野県', city:'北佐久郡軽井沢町', street:'大字軽井沢５４１',
     area_id: 4},
     {name: '白骨温泉', article: '白骨温泉は、長野県松本市安曇にある温泉である。中部山岳国立公園区域内にあり、国民保養温泉地にも指定されている。',
-    image:open("./public/白骨温泉.jpg"),
+    image:open("./public/siraboneonsen.jpg"),
     prefecture: '長野県', city:'松本市', street:'安曇',
     area_id: 4},
     {name: '地獄谷野猿公苑', article: '地獄谷野猿公苑は、長野県下高井郡山ノ内町の地獄谷温泉にある野性のニホンザルの生態の観察が出来る野猿公園。冬場に温泉にサルが浸かる国際的な観光地。英語圏では“Snow Monkey Mountain”とも呼ばれる。',
@@ -197,7 +197,7 @@ Event.create!(
     prefecture: '広島県', city: '廿日市', street: '市宮島町1-1',
     area_id: 6},
     {name: '原爆ドーム', article: '原爆ドームの名で知られる広島平和記念碑は、1945年8月6日8時15分日本の広島市に投下された原子爆弾の悲惨さを今に伝える記念碑である。もともとは広島県のさまざまな物産を展示するための広島県物産陳列館として開館され、原爆投下当時は広島県産業奨励館と呼ばれていた。',
-    image:open("./public/原爆ドーム.jpg"),
+    image:open("./public/genbakudomu.jpg"),
     prefecture: '広島県', city:'広島市', street:'中区大手町1-10',
     area_id: 6},
     {name: 'おりづるタワー', article: '静かな屋上展望台から、感動的な広島の景観を望むことができる。1 階にカフェを併設。',
