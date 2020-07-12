@@ -133,7 +133,7 @@ Event.create!(
     area_id: 3},
 
     {name: '東京ディズニーランド', article:'東京ディズニーランドは、千葉県浦安市舞浜にあるディズニーリゾートを形成する日本のディズニーパーク。',
-    image:open("./public/東京ディズニーランド.jpg"),
+    image:open("./public/tokyodisneyland.jpg"),
     prefecture: '千葉県', city: '浦安市', street: '舞浜1-1',
     area_id: 3},
 
