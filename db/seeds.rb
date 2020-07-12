@@ -95,7 +95,7 @@ Event.create!(
     prefecture: '秋田県', city: '秋田市', street: '千秋公園1',
     area_id: 2},
     {name: 'なまはげ館', article: 'なまはげ館は、秋田県男鹿市にある資料館である。',
-    image:open("./public/なまはげ館.jpg"),
+    image:open("./public/namahagekan館.jpg"),
     prefecture: '秋田県', city:'男鹿市北浦', street:' 真山水喰沢',
     area_id: 2},
     {name: 'たつこ像', article: '永遠の若さと美貌を得るために泉の水を飲み干し、龍になったと伝えられる美しい娘・辰子の像。',
