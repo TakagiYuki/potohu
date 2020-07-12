@@ -6,7 +6,7 @@
         <p><%= simple_format(@event.article) %></p>
         <p><%= "開催場所#{@event.city}" %></p>
 　　　　　<% @event.tags.each do |tag| %>
-          <span class="label label-default"><%= @tag.name %></span>
+          <span class="label label-default"><%= tag.name %></span>
         <% end %>
         </p>
         <div id="favorites_buttons_<%= @event.id %>">
