@@ -1,0 +1,27 @@
+<% provide(:title, 'お気に入り一覧') %>
+<div class="container">
+<br>
+<h4>私のお気に入り</h4>
+<p>興味のあるページを見つけたら、ハートをクリックしてあなたの「お気に入り」に追加しましょう！</p>
+<hr>
+
+<div class="index-sub-content">
+  <% @user_favorites.each do |favorite| %>
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+      <div class="card">
+        <%= link_to event_path(favorite.event) do %>
+          <div class="<%= 'new' if current_page?(root_path) %>">
+            <%= attachment_image_tag(favorite.event, :image, fallback: 'no_image.jpg', size: '180x141')%>
+          </div>
+        <% end %>
+        <h4><%= favorite.event.name.truncate(9) %></h4>
+        <p><%= favorite.event.prefecture%> | <%= favorite.event.city%></p>
+        <p>開催期間<%#= event.date%></p>
+        <div id="favorites_buttons_<%= favorite.event.id %>">
+          <%= render partial: 'favorites/favorite', locals: { event: favorite.event} %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>

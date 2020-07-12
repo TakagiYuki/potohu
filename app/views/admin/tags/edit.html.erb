@@ -1,0 +1,12 @@
+<% provide(:title, 'タグ編集') %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>タグ編集</h3>
+      <hr>
+    </div>
+  </div>
+  <!-- 入力フォーム -->
+ <%= render 'admin/tags/tag_form', url: "/admin/tags/#{@tag.id}" %>
+</div>
+

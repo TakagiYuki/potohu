@@ -1,0 +1,4 @@
+$("textarea").val("");//textareaを空に
+$("input").val("");//textareaを空に
+$('#sampleModal').modal('hide')
+$('.comment_<%= @event.id %>').html("<%= j(render 'events/comment', event_comments: @event.event_comments ) %>");

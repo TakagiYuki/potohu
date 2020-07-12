@@ -1,7 +1,168 @@
-<% provide(:title, "Home") %>
-<h1>Sample App</h1>
-<p>
-  This is the home page for the
-  <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
-  sample application.
-</p>
+<% provide(:title, 'ホーム') %>
+
+<!-- 日本地図画像 -->
+<div class="top">
+  <img src="/assets/map-japan.png" alt="画像" width="400px" height="400px">
+  <%#= image_tag asset_path("map-japan.png", alt: "", size:'100x200') %>
+</div>
+
+<!-- スライダー -->
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <div class="slide-img"><img src="assets/img_01.jpg" alt=""></div>
+      <div class="slide-content">
+        <h1>ここいこ。へようこそ</h1>
+        <p>お気に入りの観光地を探してみよう</p>
+        <!-- <div class="caption">caption 01<%#=link_to root_url  %></div> -->
+      </div>
+    </div><!-- end of .swiper-slide -->
+    <div class="swiper-slide">
+      <div class="slide-img"><img src="assets/img_02.jpg" alt=""></div>
+      <div class="slide-content">
+        <h2></h2>
+        <p></p>
+        <div class="caption"><%=link_to "Click to go on a trip !", root_url, :style=>"color:white;" %></div>
+      </div>
+    </div><!-- end of .swiper-slide -->
+    <div class="swiper-slide">
+      <div class="slide-img"><img src="assets/img_03.jpg" alt=""></div>
+      <div class="slide-content">
+        <h3></h3>
+        <p></p>
+        <div class="caption"><%=link_to "Click to go on a trip !", root_url, :style=>"color:white;" %></div>
+      </div>
+    </div><!-- end of .swiper-slidet -->
+  </div><!-- end of .swiper-wrapper -->
+  <div class="swiper-pagination swiper-pagination-white"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div><!-- end of .swiper-container -->
+
+<!-- ボタン -->
+<%= render 'homes/select_hokkaido' %>
+<%= render 'homes/select_tohoku' %>
+<%= render 'homes/select_kanto' %>
+<%= render 'homes/select_cyubu' %>
+<%= render 'homes/select_kansai' %>
+<%= render 'homes/select_cyugoku' %>
+<%= render 'homes/select_shikoku' %>
+<%= render 'homes/select_kyusyu' %>
+
+<div class="container">
+  <h3>カテゴリーから探す</h3>
+  <hr>
+<div class="contents-frame">
+<div class="container">
+<div class="row">
+  <div class="col-xs-6 col-md-3">
+    <%#= link_to user_favorites_path(id: 1) %>
+    <a href="events/tag/1" class="thumbnail">
+      <div class="tag-content">
+        <img src="/assets/tag_01.jpg" alt="画像" width="252px" height="200px">
+        <p>自然</p>
+      </div>
+    </a>
+  </div>
+  <div class="col-xs-6 col-md-3">
+    <a href="events/tag/2" class="thumbnail">
+      <div class="tag-content">
+        <img src="/assets/tag_02.jpg" alt="画像" width="252px" height="200px">
+        <p>歴史</p>
+      </div>
+    </a>
+  </div>
+  <div class="col-xs-6 col-md-3">
+    <a href="events/tag/3" class="thumbnail">
+      <div class="tag-content">
+        <img src="/assets/tag_03.jpg" alt="画像" width="252px" height="200px">
+        <p>体験</p>
+      </div>
+    </a>
+  </div>
+  <div class="col-xs-6 col-md-3">
+    <a href="events/tag/4" class="thumbnail">
+      <div class="tag-content">
+        <img src="/assets/tag_04.jpg" alt="画像" width="252px" height="200px">
+        <p>舞台</p>
+      </div>
+    </a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="container">
+  <h3>新着のイベント</h3>
+  <hr>
+  <%= render 'events/event_small_content', events: @events_new %>
+</div>
+
+<!-- スライダー -->
+
+<div class="index-sub-content">
+  <div class="container">
+  <h3>各エリアの人気イベント</h3>
+  <hr>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <table>
+        <tr>
+          <!-- params[:area_id]にidを送る-->
+          <th><%= link_to "北海道", root_url(area_id: 1), remote: true %></th>
+          <th><%= link_to "東北", root_url(area_id: 2), remote: true %></th>
+          <th><%= link_to "関東", root_url(area_id: 3), remote: true %></th>
+          <th><%= link_to "中部", root_url(area_id: 4), remote: true %></th>
+          <th><%= link_to "関西", root_url(area_id: 5), remote: true %></th>
+          <th><%= link_to "中国", root_url(area_id: 6), remote: true %></th>
+          <th><%= link_to "四国", root_url(area_id: 7), remote: true %></th>
+          <th><%= link_to "九州・沖縄", root_url(area_id: 8), remote: true %></th>
+        </tr>
+      </table>
+  <!------------------部分テンプレートranking.html.erb--------------------->
+      <div class="favorite">
+        <%= render 'ranking', events_ranking_area: @events_ranking_area %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+    <h3>エリアから探す</h3>
+    <hr>
+  </div>
+</div>
+
+  <div class="main">
+    <div class="blog"></div>
+      <div class="sidebar">
+        <div id="map"></div>
+      </div>
+  </div>
+
+
+
+<script>
+  let mySwiper = new Swiper ('.swiper-container', {
+    autoplay: {
+    delay: 5000,
+  　},
+    loop: true,
+
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+ 
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+ 
+  })
+</script>
+

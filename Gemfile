@@ -5,6 +5,30 @@ ruby '2.5.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
+# bootstrap追加
+gem 'bootstrap-sass', '~> 3.3.6'
+# jquery追加
+gem 'jquery-rails'
+# パスワードのハッシュ化
+gem 'bcrypt', '3.1.12'
+# 日本語化
+gem 'rails-i18n'
+gem 'enum_help'
+# 画像投稿
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+# 画像サイズ変更
+gem "refile-mini_magick"
+# カレンダー表示
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+# 環境変数化
+gem 'dotenv-rails'
+# ページネーション
+gem 'kaminari'
+# javascript
+gem 'gon'
+# font-awesome
+gem 'font-awesome-sass'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -40,6 +64,11 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
+  # 自動デプロイ
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -55,9 +84,15 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  # ブラウザテスト
+  gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# MySQLを利用
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end

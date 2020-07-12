@@ -1,0 +1,46 @@
+<div class="col-md-12">
+  <table class="table table-inverse">
+    <thead>
+      <tr>
+        <br>
+        <th class="col-md-1">image</th>
+        <th class="col-md-1">名前</th>
+        <th class="col-md-1">場所</th>
+        <th class="col-md-1">非表示/表示</th>
+        <th class="col-md-1">編集</th>
+        <th class="col-md-1">消去</th>
+        <th class="col-md-1">タグ1</th>
+        <th class="col-md-1">タグ2</th>
+        <th class="col-md-1">タグ3</th>
+        <th class="col-md-1">タグ4</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% events.each do |event| %>
+      <tr>
+        <td class="text-center"><%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '90x60')%></td>
+        <td><%= event.name %></td>
+        <td><%= event.prefecture %></td>
+        <% if event.is_valid == true %>
+          <td><span class="label label-primary"><%= "表示中" %></span></td>
+        <% else %>
+          <td><span class="label label-danger"><%= "非表示" %></span></td>
+        <% end %>
+        <td class="text-center">
+          <%= link_to edit_admin_event_path(event), method: :get do %>
+            <i class="fas fa-edit sync-alt_green"></i>
+          <% end %>
+        </td>
+        <td class="text-center">
+          <%= link_to admin_event_path(event), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} do %>
+            <i class="fa fa-times times_red"></i>
+          <% end %>
+        </td>
+        <% event.tags.each do |tag| %>
+          <td><%= tag.name %></td>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

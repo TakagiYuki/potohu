@@ -1,0 +1,13 @@
+<% provide(:title, 'イベント編集') %>
+<div class="container">
+  <h3>
+    <center>イベント編集</center>
+  </h3>
+  <hr>
+  <!-- イベント表示 -->
+  <div id="event_update">
+    <%= render 'events/event_learge_content' %>
+  </div>
+  <!-- 入力フォーム -->
+  <%= render 'admin/events/event_form', url: "/admin/events/#{@event.id}" %>
+</div>

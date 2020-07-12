@@ -1,0 +1,12 @@
+<% provide(:title, 'エリア編集') %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>エリア編集</h3>
+      <hr>
+    </div>
+  </div>
+  <div id="area_update">
+    <%= render 'admin/areas/area_form', url: "/admin/areas/#{@area.id}" %>
+  </div>
+</div>

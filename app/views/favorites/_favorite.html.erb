@@ -1,0 +1,35 @@
+<!-- ログインしてて、いいねしてる時 -->
+<% if logged_in? && event.favorited_by?(current_user) %></p>
+  <%= link_to event_favorites_path(event), method: :delete, remote: true do %>
+    <i class="fas fa-heart flag_green"><%= event.favorites.count%></i>
+  <% end %>
+
+  <!-- ログインしてない時 -->
+  <% elsif !logged_in? %>
+    <i class="far fa-heart" data-toggle="modal" data-target="#favoriteModal"><%= event.favorites.count%></i>
+
+    <!-- モーダル・ダイアログ -->
+	<div class="modal fade" id="favoriteModal" tabindex="-1">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+		  <div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+			<h4 class="modal-title">お気に入り機能はここいこ会員限定の機能です</h4>
+		  </div>
+		  <div class="modal-body">
+		    <p>すでに会員の方は  <%= link_to "ログイン画面へ", new_session_path, class: "btn btn-default" %></p>
+			<p>まだ会員でない方は  <%= link_to "新規会員登録画面へ", new_user_path, class: "btn btn-default" %></p>
+		  </div>
+		  <div class="modal-footer">
+		    <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+		  </div>
+	    </div>
+	  </div>
+	</div>
+
+  <!--ログインしてて、いいねしてない時 -->
+  <% else %>
+    <%= link_to event_favorites_path(event), method: :post, remote: true do %>
+      <i class="far fa-heart"><%= event.favorites.count%></i>
+    <% end %>
+<% end %>
