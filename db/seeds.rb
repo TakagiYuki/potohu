@@ -226,16 +226,6 @@ Event.create!(
     prefecture: '香川県', city:'香川郡直島町', street:'2252-2',
     area_id: 7},
 
-
-
-
-
-
-
-
-
-
-
     {name: '沖縄美ら海水族館', article: '沖縄美ら海水族館は、沖縄本島北西部の本部半島備瀬崎近くにある国営沖縄記念公園・海洋博覧会地区の 水族館。一般財団法人沖縄美ら島財団が管理・運営している。「チュらうみ」とは沖縄の方言で「清〔きよ〕ら海」という意味。',
     image:open("./public/image001.jpg"),
     prefecture: '沖縄県', city: '国頭郡本部町', street: '字石川424',
@@ -254,3 +244,10 @@ Event.create!(
     area_id: 8}
   ]
 )
+
+EventTag.create!(
+        [
+            {tag_id:1, event_id:1},
+            {tag_id:2, event_id:1}
+        ]
+    )
