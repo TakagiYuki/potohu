@@ -10,7 +10,6 @@
         <li><%= link_to ' タグ作成', admin_tags_path, class: 'glyphicon glyphicon-log-in' %></li>
         <li><%= link_to ' イベント作成', admin_events_path, class: 'glyphicon glyphicon-log-in' %></li>
         <li><%= link_to ' エリア作成', admin_areas_path, class: 'glyphicon glyphicon-log-in' %></li>
-        <li><%= link_to ' イベント', events_path, class: 'glyphicon glyphicon-log-in' %></li>
         <li><%= link_to ' ログアウト', session_path(current_user), method: :delete, class: 'glyphicon glyphicon-log-in' %></li>
         <%= link_to user_favorites_path(current_user), method: :get do %>
           <i class="far fa-heart"></i>
@@ -28,12 +27,17 @@
       <li><%= link_to '　ホーム', root_url, class: 'glyphicon glyphicon-log-in' %></li>
       <li><%= link_to '　マイページ', user_path(current_user), class: 'glyphicon glyphicon-log-in' %></li>
       <li><%= link_to '  ログアウト', session_path(current_user), method: :delete, class: 'glyphicon glyphicon-log-in' %></li>
+
       <%= link_to user_favorites_path(current_user), method: :get do %>
-        <i class="far fa-heart"></i>
+        <li><i class="far fa-heart"></i></li>
       <% end %>
-      <li><i class="fas fa-search" data-toggle="modal" data-target="#searchModal"></i><li>
+
+      <li><i class="fas fa-search" data-toggle="modal" data-target="#searchModal"></i></li>
+
       <%= link_to "https://twitter.com/share?url=#{request.url}&text=文", target: :_blank do %>
-        <span data-toggle="tooltip" data-placement="bottom" title="Share"><i class="fab fa-twitter"></i></span>
+        <span data-toggle="tooltip" data-placement="bottom" title="Share">
+          <li><i class="fab fa-twitter"></i></li>
+        </span>
       <% end %>
 
 
@@ -52,7 +56,7 @@
         <%= link_to "https://twitter.com/share?url=#{request.url}&text=文", target: :_blank do %>
           <span data-toggle="tooltip" data-placement="bottom" title="Share"><i class="fab fa-twitter"></i></span>
         <% end %>
-    　<% end %>
+      <% end %>
     </ul>
   </nav>
 </header>
