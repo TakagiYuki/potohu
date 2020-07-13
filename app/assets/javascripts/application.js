@@ -21,12 +21,13 @@
 //= require moment/ja.js
 
 
-var data = {'data-format': 'yyyy-MM-dd hh:mm:ss' };
-$(function(){
-    $('.datepicker').attr(data);
-    $('.datepicker').datetimepicker({locale: 'ja'});
-});
+// var data = {'data-format': 'yyyy-MM-dd hh:mm:ss' };
+// $(function(){
+//     $('.datepicker').attr(data);
+//     $('.datepicker').datetimepicker({locale: 'ja'});
+// });
 
+// ツールチップ
 $(function () {
 	$('[data-toggle="tooltip"]').tooltip();
 });
