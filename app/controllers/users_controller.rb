@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :baria_user, only: [:show, :edit, :update, :favorite]
+
   def new
   	@user = User.new
   end
@@ -71,5 +73,12 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
+    end
+
+    def baria_user
+      @user = User.find(params[:id])
+      unless @user.id == current_user.id
+        redirect_to root_url
+      end
     end
 end

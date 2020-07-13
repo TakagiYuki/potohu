@@ -1,4 +1,9 @@
 <div class="select-hokkaido">
-  <a class="btn btn-default btn-xs" href="http://localhost:3000/events/search?utf8=✓&search%5Bprefecture%5D=北海道&search%5Bname%5D=&commit=search" role="button">北海道</a>
-  
+
+  <% if Rails.env.development? %>
+    <a class="btn btn-default btn-xs" href="http://localhost:3000/events/search?utf8=✓&search%5Bprefecture%5D=北海道&search%5Bname%5D=&commit=search" role="button">北海道</a>
+  <% else %>
+    <a class="btn btn-default btn-xs" href="http://localhost:3000/events/search?utf8=✓&search%5Bprefecture%5D=北海道&search%5Bname%5D=&commit=search" role="button">本番</a>
+  <% end %>
+
 </div>

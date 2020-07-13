@@ -45,7 +45,7 @@ header {
    background-color: #ffffff;//背景色
    display: flex;//固定
    align-items: center;//縦方向の中心
-   z-index: 3;
+   z-index: 4;
 }
 h1 {
    margin: 0; padding: 0;
@@ -585,8 +585,10 @@ em.green {
   background-color: rgba(0,127,127,0.5);
   padding: 3px 8px;
 }
-.top{
+.top img{
   position: absolute;
+  width: 400px;
+  left: 400px;
   top: 100px;
   left: 68px;
   z-index: 2;
@@ -654,4 +656,7 @@ em.green {
   margin:0;
   padding:0;
   /*文字の装飾は省略*/
+  }
+  .tag-content img{
+    width: 252px;
   }
