@@ -12,7 +12,8 @@
             <h3><%= @user.name %></h3>
           </div>
           <div class="text">
-            <span><%= "現在の都道府県値は#{@user.counter_hokkaido+@user.counter_aomori+@user.counter_iwate+@user.counter_miyagi+@user.counter_akita+@user.counter_yamagata+@user.counter_hukushima+@user.counter_ibaraki+@user.counter_tochigi+@user.counter_gunma+@user.counter_saitama+@user.counter_chiba+@user.counter_tokyo+@user.counter_kanagawa+@user.counter_niigata+@user.counter_toyama+@user.counter_ishikawa+@user.counter_hukui+@user.counter_yamanashi+@user.counter_nagano+@user.counter_gihu+@user.counter_shizuoka+@user.counter_aichi+@user.counter_mie+@user.counter_shiga+@user.counter_kyoto+@user.counter_osaka+@user.counter_hyogo+@user.counter_nara+@user.counter_wakayama+@user.counter_tottori+@user.counter_shimane+@user.counter_okayama+@user.counter_hiroshima+@user.counter_yamaguchi+@user.counter_tokushima+@user.counter_kagawa+@user.counter_ehime+@user.counter_kouchi+@user.counter_hukuoka+@user.counter_saga+@user.counter_nagasaki+@user.counter_kumamoto+@user.counter_oita+@user.counter_miyazaki+@user.counter_kagoshima+@user.counter_okinawa}点です。" %></span>
+            <p>各都道府県にカーソルを合わせると、いいねの回数を確認できます!</p>
+            <span><%#= "現在の都道府県値は#{@user.counter_hokkaido+@user.counter_aomori+@user.counter_iwate+@user.counter_miyagi+@user.counter_akita+@user.counter_yamagata+@user.counter_hukushima+@user.counter_ibaraki+@user.counter_tochigi+@user.counter_gunma+@user.counter_saitama+@user.counter_chiba+@user.counter_tokyo+@user.counter_kanagawa+@user.counter_niigata+@user.counter_toyama+@user.counter_ishikawa+@user.counter_hukui+@user.counter_yamanashi+@user.counter_nagano+@user.counter_gihu+@user.counter_shizuoka+@user.counter_aichi+@user.counter_mie+@user.counter_shiga+@user.counter_kyoto+@user.counter_osaka+@user.counter_hyogo+@user.counter_nara+@user.counter_wakayama+@user.counter_tottori+@user.counter_shimane+@user.counter_okayama+@user.counter_hiroshima+@user.counter_yamaguchi+@user.counter_tokushima+@user.counter_kagawa+@user.counter_ehime+@user.counter_kouchi+@user.counter_hukuoka+@user.counter_saga+@user.counter_nagasaki+@user.counter_kumamoto+@user.counter_oita+@user.counter_miyazaki+@user.counter_kagoshima+@user.counter_okinawa}点です。" %></span>
           </div>
             <% if @user == current_user %>
                <p><%= link_to "User情報変更", edit_user_path(@user), class: "btn btn-primary" %></p>
@@ -26,9 +27,6 @@
   </div>
 </div>
 
- <% @favorites.each do |favorite| %>
-    <%= favorite.event.name %>
-  <% end %>
   <head>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
@@ -38,7 +36,7 @@
       function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable([
 
-          ['Region', '訪問回数'],
+          ['Region', 'いいねの回数'],
           ['北海道', gon.user.counter_hokkaido],
           ['青森', gon.user.counter_aomori],
           ['岩手', gon.user.counter_iwate],
@@ -101,13 +99,13 @@
             if (selectedItem) {
                 switch (row){
                     case 0:
-                        url ="https://www.google.co.jp/";
+                        url ="";
                         break;
                     case 1:
-                        url ="http://www.yahoo.co.jp/";
+                        url ="";
                         break;
                     case 2:
-                        url ="http://localhost:3000/events?event.prefecture=岩手県";
+                        url ="";
                         break;
                 }
                 window.location.href = url;

@@ -20,17 +20,17 @@
     <div class="swiper-slide">
       <div class="slide-img"><%= image_tag asset_path("img_02.jpg", alt: "観光") %></div>
       <div class="slide-content">
-        <h2></h2>
+        <h2>ここいこ。へようこそ</h2>
         <p></p>
-        <div class="caption"><%=link_to "Click to go on a trip !", root_url, :style=>"color:white;" %></div>
+        <div class="caption"><%=link_to "Click to go on a trip !", event_path(1), :style=>"color:white;" %></div>
       </div>
     </div><!-- end of .swiper-slide -->
     <div class="swiper-slide">
       <div class="slide-img"><%= image_tag asset_path("img_03.jpg", alt: "観光") %></div>
       <div class="slide-content">
-        <h3></h3>
+        <h3>ここいこ。へようこそ</h3>
         <p></p>
-        <div class="caption"><%=link_to "Click to go on a trip !", root_url, :style=>"color:white;" %></div>
+        <div class="caption"><%=link_to "Click to go on a trip !", event_path(2), :style=>"color:white;" %></div>
       </div>
     </div><!-- end of .swiper-slidet -->
   </div><!-- end of .swiper-wrapper -->
@@ -56,8 +56,8 @@
 <div class="container">
 <div class="row">
   <div class="col-xs-6 col-md-3">
-    <%#= link_to user_favorites_path(id: 1) %>
-    <a href="events/tag/1" class="thumbnail">
+    <%= link_to event_tag_path(1) %>
+    <!-- <a href="events/tag/1" class="thumbnail"> -->
       <div class="tag-content">
         <%= image_tag asset_path("tag_01.jpg", alt: "観光") %>
         <p>自然</p>

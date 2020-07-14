@@ -21,12 +21,13 @@ class HomesController < ApplicationController
   end
 
   def tag
-    @events = []
+    # @events = []
     @tag = Tag.find(params[:id])
-    event_tags = EventTag.where(tag_id: params[:id]).includes(:event)
-    event_tags.each do |event_tag|
-    	@events << event_tag.event
-    end
+    # event_tags = EventTag.where(tag_id: params[:id]).includes(:event)
+    # event_tags.each do |event_tag|
+    # 	@events << event_tag.event
+    # end
+    @events = Event.joins(:tags).where(tag_id: 1)
   end
 end
 
