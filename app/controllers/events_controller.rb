@@ -27,17 +27,11 @@ class EventsController < ApplicationController
     # {"utf8"=>"✓", "search"=>{"prefecture"=>"北海道", "name"=>""}, "commit"=>"search"}
     # {"utf8"=>"✓", "search"=>{"name"=>""}, "commit"=>"search"}
     if params[:search][:prefecture].present? && params[:search][:name].empty?
-      p ("aaa")
       @events = Event.where('prefecture LIKE ?', "%#{params[:search][:prefecture]}%")
-
     elsif params[:search][:prefecture].blank? && params[:search][:name].present?
-      p ("bbb")
       @events = Event.joins(:tags).where('tags.name LIKE ?', "%#{params[:search][:name]}%")
     else
-      p ("ccc")
       @events = Event.joins(:tags).where('events.prefecture LIKE ? AND tags.name LIKE ?', "%#{params[:search][:prefecture]}%","%#{params[:search][:name]}%")
-
-      #@events = Event.none
     end
   end
 end
