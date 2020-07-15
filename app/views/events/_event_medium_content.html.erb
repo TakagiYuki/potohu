@@ -9,9 +9,11 @@
           </p>
         <p><%= event.article.truncate(74) %></p>
         <p>場所 <%= event.prefecture%> <%= event.city%>
-        <% @event.tags.each do |tag| %>
+
+        <% event.tags.each do |tag| %>
           <span class="label label-default"><%= tag.name %></span>
         <% end %>
+
         <div id="favorites_buttons_<%= event.id %>">
            <%= render partial: 'favorites/favorite', locals: { event: event} %>
         </div>

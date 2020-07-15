@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2020_07_03_002714) do
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
+    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

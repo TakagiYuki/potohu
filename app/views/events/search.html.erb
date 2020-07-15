@@ -1,31 +1,8 @@
-<% provide(:title, '観光地 検索結果') %>
-<div class="index-content">
-  <div class="container-fluid"><!-- 流動的 -->
-
-<h3>都道府県から探す</h3>
-<hr>
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#searchModal"><span class="glyphicon glyphicon-search"></span>
-  都道府県検索
-</button>
-    <hr>
+<% provide(:title, "検索結果|""#{params[:search][:prefecture]} #{params[:search][:name]}") %>
+<div class="container">
+  <br>
+  <h3 id="title"><%= "#{params[:search][:prefecture]} #{params[:search][:name]}" %></h3>の検索結果
+  <hr>
+</div>
     <h3><%= @events.count %>件のイベントを表示</h3>
-    <% @events.each do |event| %>
-    <%#byebug%>
-      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <div class="card">
-          <%= link_to event_path(event) do %>
-            <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '300x235')%>
-          <% end %>
-          <h4><%= event.name %></h4>
-          <p><%= event.article.truncate(64) %></p>
-          <p>場所 <%= event.prefecture%> <%= event.city%>
-          <div id="favorites_buttons_<%= event.id %>">
-             <%= render partial: 'favorites/favorite', locals: { event: event} %>
-          </div>
-
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
-</div>
+    <%= render 'events/event_medium_content', events: @events %>
