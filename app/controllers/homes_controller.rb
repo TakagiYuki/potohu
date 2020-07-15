@@ -1,5 +1,6 @@
 class HomesController < ApplicationController
   def top
+  @tags = Tag.all
 	@areas = Area.all
 	@events = Event.enabled
 	@events_new = Event.enabled.order(created_at: :desc).limit(4) # 新しい順の投稿一覧
@@ -20,15 +21,6 @@ class HomesController < ApplicationController
 	@event_comment = EventComment.new
   end
 
-  def tag
-    # @events = []
-    @tag = Tag.find(params[:id])
-    # event_tags = EventTag.where(tag_id: params[:id]).includes(:event)
-    # event_tags.each do |event_tag|
-    # 	@events << event_tag.event
-    # end
-    @events = Event.joins(:tags).where(tag_id: 1)
-  end
 end
 
 # if params[:area_id]

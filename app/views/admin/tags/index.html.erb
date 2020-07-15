@@ -15,6 +15,7 @@
     <%= flash[:success] %>
     <thead>
       <tr>
+        <th>image</th>
         <th>エリア名</th>
         <th>編集</th>
         <th>消去</th>
@@ -23,6 +24,7 @@
     <tbody>
       <% @tags.each do |tag| %>
       <tr>
+        <td class="text-center"><%= attachment_image_tag(tag, :image, fallback: 'no_image.jpg', size: '90x60')%></td>
         <td><%= tag.name %></td>
         <td><%= link_to "編集", edit_admin_tag_path(tag), class: "btn btn-primary" %></td>
         <td><%= link_to "消去", admin_tag_path(tag), method: :delete, class: "btn btn-primary", "data-confirm" => "本当に削除しますか？" %></td>

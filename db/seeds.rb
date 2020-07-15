@@ -22,14 +22,29 @@ if Area.find_by(name: '北海道').nil?
         ]
     )
 end
-    Tag.create!(
-        [
-            {name: '自然'},
-            {name: '歴史'},
-            {name: '体験'},
-            {name: '舞台'},
-        ]
-    )
+   tag1 = Tag.new({name: '自然'})
+   File.open(Rails.root.join("public/tag_01.jpg"), "rb") do |file|
+       tag1.image = file
+   end
+   tag1.save
+
+   tag2 = Tag.new({name: '歴史'})
+   File.open(Rails.root.join("public/tag_02.jpg"), "rb") do |file|
+       tag2.image = file
+   end
+   tag2.save
+
+   tag3 = Tag.new({name: '体験'})
+   File.open(Rails.root.join("public/tag_03.jpg"), "rb") do |file|
+       tag3.image = file
+   end
+   tag3.save
+
+   tag4 = Tag.new({name: '舞台'})
+   File.open(Rails.root.join("public/tag_04.jpg"), "rb") do |file|
+       tag4.image = file
+   end
+   tag4.save
 
 Event.create!(
   [{name: '青い池', article: 'この池は1988年12月に噴火した十勝岳の堆積物による火山泥流災害を防ぐため、美瑛川本流に複数建設された堰堤のひとつに水が溜まったものである。
