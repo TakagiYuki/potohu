@@ -1,0 +1,7 @@
+<% provide(:title, @tag.name) %>
+<div class="container">
+  <br>
+  <h3 id="title"><%= @tag.name %></h3>カテゴリー
+  <hr>
+</div>
+<%= render 'events/event_medium_content', events: @events %>

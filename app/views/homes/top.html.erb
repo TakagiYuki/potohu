@@ -2,7 +2,6 @@
 
 <!-- 日本地図画像 -->
 <div class="top">
-  <!-- <img src="/assets/map-japan.png" alt="画像" width="400px" height="400px"> -->
   <%= image_tag asset_path("map-japan.png", alt: "観光") %>
 </div>
 
@@ -49,49 +48,31 @@
 <%= render 'homes/select_shikoku' %>
 <%= render 'homes/select_kyusyu' %>
 
+
+
 <div class="container">
   <h3>カテゴリーから探す</h3>
   <hr>
+
 <div class="contents-frame">
 <div class="container">
 <div class="row">
+<% @tags.each do |tag| %>
   <div class="col-xs-6 col-md-3">
-    <%= link_to event_tag_path(1) %>
-    <!-- <a href="events/tag/1" class="thumbnail"> -->
+
       <div class="tag-content">
-        <%= image_tag asset_path("tag_01.jpg", alt: "観光") %>
-        <p>自然</p>
+<%= link_to event_tag_path(tag) do %>
+        <td class="text-center"><%= attachment_image_tag(tag, :image, fallback: 'no_image.jpg', size: '252x200')%>
+          <p><%= tag.name %></p>
       </div>
-    </a>
   </div>
-  <div class="col-xs-6 col-md-3">
-    <a href="events/tag/2" class="thumbnail">
-      <div class="tag-content">
-        <%= image_tag asset_path("tag_02.jpg", alt: "観光") %>
-        <p>歴史</p>
-      </div>
-    </a>
-  </div>
-  <div class="col-xs-6 col-md-3">
-    <a href="events/tag/3" class="thumbnail">
-      <div class="tag-content">
-        <%= image_tag asset_path("tag_03.jpg", alt: "観光") %>
-        <p>体験</p>
-      </div>
-    </a>
-  </div>
-  <div class="col-xs-6 col-md-3">
-    <a href="events/tag/4" class="thumbnail">
-      <div class="tag-content">
-        <%= image_tag asset_path("tag_04.jpg", alt: "観光") %>
-        <p>舞台</p>
-      </div>
-    </a>
-  </div>
+  <% end %>
+   <% end %>
 </div>
 </div>
 </div>
 </div>
+
 
 
 <div class="container">
@@ -100,7 +81,7 @@
   <%= render 'events/event_small_content', events: @events_new %>
 </div>
 
-<!-- スライダー -->
+ <!-- スライダー -->
 
 <div class="index-sub-content">
   <div class="container">
@@ -109,7 +90,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <table>
         <tr>
-          <!-- params[:area_id]にidを送る-->
+           <!-- params[:area_id]にidを送る -->
           <th><%= link_to "北海道", root_url(area_id: 1), remote: true %></th>
           <th><%= link_to "東北", root_url(area_id: 2), remote: true %></th>
           <th><%= link_to "関東", root_url(area_id: 3), remote: true %></th>
@@ -120,7 +101,7 @@
           <th><%= link_to "九州・沖縄", root_url(area_id: 8), remote: true %></th>
         </tr>
       </table>
-  <!------------------部分テンプレートranking.html.erb--------------------->
+  <!-- ----------------部分テンプレートranking.html.erb------------------- -->
       <div class="favorite">
         <%= render 'ranking', events_ranking_area: @events_ranking_area %>
       </div>
