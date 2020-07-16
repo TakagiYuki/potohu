@@ -1,4 +1,4 @@
-  <% events_ranking_area.limit(4).each_with_index do |event,i| %>
+  <% events.limit(4).each_with_index do |event,i| %>
 
       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
         <div class="card">
@@ -12,9 +12,9 @@
               <% event.tags.each do |tag| %>
                 <span class="label label-default"><%= tag.name %></span>
               <% end %>
-            <!-- <div class="favorite"> -->
-              <%#= render 'ranking', events_ranking_area: @events_ranking_area %>
-            <!-- </div> -->
+            <div id="favorites_buttons_<%= event.id %>">
+              <%= render partial: 'favorites/favorite', locals: { event: event} %>
+            </div>
         </div>
       </div>
     <% end %>
