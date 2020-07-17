@@ -6,7 +6,7 @@
 </div>
 
 <!-- スライダー -->
-<div class="swiper-container">
+<div class="swiper-container swiper2">
   <div class="swiper-wrapper">
     <div class="swiper-slide">
       <div class="slide-img"><%= image_tag asset_path("img_01.jpg", alt: "観光") %></div>
@@ -38,6 +38,7 @@
   <div class="swiper-button-next"></div>
 </div><!-- end of .swiper-container -->
 
+
 <!-- ボタン -->
 <%= render 'homes/select_hokkaido' %>
 <%= render 'homes/select_tohoku' %>
@@ -48,32 +49,22 @@
 <%= render 'homes/select_shikoku' %>
 <%= render 'homes/select_kyusyu' %>
 
-
-
 <div class="container">
   <h3>カテゴリーから探す</h3>
   <hr>
-
-<div class="contents-frame">
-<div class="container">
-<div class="row">
-<% @tags.each do |tag| %>
-  <div class="col-xs-6 col-md-3">
-
-      <div class="tag-content">
-<%= link_to event_tag_path(tag) do %>
-        <td class="text-center"><%= attachment_image_tag(tag, :image, fallback: 'no_image.jpg', size: '252x200')%>
-          <p><%= tag.name %></p>
+  <div class="contents-frame">
+    <% @tags.each do |tag| %>
+      <div class="col-xs-6 col-md-3">
+        <div class="tag-content">
+          <%= link_to event_tag_path(tag) do %>
+            <td class="text-center"><%= attachment_image_tag(tag, :image, fallback: 'no_image.jpg', size: '252x200')%>
+            <p><%= tag.name %></p>
+          <% end %>
+        </div>
       </div>
+    <% end %>
   </div>
-  <% end %>
-   <% end %>
 </div>
-</div>
-</div>
-</div>
-
-
 
 <div class="container">
   <h3>新着のイベント</h3>
@@ -102,16 +93,104 @@
         </tr>
       </table>
   <!-- ----------------部分テンプレートranking.html.erb------------------- -->
-      <div id="area_ranking">
-        <%= render 'ranking', events: @events_ranking_area %>
-      </div>
+  <div class="container">
+    <div id="area_ranking">
+      <%= render 'events/event_small_content', events: @events_ranking_area %>
     </div>
   </div>
+
+<!-- Swiper START -->
+<div class="container2">
+<div class="swiper-container swiper1">
+  <!-- メイン表示部分 -->
+  <div class="swiper-wrapper">
+    <!-- 各スライド -->
+      <div class="swiper-slide"><a href="http://bootstrap3.cyberlab.info/img/sample-256x256.png"><%= image_tag asset_path("img_07.png", alt: "観光") %></div></a>
+      <div class="swiper-slide"><%= image_tag asset_path("img_08.png", alt: "観光") %></div>
+      <div class="swiper-slide"><%= image_tag asset_path("img_09.png", alt: "観光") %></div>
+      <div class="swiper-slide"><%= image_tag asset_path("img_10.png", alt: "観光") %></div>
+      <div class="swiper-slide"><%= image_tag asset_path("img_07.png", alt: "観光") %></div>
+      <div class="swiper-slide"><%= image_tag asset_path("img_08.png", alt: "観光") %></div>
+      <div class="swiper-slide"><%= image_tag asset_path("img_09.png", alt: "観光") %></div>
+      <div class="swiper-slide"><%= image_tag asset_path("img_10.png", alt: "観光") %></div>
+
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
 </div>
+</div>
+<!-- Swiper END -->
+
+  <div class="swiper-container swiper3">
+    <!-- メイン表示部分 -->
+    <div class="swiper-wrapper">
+      <!-- 各スライド -->
+    <div class="swiper-slide"><%= image_tag asset_path("spring_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("spring_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("spring_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("summer_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("summer_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("summer_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("fall_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("fall_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("fall_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("winter_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("winter_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("winter_01.jpeg", alt: "観光") %></div>
+    </div>
+  </div>
+
+
+<script>
+var mySwiper = new Swiper('.swiper1', {
+  loop: true,
+  slidesPerGroup: 2,
+  slidesPerView: 6,
+  spaceBetween: 10,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  }
+});
+
+var mySwiper3 = new Swiper('.swiper3', {
+  slideToClickedSlide: false,
+  controller: {
+    control: mySwiper,
+    inverse: false,
+    by: 'slide',
+  },
+  loop: true,
+  spaceBetween: 1,
+  slidesPerView: 6,
+  slidesPerGroup: 2,
+  slideToClickedSlide: true
+});
+mySwiper.controller.control = mySwiper3;
 
 
 
-<div class="container">
+
+var mySwiper2 = new Swiper ('.swiper2', {
+  autoplay: {
+  delay: 5000,
+},
+  loop: true,
+
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+})
+</script>
+
+<!-- <div class="container">
   <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
     <h3>エリアから探す</h3>
     <hr>
@@ -123,27 +202,5 @@
       <div class="sidebar">
         <div id="map"></div>
       </div>
-  </div>
-
-
-
-<script>
-  let mySwiper = new Swiper ('.swiper-container', {
-    autoplay: {
-    delay: 5000,
-  },
-    loop: true,
-
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-
-  })
-</script>
+  </div> -->
 
