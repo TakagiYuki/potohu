@@ -1,5 +1,5 @@
-<div class="index-sub-content">
   <% events.limit(4).each_with_index do |event,i| %>
+
       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
         <div class="card">
           <%= link_to event_path(event) do %>
@@ -17,6 +17,4 @@
             </div>
         </div>
       </div>
-   
     <% end %>
- </div>

@@ -4,5 +4,5 @@
   <h3 id="title"><%= "#{params[:search][:prefecture]} #{params[:search][:name]}" %></h3>の検索結果
   <hr>
 </div>
-    <h3><%= @events.count %>件のイベントを表示</h3>
-    <%= render 'events/event_medium_content', events: @events %>
+  <h3><%= @events.count %>件のイベントを表示</h3>
+  <%= render 'events/event_medium_content', events: @events %>
