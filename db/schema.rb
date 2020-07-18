@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_03_002714) do
+ActiveRecord::Schema.define(version: 2020_07_17_141416) do
 
   create_table "areas", force: :cascade do |t|
     t.string "name", null: false
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 2020_07_03_002714) do
     t.string "event_id"
     t.text "comment"
     t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "event_seasons", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "season_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -82,6 +89,12 @@ ActiveRecord::Schema.define(version: 2020_07_03_002714) do
     t.index ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
     t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
     t.index ["user_id"], name: "index_impressions_on_user_id"
+  end
+
+  create_table "seasons", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tags", force: :cascade do |t|

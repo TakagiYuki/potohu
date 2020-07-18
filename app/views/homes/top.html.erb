@@ -1,3 +1,5 @@
+<%= javascript_include_tag "swiper.min.js" %>
+<%= javascript_include_tag "homes/top.js" %>
 <% provide(:title, 'ホーム') %>
 
 <!-- 日本地図画像 -->
@@ -72,8 +74,7 @@
   <%= render 'events/event_small_content', events: @events_new %>
 </div>
 
- <!-- スライダー -->
-
+<!-- スライダー -->
 <div class="index-sub-content">
   <div class="container">
   <h3>各エリアの人気イベント</h3>
@@ -105,90 +106,46 @@
   <!-- メイン表示部分 -->
   <div class="swiper-wrapper">
     <!-- 各スライド -->
-      <div class="swiper-slide"><a href="http://bootstrap3.cyberlab.info/img/sample-256x256.png"><%= image_tag asset_path("img_07.png", alt: "観光") %></div></a>
-      <div class="swiper-slide"><%= image_tag asset_path("img_08.png", alt: "観光") %></div>
-      <div class="swiper-slide"><%= image_tag asset_path("img_09.png", alt: "観光") %></div>
-      <div class="swiper-slide"><%= image_tag asset_path("img_10.png", alt: "観光") %></div>
-      <div class="swiper-slide"><%= image_tag asset_path("img_07.png", alt: "観光") %></div>
-      <div class="swiper-slide"><%= image_tag asset_path("img_08.png", alt: "観光") %></div>
-      <div class="swiper-slide"><%= image_tag asset_path("img_09.png", alt: "観光") %></div>
-      <div class="swiper-slide"><%= image_tag asset_path("img_10.png", alt: "観光") %></div>
-
+    <% i = 1 %>
+      <% while i < 13 %>
+        <div class="swiper-slide img"><a href="./events/season/<%= i %>"><%= image_tag asset_path("season_#{i}.jpg", alt: "観光") %><p><%= i %>月</p></div></a>
+        <% i += 1 %>
+      <% end %>
   </div>
   <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>
 </div>
 </div>
+
 <!-- Swiper END -->
 
   <div class="swiper-container swiper3">
     <!-- メイン表示部分 -->
     <div class="swiper-wrapper">
       <!-- 各スライド -->
-    <div class="swiper-slide"><%= image_tag asset_path("spring_01.jpeg", alt: "観光") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("spring_01.jpeg", alt: "観光") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("spring_01.jpeg", alt: "観光") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("summer_01.jpeg", alt: "観光") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("summer_01.jpeg", alt: "観光") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("summer_01.jpeg", alt: "観光") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("fall_01.jpeg", alt: "観光") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("fall_01.jpeg", alt: "観光") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("fall_01.jpeg", alt: "観光") %></div>
+      <% i = 1 %>
+        <% while i < 13 %>
+          <div class="swiper-slide img_sub"><%= image_tag asset_path("season_sub#{i}.jpg", alt: "観光") %></div>
+          <% i += 1 %>
+        <% end %>
+      </div>
     <div class="swiper-slide"><%= image_tag asset_path("winter_01.jpeg", alt: "観光") %></div>
     <div class="swiper-slide"><%= image_tag asset_path("winter_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("spring_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("spring_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("spring_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("summer_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("summer_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("summer_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("fall_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("fall_01.jpeg", alt: "観光") %></div>
+    <div class="swiper-slide"><%= image_tag asset_path("fall_01.jpeg", alt: "観光") %></div>
     <div class="swiper-slide"><%= image_tag asset_path("winter_01.jpeg", alt: "観光") %></div>
     </div>
   </div>
 
 
-<script>
-var mySwiper = new Swiper('.swiper1', {
-  loop: true,
-  slidesPerGroup: 2,
-  slidesPerView: 6,
-  spaceBetween: 10,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
-  }
-});
 
-var mySwiper3 = new Swiper('.swiper3', {
-  slideToClickedSlide: false,
-  controller: {
-    control: mySwiper,
-    inverse: false,
-    by: 'slide',
-  },
-  loop: true,
-  spaceBetween: 1,
-  slidesPerView: 6,
-  slidesPerGroup: 2,
-  slideToClickedSlide: true
-});
-mySwiper.controller.control = mySwiper3;
-
-
-
-
-var mySwiper2 = new Swiper ('.swiper2', {
-  autoplay: {
-  delay: 5000,
-},
-  loop: true,
-
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-
-})
-</script>
 
 <!-- <div class="container">
   <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">

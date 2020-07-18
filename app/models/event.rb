@@ -2,6 +2,8 @@ class Event < ApplicationRecord
   belongs_to :area
   has_many :event_tags, dependent: :destroy #タグ
   has_many :tags, through: :event_tags #タグ
+  has_many :event_seasons, dependent: :destroy #タグ
+  has_many :seasons, through: :event_seasons #タグ
   has_many :event_comments #コメント
   attachment :image #refile用
   has_many :favorites #いいな

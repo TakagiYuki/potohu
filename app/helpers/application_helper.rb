@@ -12,5 +12,14 @@ module ApplicationHelper
   def is_logged_in?
     !session[:user_id].nil?
   end
-  
+
+  def full_url(path)
+  domain = if Rails.env.development?
+             'http://localhost:3000'
+           else
+             'https://cocoiko.blog'
+           end
+  "#{domain}#{path}"
+  end
+
 end

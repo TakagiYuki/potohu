@@ -41,14 +41,22 @@
       <%= f.radio_button :is_valid, :"1" %>表示<br><br>
     <% end %>
 
-    <%= f.label :name, 'タグ' %>
+    <%= f.label :name, 'タグ1' %>
     <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
       <%= tag.label do %>
         <%= tag.check_box %>
         <%= tag.text %>
       <% end %>
     <% end %>
-    
+    <br>
+    <%= f.label :name, 'タグ2' %>
+    <%= f.collection_check_boxes(:season_ids, Season.all, :id, :name) do |season| %>
+      <%= season.label do %>
+        <%= season.check_box %>
+        <%= season.text %>
+      <% end %>
+    <% end %>
+    <br>
     <% if current_page?(admin_events_path) %>
       <%= f.submit "保存", class: "btn btn-primary" %>
     <% else %>

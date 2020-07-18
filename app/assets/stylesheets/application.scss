@@ -592,10 +592,21 @@ em.green {
   padding: 3px 8px;
 }
 
-.container2 img{
-width: 90%;
-padding-left: 15px;
+.container2 {/*親div*/
+  position: relative;/*相対配置*/
 }
+.container2 img{
+  width: 90%;
+  height: 90%;
+  padding-left: 15px;
+}
+.container2 p {
+  position: absolute;/*絶対配置*/
+  font-weight: bold;
+  color: white;/*文字は白に*/
+  top: 80%;
+  left: 10%;
+  }
 
 /* 2個目のSwiper全体のスタイル */
  .swiper3 {
