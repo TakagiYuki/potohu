@@ -4,24 +4,6 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
-/* 日本地図の場所調整 */
-.main {
-    width: 100%; /* 横幅 */
-    height: 800px; /* 高さ（多めに設定） */
-    background-color: white; /* 背景色 */
-}
-.blog {
-    width: 100px;
-    height: 800px;
-    background-color: white;
-    float: left; /* 要素を左揃えで並べる */
-}
-.sidebar {
-    width: 100px;
-    height: 800px;
-    background-color: white;
-    float: left; /* 要素を左揃えで並べる */
-}
 * {
    box-sizing: border-box;
 }
@@ -216,9 +198,9 @@ input {
 }
 
 /* timestatusのデザイン */
-.index-learge-content .card p span {
+.index-learge-content .card span {
   display: inline-block;
-  margin: 0px 20px 0px 20px;//余白
+  margin: 10px 10px 10px 10px;//余白
   padding: .3em;//角丸の大きさ
   font-size: 14px;
   line-height: 1;//1固定
@@ -227,7 +209,6 @@ input {
   background-color: #a9a9a9;
   //border: 1px solid #0000ee;//枠
   border-radius: 1em;//角丸
-  margin:0 0 0 auto
 }
 /* いいね */
 .index-learge-content .card i {
@@ -280,9 +261,9 @@ input {
 }
 
 /* timestatusのデザイン */
-.index-content .card p span {
+.index-content .card span {
   display: inline-block;
-  margin: 0px 20px 0px 20px;//余白
+  margin: 0px 0px 0px 17px;//余白
   padding: .3em;//角丸の大きさ
   font-size: 14px;
   line-height: 1;//1固定
@@ -291,11 +272,12 @@ input {
   background-color: #a9a9a9;
   //border: 1px solid #0000ee;//枠
   border-radius: 1em;//角丸
-  margin:0 0 0 auto
 }
 /* いいね */
 .index-content .card i {
-  margin: 0px 20px 10px 20px;//余白
+  position: absolute;/*絶対配置*/
+  top: 240px;
+  left: 440px;
 }
 
 /* イベントコンテナ[小] */
@@ -346,30 +328,25 @@ input {
   font-size: 12px;
 }
 
-.index-sub-content .card span {
-  margin: 5px 2px 5px 2px;//余白
-  opacity: 0.65;//透明度
-  font-size: 12px;
-}
-
 /* タグのデザイン */
-.index-sub-content .card p span {
+.index-sub-content .card span {
   display: inline-block;
-  margin: 0px 20px 0px 20px;//余白
+  margin: 0px 0px 0px 7px;//余白
   padding: .3em;//角丸の大きさ
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1;//1固定
   text-decoration: none;
   color: #ffffff;//文字
   background-color: #a9a9a9;
   //border: 1px solid #0000ee;//枠
   border-radius: 1em;//角丸
-  margin:0 0 0 auto
 }
 
 /* いいね */
-.index-sub-content .card i {
-  margin: 0px 10px 10px 10px;//余白
+.index-sub-content i {
+  position: absolute;/*絶対配置*/
+  top: 120px;
+  left: 160px;
 }
 //User情報
 
@@ -551,7 +528,8 @@ em.green {
     color: #008000;
 }
 //アイコン
-.flag_green{color:#e54747;}
+.red{color:#e54747;}
+.white{color:#ffffff;}
 .times_red{color:#e54747;}
 .sync-alt_green{color:#32cd32;}
 
@@ -609,11 +587,22 @@ em.green {
   }
 
 /* 2個目のSwiper全体のスタイル */
+
+.container3 {/*親div*/
+  position: relative;/*相対配置*/
+}
  .swiper3 {
    width: 98%;
    height: 20px;
    margin-top: 10px;
  }
+.container3 p {
+  position: absolute;/*絶対配置*/
+  font-weight: bold;
+  color: white;/*文字は白に*/
+  top: 10%;
+  left: 10%;
+  }
 
 .top img{
   position: absolute;
@@ -627,7 +616,7 @@ em.green {
   position: absolute;
   top: 100px;
   left: 380px;
-  z-index: 2;
+  z-index: 4;
 }
 .select-tohoku{
   position: absolute;

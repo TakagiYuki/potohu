@@ -13,6 +13,22 @@ class EventsController < ApplicationController
     @events = Event.where(prefecture: @event.prefecture).limit(4)
     @event_comment = EventComment.new
     @event_comments = @event.event_comments
+
+    #現在時刻
+    now = Date.today
+    #曜日関連
+    weeks = ["(月)","(火)","(水)","(木)","(金)","(土)","(日)"]
+    open_index = @event.open_time.strftime("%u").to_i
+    close_index = @event.close_time.strftime("%u").to_i
+    @open_date = @event.open_time.strftime("%-m月%-d日#{weeks[open_index - 1]}")
+    @close_date = @event.close_time.strftime("%-m月%-d日#{weeks[close_index - 1]}")
+    @status = "終了"
+    #開始終了の判定
+    if now > @event.open_time && now < @event.close_time
+      @status = "開催中"
+    elsif now < @event.open_time
+      @status = "開催前"
+    end
   end
 
   def search

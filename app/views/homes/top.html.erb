@@ -68,16 +68,14 @@
   </div>
 </div>
 
-<div class="container">
-  <h3>新着のイベント</h3>
-  <hr>
-  <%= render 'events/event_small_content', events: @events_new %>
-</div>
+<!-- 季節のイベント -->
+<%= render 'homes/swiper_season' %>
+<br>
 
-<!-- スライダー -->
+<!-- 観光地のランキング -->
 <div class="index-sub-content">
   <div class="container">
-  <h3>各エリアの人気イベント</h3>
+  <h3>人気のスポット</h3>
   <hr>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <table>
@@ -93,71 +91,22 @@
           <th><%= link_to "九州・沖縄", root_url(area_id: 8), remote: true %></th>
         </tr>
       </table>
-  <!-- ----------------部分テンプレートranking.html.erb------------------- -->
-  <div class="container">
-    <div id="area_ranking">
-      <%= render 'events/event_small_content', events: @events_ranking_area %>
     </div>
   </div>
-
-<!-- Swiper START -->
-<div class="container2">
-<div class="swiper-container swiper1">
-  <!-- メイン表示部分 -->
-  <div class="swiper-wrapper">
-    <!-- 各スライド -->
-    <% i = 1 %>
-      <% while i < 13 %>
-        <div class="swiper-slide img"><a href="./events/season/<%= i %>"><%= image_tag asset_path("season_#{i}.jpg", alt: "観光") %><p><%= i %>月</p></div></a>
-        <% i += 1 %>
-      <% end %>
-  </div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-</div>
 </div>
 
-<!-- Swiper END -->
-
-  <div class="swiper-container swiper3">
-    <!-- メイン表示部分 -->
-    <div class="swiper-wrapper">
-      <!-- 各スライド -->
-      <% i = 1 %>
-        <% while i < 13 %>
-          <div class="swiper-slide img_sub"><%= image_tag asset_path("season_sub#{i}.jpg", alt: "観光") %></div>
-          <% i += 1 %>
-        <% end %>
-      </div>
-    <div class="swiper-slide"><%= image_tag asset_path("winter_01.jpeg", alt: "観光") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("winter_01.jpeg", alt: "観光") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("spring_01.jpeg", alt: "観光") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("spring_01.jpeg", alt: "観光") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("spring_01.jpeg", alt: "観光") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("summer_01.jpeg", alt: "観光") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("summer_01.jpeg", alt: "観光") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("summer_01.jpeg", alt: "観光") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("fall_01.jpeg", alt: "観光") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("fall_01.jpeg", alt: "観光") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("fall_01.jpeg", alt: "観光") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("winter_01.jpeg", alt: "観光") %></div>
-    </div>
-  </div>
-
-
-
-
-<!-- <div class="container">
-  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-    <h3>エリアから探す</h3>
-    <hr>
+<div class="container">
+  <div id="area_ranking">
+    <%= render 'events/event_small_content', events: @events_ranking_area %>
   </div>
 </div>
 
-  <div class="main">
-    <div class="blog"></div>
-      <div class="sidebar">
-        <div id="map"></div>
-      </div>
-  </div> -->
+<!-- 新着記事 -->
+<div class="container">
+  <h3>新着記事</h3>
+  <hr>
+  <%= render 'events/event_small_content', events: @events_new %>
+</div>
+
+
 
