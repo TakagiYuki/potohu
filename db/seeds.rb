@@ -1,26 +1,45 @@
 if User.find_by(email: "admin@admin.com").nil?
-    User.create!(
-        name:  "admin_user",
-        email: "admin@admin.com",
-        password:              "admin98",
-        password_confirmation: "admin98",
-        admin: true
-    )
+  User.create!(
+    name:  "admin_user",
+    email: "admin@admin.com",
+    password:              "admin98",
+    password_confirmation: "admin98",
+    admin: true
+  )
 end
 
 if Area.find_by(name: '北海道').nil?
-    Area.create!(
-        [
-            {name: '北海道'},
-            {name: '東北'},
-            {name: '関東'},
-            {name: '中部'},
-            {name: '関西'},
-            {name: '中国'},
-            {name: '四国'},
-            {name: '九州・沖縄'}
-        ]
-    )
+  Area.create!(
+    [
+      {name: '北海道'},
+      {name: '東北'},
+      {name: '関東'},
+      {name: '中部'},
+      {name: '関西'},
+      {name: '中国'},
+      {name: '四国'},
+      {name: '九州・沖縄'}
+    ]
+  )
+end
+
+if Season.find_by(name: '1月').nil?
+  Season.create!(
+    [
+      {name: '1月'},
+      {name: '2月'},
+      {name: '3月'},
+      {name: '4月'},
+      {name: '5月'},
+      {name: '6月'},
+      {name: '7月'},
+      {name: '8月'},
+      {name: '9月'},
+      {name: '10月'},
+      {name: '11月'},
+      {name: '12月'},
+    ]
+  )
 end
    tag1 = Tag.new({name: '自然'})
    File.open(Rails.root.join("public/tag_01.jpg"), "rb") do |file|
@@ -45,6 +64,7 @@ end
        tag4.image = file
    end
    tag4.save
+
 
 Event.create!(
   [

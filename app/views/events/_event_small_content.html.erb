@@ -7,16 +7,18 @@
             <div class="new">
               <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '180x141')%>
             </div>
-          <% else %>
+          <% elsif events == @events_ranking_area %>
             <div class="rank<%= i %>">
               <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '180x141')%>
             </div>
+          <% elsif events == @events %>
+            <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '180x141')%>
           <% end %>
         <% end %>
         <h4><%= event.name.truncate(9) %></h4>
         <p><%= event.prefecture%> | <%= event.city.truncate(6)%></p>
           <% event.tags.each do |tag| %>
-            <span class="label label-default"><%= tag.name %></span>
+            <span><%= tag.name %></span>
           <% end %>
         <div id="favorites_buttons_<%= event.id %>">
           <%= render partial: 'favorites/favorite', locals: { event: event} %>
@@ -25,7 +27,3 @@
     </div>
   <% end %>
 </div>
-
-
-<!-- @events_new -->
-<!-- @events_ranking_area --> <!-- <div class="rank<%#= i %>"> -->

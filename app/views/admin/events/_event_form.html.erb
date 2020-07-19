@@ -26,10 +26,11 @@
     <%= f.text_field :city, class: 'form-control' %>
     <%= f.label :番地 %>
     <%= f.text_field :street, class: 'form-control' %>
-    <%#= f.label :"開始時間(日曜日)" %>
-    <%#= f.time_select :open_time_sunday, class: 'form-control' %>
-    <%#= f.label :"終了時間(日曜日)" %>
-    <%#= f.time_select :close_time_sunday, class: 'form-control' %>
+
+    <%= f.label :"開始日" %>
+    <%= f.date_select :open_time, class: 'form-control' %>
+    <%= f.label :"終了日" %>
+    <%= f.date_select :close_time, class: 'form-control' %>
     <br>
 
     <%= f.label :"非表示/表示" %>

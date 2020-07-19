@@ -1,0 +1,52 @@
+<div class="container">
+    <h3>季節のイベント</h3>
+    <hr>
+
+  <!-- Swiper START -->
+  <div class="container2">
+    <div class="swiper-container swiper1">
+    <!-- メイン表示部分 -->
+      <div class="swiper-wrapper">
+      <!-- 各スライド -->
+        <% i = 1 %>
+        <% while i < 13 %>
+          <div class="swiper-slide img">
+            <a href="./events/season/<%= i %>"><%= image_tag asset_path("season_#{i}.jpg", alt: "観光") %></a>
+            <p><%= i %>月</p>
+          </div>
+          <% i += 1 %>
+        <% end %>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+  <!-- Swiper END -->
+
+  <!-- Swiper START -->
+  <div class="container3">
+    <div class="swiper-container swiper3">
+      <!-- メイン表示部分 -->
+      <div class="swiper-wrapper">
+        <!-- 各スライド -->
+        <% j = 1 %>
+        <% while j < 13 %>
+          <div class="swiper-slide img">
+            <%= image_tag asset_path("season_sub#{j}.jpeg", alt: "観光") %>
+            <% if j == 3 %>
+              <p>春</p>
+            <% elsif j == 6 %>
+              <p>夏</p>
+            <% elsif j == 9 %>
+              <p>秋</p>
+            <% elsif j == 12 %>
+              <p>冬</p>
+            <% end %>
+          </div>
+          <% j += 1 %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!-- Swiper END -->
+</div>

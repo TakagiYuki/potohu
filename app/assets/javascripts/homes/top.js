@@ -1,5 +1,8 @@
 $(function(){
 var mySwiper = new Swiper('.swiper1', {
+    autoplay: {
+  delay: 5000,
+},
   loop: true,
   slidesPerGroup: 1,
   slidesPerView: 5,
