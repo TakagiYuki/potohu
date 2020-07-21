@@ -7,15 +7,16 @@
         <% end %>
         <h4><%= event.name.truncate(20) %></h4>
         <p><%= event.article.truncate(74) %></p>
-        <p>場所 <%= event.prefecture%> <%= event.city%>
+        <p>場所 <%= event.prefecture%> <%= event.city%></p>
 
         <% event.tags.each do |tag| %>
-          <span><%= tag.name %></span>
+          <span class="label label-success"><%= tag.name %></span>
         <% end %>
 
         <div id="favorites_buttons_<%= event.id %>">
            <%= render partial: 'favorites/favorite', locals: { event: event} %>
         </div>
+        <span class="label label-success"><%= @status %></span><%= @open_date %>  <%= @close_date %>
       </div>
     </div>
   <% end %>

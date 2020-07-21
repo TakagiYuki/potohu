@@ -260,18 +260,9 @@ input {
   opacity: 0.65;//透明度
 }
 
-/* timestatusのデザイン */
+/* タグの位置 */
 .index-content .card span {
-  display: inline-block;
   margin: 0px 0px 0px 17px;//余白
-  padding: .3em;//角丸の大きさ
-  font-size: 14px;
-  line-height: 1;//1固定
-  text-decoration: none;
-  color: #ffffff;//文字
-  background-color: #a9a9a9;
-  //border: 1px solid #0000ee;//枠
-  border-radius: 1em;//角丸
 }
 /* いいね */
 .index-content .card i {
@@ -575,7 +566,7 @@ em.green {
 }
 .container2 img{
   width: 90%;
-  height: 90%;
+  height: 140px;
   padding-left: 15px;
 }
 .container2 p {

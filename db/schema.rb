@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2020_07_17_141416) do
     t.string "city"
     t.string "street"
     t.boolean "is_valid", default: true
-    t.date "open_time", default: "2015-01-05"
-    t.date "close_time", default: "2015-01-05"
+    t.date "open_time", default: "2010-11-11"
+    t.date "close_time", default: "2010-11-11"
     t.integer "area_id"
     t.float "latitude"
     t.float "longitude"

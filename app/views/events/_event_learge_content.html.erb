@@ -8,11 +8,14 @@
       <% @event.tags.each do |tag| %>
         <span class="label label-default"><%= tag.name %></span>
       <% end %>
-      </p>
       <div id="favorites_buttons_<%= @event.id %>">
         <%= render partial: 'favorites/favorite', locals: { event: @event} %>
       </div>
-        <span><%= @status %></span><%= @open_date %>〜<%= @close_date %>
+        <% if @status == '' %>
+          <span class="label label-success"><%= @status %></span><%= @open_date %><%= @close_date %>
+        <% else %>
+          <span class="label label-success"><%= @status %></span><%= @open_date %>〜<%= @close_date %>
+        <% end %>
     </div>
   </div>
 </div>

@@ -10,7 +10,7 @@ class Admin::AreasController < ApplicationController
   	if @area.save!
       @areas = Area.all
   	else
-  	  
+
   	end
   end
 
