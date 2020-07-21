@@ -15,6 +15,7 @@ class EventsController < ApplicationController
     @event_comments = @event.event_comments
 
     #現在時刻
+    old = Date.new(2011,11,11)
     now = Date.today
     #曜日関連
     weeks = ["(月)","(火)","(水)","(木)","(金)","(土)","(日)"]
@@ -22,12 +23,17 @@ class EventsController < ApplicationController
     close_index = @event.close_time.strftime("%u").to_i
     @open_date = @event.open_time.strftime("%-m月%-d日#{weeks[open_index - 1]}")
     @close_date = @event.close_time.strftime("%-m月%-d日#{weeks[close_index - 1]}")
-    @status = "終了"
+    @status = "開催前"
+
     #開始終了の判定
     if now > @event.open_time && now < @event.close_time
       @status = "開催中"
-    elsif now < @event.open_time
-      @status = "開催前"
+    elsif now > @event.close_time && old < @event.open_time
+      @status = "終了"
+    elsif now > @event.open_time  && old > @event.open_time
+      @status = ''
+      @open_date = ''
+      @close_date = ''
     end
   end
 
