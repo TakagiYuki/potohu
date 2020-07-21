@@ -8,8 +8,8 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.string :city
       t.string :street
       t.boolean :is_valid, default: true
-      t.time :open_time_sunday
-      t.time :close_time_sunday
+      t.date :open_time, default: '2010-11-11'
+      t.date :close_time, default: '2010-11-11'
       t.integer :area_id
       t.float :latitude
       t.float :longitude

@@ -1,3 +1,5 @@
+<%= javascript_include_tag "swiper.min.js" %>
+<%= javascript_include_tag "homes/top.js" %>
 <% provide(:title, 'ホーム') %>
 
 <!-- 日本地図画像 -->
@@ -6,7 +8,7 @@
 </div>
 
 <!-- スライダー -->
-<div class="swiper-container">
+<div class="swiper-container swiper2">
   <div class="swiper-wrapper">
     <div class="swiper-slide">
       <div class="slide-img"><%= image_tag asset_path("img_01.jpg", alt: "観光") %></div>
@@ -38,6 +40,7 @@
   <div class="swiper-button-next"></div>
 </div><!-- end of .swiper-container -->
 
+
 <!-- ボタン -->
 <%= render 'homes/select_hokkaido' %>
 <%= render 'homes/select_tohoku' %>
@@ -48,44 +51,31 @@
 <%= render 'homes/select_shikoku' %>
 <%= render 'homes/select_kyusyu' %>
 
-
-
 <div class="container">
   <h3>カテゴリーから探す</h3>
   <hr>
-
-<div class="contents-frame">
-<div class="container">
-<div class="row">
-<% @tags.each do |tag| %>
-  <div class="col-xs-6 col-md-3">
-
-      <div class="tag-content">
-<%= link_to event_tag_path(tag) do %>
-        <td class="text-center"><%= attachment_image_tag(tag, :image, fallback: 'no_image.jpg', size: '252x200')%>
-          <p><%= tag.name %></p>
+  <div class="contents-frame">
+    <% @tags.each do |tag| %>
+      <div class="col-xs-6 col-md-3">
+        <div class="tag-content">
+          <%= link_to event_tag_path(tag) do %>
+            <td class="text-center"><%= attachment_image_tag(tag, :image, fallback: 'no_image.jpg', size: '252x200')%>
+            <p><%= tag.name %></p>
+          <% end %>
+        </div>
       </div>
+    <% end %>
   </div>
-  <% end %>
-   <% end %>
-</div>
-</div>
-</div>
 </div>
 
+<!-- 季節のイベント -->
+<%= render 'homes/swiper_season' %>
+<br>
 
-
-<div class="container">
-  <h3>新着のイベント</h3>
-  <hr>
-  <%= render 'events/event_small_content', events: @events_new %>
-</div>
-
- <!-- スライダー -->
-
+<!-- 観光地のランキング -->
 <div class="index-sub-content">
   <div class="container">
-  <h3>各エリアの人気イベント</h3>
+  <h3>人気のスポット</h3>
   <hr>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <table>
@@ -101,49 +91,22 @@
           <th><%= link_to "九州・沖縄", root_url(area_id: 8), remote: true %></th>
         </tr>
       </table>
-  <!-- ----------------部分テンプレートranking.html.erb------------------- -->
-      <div id="area_ranking">
-        <%= render 'ranking', events_ranking_area: @events_ranking_area %>
-      </div>
     </div>
   </div>
 </div>
 
-
-
 <div class="container">
-  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-    <h3>エリアから探す</h3>
-    <hr>
+  <div id="area_ranking">
+    <%= render 'events/event_small_content', events: @events_ranking_area %>
   </div>
 </div>
 
-  <div class="main">
-    <div class="blog"></div>
-      <div class="sidebar">
-        <div id="map"></div>
-      </div>
-  </div>
+<!-- 新着記事 -->
+<div class="container">
+  <h3>新着記事</h3>
+  <hr>
+  <%= render 'events/event_small_content', events: @events_new %>
+</div>
 
 
-
-<script>
-  let mySwiper = new Swiper ('.swiper-container', {
-    autoplay: {
-    delay: 5000,
-  },
-    loop: true,
-
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-
-  })
-</script>
 

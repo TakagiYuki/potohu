@@ -1,0 +1,27 @@
+<% provide(:title, 'season編集') %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>season編集</h3>
+      <hr>
+    </div>
+  </div>
+  <!-- 入力フォーム -->
+ <%= render 'admin/seasons/season_form', url: "/admin/seasons/#{@season.id}" %>
+<br>
+<!-- season内容表示 -->
+<div class="col-md-8 col-md-offset-2">
+  <table class="table table-hover table-inverse">
+    <thead>
+      <tr>
+        <th>season名</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @season.name %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

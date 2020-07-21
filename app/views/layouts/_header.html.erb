@@ -19,8 +19,6 @@
           <span data-toggle="tooltip" data-placement="bottom" title="Share"><i class="fab fa-twitter"></i></span>
         <% end %>
 
-
-
       <!-- ユーザー -->
       <% elsif logged_in? && !current_user.admin %>
       <li><%= "ようこそ#{current_user.name}さん" %></li>
@@ -50,10 +48,10 @@
         <li><%= link_to '  簡単ログイン(user)', users_guest_new_path, method: :post, class: 'glyphicon glyphicon-log-in' %></li>
         <li><%= link_to '  簡単ログイン(admin)', users_admin_new_path, method: :post, class: 'glyphicon glyphicon-log-in' %></li>
 
-        <li><i class="far fa-heart" data-toggle="modal" data-target="#guestModal"></i></li>
+        <li><i class="far fa-heart" data-toggle="modal" data-target="#loginModal"></i></li>
         <li><i class="fas fa-search" data-toggle="modal" data-target="#searchModal"></i><li>
 
-        <%= link_to "https://twitter.com/share?url=#{request.url}&text=文", target: :_blank do %>
+        <%= link_to "https://twitter.com/share?url=#{request.url}&text=aa", target: :_blank do %>
           <span data-toggle="tooltip" data-placement="bottom" title="Share"><i class="fab fa-twitter"></i></span>
         <% end %>
       <% end %>

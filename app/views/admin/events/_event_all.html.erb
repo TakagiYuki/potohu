@@ -39,6 +39,10 @@
         <% event.tags.each do |tag| %>
           <td><%= tag.name %></td>
         <% end %>
+
+        <% event.seasons.each do |season| %>
+          <td><%= season.name %></td>
+        <% end %>
       </tr>
       <% end %>
     </tbody>

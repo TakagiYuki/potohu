@@ -1,6 +1,5 @@
 class EventCommentsController < ApplicationController
   def create
-  	# (comment:□, user_id□, event_id□)
   	@event = Event.find(params[:event_id])
     @event_comment =EventComment.new(event_comment_params)
     @event_comment.user_id = current_user.id
@@ -18,6 +17,5 @@ class EventCommentsController < ApplicationController
 	  def event_comment_params
 	    params.require(:event_comment).permit(:comment)
 	  end
-
 end
 
