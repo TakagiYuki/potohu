@@ -10,12 +10,12 @@ class Event < ApplicationRecord
 
   scope :enabled, -> {where(is_valid: true)}
 
-  validates :name, presence: true
-  validates :article, presence: true
+  validates :name, presence: true, length: {maximum: 50}
+  validates :article, presence: true, length: {maximum: 255}
   validates :image_id, presence: true
-  validates :prefecture, presence: true
-  validates :city, presence: true
-  validates :street, presence: true
+  validates :prefecture, presence: true, length: {maximum: 50}
+  validates :city, presence: true, length: {maximum: 50}
+  validates :street, presence: true, length: {maximum: 50}
   validates :is_valid, inclusion: { in: [true, false] }
   validates :open_time, presence: true
   validates :close_time, presence: true

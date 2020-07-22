@@ -27,6 +27,15 @@
 //     $('.datepicker').datetimepicker({locale: 'ja'});
 // });
 
+// hamburgermenu
+$(function() {
+const hum = $('#hamburger, .close')
+const nav = $('.sp-nav')
+hum.on('click', function(){
+  nav.toggleClass('toggle');
+});
+});
+
 // ツールチップ
 $(function () {
 	$('[data-toggle="tooltip"]').tooltip();
