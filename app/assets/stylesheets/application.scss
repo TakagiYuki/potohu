@@ -18,8 +18,20 @@ body {
    padding-top: 30px;
 }
 
-/* header関連 */
-header {
+a {
+   text-decoration: none;//アンダーラインの消去
+   color: #000000;
+}
+
+h2 {
+   margin: 0;
+   font-size: 30px;
+   font-weight: normal;
+   color: #000000;
+}
+
+/* header */
+.header {
    padding: 10px 4% 10px;//内側の余白
    position: fixed;
    top: 0;//固定位置
@@ -28,93 +40,72 @@ header {
    display: flex;//固定
    align-items: center;//縦方向の中心
    z-index: 4;
-}
-h1 {
-   margin: 0; padding: 0;
-   font-size: 20px;
-}
-a {
-   text-decoration: none;//アンダーラインの消去
-   color: #000000;
-}
-nav {
-   margin: 0 0 0 auto;
-}
-ul {
-   list-style: none;//「・」を非表示
-   margin: 0;//余白を消去
-   display: flex;//横並びに
-}
-li {
-   margin: 0 0 0 30px;//ヘッダー縦幅調整
-   font-size: 14px;
+
+  &__left {
+    margin: 0; padding: 0;
+    font-size: 20px;
+    opacity: 0;
+    animation-name: fadein-left;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;//アニメーション終了後キープ
+  }
+
+  &__right {
+    margin: 0 0 0 auto;
+    opacity: 0;
+    animation-name: fadein-right;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
+
+  &__right-ul {
+    list-style: none;//「・」を非表示
+    margin: 0;//余白を消去
+    display: flex;//横並びに
+  }
+
+  &__right-link {
+    margin: 0 0 0 30px;//ヘッダー縦幅調整
+    font-size: 14px;
+    cursor: pointer;//指
+    cursor: hand;//指(IE6対応)
+  }
 }
 
-.main-visual {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   //height: 100px;
-   //background: url(top.jpg) top center / cover no-repeat;
+%container,.container {
+  width:100%;
+  margin: 0 auto;
+
+  &__inner {
+    display:flex;
+    justify-content: center;
+  }
+  &__item {
+    position: relative;/*相対配置*/
+    width: 22.5%;
+    padding: 10px;/* 余白指定 */
+  }
+  &__item:hover {
+  opacity: 0.5;/* 透過率50% */
+  transition: 0.2s;/* 0.2秒アニメーション */
+  -webkit-transition: 0.2s;
 }
-h2 {
-   margin: 0;
-   font-size: 30px;
-   font-weight: normal;
-   color: #000000;
+  &__text {
+    position: absolute;/*絶対配置*/
+    font-size:20px;
+    color: #ffffff;
+    top: 45%;
+    left: 35%;
+  }
 }
 
-#title{
-  color: #db7093;
-  display: inline;
-}
-
-
-/*下からフェードイン*/
-.fade-in-bottom {
-   opacity: 0;
-   animation-name: fadein-bottom;
-   animation-duration: 1.5s;//時間
-   animation-timing-function: ease-out;//終盤はスロー
-   //animation-fill-mode: none;//アニメーション終了後消える
-   animation-fill-mode: forwards;//アニメーション終了後キープ
-   z-index: 6;
-}
-@keyframes fadein-bottom {
-   0% {
-      opacity: 0;
-      transform: translateY(500px);//20px下にずらす
-   }
-   100% {
-      opacity: 1;
-      transform: translateY(350px);//元の位置に戻る
-   }
-}
-/*左からフェードイン*/
-.fade-in-left {
-   opacity: 0;
-   animation-name: fadein-left;
-   animation-duration: 1.5s;
-   animation-timing-function: ease-out;
-   animation-fill-mode: forwards;//アニメーション終了後キープ
-}
-@keyframes fadein-left {
-   0% {
-      opacity: 0;
-      transform: translateX(-20px);
-   }
-   100% {
-      opacity: 1;
-      transform: translateX(0);
-   }
-}
-/*右からフェードイン*/
-.fade-in-right {
-   opacity: 0;
-   animation-name: fadein-right;
-   animation-duration: 1.5s;
-   animation-timing-function: ease-out;
-   animation-fill-mode: forwards;
+%heading,.heading{
+  font-weight:normal;
+  font-size:20px;
+  text-align:left;
+  padding-left: 50px;
 }
 @keyframes fadein-right {
    0% {
@@ -126,6 +117,29 @@ h2 {
       transform: translateX(0);
    }
 }
+
+@keyframes fadein-left {
+   0% {
+      opacity: 0;
+      transform: translateX(-20px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+
+.main-visual {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+#title{
+  color: #db7093;
+  display: inline;
+}
+
 
 /* formの余白 */
 input, textarea, select, .uneditable-input {
@@ -540,7 +554,7 @@ em.green {
   font-size: 30px;
   text-shadow: 2px 2px rgba(0,0,0,0.3);
 }
-.swiper-slide .slide-content p {
+.swiper-slide .container p {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -551,7 +565,7 @@ em.green {
   padding: 0;
   font-size: 18px;
 }
-.swiper-slide .slide-content .caption {
+.swiper-slide .container .caption {
   position: absolute;
   bottom: 30px;
   right: 30px;
@@ -671,13 +685,129 @@ em.green {
     width: 252px;
   }
 
-  footer {
-  width: 100%;
-  height: 120px; 
-  text-align: center;
-  line-height: 120px;
-  background-color: #848282;
+.sp-nav {
+   display: none;
 }
-.footer-text {
-  color: #fff;
+
+
+
+
+
+
+
+@media screen and (max-width: 640px) {
+   .pc-nav {
+      display: none;
+   }
+   .sp-nav {
+      z-index: 7;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: block;
+      width: 100%;
+      background: rgba(0, 0, 0, .8);
+      opacity: 0;
+      transform: translateY(-100%);
+      transition: all .2s ease-in-out;
+   }
+   #hamburger {
+      position: relative;
+      display: block;
+      width: 30px;
+      height: 25px;
+      margin: 0 0 0 auto;
+   }
+   #hamburger span {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      display: block;
+      width: 90%;
+      height: 2px;
+      background-color: #000000;
+      transform: translateY(-50%);
+      z-index: 9;
+   }
+   #hamburger::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #000000;
+   }
+   #hamburger::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80%;
+      height: 2px;
+      background-color: #000000;
+   }
+   /*スマホメニュー*/
+   .sp-nav ul {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+   }
+   .sp-nav li {
+      margin: 0;
+      padding: 0;
+   }
+   .sp-nav li span {
+      font-size: 15px;
+      color: #fff;
+   }
+   .sp-nav li a, .sp-nav li span {
+      display: block;
+      padding: 20px 0;
+   }
+   /*-閉じるアイコンー*/
+   .sp-nav .close {
+      position: relative;
+      padding-left: 20px;
+   }
+   .sp-nav .close::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      display: block;
+      width: 16px;
+      height: 1px;
+      background: #fff;
+      transform: rotate( 45deg );
+   }
+   .sp-nav .close::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      display: block;
+      width: 16px;
+      height: 1px;
+      background: #fff;
+      transform: rotate( -45deg );
+   }
+   .toggle {
+      transform: translateY( 0 );
+      opacity: 1;
+   }
+   .main-visual {
+      padding: 0 4%;
+   }
+   h2 {
+      line-height: 1.6;
+      text-align: center;
+   }
 }

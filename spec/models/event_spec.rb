@@ -1,5 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "イベントがある場合、有効である" do
+    event = Event.new(
+      name:"東京タワー",
+      article:"333メートルの電波塔",
+	  image_id:"abcdefg",
+	  prefecture:"東京都",
+	  city:"港区芝公園",
+	  street:"4丁目2-8",
+	  is_valid:"true",
+	  open_time:"2020-2-22",
+	  close_time:"2020-2-22",
+	  area_id:"1",
+	  latitude: "123",
+      longitude: "456"
+      )
+    expect(event).to be_valid
+  end
 end

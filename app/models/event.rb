@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  belongs_to :area
+  belongs_to :area #エリア
   has_many :event_tags, dependent: :destroy #タグ
   has_many :tags, through: :event_tags #タグ
   has_many :event_seasons, dependent: :destroy #タグ
@@ -8,18 +8,24 @@ class Event < ApplicationRecord
   attachment :image #refile用
   has_many :favorites #いいな
 
-
   scope :enabled, -> {where(is_valid: true)}
 
-  validates :name, presence: true
-  #validates :prefecture, presence: true
-  #validates :city, presence: true
-  #validates :street, presence: true
+  validates :name, presence: true, length: {maximum: 50}
+  validates :article, presence: true, length: {maximum: 255}
+  validates :image_id, presence: true
+  validates :prefecture, presence: true, length: {maximum: 50}
+  validates :city, presence: true, length: {maximum: 50}
+  validates :street, presence: true, length: {maximum: 50}
+  validates :is_valid, inclusion: { in: [true, false] }
+  validates :open_time, presence: true
+  validates :close_time, presence: true
+  validates :area_id, presence: true
+  validates :latitude, presence: true
+  validates :longitude, presence: true
+
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
 
-  enum time_status: [:event_before, :event_now, :event_finsh]
-  #開催前,開催中,開催終了
 end
