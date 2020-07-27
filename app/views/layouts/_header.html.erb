@@ -29,7 +29,7 @@
         <%= link_to user_favorites_path(current_user), method: :get do %>
           <i class="far fa-heart"></i>
         <% end %>
-        <li class="header__right-link">><i class="fas fa-search" data-toggle="modal" data-target="#searchModal"></i><li>
+        <li class="header__right-link"><i class="fas fa-search" data-toggle="modal" data-target="#searchModal"></i><li>
         <li class="header__right-link">
           <%= link_to "https://twitter.com/share?url=#{request.url}&text=文", target: :_blank do %>
             <span data-toggle="tooltip" data-placement="bottom" title="Share"><i class="fab fa-twitter"></i></span>

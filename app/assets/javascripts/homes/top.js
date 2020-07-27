@@ -1,5 +1,5 @@
 $(function(){
-var mySwiper = new Swiper('.swiper1', {
+var mySwiper = new Swiper('.container__swiper1', {
     autoplay: {
   delay: 5000,
 },
@@ -12,7 +12,7 @@ var mySwiper = new Swiper('.swiper1', {
   }
 });
 
-var mySwiper3 = new Swiper('.swiper3', {
+var mySwiper3 = new Swiper('.container__swiper3', {
   slideToClickedSlide: false,
   controller: {
     control: mySwiper,
@@ -26,7 +26,7 @@ var mySwiper3 = new Swiper('.swiper3', {
 });
 mySwiper.controller.control = mySwiper3;
 
-var mySwiper2 = new Swiper ('.swiper2', {
+var mySwiper2 = new Swiper ('.container__swiper2', {
   autoplay: {
   delay: 5000,
 },
