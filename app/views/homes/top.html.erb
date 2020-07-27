@@ -3,108 +3,134 @@
 <% provide(:title, 'ホーム') %>
 
 <div class="top">
-  <%= image_tag asset_path("map-japan.png", alt: "観光") %>
-</div>
+  <div class="section top__sec1">
+    <div class="top__sec1-img1">
+      <%= image_tag asset_path("top__sec-img1.jpg", alt: "観光") %>
+    </div>
+    <div class="top__sec1-img2">
+      <%= image_tag asset_path("top__sec1-img2.png", alt: "観光") %>
+    </div>
 
-<!-- スライダー -->
-<div class="swiper-container swiper2">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <div class="slide-img"><%= image_tag asset_path("img_01.jpg", alt: "観光") %></div>
-      <div class="slide-content">
-        <h1>ここいこ。へようこそ</h1>
-        <p>お気に入りの観光地を探してみよう</p>
-        <!-- <div class="caption">caption 01<%#=link_to root_url  %></div> -->
-      </div>
-    </div><!-- end of .swiper-slide -->
-    <div class="swiper-slide">
-      <div class="slide-img"><%= image_tag asset_path("img_02.jpg", alt: "観光") %></div>
-      <div class="slide-content">
-        <h2>ここいこ。へようこそ</h2>
-        <p></p>
-        <div class="caption"><%=link_to "Click to go on a trip !", event_path(1), :style=>"color:white;" %></div>
-      </div>
-    </div><!-- end of .swiper-slide -->
-    <div class="swiper-slide">
-      <div class="slide-img"><%= image_tag asset_path("img_03.jpg", alt: "観光") %></div>
-      <div class="slide-content">
-        <h3>ここいこ。へようこそ</h3>
-        <p></p>
-        <div class="caption"><%=link_to "Click to go on a trip !", event_path(2), :style=>"color:white;" %></div>
-      </div>
-    </div><!-- end of .swiper-slidet -->
-  </div><!-- end of .swiper-wrapper -->
-  <div class="swiper-pagination swiper-pagination-white"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-</div><!-- end of .swiper-container -->
+  <!-- ボタン -->
+  <%= render 'homes/select_hokkaido' %>
+  <%= render 'homes/select_tohoku' %>
+  <%= render 'homes/select_kanto' %>
+  <%= render 'homes/select_cyubu' %>
+  <%= render 'homes/select_kansai' %>
+  <%= render 'homes/select_cyugoku' %>
+  <%= render 'homes/select_shikoku' %>
+  <%= render 'homes/select_kyusyu' %>
+  </div>
 
-<!-- ボタン -->
-<%= render 'homes/select_hokkaido' %>
-<%= render 'homes/select_tohoku' %>
-<%= render 'homes/select_kanto' %>
-<%= render 'homes/select_cyubu' %>
-<%= render 'homes/select_kansai' %>
-<%= render 'homes/select_cyugoku' %>
-<%= render 'homes/select_shikoku' %>
-<%= render 'homes/select_kyusyu' %>
-
-<!-- 季節のイベント -->
-<%= render 'homes/swiper_season' %>
-<br>
-
-
-<div class="top__sec2">
-  <div class="container">
-    <h2 div class="heading">カテゴリーから探す</h2>
-    <div class="container__inner">
-      <% @tags.each do |tag| %>
-        <div class="container__item">
-          <%= link_to event_tag_path(tag) do %>
-            <%= attachment_image_tag(tag, :image, fallback: 'no_image.jpg', size: '252x200')%>
-          <% end %>
-          <p class="container__text"><%= tag.name %>
-            <i class="fas fa-arrow-circle-right"></i>
-          </p>
+  <!-- 季節のイベント -->
+  <div class="section top__sec2">
+    <div class="container">
+      <h2 div class="heading">季節のイベント</h2>
+      <div class="container__inner">
+          <!-- Swiper START -->
+        <div class="swiper-container container__swiper1">
+        <!-- メイン表示部分 -->
+          <div class="swiper-wrapper">
+          <!-- 各スライド -->
+            <% i = 1 %>
+            <% while i < 13 %>
+              <div class="swiper-slide top__sec2-img1">
+                <a href="./events/season/<%= i %>"><%= image_tag asset_path("season_#{i}.jpg", alt: "観光") %></a>
+                <p class="text--swiper1"><%= i %>月</p>
+              </div>
+              <% i += 1 %>
+            <% end %>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
-      <% end %>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="container__inner">
+      <!-- Swiper START -->
+        <div class="swiper-container container__swiper3">
+        <!-- メイン表示部分 -->
+          <div class="swiper-wrapper top__sec2-img2">
+          <!-- 各スライド -->
+            <div class="swiper-slide"><%= image_tag asset_path("season_sub1.jpg", alt: "観光") %></div>
+            <div class="swiper-slide"><%= image_tag asset_path("season_sub2.jpg", alt: "観光") %></div>
+            <div class="swiper-slide"><p class="text--swiper3">冬</p><%= image_tag asset_path("season_sub3.jpg", alt: "観光") %></div>
+            <div class="swiper-slide"><%= image_tag asset_path("season_sub4.jpg", alt: "観光") %></div>
+            <div class="swiper-slide"><%= image_tag asset_path("season_sub5.jpg", alt: "観光") %></div>
+            <div class="swiper-slide"><p class="text--swiper3">夏</p><%= image_tag asset_path("season_sub6.jpg", alt: "観光") %></div>
+            <div class="swiper-slide"><%= image_tag asset_path("season_sub7.jpg", alt: "観光") %></div>
+            <div class="swiper-slide"><%= image_tag asset_path("season_sub8.jpg", alt: "観光") %></div>
+            <div class="swiper-slide"><p class="text--swiper3">秋</p><%= image_tag asset_path("season_sub9.jpg", alt: "観光") %></div>
+            <div class="swiper-slide"><%= image_tag asset_path("season_sub10.jpg", alt: "観光") %></div>
+            <div class="swiper-slide"><%= image_tag asset_path("season_sub11.jpg", alt: "観光") %></div>
+            <div class="swiper-slide"><p class="text--swiper3">冬</p><%= image_tag asset_path("season_sub12.jpg", alt: "観光") %></div>
+          </div>
+        </div>
+      <!-- Swiper END -->
+      </div>
+    </div>
+  </div>
+
+  <div class="section top__sec3">
+    <div class="container">
+      <h2 div class="heading">カテゴリーから探す</h2>
+      <div class="container__inner">
+        <% @tags.each do |tag| %>
+          <div class="container__item">
+            <div class="top__sec3-img">
+              <%= link_to event_tag_path(tag) do %>
+                <%= attachment_image_tag(tag, :image, fallback: 'no_image.jpg')%>
+              <% end %>
+            </div>
+            <p class="text--picture"><%= tag.name %>
+              <i class="fas fa-arrow-circle-right"></i>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <!-- 観光地のランキング -->
+  <div class="section top__sec4">
+    <div class="container">
+    <h2 div class="heading">人気のスポット</h2>
+      <div class="container__inner">
+        <table>
+          <tr>
+            <th><%= link_to "北海道", root_url(area_id: 1), remote: true %></th>
+            <th><%= link_to "東北", root_url(area_id: 2), remote: true %></th>
+            <th><%= link_to "関東", root_url(area_id: 3), remote: true %></th>
+            <th><%= link_to "中部", root_url(area_id: 4), remote: true %></th>
+            <th><%= link_to "関西", root_url(area_id: 5), remote: true %></th>
+            <th><%= link_to "中国", root_url(area_id: 6), remote: true %></th>
+            <th><%= link_to "四国", root_url(area_id: 7), remote: true %></th>
+            <th><%= link_to "九州・沖縄", root_url(area_id: 8), remote: true %></th>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div id="area_ranking">
+      <div class="container__inner">
+        <%= render 'events/event_small_content', events: @events_ranking_area %>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 新着記事 -->
+  <div class="section top__sec5">
+    <div class="container">
+      <h2 div class="heading">新着記事</h2>
+      <%= render 'events/event_small_content', events: @events_new %>
     </div>
   </div>
 </div>
 
-
-
-<!-- 観光地のランキング -->
-<div class="index-sub-content">
-  <div class="container">
-  <h2 div class="heading">人気のスポット</h2>
-    <table>
-      <tr>
-        <th><%= link_to "北海道", root_url(area_id: 1), remote: true %></th>
-        <th><%= link_to "東北", root_url(area_id: 2), remote: true %></th>
-        <th><%= link_to "関東", root_url(area_id: 3), remote: true %></th>
-        <th><%= link_to "中部", root_url(area_id: 4), remote: true %></th>
-        <th><%= link_to "関西", root_url(area_id: 5), remote: true %></th>
-        <th><%= link_to "中国", root_url(area_id: 6), remote: true %></th>
-        <th><%= link_to "四国", root_url(area_id: 7), remote: true %></th>
-        <th><%= link_to "九州・沖縄", root_url(area_id: 8), remote: true %></th>
-      </tr>
-    </table>
-  </div>
+<div class="Likes">
+  <div class="LikesIcon"></div>
 </div>
-
-<div class="container">
-  <div id="area_ranking">
-    <%= render 'events/event_small_content', events: @events_ranking_area %>
-  </div>
-</div>
-
-<!-- 新着記事 -->
-<div class="container">
-  <h3>新着記事</h3>
-  <hr>
-  <%= render 'events/event_small_content', events: @events_new %>
-</div>
-
-
 
