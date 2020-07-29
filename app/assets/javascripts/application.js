@@ -33,20 +33,4 @@ $(function () {
 	$('[data-toggle="tooltip"]').tooltip();
 });
 
-//header装飾
-var height = 60;
 
-$(window).scroll(function() {
-  var top = $(window).scrollTop();
-  if (height < top) {
-    $('header').css('background-color', '#ffffff');
-    $('header a').css('color', '#000000');
-    $('header i').css('color', '#000000');
-    $('header li').css('color', '#000000');
-    } else {
-    $('header').css('background-color', 'transparent');
-    $('header a').css('color', '#ffffff');
-    $('header i').css('color', '#ffffff');
-    $('header li').css('color', '#ffffff');
-  }
-});
