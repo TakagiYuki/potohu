@@ -39,11 +39,12 @@ class EventsController < ApplicationController
 
   def search
     if params[:search][:prefecture].present? && params[:search][:name].empty?
-      @events = Event.where('prefecture LIKE ?', "%#{params[:search][:prefecture]}%")
+      @events = Event.where(prefecture: params[:search][:prefecture])
+
     elsif params[:search][:prefecture].blank? && params[:search][:name].present?
       @events = Event.joins(:tags).where('tags.name LIKE ?', "%#{params[:search][:name]}%")
     else
-      @events = Event.joins(:tags).where('events.prefecture LIKE ? AND tags.name LIKE ?', "%#{params[:search][:prefecture]}%","%#{params[:search][:name]}%")
+      @events = Event.joins(:tags).where('tags.name LIKE ?',"%#{params[:search][:name]}%").where(events: {prefecture: params[:search][:prefecture]})
     end
   end
 end

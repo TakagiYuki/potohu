@@ -2,6 +2,7 @@
 <%= javascript_include_tag "homes/top.js" %>
 <% provide(:title, 'ホーム') %>
 
+
 <div class="top">
   <div class="section top__sec1">
     <div class="top__sec1-img1">
@@ -22,7 +23,7 @@
   <%= render 'homes/select_kyusyu' %>
   </div>
 
-  <!-- 季節のイベント -->
+<!-- 季節のイベント -->
   <div class="section top__sec2">
     <div class="container">
       <h2 div class="heading">季節のイベント</h2>
@@ -48,6 +49,7 @@
     </div>
 
     <div class="container">
+
       <div class="container__inner">
       <!-- Swiper START -->
         <div class="swiper-container container__swiper3">
@@ -72,6 +74,7 @@
       </div>
     </div>
   </div>
+
 
   <div class="section top__sec3">
     <div class="container">
@@ -100,14 +103,14 @@
       <div class="container__inner">
         <table>
           <tr>
-            <th><%= link_to "北海道", root_url(area_id: 1), remote: true %></th>
-            <th><%= link_to "東北", root_url(area_id: 2), remote: true %></th>
-            <th><%= link_to "関東", root_url(area_id: 3), remote: true %></th>
-            <th><%= link_to "中部", root_url(area_id: 4), remote: true %></th>
-            <th><%= link_to "関西", root_url(area_id: 5), remote: true %></th>
-            <th><%= link_to "中国", root_url(area_id: 6), remote: true %></th>
-            <th><%= link_to "四国", root_url(area_id: 7), remote: true %></th>
-            <th><%= link_to "九州・沖縄", root_url(area_id: 8), remote: true %></th>
+            <th><%= link_to "北海道", ranking_path(area_id: 1), remote: true %></th>
+            <th><%= link_to "東北", ranking_path(area_id: 2), remote: true %></th>
+            <th><%= link_to "関東", ranking_path(area_id: 3), remote: true %></th>
+            <th><%= link_to "中部", ranking_path(area_id: 4), remote: true %></th>
+            <th><%= link_to "関西", ranking_path(area_id: 5), remote: true %></th>
+            <th><%= link_to "中国", ranking_path(area_id: 6), remote: true %></th>
+            <th><%= link_to "四国", ranking_path(area_id: 7), remote: true %></th>
+            <th><%= link_to "九州・沖縄", ranking_path(area_id: 8), remote: true %></th>
           </tr>
         </table>
       </div>
@@ -125,12 +128,13 @@
   <div class="section top__sec5">
     <div class="container">
       <h2 div class="heading">新着記事</h2>
+    </div>
+
+    <div id="new_event">
       <%= render 'events/event_small_content', events: @events_new %>
     </div>
+    <%= link_to_next_page @events_new, '↓もっと見る↓', remote: true, id: 'more_link' %>
   </div>
-</div>
 
-<div class="Likes">
-  <div class="LikesIcon"></div>
-</div>
+
 

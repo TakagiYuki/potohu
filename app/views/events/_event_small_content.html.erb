@@ -1,18 +1,18 @@
 <div class="container__inner">
-  <% events.limit(4).each_with_index do |event, i| %>
+  <% events.each_with_index do |event, i| %>
     <div class="container__card--mini">
       <div class="top__sec4-img1">
         <%= link_to event_path(event) do %>
           <% if events == @events_new %>
             <div class="container__card--mini__badge--new">
-              <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '180x141')%>
+              <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
             </div>
           <% elsif events == @events_ranking_area %>
             <div class="container__card--mini__badge--rank<%= i %>">
-              <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '180x141')%>
+              <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
             </div>
           <% elsif events == @events %>
-            <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '180x141')%>
+            <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
           <% end %>
         <% end %>
       </div>
