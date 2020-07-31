@@ -5,4 +5,12 @@
   <hr>
 </div>
   <h3><%= @events.count %>件のイベントを表示</h3>
+  <%= form_with scope: :search, url: search_events_path, method: :get, local: true do |f| %>
+  <input type="checkbox" value="北海道" name="search[prefecture][]" id="search_prefecture">
+  <label for="search_prefecture" class="label">北海道</label>
+  <input type="checkbox" value="青森県" name="search[prefecture][]" id="search_prefecture1">
+  <label for="search_prefecture1" class="label">青森県</label>
+  <%= f.collection_select :name, Tag.all, :name, :name,:include_blank => "指定しない", class: 'form-control' %><br>
+<%= f.submit :search ,class: "btn btn-default" %>
+<% end %>
   <%= render 'events/event_medium_content', events: @events %>

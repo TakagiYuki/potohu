@@ -10,14 +10,13 @@
             <%= f.label :エリア %><br>
             <%= f.check_box :prefecture,{multiple: true},"北海道", nil %>北海道
             <%= f.check_box :prefecture,{multiple: true},"青森県", nil %>青森
-            <%#= f.radio_button :prefecture, :"岩手県" %>
             <%= f.collection_select :name, Tag.all, :name, :name,:include_blank => "指定しない", class: 'form-control' %><br>
 
-            <%#= f.label :name, 'カテゴリー' %>
-            <%#= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
-            <%#= tag.label do %>
-            <%#= tag.check_box %>
-            <%#= tag.text %>
+            <%= f.label :name, 'カテゴリー' %>
+            <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+            <%= tag.label do %>
+            <%= tag.check_box %>
+            <%= tag.text %>
 
     </div>
     <div class="modal-footer">

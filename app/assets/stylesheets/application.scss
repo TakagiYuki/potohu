@@ -124,10 +124,12 @@ a {
     margin-bottom: 20px;
   }
   &__card--normal {
-    width: 460px;
+    position: relative;/*相対配置*/
+    width: 40%;
     height: 470px;
     background-color: #FFFFFF;
-    padding: 0;
+    margin-right: 2%;
+    margin-left: 2%;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
@@ -356,6 +358,12 @@ a {
   }
 }
 
+.sec1-img1 img{
+  display:flex;
+    width: 100%;
+    height: 200px;
+}
+
 /* タグの位置 */
 .container__card--normal span {
   margin: 0px 0px 0px 17px;//余白
@@ -408,9 +416,9 @@ a {
 
 
 //User情報
-.box {
-  padding: 60px 0px;
-}
+// .box {
+//   padding: 60px 0px;
+// }
 
 .box-part {
   background: #dcdcdc;
@@ -525,17 +533,17 @@ table th{
 }
 
 
-.sp-nav {
-   display: none;
+.box{
+  display: flex;
 }
-
-.containerr{
-    display: flex;
+.box__left{
+  // justify-content: center;
+  flex: 1;
+  flex-wrap: wrap;
+  display: inline-flex;
+  justify-content: center;
 }
-.left{
-    flex: 1;
-}
-.right{
+.box__right{
     width: 300px;
 }
 
@@ -574,6 +582,7 @@ article {
     text-align: center;
     vertical-align: middle;
     border: solid 3px #f5f5f5;
+
 }
 .nav1__item1,
  {
@@ -597,31 +606,31 @@ article {
 .nav1__item0 a {
     display: block;
     padding: 15px 0;
-    color: #f5f5f5;
     text-decoration: none;
     font-size: 14px;
+    color: #0eac67;
 }
 
 .nav1__item1 a {
     display: block;
     padding: 15px 0;
-    color: #666;
     text-decoration: none;
     font-size: 14px;
+    color: #34a9bc;
 }
 .nav1__item2 a {
     display: block;
     padding: 15px 0;
-    color: #666;
     text-decoration: none;
     font-size: 14px;
+    color: #f7da36;
 }
 .nav1__item3 a {
     display: block;
     padding: 15px 0;
-    color: #666;
     text-decoration: none;
     font-size: 14px;
+    color: #eb7896;
 }
 .text_date {
   color: #ff4500;
