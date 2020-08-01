@@ -1,6 +1,10 @@
 class FavoritesController < ApplicationController
   before_action :set_event
-
+  
+  def show
+    @events_ranking_area = Event.where(area_id: area_id, id: Favorite.group(:event_id).order('count(event_id) desc').pluck(:event_id)).limit(4)
+  end
+  
   def create
     event = Event.find(params[:event_id])
     favorite = Favorite.new()
