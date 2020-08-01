@@ -12,7 +12,6 @@ class Event < ApplicationRecord
 
   validates :name, presence: true, length: {maximum: 50}
   validates :article, presence: true, length: {maximum: 255}
-  validates :image_id, presence: true
   validates :prefecture, presence: true, length: {maximum: 50}
   validates :city, presence: true, length: {maximum: 50}
   validates :street, presence: true, length: {maximum: 50}
@@ -20,8 +19,6 @@ class Event < ApplicationRecord
   validates :open_time, presence: true
   validates :close_time, presence: true
   validates :area_id, presence: true
-  validates :latitude, presence: true
-  validates :longitude, presence: true
 
 
   def favorited_by?(user)

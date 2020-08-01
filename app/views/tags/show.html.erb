@@ -1,7 +1,5 @@
 <% provide(:title, @tag.name) %>
 
-<div class="container">
-  <div class="container__inner">
     <ul class="nav1">
       <% @tags.each_with_index do |tag, i| %>
         <li class="nav1__item<%= i %>"><%= link_to event_tag_path(tag) do %>
@@ -10,54 +8,12 @@
         <% end %>
       <% end %>
     </ul>
-  </div>
-</div>
-<style>
-input[type=checkbox] {
-display: none; /* チェックボックスを非表示にする */
-}
 
-.dtl_cat_btn input[type="checkbox"]:checked + label {
-color: blue;
-transition: 1.0s ;
-opacity: 1;
-}
-
-.label {
-color: black;
-transition: 1.0s ;
-opacity: 0.5;
-}
-
-/*#list_dtl_wrap #dtl_cat_btn_play input:checked + label {
-    color: #33a9cb;
-}*/
-</style>
-
-
-<input type="checkbox" name="#" value="1" id="apple">
-<label for="apple" class="label">りんご</label>
-<input type="checkbox" name="#" value="2" id="pineapple">
-<label for="pineapple" class="label">ぶどう</label>
-<input type="checkbox" name="#" value="3" id="orange">
-<label for="orange" class="label">みかん</label>
-
-<%= form_with scope: :search, url: search_events_path, method: :get, local: true do |f| %>
-<div class="dtl_cat_btn">
-  <input type="checkbox" value="北海道" name="search[prefecture][]" id="search_prefecture">
-  <label for="search_prefecture" class="label">北海道</label>
-</div>
-  <input type="checkbox" value="青森県" name="search[prefecture][]" id="search_prefecture1">
-  <label for="search_prefecture1" class="label">青森県</label>
-  <%= f.collection_select :name, Tag.all, :name, :name,:include_blank => "指定しない", class: 'form-control' %><br>
-<%= f.submit :search ,class: "btn btn-default" %>
-<% end %>
 
 
 <div class="box">
   <div class="box__left">
-    <!-- <div class="container"> -->
-      <!-- <div class="container_inner"> -->
+    <%= render 'shared/find' %>
 		    <% @events.each do |event| %>
           <div class="container__card--normal">
             <div class="sec1-img1">
@@ -65,11 +21,29 @@ opacity: 0.5;
     		        <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
               <% end %>
             </div>
-		        <h2 div class="heading--normal"><%= event.name.truncate(20) %></h2>
-		        <p class="text--normal"><%= event.article.truncate(74) %></p>
-		        <p class="text--normal">場所 <%= event.prefecture%> <%= event.city%></p>
-		        <% event.tags.each do |tag| %>
-		          <span class="label label-success"><%= tag.name %></span>
+            <% event.tags.each do |tag| %>
+              <% if tag.id == 1 %>
+		            <h2 div class="heading--normal"><%= event.name.truncate(20) %></h2>
+              <% elsif tag.id == 2 %>
+                <h2 div class="heading--normal2"><%= event.name.truncate(20) %></h2>
+              <% elsif tag.id == 3 %>
+                <h2 div class="heading--normal3"><%= event.name.truncate(20) %></h2>
+              <% else %>
+                <h2 div class="heading--normal4"><%= event.name.truncate(20) %></h2>
+              <% end %>
+
+		          <p class="text--normal"><%= event.article.truncate(74) %></p>
+		          <p class="text--normal">【場所】<%= event.prefecture%></p>
+
+              <% if tag.id == 1 %>
+		            <p class="text_date1"> <%= tag.name %></p>
+              <% elsif tag.id == 2 %>
+                <p class="text_date2"> <%= tag.name %></p>
+              <% elsif tag.id == 3 %>
+                <p class="text_date3"> <%= tag.name %></p>
+              <% else %>
+                <p class="text_date4"> <%= tag.name %></p>
+              <% end %>
 		        <% end %>
     	      <div id="favorites_buttons_<%= event.id %>">
     	        <%= render partial: 'favorites/favorite', locals: { event: event} %>
@@ -77,35 +51,38 @@ opacity: 0.5;
     	      <span class="label label-success"><%= @status %></span><%= @open_date %>  <%= @close_date %>
 		      </div>
         <% end %>
-      <!-- </div> -->
-	  <!-- </div> -->
   </div>
     <div class="box__right">
-      人気記事ランキング
-
-<% @events_ranking_area.each do |event| %>
-
-<article>
-  <figure>
-	<%= link_to event_path(event) do %>
-      <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
-    <% end %>
-  </figure>
-  <div class="text_content">
-    <% event.tags.each do |tag| %>
-      <% if tag.id == 1 %>
-	    <p class="text_date"> <%= tag.name %></p>
-	  <% else %>
-	    <p class="text_date1"> <%= tag.name %></p>
+      <p class="box__right__heading">人気記事ランキング</p>
+      <% @events_ranking_area.each do |event| %>
+        <article>
+          <figure>
+        	<%= link_to event_path(event) do %>
+            <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
+          <% end %>
+          </figure>
+          <div class="text_content">
+            <% event.tags.each do |tag| %>
+              <% if tag.id == 1 %>
+        	      <p class="text_date1"> <%= tag.name %></p>
+                <p class="nomal-card-heading1"><%= event.name.truncate(9) %></p>
+        	    <% elsif tag.id == 2 %>
+        	      <p class="text_date2"> <%= tag.name %></p>
+                <p class="nomal-card-heading2"><%= event.name.truncate(9) %></p>
+              <% elsif tag.id == 3 %>
+                <p class="text_date3"> <%= tag.name %></p>
+                <p class="nomal-card-heading3"><%= event.name.truncate(9) %></p>
+              <% elsif tag.id == 4 %>
+                <p class="text_date3"> <%= tag.name %></p>
+                <p class="nomal-card-heading4"><%= event.name.truncate(9) %></p>
+              <% end %>
+            <% end %>
+        	  <p class="text_excerpt"><%= event.prefecture %></p>
+          </div>
+        </article>
       <% end %>
-    <% end %>
-	<h2><a href="#"><%= event.name.truncate(9) %></a></h2>
-	<p class="text_excerpt">画像とテキストコンテンツを左右に並べたレイアウト。</p>
-  </div>
-</article>
-<% end %>
+      <p class="box__right__heading">人気記事ランキング一覧を見る</p>
 
-
-
-</div>
+      <p class="box__right__heading">いいねした記事</p>
+    </div>
 </div>
