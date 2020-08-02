@@ -1,1 +1,2 @@
-$('#area_ranking').html("<%= j(render 'events/event_small_content', events: @events_ranking_area ) %>");
+$("#new_event").append("<%= j(render 'events/event_small_content', events: @events_new) %>");
+$("#more_link").replaceWith("<%= j(link_to_next_page(@events_new, 'つづきを見る', remote: true, id: 'more_link')) %>");

@@ -27,7 +27,10 @@
 //     $('.datepicker').datetimepicker({locale: 'ja'});
 // });
 
+
 // ツールチップ
 $(function () {
 	$('[data-toggle="tooltip"]').tooltip();
 });
+
+

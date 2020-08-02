@@ -4,18 +4,11 @@
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= include_gon %>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
-    <meta name="twitter:card" content="summary_large_image" /> <!--①-->
-    <meta name="twitter:site" content="@ユーザー名" /> <!--②-->
-    <meta property="og:url" content="<%= request.url %>" /> <!--③-->
-    <meta property="og:title" content="記事のタイトル" /> <!--④-->
-    <meta property="og:description" content="記事の要約（ディスクリプション）" /> <!--⑤-->
-    <meta property="og:image" content="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F187570%2Fb54af677-a93f-83ef-827d-afaf04b1131e.png?ixlib=rb-1.2.2&auto=format&gif-q=60&q=75&w=1400&fit=max&s=9e358ce8f1483af31c7eb41b8f3fce22" /> <!--⑥-->
   </head>
 
   <body>
