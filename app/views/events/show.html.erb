@@ -1,0 +1,87 @@
+<% provide(:title, '観光地情報') %>
+<div class="container">
+  <h3>
+    <center><%= @event.name %></center>
+  </h3>
+  <hr>
+</div>
+
+<div class="container">
+  <!-- イベント詳細 -->
+  <%= render 'events/event_learge_content' %>
+
+  <!-- マップ表示 -->
+  <div class="col-lg-6">
+    <div id='map' class="<%= @event.prefecture + @event.city + @event.street %>"></div>
+  </div>
+</div>
+
+<div class="container">
+  <h3>近くのイベント</h3>
+  <hr>
+  <%= render 'events/event_small_content', events: @events %>
+</div>
+
+<div class="container">
+  <div class="col-6">
+    <h3>コメント
+      <% if logged_in? %>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleModal">
+          口コミを書く
+          <%= render 'shared/comment_modal' %>
+        </button>
+      <% else %>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
+          口コミを書く
+          <%#= render 'shared/login_modal' %>
+        </button>
+      <% end %>
+    </h3>
+    <hr>
+  </div>
+</div>
+
+<div class=" comment_<%= @event.id %>">
+  <%= render 'comment', event_comments: @event.event_comments %>
+</div>
+
+<style>
+#map{
+  width: 400px;
+  height: 400px;
+}
+</style>
+
+<script>
+let map//ピンの位置
+let geocoder//緯度経度
+
+function initMap(){
+  ////////////////////初期設定//////////////////////////////////
+  map = new google.maps.Map(document.getElementById('map'), {
+  center: {lat: -34.397, lng: 150.644},
+  zoom: 15
+  });
+  // geocoderを初期化
+  geocoder = new google.maps.Geocoder()
+  //住所を緯度経度に変換 .attrでクラスを取得 変換結果と処理の状況
+  geocoder.geocode( { 'address': $('#map').attr('class')}, function(results, status) {
+    if (status == 'OK') {
+　 // map.setCenterでresults[0](緯度経度)に地図が移動
+      map.setCenter(results[0].geometry.location);
+
+///// google.maps.MarkerでMap上の指定位置にマーカーが立つ//////
+  // Markerを初期化
+      var marker = new google.maps.Marker({
+          map: map,//ピンの位置
+          position: results[0].geometry.location//クリックいち
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=initMap" async defer></script>
+

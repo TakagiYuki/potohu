@@ -1,0 +1,125 @@
+<% provide(:title, 'マイページ') %>
+<div class="box">
+  <div class="container">
+    <div class="row">
+      <h3>マイページ</h3>
+        <hr>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <div class="box-part text-center">
+          <div class="title">
+            <%= attachment_image_tag(@user, :image, fallback: 'no_image.jpg', size: '60x60',
+            class: "img-circle")%>
+            <h3><%= @user.name %></h3>
+          </div>
+          <div class="text">
+            <p>各都道府県にカーソルを合わせると、いいねの回数を確認できます!</p>
+            <span><%#= "現在の都道府県値は#{@user.counter_hokkaido+@user.counter_aomori+@user.counter_iwate+@user.counter_miyagi+@user.counter_akita+@user.counter_yamagata+@user.counter_hukushima+@user.counter_ibaraki+@user.counter_tochigi+@user.counter_gunma+@user.counter_saitama+@user.counter_chiba+@user.counter_tokyo+@user.counter_kanagawa+@user.counter_niigata+@user.counter_toyama+@user.counter_ishikawa+@user.counter_hukui+@user.counter_yamanashi+@user.counter_nagano+@user.counter_gihu+@user.counter_shizuoka+@user.counter_aichi+@user.counter_mie+@user.counter_shiga+@user.counter_kyoto+@user.counter_osaka+@user.counter_hyogo+@user.counter_nara+@user.counter_wakayama+@user.counter_tottori+@user.counter_shimane+@user.counter_okayama+@user.counter_hiroshima+@user.counter_yamaguchi+@user.counter_tokushima+@user.counter_kagawa+@user.counter_ehime+@user.counter_kouchi+@user.counter_hukuoka+@user.counter_saga+@user.counter_nagasaki+@user.counter_kumamoto+@user.counter_oita+@user.counter_miyazaki+@user.counter_kagoshima+@user.counter_okinawa}点です。" %></span>
+          </div>
+            <% if @user == current_user %>
+               <p><%= link_to "User情報変更", edit_user_path(@user), class: "btn btn-primary" %></p>
+            <% end %>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <div id="regions_div" style="width: 900px; height: 500px;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["geochart"]});
+      google.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+
+          ['Region', 'いいねの回数'],
+          ['北海道', gon.user.counter_hokkaido],
+          ['青森', gon.user.counter_aomori],
+          ['岩手', gon.user.counter_iwate],
+          ['宮城', gon.user.counter_miyagi],
+          ['秋田', gon.user.counter_akita],
+          ['山形', gon.user.counter_yamagata],
+          ['福島', gon.user.counter_hukushima],
+          ['茨城', gon.user.counter_ibaraki],
+          ['栃木', gon.user.counter_tochigi],
+          ['群馬', gon.user.counter_gunma],
+          ['埼玉', gon.user.counter_saitama],
+          ['千葉', gon.user.counter_chiba],
+          ['東京', gon.user.counter_tokyo],
+          ['神奈川', gon.user.counter_kanagawa],
+          ['新潟', gon.user.counter_niigata],
+          ['富山', gon.user.counter_toyama],
+          ['石川', gon.user.counter_ishikawa],
+          ['福井', gon.user.counter_hukui],
+          ['山梨', gon.user.counter_yamanashi],
+          ['長野', gon.user.counter_nagano],
+          ['岐阜', gon.user.counter_gihu],
+          ['静岡', gon.user.counter_shizuoka],
+          ['愛知', gon.user.counter_aichi],
+          ['三重', gon.user.counter_mie],
+          ['滋賀', gon.user.counter_shiga],
+          ['京都', gon.user.counter_kyoto],
+          ['大阪', gon.user.counter_osaka],
+          ['兵庫',gon.user.counter_hyogo],
+          ['奈良', gon.user.counter_nara],
+          ['和歌山', gon.user.counter_wakayama],
+          ['鳥取', gon.user.counter_tottori],
+          ['島根', gon.user.counter_shimane],
+          ['岡山', gon.user.counter_okayama],
+          ['広島', gon.user.counter_hiroshima],
+          ['山口', gon.user.counter_yamaguchi],
+          ['徳島', gon.user.counter_tokushima],
+          ['香川', gon.user.counter_kagawa],
+          ['愛媛', gon.user.counter_ehime],
+          ['高知', gon.user.counter_kouchi],
+          ['福岡', gon.user.counter_hukuoka],
+          ['佐賀', gon.user.counter_saga],
+          ['長崎', gon.user.counter_nagasaki],
+          ['熊本', gon.user.counter_kumamoto],
+          ['大分', gon.user.counter_oita],
+          ['宮崎', gon.user.counter_miyazaki],
+          ['鹿児島', gon.user.counter_kagoshima],
+          ['沖縄', gon.user.counter_okinawa]
+        ]);
+
+        var options = {
+        region: 'JP',
+        resolution: 'provinces',
+        legend: 'none'
+      };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+        function selectHandler() {
+            var selectedItem = chart.getSelection()[0];
+            var row = selectedItem.row
+            if (selectedItem) {
+                switch (row){
+                    case 0:
+                        url ="";
+                        break;
+                    case 1:
+                        url ="";
+                        break;
+                    case 2:
+                        url ="";
+                        break;
+                }
+                window.location.href = url;
+            }
+        }
+        google.visualization.events.addListener(chart, 'select', selectHandler);
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6 mx-auto">
+
+    </div>
+  </div>
+</div>

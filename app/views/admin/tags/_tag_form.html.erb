@@ -1,0 +1,18 @@
+<div class="col-md-8 col-md-offset-2">
+  <%= form_with(model: @tag, url:url, local: true) do |f| %>
+  <%= render 'shared/error_messages', db: @tag %>
+
+    <%= f.label :名前 %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.label :画像 %>
+    <%= f.attachment_field :image, class: 'form-control' %>
+    
+    <% if current_page?(admin_tags_path) %>
+      <%= f.submit "保存", class: "btn btn-primary" %>
+    <% else %>
+      <%= f.submit "保存", class: "btn btn-primary" %>
+      <%= link_to "戻る", admin_tags_path, class: "btn btn-primary" %>
+    <% end %>
+  <% end %>
+</div>

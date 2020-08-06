@@ -1,0 +1,172 @@
+<style>
+input[type=checkbox] {
+display: none; /* チェックボックスを非表示にする */
+}
+
+input[type="checkbox"]:checked + label {
+color: black;
+transition: 0.5s ;
+opacity: 1;
+}
+
+.label1 {
+color: #ccc;
+transition: 0.5s ;
+}
+
+</style>
+
+
+  <div class="container">
+    <span class = "find-title">場所</span>
+<%= form_with scope: :search, url: search_events_path, method: :get, local: true do |f| %>
+  <input type="checkbox" value="北海道" name="search[prefecture][]" id="search_prefecture">
+  <label for="search_prefecture" class="label1">北海道</label>
+
+  <span class="slash">／</span>
+  <input type="checkbox" value="青森県" name="search[prefecture][]" id="search_prefecture1">
+  <label for="search_prefecture1" class="label1">青森</label>
+
+  <span class="slash">／</span>
+  <input type="checkbox" value="岩手県" name="search[prefecture][]" id="search_prefecture2">
+  <label for="search_prefecture2" class="label1">岩手</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="宮城県" name="search[prefecture][]" id="search_prefecture3">
+  <label for="search_prefecture3" class="label1">宮城</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="秋田県" name="search[prefecture][]" id="search_prefecture4">
+  <label for="search_prefecture4" class="label1">秋田</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="山形県" name="search[prefecture][]" id="search_prefecture5">
+  <label for="search_prefecture5" class="label1">山形</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="福島県" name="search[prefecture][]" id="search_prefectur6">
+  <label for="search_prefecture6" class="label1">福島</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="茨城県" name="search[prefecture][]" id="search_prefecture7">
+  <label for="search_prefecture7" class="label1">茨城</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="栃木県" name="search[prefecture][]" id="search_prefectur8">
+  <label for="search_prefecture8" class="label1">栃木</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="群馬県" name="search[prefecture][]" id="search_prefecture9">
+  <label for="search_prefecture9" class="label1">群馬</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="埼玉県" name="search[prefecture][]" id="search_prefecture10">
+  <label for="search_prefecture10" class="label1">埼玉</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="千葉県" name="search[prefecture][]" id="search_prefecture11">
+  <label for="search_prefecture11" class="label1">千葉</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="東京都" name="search[prefecture][]" id="search_prefecture12">
+  <label for="search_prefecture12" class="label1">東京都</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="神奈川県" name="search[prefecture][]" id="search_prefecture13">
+  <label for="search_prefecture13" class="label1">神奈川</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="新潟県" name="search[prefecture][]" id="search_prefecture14">
+  <label for="search_prefecture14" class="label1">新潟</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="富山県" name="search[prefecture][]" id="search_prefecture15">
+  <label for="search_prefecture15" class="label1">富山</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="石川県" name="search[prefecture][]" id="search_prefecture16">
+  <label for="search_prefecture16" class="label1">石川</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="福井県" name="search[prefecture][]" id="search_prefecture17">
+  <label for="search_prefecture17" class="label1">福井</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="山梨県" name="search[prefecture][]" id="search_prefecture18">
+  <label for="search_prefecture18" class="label1">山梨</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="長野県" name="search[prefecture][]" id="search_prefecture19">
+  <label for="search_prefecture19" class="label1">長野</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="岐阜県" name="search[prefecture][]" id="search_prefecture20">
+  <label for="search_prefecture20" class="label1">岐阜</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="静岡県" name="search[prefecture][]" id="search_prefecture21">
+  <label for="search_prefecture21" class="label1">静岡</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="愛知県" name="search[prefecture][]" id="search_prefecture22">
+  <label for="search_prefecture22" class="label1">愛知</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="三重県" name="search[prefecture][]" id="search_prefecture23">
+  <label for="search_prefecture23" class="label1">三重</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="滋賀県" name="search[prefecture][]" id="search_prefecture24">
+  <label for="search_prefecture24" class="label1">滋賀</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="京都府" name="search[prefecture][]" id="search_prefecture25">
+  <label for="search_prefecture25" class="label1">京都府</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="大阪府" name="search[prefecture][]" id="search_prefecture26">
+  <label for="search_prefecture26" class="label1">大阪府</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="兵庫県" name="search[prefecture][]" id="search_prefecture27">
+  <label for="search_prefecture27" class="label1">兵庫</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="奈良県" name="search[prefecture][]" id="search_prefecture28">
+  <label for="search_prefecture28" class="label1">奈良</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="和歌山県" name="search[prefecture][]" id="search_prefecture29">
+  <label for="search_prefecture29" class="label1">和歌山</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="鳥取県" name="search[prefecture][]" id="search_prefecture30">
+  <label for="search_prefecture30" class="label1">鳥取</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="島根県" name="search[prefecture][]" id="search_prefecture31">
+  <label for="search_prefecture31" class="label1">島根</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="岡山県" name="search[prefecture][]" id="search_prefecture32">
+  <label for="search_prefecture32" class="label1">岡山</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="広島県" name="search[prefecture][]" id="search_prefecture33">
+  <label for="search_prefecture33" class="label1">広島</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="山口県" name="search[prefecture][]" id="search_prefecture34">
+  <label for="search_prefecture34" class="label1">山口</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="徳島県" name="search[prefecture][]" id="search_prefecture35">
+  <label for="search_prefecture35" class="label1">徳島</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="香川県" name="search[prefecture][]" id="search_prefecture36">
+  <label for="search_prefecture36" class="label1">香川</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="愛媛県" name="search[prefecture][]" id="search_prefecture37">
+  <label for="search_prefecture37" class="label1">愛媛</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="高知県" name="search[prefecture][]" id="search_prefecture38">
+  <label for="search_prefecture38" class="label1">高知</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="群馬県" name="search[prefecture][]" id="search_prefecture39">
+  <label for="search_prefecture39" class="label1">群馬</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="福岡県" name="search[prefecture][]" id="search_prefecture40">
+  <label for="search_prefecture40" class="label1">福岡</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="佐賀県" name="search[prefecture][]" id="search_prefecture41">
+  <label for="search_prefecture41" class="label1">佐賀</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="長崎県" name="search[prefecture][]" id="search_prefecture42">
+  <label for="search_prefecture42" class="label1">長崎</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="熊本県" name="search[prefecture][]" id="search_prefecture43">
+  <label for="search_prefecture43" class="label1">熊本</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="大分県" name="search[prefecture][]" id="search_prefecture44">
+  <label for="search_prefecture44" class="label1">大分</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="宮崎県" name="search[prefecture][]" id="search_prefecture45">
+  <label for="search_prefecture45" class="label1">宮崎</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="鹿児島県" name="search[prefecture][]" id="search_prefecture46">
+  <label for="search_prefecture46" class="label1">鹿児島</label>
+  <span class="slash">／</span>
+  <input type="checkbox" value="沖縄県" name="search[prefecture][]" id="search_prefecture47">
+  <label for="search_prefecture47" class="label1">沖縄</label>
+
+  <%= f.collection_select :name, Tag.all, :name, :name,:include_blank => "指定しない", class: 'form-control' %><br>
+<%= f.submit :search ,class: "btn btn-default" %>
+<% end %>
+</div>

@@ -1,0 +1,63 @@
+<header class="header">
+  <h1 class=header__left>
+    <%= link_to "ここいこ", root_url, class: "header__logo" %>
+  </h1>
+
+  <nav class="header__right">
+    <ul class="header__right-ul">
+      <!-- adminユーザー -->
+      <% if logged_in? && current_user.admin %>
+        <li class="header__right-link"><%= "ようこそ#{current_user.name}さん" %></li>
+        <li class="header__right-link"><%= link_to ' タグ作成', admin_tags_path, class: 'glyphicon glyphicon-log-in' %></li>
+        <li class="header__right-link"><%= link_to ' イベント作成', admin_events_path, class: 'glyphicon glyphicon-log-in' %></li>
+        <li class="header__right-link"><%= link_to ' エリア作成', admin_areas_path, class: 'glyphicon glyphicon-log-in' %></li>
+        <li class="header__right-link"><%= link_to ' ログアウト', session_path(current_user), method: :delete, class: 'glyphicon glyphicon-log-in' %></li>
+        <%= link_to user_favorites_path(current_user), method: :get do %>
+          <i class="far fa-heart"></i>
+        <% end %>
+        <li class="header__right-link"><i class="fas fa-search" data-toggle="modal" data-target="#searchModal"></i><li>
+        <li class="header__right-link">
+          <%= link_to "https://twitter.com/share?url=#{request.url}&text=文", target: :_blank do %>
+            <span data-toggle="tooltip" data-placement="bottom" title="Share"><i class="fab fa-twitter"></i></span>
+          <% end %>
+        </li>
+      <!-- ユーザー -->
+      <% elsif logged_in? && !current_user.admin %>
+      <li class="header__right-link"><%= "ようこそ#{current_user.name}さん" %></li>
+      <li class="header__right-link"><%= link_to '　ホーム', root_url, class: 'glyphicon glyphicon-log-in' %></li>
+      <li class="header__right-link"><%= link_to '　マイページ', user_path(current_user), class: 'glyphicon glyphicon-log-in' %></li>
+      <li class="header__right-link"><%= link_to '  ログアウト', session_path(current_user), method: :delete, class: 'glyphicon glyphicon-log-in' %></li>
+
+      <%= link_to user_favorites_path(current_user), method: :get do %>
+        <li class="header__right-link"><i class="far fa-heart"></i></li>
+      <% end %>
+
+      <li class="header__right-link"><i class="fas fa-search" data-toggle="modal" data-target="#searchModal"></i></li>
+
+      <%= link_to "https://twitter.com/share?url=#{request.url}&text=文", target: :_blank do %>
+        <span data-toggle="tooltip" data-placement="bottom" title="Share">
+          <li class="header__right-link"><i class="fab fa-twitter"></i></li>
+        </span>
+      <% end %>
+
+
+
+      <!-- ログインしていないユーザー -->
+      <% else %>
+        <li class="header__right-link"><%= link_to '　ホーム', root_url, class: 'glyphicon glyphicon-log-in' %></li>
+        <li class="header__right-link"><%= link_to '  ログイン', new_session_path, class: 'glyphicon glyphicon-log-in' %></li>
+        <li class="header__right-link"><%= link_to '  新規登録', new_user_path, class: 'glyphicon glyphicon-log-in' %></li>
+        <li class="header__right-link"><%= link_to '  簡単ログイン(user)', users_guest_new_path, method: :post, class: 'glyphicon glyphicon-log-in' %></li>
+        <li class="header__right-link"><%= link_to '  簡単ログイン(admin)', users_admin_new_path, method: :post, class: 'glyphicon glyphicon-log-in' %></li>
+
+        <li class="header__right-link"><i class="far fa-heart" data-toggle="modal" data-target="#loginModal"></i></li>
+        <li class="header__right-link"><i class="fas fa-search" data-toggle="modal" data-target="#searchModal"></i><li>
+        <li class="header__right-link">
+          <%= link_to "https://twitter.com/share?url=#{request.url}&text=aa", target: :_blank do %>
+            <span data-toggle="tooltip" data-placement="bottom" title="Share"><i class="fab fa-twitter"></i></span>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= include_gon %>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  </head>
+
+  <body>
+    <%= render 'layouts/header' %>
+    <%= render 'shared/login_modal' %>
+    <%= render 'shared/search_modal' %>
+
+
+
+    <%= yield %>
+  <!-- footer -->
+<!--   <footer>
+    <p class="footer-text">© All rights reserved by cocoiko.blog</p>
+  </footer> -->
+  </body>
+</html>

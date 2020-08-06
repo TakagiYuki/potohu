@@ -1,0 +1,90 @@
+<% provide(:title, @tag.name) %>
+
+    <ul class="nav1">
+      <% @tags.each_with_index do |tag, i| %>
+        <li class="nav1__item<%= i %>"><%= link_to event_tag_path(tag) do %>
+          <%= tag.name %>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
+<div class = "pan">
+　　 <%= link_to root_url, method: :get do %>
+      <a class="box__right__heading-pan"><i class="fas fa-home"></i>ホーム</a>
+    <% end %>
+    <span>></span>
+    <%= link_to event_tag_path(@tag), method: :get do %>
+      <a class="box__right__heading-pan"><%= @tag.name %></a>
+    <% end %>
+</div>
+<div class="box">
+  <div class="box__left">
+    <%= render 'shared/search_tag' %>
+    <%= render 'events/event_card', events: @events %>
+  </div>
+    <div class="box__right">
+      <%= link_to events_path, method: :get do %>
+        <p class="box__right__heading">
+          <i class="fas fa-crown"></i>人気記事ランキング
+        </p>
+      <% end %>
+
+      <% @events_ranking_area.each_with_index do |event, i| %>
+        <article>
+          <figure>
+          <div class="container__card--mini__badge--rank<%= i %>">
+            <%= link_to event_path(event) do %>
+              <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
+            <% end %>
+          </div>
+          </figure>
+          <div class="text_content">
+            <% event.tags.each do |tag| %>
+              <% if tag.id == 1 %>
+                <%= link_to event_tag_path(tag) do %>
+                  <p class="text_date1"> <%= tag.name %></p>
+                <% end %>
+                <%= link_to event_path(event) do %>
+                  <p class="nomal-card-heading1"><%= event.name.truncate(9) %></p>
+                <% end %>
+              <% elsif tag.id == 2 %>
+                <%= link_to event_tag_path(tag) do %>
+                  <p class="text_date2"> <%= tag.name %></p>
+                <% end %>
+                <%= link_to event_path(event) do %>
+                  <p class="nomal-card-heading2"><%= event.name.truncate(9) %></p>
+                <% end %>
+              <% elsif tag.id == 3 %>
+                <%= link_to event_tag_path(tag) do %>
+                  <p class="text_date3"> <%= tag.name %></p>
+                <% end %>
+                <%= link_to event_path(event) do %>
+                  <p class="nomal-card-heading3"><%= event.name.truncate(9) %></p>
+                <% end %>
+              <% elsif tag.id == 4 %>
+                <%= link_to event_tag_path(tag) do %>
+                  <p class="text_date3"> <%= tag.name %></p>
+                <% end %>
+                <%= link_to event_path(event) do %>
+                  <p class="nomal-card-heading4"><%= event.name.truncate(9) %></p>
+                <% end %>
+              <% end %>
+            <% end %>
+            <p class="text_excerpt">
+              <a href= "http://cocoiko.blog/events/search?utf8=✓&search%5Bprefecture%5D=<%= event.prefecture %>&search%5Bname%5D=&commit=search" >
+                <%= event.prefecture %>
+              </a>
+            </p>
+          </div>
+        </article>
+      <% end %>
+      <%= link_to "人気ランキング一覧を見る", events_path, class: "btn btn-primary" %>
+        <% if logged_in? && current_user %>
+          <%= link_to user_favorites_path(current_user), method: :get do %>
+            <p class="box__right__heading"><i class="far fa-heart"></i>いいねした記事</p>
+          <% end %>
+        <% else %>
+          <p class="box__right__heading"><i class="far fa-heart" data-toggle="modal" data-target="#loginModal"></i>いいねした記事</p>
+        <% end %>
+    </div>
+</div>

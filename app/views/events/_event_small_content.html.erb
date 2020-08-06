@@ -1,0 +1,29 @@
+<div class="container__inner">
+  <% events.each_with_index do |event, i| %>
+    <div class="container__card--mini">
+      <div class="top__sec4-img1">
+        <%= link_to event_path(event) do %>
+          <% if events == @events_new %>
+            <div class="container__card--mini__badge--new">
+              <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
+            </div>
+          <% elsif events == @events_ranking_area %>
+            <div class="container__card--mini__badge--rank<%= i %>">
+              <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
+            </div>
+          <% elsif events == @events %>
+            <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
+          <% end %>
+        <% end %>
+      </div>
+      <h2 div class="heading--mini"><%= event.name.truncate(9) %></h2>
+      <p class="text--mini"><%= event.prefecture%> | <%= event.city.truncate(6)%></p>
+        <% event.tags.each do |tag| %>
+          <span class="container__card--mini__tag"><%= tag.name %></span>
+        <% end %>
+      <div id="favorites_buttons_<%= event.id %>">
+        <%= render partial: 'favorites/favorite', locals: { event: event} %>
+      </div>
+    </div>
+  <% end %>
+</div>

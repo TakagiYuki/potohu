@@ -1,0 +1,15 @@
+<% provide(:title, 'エリア作成') %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>エリア追加</h3>
+      <hr>
+    </div>
+  </div>
+
+  <%= render 'admin/areas/area_form', url: admin_areas_path %>
+
+  <div id="area_create_destroy">
+    <%= render 'admin/areas/area_all', areas: @areas %>
+  </div>
+</div>

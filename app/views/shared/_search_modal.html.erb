@@ -1,0 +1,32 @@
+<div class="modal fade" id="searchModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+    <h4 class="modal-title">何をお探しですか?</h4>
+    </div>
+    <div class="modal-body">
+      <%= form_with scope: :search, url: search_events_path, method: :get, local: true do |f| %>
+            <%= f.label :エリア %><br>
+            <%= f.check_box :prefecture,{multiple: true},"北海道", nil %>北海道
+            <%= f.check_box :prefecture,{multiple: true},"青森県", nil %>青森
+            <%#= f.collection_select :name, Tag.all, :name, :name,:include_blank => "指定しない", class: 'form-control' %>
+            <%= f.check_box :name,{multiple: true},"自然", nil %>自然
+            <%= f.check_box :name,{multiple: true},"歴史", nil %>歴史
+            <%#= f.label :name, 'カテゴリー' %>
+            <%#= f.collection_check_boxes(:name, Tag.all, :name, :name) do |tag| %>
+              <%#= tag.label do %>
+                <%#= tag.check_box %>
+                <%#= tag.text %>
+              <%# end %>
+            <%# end %>
+            <%#= f.check_box :name,{multiple: true},"北海道", nil %>北海道
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+      <%= f.submit :search ,class: "btn btn-default" %>
+      <% end %>
+    </div>
+    </div>
+  </div>
+</div>

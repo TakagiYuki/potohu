@@ -1,0 +1,34 @@
+<div class="select-cyubu">
+  <div class="dropdown">
+    <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
+      中部
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+
+      <% if Rails.env.development? %>
+        <li role="presentation"><a href= "http://localhost:3000/events/search?utf8=✓&search%5Bprefecture%5D=新潟県&search%5Bname%5D=&commit=search" >新潟県</a></li>
+        <li role="presentation"><a href= "http://localhost:3000/events/search?utf8=✓&search%5Bprefecture%5D=富山県&search%5Bname%5D=&commit=search" >富山県</a></li>
+        <li role="presentation"><a href= "http://localhost:3000/events/search?utf8=✓&search%5Bprefecture%5D=石川県&search%5Bname%5D=&commit=search" >石川県</a></li>
+        <li role="presentation"><a href= "http://localhost:3000/events/search?utf8=✓&search%5Bprefecture%5D=福井県&search%5Bname%5D=&commit=search" >福井県</a></li>
+        <li role="presentation"><a href= "http://localhost:3000/events/search?utf8=✓&search%5Bprefecture%5D=山梨県&search%5Bname%5D=&commit=search" >山梨県</a></li>
+        <li role="presentation"><a href= "http://localhost:3000/events/search?utf8=✓&search%5Bprefecture%5D=福島県&search%5Bname%5D=&commit=search" >福島県</a></li>
+        <li role="presentation"><a href= "http://localhost:3000/events/search?utf8=✓&search%5Bprefecture%5D=長野県&search%5Bname%5D=&commit=search" >長野県</a></li>
+        <li role="presentation"><a href= "http://localhost:3000/events/search?utf8=✓&search%5Bprefecture%5D=岐阜県&search%5Bname%5D=&commit=search" >岐阜県</a></li>
+        <li role="presentation"><a href= "http://localhost:3000/events/search?utf8=✓&search%5Bprefecture%5D=静岡県&search%5Bname%5D=&commit=search" >静岡県</a></li>
+        <li role="presentation"><a href= "http://localhost:3000/events/search?utf8=✓&search%5Bprefecture%5D=愛知県&search%5Bname%5D=&commit=search" >愛知県</a></li>
+      <% else %>
+        <li role="presentation"><a href= "http://cocoiko.blog/events/search?utf8=✓&search%5Bprefecture%5D=新潟県&search%5Bname%5D=&commit=search" >新潟県</a></li>
+        <li role="presentation"><a href= "http://cocoiko.blog/events/search?utf8=✓&search%5Bprefecture%5D=富山県&search%5Bname%5D=&commit=search" >富山県</a></li>
+        <li role="presentation"><a href= "http://cocoiko.blog/events/search?utf8=✓&search%5Bprefecture%5D=石川県&search%5Bname%5D=&commit=search" >石川県</a></li>
+        <li role="presentation"><a href= "http://cocoiko.blog/events/search?utf8=✓&search%5Bprefecture%5D=福井県&search%5Bname%5D=&commit=search" >福井県</a></li>
+        <li role="presentation"><a href= "http://cocoiko.blog/events/search?utf8=✓&search%5Bprefecture%5D=山梨県&search%5Bname%5D=&commit=search" >山梨県</a></li>
+        <li role="presentation"><a href= "http://cocoiko.blog/events/search?utf8=✓&search%5Bprefecture%5D=福島県&search%5Bname%5D=&commit=search" >福島県</a></li>
+        <li role="presentation"><a href= "http://cocoiko.blog/events/search?utf8=✓&search%5Bprefecture%5D=長野県&search%5Bname%5D=&commit=search" >長野県</a></li>
+        <li role="presentation"><a href= "http://cocoiko.blog/events/search?utf8=✓&search%5Bprefecture%5D=岐阜県&search%5Bname%5D=&commit=search" >岐阜県</a></li>
+        <li role="presentation"><a href= "http://cocoiko.blog/events/search?utf8=✓&search%5Bprefecture%5D=静岡県&search%5Bname%5D=&commit=search" >静岡県</a></li>
+        <li role="presentation"><a href= "http://cocoiko.blog/events/search?utf8=✓&search%5Bprefecture%5D=愛知県&search%5Bname%5D=&commit=search" >愛知県</a></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

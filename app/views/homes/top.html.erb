@@ -1,0 +1,82 @@
+<%= javascript_include_tag "swiper.min.js" %>
+<%= javascript_include_tag "homes/top.js" %>
+<% provide(:title, 'ホーム') %>
+
+
+<div class="top">
+  <div class="section top__sec1">
+    <div class="top__sec1-img1">
+      <%= image_tag asset_path("top__sec-img1.jpg", alt: "観光") %>
+    </div>
+    <div class="top__sec1-img2">
+      <%= image_tag asset_path("top__sec1-img2.png", alt: "観光") %>
+    </div>
+
+  <!-- ボタン -->
+  <%= render 'homes/select_hokkaido' %>
+  <%= render 'homes/select_tohoku' %>
+  <%= render 'homes/select_kanto' %>
+  <%= render 'homes/select_cyubu' %>
+  <%= render 'homes/select_kansai' %>
+  <%= render 'homes/select_cyugoku' %>
+  <%= render 'homes/select_shikoku' %>
+  <%= render 'homes/select_kyusyu' %>
+  </div>
+
+  <div class="container">
+    <div class="container__inner">
+      <ul class="nav1">
+        <% @tags.each_with_index do |tag, i| %>
+          <li class="nav1__item<%= i %>"><%= link_to event_tag_path(tag) do %>
+            <%= tag.name %>
+          </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+<!-- 観光地のランキング -->
+  <div class="section top__sec4">
+    <div class="container">
+    <h2 div class="heading">人気のスポット</h2>
+      <div class="container__inner">
+        <table>
+          <tr>
+            <th><%= link_to "北海道", ranking_path(area_id: 1), remote: true %></th>
+            <th><%= link_to "東北", ranking_path(area_id: 2), remote: true %></th>
+            <th><%= link_to "関東", ranking_path(area_id: 3), remote: true %></th>
+            <th><%= link_to "中部", ranking_path(area_id: 4), remote: true %></th>
+            <th><%= link_to "関西", ranking_path(area_id: 5), remote: true %></th>
+            <th><%= link_to "中国", ranking_path(area_id: 6), remote: true %></th>
+            <th><%= link_to "四国", ranking_path(area_id: 7), remote: true %></th>
+            <th><%= link_to "九州・沖縄", ranking_path(area_id: 8), remote: true %></th>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div id="area_ranking">
+      <div class="container">
+        <%= render 'events/event_small_content', events: @events_ranking_area %>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 新着記事 -->
+  <div class="section top__sec5">
+    <div class="container">
+      <h2 div class="heading">新着記事</h2>
+    </div>
+
+    <div id="new_event">
+      <%= render 'events/event_small_content', events: @events_new %>
+    </div>
+    <%= link_to_next_page @events_new, '↓もっと見る↓', remote: true, id: 'more_link' %>
+  </div>
+
+</div>
+
+
+

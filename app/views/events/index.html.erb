@@ -1,0 +1,21 @@
+<% provide(:title, '観光地一覧') %>
+
+<div class="container">
+
+  <h3>都道府県から探す</h3>
+  <hr>
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#searchModal">
+    <span class="glyphicon glyphicon-search"></span>都道府県検索
+  </button>
+
+</div>
+
+<div class="container">
+  <h3><center><%= "#{@area.name}エリアのイベント" %></center></h3>
+  <hr>
+  <h3><%= @events.count %>件のイベントを表示</h3>
+</div>
+  <%= render 'events/event_medium_content', events: @events %>
+
+
+
