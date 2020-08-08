@@ -33,8 +33,10 @@ class UsersController < ApplicationController
   end
 
   def favorite
+    @tags = Tag.all
     @user = User.find(params[:id])
     @user_favorites = @user.favorites
+    @events_ranking  =Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(5).pluck(:event_id))
   end
 
   #guest_userログイン用

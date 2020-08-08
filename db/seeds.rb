@@ -272,32 +272,7 @@ Event.create!(
     {name: '弘前城公園', article: '弘前公園は、青森県弘前市にある公園。別名は、鷹揚公園、鷹揚園。弘前市都市公園条例での名称は「鷹揚園」。 春には約50種、2,600本の桜が咲く名所としても知られる。',
     image:open("./public/弘前城公園.jpg"),
     prefecture: '青森県', city:'弘前市', street:'大字下白銀町1',
-    area_id: 2},
-    {name: '十日戎', article: 'えびす講は、おもに10月20日ないし11月20日に催される祭礼または民間行事。十日えびすとして1月10日や1月15日とその前後などに行うこともある。秋の季語。大鳥大社など日本各地の鷲神社で行われる酉の市は由来が異なり全く関係がない。',
-    image:open("./public/tokaebisu.jpg"),
-    prefecture: '大阪府', city:'大阪市', street:'浪速区恵美須西1丁目6-10号',
-    area_id: 5, open_time:'2020-1-1', close_time:'2020-2-22'},
-    {name: 'あしフラ 光の花の庭～フラワーファンタジー', article: 'あしかがフラワーパークは、栃木県足利市迫間町にある花のテーマパーク。足利三名所の一つ。イルミネーションを堪能しよう',
-    image:open("./public/ashihura.jpg"),
-    prefecture: '大阪府', city:'大阪市', street:'浪速区恵美須西1丁目6-10号',
-    area_id: 3, open_time:'2020-3-1', close_time:'2020-12-22'},
-  ]
-)
-
-EventSeason.create!(
-  [
-    {season_id:1, event_id:47},
-    {season_id:2, event_id:47},
-    {season_id:3, event_id:48},
-    {season_id:4, event_id:48},
-    {season_id:5, event_id:48},
-    {season_id:6, event_id:48},
-    {season_id:7, event_id:48},
-    {season_id:8, event_id:48},
-    {season_id:9, event_id:48},
-    {season_id:10, event_id:48},
-    {season_id:11, event_id:48},
-    {season_id:12, event_id:48}
+    area_id: 2}
   ]
 )
 

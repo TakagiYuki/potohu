@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_141416) do
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "pick_up", default: false
   end
 
   create_table "favorites", force: :cascade do |t|

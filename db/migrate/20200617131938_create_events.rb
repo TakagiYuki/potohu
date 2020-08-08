@@ -14,6 +14,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.float :latitude
       t.float :longitude
       t.timestamps
+      t.boolean :pick_up, default: false
     end
   end
 end

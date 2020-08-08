@@ -1,13 +1,11 @@
 <nav class="main-nav" aria-label="Main">
-  <!-- <ul class="nav1"> -->
   <ul class="main-nav__list">
     <% @tags.each_with_index do |tag, i| %>
-      <!-- <li class="nav1__item<%#= i %>"> -->
       <li class="main-nav__item<%= i %>">
-        <%= link_to event_tag_path(tag) do %>
-        <%= tag.name %>
-      </li>
+        <%= link_to event_tag_path(tag), class: "main-nav__link#{i}" do %>
+          <%= tag.name %>
         <% end %>
-      <% end %>
+      </li>
+    <% end %>
   </ul>
 </nav>

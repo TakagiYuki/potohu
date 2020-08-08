@@ -1,11 +1,17 @@
 class EventsController < ApplicationController
+
   def index
-    @areas = Area.all
-    @events = Event.all
-    if params[:area_id]
-      @area = Area.find(params[:area_id])
-      @events = @area.events
-    end
+    @tags = Tag.all
+    # groupでFavorite内のevent_idを全取得 order昇順 pluckカラムの情報取得
+    @events_ranking =Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(5).pluck(:event_id))
+    @events_ranking_all =Event.find(Favorite.group(:event_id).order('count(event_id) desc').pluck(:event_id))
+  end
+
+  def pickup
+    @tags = Tag.all
+    @events_pickup_all = Event.pickup
+    @events_pickup = Event.pickup.limit(4)
+    @events_ranking  =Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(5).pluck(:event_id))
   end
 
   def show
@@ -37,7 +43,7 @@ class EventsController < ApplicationController
     end
   end
 
-   def search
+  def search
     if params[:search][:prefecture].present? && params[:search][:name].empty?
       @events = Event.where(prefecture: params[:search][:prefecture])
 

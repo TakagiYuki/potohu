@@ -26,13 +26,16 @@
     <%= f.text_field :city, class: 'form-control' %>
     <%= f.label :番地 %>
     <%= f.text_field :street, class: 'form-control' %>
-
-    <%= f.label :"開始日" %>
-    <%= f.date_select :open_time, class: 'form-control' %>
-    <%= f.label :"終了日" %>
-    <%= f.date_select :close_time, class: 'form-control' %>
     <br>
-
+    <%= f.label :"オススメ設定" %>
+    <% if @event.pick_up == true %>
+      <%= f.radio_button :pick_up, :"0" %>オススメに設定しない
+      <%= f.radio_button :pick_up, :"1", {:checked => true} %>オススメに設定する<br><br>
+    <% else %>
+      <%= f.radio_button :pick_up, :"0",  {:checked => true} %>オススメに設定しない
+      <%= f.radio_button :pick_up, :"1" %>オススメに設定する<br><br>
+    <% end %>
+    
     <%= f.label :"非表示/表示" %>
     <% if @event.is_valid == true %>
       <%= f.radio_button :is_valid, :"0" %>非表示
@@ -42,21 +45,21 @@
       <%= f.radio_button :is_valid, :"1" %>表示<br><br>
     <% end %>
 
-    <%= f.label :name, 'タグ1' %>
-    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+    <%= f.label :category, 'カテゴリ' %>
+    <%= f.collection_radio_buttons(:tag_ids, Tag.all, :id, :name) do |tag| %> 
       <%= tag.label do %>
-        <%= tag.check_box %>
+        <%= tag.radio_button %>
         <%= tag.text %>
       <% end %>
     <% end %>
-    <br>
-    <%= f.label :name, 'タグ2' %>
-    <%= f.collection_check_boxes(:season_ids, Season.all, :id, :name) do |season| %>
-      <%= season.label do %>
-        <%= season.check_box %>
-        <%= season.text %>
-      <% end %>
-    <% end %>
+    <%#= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %> 
+      <%#= tag.label do %>
+        <%#= tag.check_box %>
+        <%#= tag.text %>
+      <%# end %>
+    <%# end %>
+
+
     <br>
     <% if current_page?(admin_events_path) %>
       <%= f.submit "保存", class: "btn btn-primary" %>
