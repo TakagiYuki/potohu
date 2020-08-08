@@ -7,12 +7,10 @@
         <th class="col-md-1">名前</th>
         <th class="col-md-1">場所</th>
         <th class="col-md-1">非表示/表示</th>
+        <th class="col-md-1">オススメ</th>
         <th class="col-md-1">編集</th>
         <th class="col-md-1">消去</th>
-        <th class="col-md-1">タグ1</th>
-        <th class="col-md-1">タグ2</th>
-        <th class="col-md-1">タグ3</th>
-        <th class="col-md-1">タグ4</th>
+        <th class="col-md-1">カテゴリー</th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +20,11 @@
         <td><%= event.name %></td>
         <td><%= event.prefecture %></td>
         <% if event.is_valid == true %>
+          <td><span class="label label-primary"><%= "表示中" %></span></td>
+        <% else %>
+          <td><span class="label label-danger"><%= "非表示" %></span></td>
+        <% end %>
+        <% if event.pick_up == true %>
           <td><span class="label label-primary"><%= "表示中" %></span></td>
         <% else %>
           <td><span class="label label-danger"><%= "非表示" %></span></td>
@@ -40,9 +43,6 @@
           <td><%= tag.name %></td>
         <% end %>
 
-        <% event.seasons.each do |season| %>
-          <td><%= season.name %></td>
-        <% end %>
       </tr>
       <% end %>
     </tbody>

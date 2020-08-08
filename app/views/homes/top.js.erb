@@ -1,2 +1,2 @@
-$("#new_event").append("<%= j(render 'events/event_small_content', events: @events_new) %>");
+$("#new_event").append("<%= j(render 'events/event_card', events: @events_new) %>");
 $("#more_link").replaceWith("<%= j(link_to_next_page(@events_new, 'つづきを見る', remote: true, id: 'more_link')) %>");

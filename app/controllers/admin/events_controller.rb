@@ -7,11 +7,11 @@ class Admin::EventsController < ApplicationController
 
   def create
   	@event = Event.new(event_params)
-  	if @event.save!
-      @events = Event.all
-  	else
-
-  	end
+    ActiveRecord::Base.transaction do
+      @event.save!
+      EventTag.create!(event_id: @event.id, tag_id: params[:event][:tag_ids])
+    end
+    @events = Event.all
   end
 
   def edit
@@ -42,7 +42,7 @@ class Admin::EventsController < ApplicationController
 
     def event_params
       params.require(:event).permit(:name, :article,
-      :image, :prefecture, :city, :street, :area_id, :open_time, :close_time, :is_valid, tag_ids:[], season_ids:[])
+      :image, :prefecture, :city, :street, :area_id, :open_time, :close_time, :is_valid, :pick_up)
     end
 end
 

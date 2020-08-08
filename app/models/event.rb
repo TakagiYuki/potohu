@@ -9,6 +9,7 @@ class Event < ApplicationRecord
   has_many :favorites #いいな
 
   scope :enabled, -> {where(is_valid: true)}
+  scope :pickup, -> {where(pick_up: true)}
 
   validates :name, presence: true, length: {maximum: 50}
   validates :article, presence: true, length: {maximum: 255}
@@ -19,7 +20,6 @@ class Event < ApplicationRecord
   validates :open_time, presence: true
   validates :close_time, presence: true
   validates :area_id, presence: true
-
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

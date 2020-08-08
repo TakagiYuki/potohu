@@ -1,21 +1,33 @@
-<% provide(:title, '観光地一覧') %>
-
-<div class="container">
-
-  <h3>都道府県から探す</h3>
-  <hr>
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#searchModal">
-    <span class="glyphicon glyphicon-search"></span>都道府県検索
-  </button>
-
+<% provide(:title, '人気記事ランキング') %>
+<%= render 'shared/category_nav' %>
+<div class = "pan-list">
+　<%= link_to root_url, class: "pan-list__link", method: :get do %>
+    <i class="fas fa-home"></i>ホーム
+  <% end %>
+  <span>></span>
+  <%= link_to events_path, class: "pan-list__link", method: :get do %>
+    <span>人気記事ランキング</span>
+  <% end %>
 </div>
 
-<div class="container">
-  <h3><center><%= "#{@area.name}エリアのイベント" %></center></h3>
-  <hr>
-  <h3><%= @events.count %>件のイベントを表示</h3>
+<div class="box">
+  <div class="box__left">
+    <%= render 'shared/search_prefacture' %>
+    <div class="container">
+    	 <h2>人気記事ランキング</h2>
+    </div>
+   
+    <%= render 'events/event_card', events: @events_ranking_all %>
+  </div>
+    <div class="box__right">
+      <%= render 'events/event_ranking', events: @events_ranking %>
+
+        <% if logged_in? && current_user %>
+          <%= link_to user_favorites_path(current_user), method: :get do %>
+            <p class="box__right__heading"><i class="far fa-heart"></i>いいねした記事</p>
+          <% end %>
+        <% else %>
+          <p class="box__right__heading"><i class="far fa-heart" data-toggle="modal" data-target="#loginModal"></i>いいねした記事</p>
+        <% end %>
+    </div>
 </div>
-  <%= render 'events/event_medium_content', events: @events %>
-
-
-

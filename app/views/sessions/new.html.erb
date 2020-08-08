@@ -1,0 +1,18 @@
+<% provide(:title, "ログイン") %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <!-- /loginにparams[:session]を渡す -->
+    <br>
+    <h2>ログイン</h2>
+    <%= form_with(url: new_session_path, scope: :session, local: true) do |f| %>
+
+      <%= f.label :Eメール %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :パスワード %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.submit "ログイン", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

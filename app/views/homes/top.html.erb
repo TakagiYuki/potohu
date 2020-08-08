@@ -23,19 +23,7 @@
   <%= render 'homes/select_kyusyu' %>
   </div>
 
-  <div class="container">
-    <div class="container__inner">
-      <ul class="nav1">
-        <% @tags.each_with_index do |tag, i| %>
-          <li class="nav1__item<%= i %>"><%= link_to event_tag_path(tag) do %>
-            <%= tag.name %>
-          </li>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-
+<%= render 'shared/category_nav' %>
 <!-- 観光地のランキング -->
   <div class="section top__sec4">
     <div class="container">
@@ -65,18 +53,33 @@
 
 
   <!-- 新着記事 -->
-  <div class="section top__sec5">
-    <div class="container">
-      <h2 div class="heading">新着記事</h2>
-    </div>
-
-    <div id="new_event">
-      <%= render 'events/event_small_content', events: @events_new %>
+  <div class="box">
+    <div class="box__left">
+      <div id="new_event">
+      <%= render 'events/event_card', events: @events_new %>
     </div>
     <%= link_to_next_page @events_new, '↓もっと見る↓', remote: true, id: 'more_link' %>
+    </div>
+    <div class="box__right">
+      <%= render 'events/event_ranking', events: @events_ranking %>
+      <%= render 'shared/section_favorite' %>
+      <%= render 'shared/section_pickup', events: @events_pickup %>
+      <%= render 'shared/section_about' %>
+    </div>
   </div>
+  <footer class="footer__botom">
+    <small>© 2020 ここいこ</small>
+  </footer>
 
-</div>
+
+<style>
+  .footer__botom {
+    background-color: #212121;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+</style>
 
 
 

@@ -1,18 +1,18 @@
-<% provide(:title, @tag.name) %>
+<% provide(:title, 'オススメ記事') %>
 <%= render 'shared/category_nav' %>
 <div class = "pan-list">
 　<%= link_to root_url, class: "pan-list__link", method: :get do %>
     <i class="fas fa-home"></i>ホーム
   <% end %>
   <span>></span>
-  <%= link_to event_tag_path(@tag), class: "pan-list__link", method: :get do %>
-    <%= @tag.name %>
+  <%= link_to pickup_path, class: "pan-list__link", method: :get do %>
+    <span>オススメ記事一覧</span>
   <% end %>
 </div>
 <div class="box">
   <div class="box__left">
-    <%= render 'shared/search_tag' %>
-    <%= render 'events/event_card', events: @events %>
+    <%= render 'shared/search_prefacture' %>
+    <%= render 'events/event_card', events: @events_pickup_all %>
   </div>
     <div class="box__right">
       <%= render 'events/event_ranking', events: @events_ranking %>

@@ -3,10 +3,10 @@
   font-weight:normal;
   text-align:left;
   font-size:20px;
-  padding: 0.25em 0.5em;/*上下 左右の余白*/
+  padding: 0.25em 0.5em;
   padding-left: 10px;
-  color: #494949;/*文字色*/
-  background: transparent;/*背景透明に*/
+  color: #494949;
+  background: transparent;
 }
 
 @mixin category($color){
@@ -16,6 +16,7 @@
   background-color: #fff;
   border: 1px solid #0eac67;
   border-radius: 2em;
+  font-size: 14px;
 }
 .card {
   position: relative;
@@ -49,7 +50,7 @@
   }
   &__copy {
     padding: 0px 10px;
-    opacity: 0.65;//透明度
+    opacity: 0.65;
     font-size: 14px;
     float: left
   }
@@ -65,4 +66,9 @@
   &__category--stage {
     @include category(#eb7896);
   }
+}
+.card i {
+  position: absolute;
+  top: 180px;
+  left: 300px;
 }

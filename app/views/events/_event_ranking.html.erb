@@ -1,0 +1,61 @@
+<header class="ranking__header">
+  <%= link_to events_path, class: "ranking__link", method: :get do %>
+    <h2 class="ranking__section"><i class="fas fa-crown"></i>人気記事ランキング</h2>
+  <% end %>
+</header>
+
+<% events.each_with_index do |event, i| %>
+  <article class="ranking">
+    <aside class="ranking__aside">
+      <figure class="container__card--mini__badge--rank<%= i %>">
+        <%= link_to event_path(event) do %>
+          <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
+        <% end %>
+      </figure>
+    </aside>
+      <div class="ranking__body">
+        <% event.tags.each do |tag| %>
+          <% if tag.id == 1 %>
+            <%= link_to event_tag_path(tag) do %>
+              <p class="card__category--nature"> <%= tag.name %></p>
+            <% end %>
+            <%= link_to event_path(event) do %>
+              <p class="nomal-card-heading1"><%= event.name.truncate(9) %></p>
+            <% end %>
+          <% elsif tag.id == 2 %>
+            <%= link_to event_tag_path(tag) do %>
+              <p class="card__category--histroy"> <%= tag.name %></p>
+            <% end %>
+            <%= link_to event_path(event) do %>
+              <p class="nomal-card-heading2"><%= event.name.truncate(9) %></p>
+            <% end %>
+          <% elsif tag.id == 3 %>
+            <%= link_to event_tag_path(tag) do %>
+              <p class="card__category--play"> <%= tag.name %></p>
+            <% end %>
+            <%= link_to event_path(event) do %>
+              <p class="nomal-card-heading3"><%= event.name.truncate(9) %></p>
+            <% end %>
+          <% elsif tag.id == 4 %>
+            <%= link_to event_tag_path(tag) do %>
+              <p class="card__category--stage"> <%= tag.name %></p>
+            <% end %>
+            <%= link_to event_path(event) do %>
+              <p class="nomal-card-heading4"><%= event.name.truncate(9) %></p>
+            <% end %>
+          <% end %>
+        <% end %>
+        <p class="text_excerpt">
+          <a href= "http://cocoiko.blog/events/search?utf8=✓&search%5Bprefecture%5D=<%= event.prefecture %>&search%5Bname%5D=&commit=search" >
+            <%= event.prefecture %>
+          </a>
+        </p>
+      </div>
+  </article>
+<% end %>
+<footer class="ranking__footer">
+  <%= link_to "人気ランキング一覧を見る", events_path, class: "section-btn" %>
+</footer>
+
+
+

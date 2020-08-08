@@ -1,0 +1,49 @@
+@mixin main-nav__link($color){
+  display: block;
+  padding: 15px 0;
+  text-decoration: none;
+  font-size: 14px;
+  color: $color;
+}
+.main-nav {
+  border: solid 1px #d3d3d3;
+  text-align:center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  &__list {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: table;
+    width: 100%;
+    margin-top: 30px;
+    padding-right: 45px;
+  }
+  &__item0,
+  &__item1,
+  &__item2 {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border-left: solid 1px #ccc;
+  }
+  &__item3 {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border-left: solid 1px #ccc;
+    border-right: solid 1px #ccc;
+  }
+  &__link0 {
+    @include main-nav__link(#0eac67);
+  }
+  &__link1 {
+    @include main-nav__link(#34a9bc);
+  }
+  &__link2 {
+    @include main-nav__link(#f7da36);
+  }
+  &__link3 {
+    @include main-nav__link(#eb7896);
+  }
+}
