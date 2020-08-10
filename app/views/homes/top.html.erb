@@ -54,12 +54,10 @@
 
   <!-- 新着記事 -->
   <div class="box">
-    <div class="box__left">
-      <div id="new_event">
+    <div class="box__left new_event">
       <%= render 'events/event_card', events: @events_new %>
     </div>
-    <%= link_to_next_page @events_new, '↓もっと見る↓', remote: true, id: 'more_link' %>
-    </div>
+
     <div class="box__right">
       <%= render 'events/event_ranking', events: @events_ranking %>
       <%= render 'shared/section_favorite' %>
@@ -67,12 +65,26 @@
       <%= render 'shared/section_about' %>
     </div>
   </div>
+  <div class ="footer__top">
+        <i class="fas fa-arrow-down"></i>
+        <%= link_to_next_page @events_new, 'もっと見る', remote: true, id: 'more_link' %>
+      </div>
   <footer class="footer__botom">
     <small>© 2020 ここいこ</small>
   </footer>
 
 
 <style>
+  .footer__top{
+    width: 62%;
+    margin-left: 6%;
+    margin-bottom: 15px;
+    color: black;
+    padding: 15px;
+    border: solid 1px #000000;
+    font-size: 14px;
+    text-align: center;
+  }
   .footer__botom {
     background-color: #212121;
     text-align: center;
