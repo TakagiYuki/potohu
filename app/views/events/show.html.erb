@@ -25,7 +25,7 @@
     <div class="box__left">
       <figure class="event__figure">
         <%= attachment_image_tag(@event, :image, fallback: 'no_image.jpg', size: '390x260')%>
-      <h2 div class="heading--normal"><%= @event.name.truncate %></h2>
+      <h2 div class="heading--normal"><%= @event.name %></h2>
       <p class="text--normal"><%= simple_format(@event.article) %></p>
       <p class="text--normal"><%= "開催場所#{@event.city}" %></p>
       <% @event.tags.each do |tag| %>
