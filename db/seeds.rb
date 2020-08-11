@@ -95,11 +95,6 @@ Event.create!(
     image:open("./public/浄土ヶ浜.jpg"),
     prefecture: '岩手県', city:'宮古市', street:'日立浜町32',
     area_id: 2},
-    {name: '龍泉洞', article: '龍泉洞は、日本の岩手県下閉伊郡岩泉町にある鍾乳洞。岩泉湧窟とも言う。総延長約1,200m。高低差約249mは日本の洞窟中第5位。 秋芳洞・龍河洞と共に「日本三大鍾乳洞」の一つに数えられる。 また、地底湖は龍泉洞地底湖の水として1985年名水百選のひとつに選定された。',
-    image:open("./public/龍泉洞.jpg"),
-    prefecture: '岩手県', city:'下閉伊郡岩泉町', street:'岩泉神成1番地1',
-    area_id: 2},
-
 
     {name: '仙台城', article: '仙台城は、現在の宮城県仙台市青葉区の青葉山にあった日本の城である。雅称は「青葉城」で「五城楼」の別名もある。 国の史跡。',
     image:open("./public/仙台城.jpg"),
@@ -137,11 +132,11 @@ Event.create!(
     {name: '東京スカイツリー', article: '東京スカイツリーは、東京都墨田区押上1-1-2にある電波塔である。観光・商業施設やオフィスビルが併設されており、電波塔を含め周辺施設は「東京スカイツリータウン」と呼ばれている。2012年5月に電波塔・観光施設として開業した。',
     image:open("./public/東京スカイツリー.jpg"),
     prefecture: '東京都', city: '墨田区', street: '押上1丁目1-2',
-    area_id: 3},
+    area_id: 3, pick_up: 1},
     {name: '東京タワー', article: '東京タワーは、東京都港区芝公園にある総合電波塔の愛称である。正式名称は日本電波塔。創設者は前田久吉。1958年12月23日竣工。東京のシンボル・観光名所として知られる。',
     image:open("./public/東京タワー.jpg"),
     prefecture: '東京都', city:'港区芝公園', street:'4丁目2-8',
-    area_id: 3},
+    area_id: 3, pick_up: 1},
     {name: '新宿御苑', article: '新宿御苑は、東京都新宿区と渋谷区に跨がる環境省所管の庭園である。',
     image:open("./public/新宿御苑.jpg"),
     prefecture: '東京都', city:'新宿区', street:'内藤町11',
@@ -179,25 +174,25 @@ Event.create!(
     {name: '河童橋', article: '河童橋とは、長野県松本市安曇上高地の梓川に架かる木製の吊橋。',
     image:open("./public/kappabashi.jpg"),
     prefecture: '長野県', city: '松本市', street: '安曇上高地',
-    area_id: 4},
+    area_id: 4, pick_up: 1},
 
     {name: '軽井沢銀座商店街', article: '観光スポットとして知られる商店街。地場の食材を使用する飲食店、食料品を含める土産物店、雑貨や衣料品を販売するショップが立ち並ぶ。',
     image:open("./public/image004.jpg"),
-    prefecture: '長野県', city:'北佐久郡軽井沢町', street:'大字軽井沢５４１',
+    prefecture: '長野県', city:'北佐久郡軽井沢町', street:'大字軽井沢541',
     area_id: 4},
     {name: '白骨温泉', article: '白骨温泉は、長野県松本市安曇にある温泉である。中部山岳国立公園区域内にあり、国民保養温泉地にも指定されている。',
     image:open("./public/siraboneonsen.jpg"),
     prefecture: '長野県', city:'松本市', street:'安曇',
-    area_id: 4},
+    area_id: 4, pick_up: 1},
     {name: '地獄谷野猿公苑', article: '地獄谷野猿公苑は、長野県下高井郡山ノ内町の地獄谷温泉にある野性のニホンザルの生態の観察が出来る野猿公園。冬場に温泉にサルが浸かる国際的な観光地。英語圏では“Snow Monkey Mountain”とも呼ばれる。',
     image:open("./public/地獄谷野猿公苑.jpg"),
     prefecture: '長野県', city:'下高井郡山ノ内町', street:'大字平穏6845',
-    area_id: 4},
+    area_id: 4, pick_up: 1},
 
     {name: '大阪城', article: '大阪城は、安土桃山時代に摂津国東成郡生玉荘大坂に築かれ、江戸時代に修築された日本の城。別称は錦城。「大阪城跡」として国の特別史跡に指定されている。天守は博物館「大阪城天守閣」となっている。',
     image:open("./public/大阪城.jpg"),
     prefecture: '大阪府', city: '大阪市', street: '中央区大阪城1-1',
-    area_id: 5},
+    area_id: 5, pick_up: 1},
     {name: '梅田スカイビル', article: '梅田スカイビルは、1993年3月に完成した、大阪府大阪市北区大淀中の新梅田シティ内にある超高層ビルである。',
     image:open("./public/image004.jpg"),
     prefecture: '大阪府', city:'大阪市北区大淀中', street:'1丁目1-88',
@@ -228,10 +223,6 @@ Event.create!(
     prefecture: '広島県', city:'広島市中区', street:'上幟町２−１１',
     area_id: 6},
 
-    {name: '栗林公園', article: '栗林公園は、香川県高松市に所在し、国の特別名勝に指定された回遊式大名庭園である。県立の都市公園として運営されている。',
-    image:open("./public/栗林公園.jpg"),
-    prefecture: '香川県', city: '高松市', street: '栗林町1丁目20-16',
-    area_id: 7},
     {name: 'ベネッセハウス ミュージアム', article: 'ベネッセハウスは香川県香川郡直島町に在るホテルを備えた現代美術に特化した美術館。海外で最も知名度の高い日本のリゾート施設の一つ、ベネッセアートサイト直島の中核施設である。瀬戸内海の小島「直島」の南部、通称・琴弾地と呼ばれる地区に位置する。',
     image:open("./public/image004.jpg"),
     prefecture: '香川県', city:'香川郡直島町', street:'琴弾地',
@@ -272,16 +263,26 @@ Event.create!(
     {name: '弘前城公園', article: '弘前公園は、青森県弘前市にある公園。別名は、鷹揚公園、鷹揚園。弘前市都市公園条例での名称は「鷹揚園」。 春には約50種、2,600本の桜が咲く名所としても知られる。',
     image:open("./public/弘前城公園.jpg"),
     prefecture: '青森県', city:'弘前市', street:'大字下白銀町1',
-    area_id: 2}
+    area_id: 2},
+
+    {name: '栗林公園', article: '栗林公園は、香川県高松市に所在し、国の特別名勝に指定された回遊式大名庭園である。県立の都市公園として運営されている。',
+    image:open("./public/栗林公園.jpg"),
+    prefecture: '香川県', city: '高松市', street: '栗林町1丁目20-16',
+    area_id: 7},
+
+    {name: '龍泉洞', article: '龍泉洞は、日本の岩手県下閉伊郡岩泉町にある鍾乳洞。岩泉湧窟とも言う。総延長約1,200m。高低差約249mは日本の洞窟中第5位。 秋芳洞・龍河洞と共に「日本三大鍾乳洞」の一つに数えられる。 また、地底湖は龍泉洞地底湖の水として1985年名水百選のひとつに選定された。',
+    image:open("./public/龍泉洞.jpg"),
+    prefecture: '岩手県', city:'下閉伊郡岩泉町', street:'岩泉神成1番地1',
+    area_id: 2},
   ]
 )
 
 EventTag.create!(
   [
     {tag_id:1, event_id:1},
-    {tag_id:1, event_id:2},
-    {tag_id:1, event_id:3},
-    {tag_id:1, event_id:4},
+    {tag_id:2, event_id:2},
+    {tag_id:3, event_id:3},
+    {tag_id:4, event_id:4},
     {tag_id:1, event_id:5},
     {tag_id:1, event_id:6},
     {tag_id:1, event_id:7},
@@ -320,9 +321,9 @@ EventTag.create!(
     {tag_id:4, event_id:40},
     {tag_id:1, event_id:41},
     {tag_id:1, event_id:42},
-    {tag_id:1, event_id:43},
+    {tag_id:3, event_id:43},
     {tag_id:2, event_id:44},
-    {tag_id:1, event_id:45},
+    {tag_id:4, event_id:45},
     {tag_id:2, event_id:46}
   ]
 )
