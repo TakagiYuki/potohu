@@ -1,15 +1,52 @@
 <% provide(:title, '観光地情報') %>
-<div class="container">
-  <h3>
-    <center><%= @event.name %></center>
-  </h3>
-  <hr>
+<%= render 'shared/category_nav' %>
+<div class = "pan-list">
+　<%= link_to root_url, class: "pan-list__link", method: :get do %>
+    <i class="fas fa-home"></i>ホーム
+  <% end %>
+  <span>></span>
+  <a href = "http://cocoiko.blog/events/search?utf8=✓&search%5Bprefecture%5D=<%= @event.prefecture %>&search%5Bname%5D=&commit=search">
+    <%= @event.prefecture %>
+  </a>
+  <span>></span>
+  <% @event.tags.each do |tag| %>
+    <%= link_to event_tag_path(tag), class: "pan-list__link", method: :get do %>
+      <%= tag.name %>
+    <% end %>
+  <% end %>
+  <span>></span>
+  <%= link_to event_path(@event), class: "pan-list__link", method: :get do %>
+    <%= @event.name %>
+  <% end %>
 </div>
 
-<div class="container">
-  <!-- イベント詳細 -->
-  <%= render 'events/event_learge_content' %>
 
+<div class="box">
+    <div class="box__left">
+      <figure class="event__figure">
+        <%= attachment_image_tag(@event, :image, fallback: 'no_image.jpg', size: '390x260')%>
+      <h2 div class="heading--normal"><%= @event.name.truncate %></h2>
+      <p class="text--normal"><%= simple_format(@event.article) %></p>
+      <p class="text--normal"><%= "開催場所#{@event.city}" %></p>
+      <% @event.tags.each do |tag| %>
+        <span class="label label-default"><%= tag.name %></span>
+      <% end %>
+      <div id="favorites_buttons_<%= @event.id %>">
+        <%= render partial: 'favorites/favorite', locals: { event: @event} %>
+      </div>
+    </div>
+
+    <div class="box__right">
+      <%= render 'events/event_ranking', events: @events_ranking %>
+      <%= render 'shared/section_favorite' %>
+      <%= render 'shared/section_pickup', events: @events_pickup %>
+      <%= render 'shared/section_about' %>
+    </div>
+  </div>
+
+
+
+<div class="container">
   <!-- マップ表示 -->
   <div class="col-lg-6">
     <div id='map' class="<%= @event.prefecture + @event.city + @event.street %>"></div>

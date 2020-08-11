@@ -5,6 +5,7 @@ class EventsController < ApplicationController
     # groupでFavorite内のevent_idを全取得 order昇順 pluckカラムの情報取得
     @events_ranking =Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(5).pluck(:event_id))
     @events_ranking_all =Event.find(Favorite.group(:event_id).order('count(event_id) desc').pluck(:event_id))
+    @events_pickup = Event.pickup.limit(4)
   end
 
   def pickup
@@ -15,10 +16,13 @@ class EventsController < ApplicationController
   end
 
   def show
+    @tags = Tag.all
     @event = Event.find(params[:id])
     @events = Event.where(prefecture: @event.prefecture).limit(4)
     @event_comment = EventComment.new
     @event_comments = @event.event_comments
+    @events_pickup = Event.pickup.limit(4)
+    @events_ranking  =Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(5).pluck(:event_id))
 
     #現在時刻
     old = Date.new(2011,11,11)
@@ -44,20 +48,17 @@ class EventsController < ApplicationController
   end
 
   def search
-    if params[:search][:prefecture].present? && params[:search][:name].empty?
+    if params[:search][:prefecture].present? && params[:search][:name].blank?
       @events = Event.where(prefecture: params[:search][:prefecture])
-
     elsif params[:search][:prefecture].blank? && params[:search][:name].present?
-       #@events = Event.joins(:tags).where('tags.name LIKE ?', "%#{params[:search][:name]}%")
-        #@events = Event.joins(:tags).where('tags.name LIKE ?', "%自然%")
-
-        #@events = Event.joins(:tags).where('tags.name = ?', params[:search][:name])
-        @events = Event.joins(:tags).where('tags.name in (?)', params[:search][:name])
-       #@events = Event.joins(:tags).where(name: params[:search][:name])
+      @events = Event.joins(:tags).where('tags.name in (?)', params[:search][:name])
     else
-      #@events = Event.joins(:tags).where('tags.name LIKE ?',"%#{params[:search][:name]}%").where(events: {prefecture: params[:search][:prefecture]})
-
+      @events = Event.joins(:tags).where('tags.name in (?)', params[:search][:name]).where(events: {prefecture: params[:search][:prefecture]})
     end
+    @tags = Tag.all
+    @events_ranking_area =Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(5).pluck(:event_id))
+    @events_pickup = Event.pickup.limit(4)
+    @events_ranking  =Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(5).pluck(:event_id))
   end
 end
 
