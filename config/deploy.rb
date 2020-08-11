@@ -2,7 +2,7 @@
 lock "~> 3.14.1"
 
 set :application, "potohu"
-set :repo_url, "https://github.com/TakagiYuki/potohu.git"
+set :repo_url, "git@github.com:TakagiYuki/potohu.git"
 
 set :deploy_to, "/home/ec2-user/potohu"
 set :rbenv_ruby, '2.5.7'
