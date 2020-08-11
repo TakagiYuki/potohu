@@ -37,6 +37,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user_favorites = @user.favorites
     @events_ranking  =Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(5).pluck(:event_id))
+    @events_pickup = Event.pickup.limit(4)
   end
 
   #guest_userログイン用

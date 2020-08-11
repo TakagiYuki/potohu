@@ -14,7 +14,7 @@
   display: inline-block;
   text-decoration: none;
   background-color: #fff;
-  border: 1px solid #0eac67;
+  border: 1px solid $color;
   border-radius: 2em;
   font-size: 14px;
 }
@@ -52,7 +52,9 @@
     padding: 0px 10px;
     opacity: 0.65;
     font-size: 14px;
-    float: left
+    float: left;
+    color: black;
+    opacity: 0.6;
   }
   &__category--nature {
     @include category(#0eac67);

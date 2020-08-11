@@ -2,7 +2,7 @@
   display: block;
   padding: 15px 0;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 24px;
   color: $color;
 }
 .main-nav {
@@ -46,4 +46,5 @@
   &__link3 {
     @include main-nav__link(#eb7896);
   }
+  
 }

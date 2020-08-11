@@ -33,4 +33,23 @@ $(function () {
 	$('[data-toggle="tooltip"]').tooltip();
 });
 
+$(function() {
+    $("#page-top").click(function() {
+        $('html,body').animate({
+            scrollTop: 0
+        }, 1000);
+        return false;
+    });
+});
 
+
+var height = 200;
+
+$(window).scroll(function() {
+  var top = $(window).scrollTop();
+  if (200 <  top) {
+    $('#page-top').fadeIn(400);
+    } else {
+    $('#page-top').fadeOut(400)
+  }
+});

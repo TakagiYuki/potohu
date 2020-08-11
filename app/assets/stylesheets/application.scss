@@ -20,6 +20,11 @@ body {
 
 a {
    text-decoration: none;//アンダーラインの消去
+   color: black;
+}
+
+a :hover {
+  text-decoration: none;//アンダーラインの消去
 }
 
 //header
@@ -182,12 +187,12 @@ a {
 
 //見出し
 %heading,.heading{
-  font-weight:normal;
-  text-align:left;
-  font-size:20px;
-  padding: 0.25em 0.5em;/*上下 左右の余白*/
-  color: #494949;/*文字色*/
-  background: transparent;/*背景透明に*/
+  font-size: 20px;
+  background-image: linear-gradient(-45deg, #fff 25%, #f8f4f1 25%, #f8f4f1 50%, #fff 50%, #fff 75%, #f8f4f1 75%, #f8f4f1);
+  background-size: 4px 4px;
+  display: inline-block;
+  margin: 1% 5%;
+  padding: 10px;
 
   &--mini{
     @extend %heading;
@@ -224,7 +229,8 @@ a {
   &__badge--rank0,
   &__badge--rank1,
   &__badge--rank2,
-  &__badge--rank3{
+  &__badge--rank3,
+  &__badge--rank4{
     position: relative;
     object-fit: cover;
   }
@@ -245,6 +251,10 @@ a {
      border-top: 35px solid #d2691e;
   }
   &__badge--rank3:before {
+     @include badge_before;
+     border-top: 35px solid #fffacd;
+  }
+  &__badge--rank4:before {
      @include badge_before;
      border-top: 35px solid #fffacd;
   }
@@ -270,6 +280,10 @@ a {
   &__badge--rank3:after {
      @include badge_after;
      content: "4位";
+  }
+  &__badge--rank4:after {
+     @include badge_after;
+     content: "5位";
   }
   &__tag {
   display: inline-block;
@@ -546,7 +560,24 @@ table th{
   margin-top: 10px;
   border: 1px solid #333;
 }
-
+#page-top  {
+  position: absolute;
+  bottom: 3%;
+  right: 3%;
+  position: fixed;
+  opacity: 0.8;
+  width: 80px;
+  height: 80px;
+  background-color: #f7da36;
+  border-radius: 50%;/* ←円を作る */
+  cursor : pointer;
+  display:none;
+}
+#page-top a {
+  position: relative;
+  top: 40%;
+  left: 42%;
+}
 @media screen and (max-width: 760px) {
   %container,.container {
     &__item {
