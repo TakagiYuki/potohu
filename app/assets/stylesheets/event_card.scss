@@ -21,7 +21,6 @@
 .card {
   position: relative;
   width: 40%;
-  height: 390px;
   background-color: #FFFFFF;
   margin-right: 2%;
   margin-left: 2%;
@@ -34,7 +33,7 @@
   &__figure img{
     display:flex;
     width: 100%;
-    height: 200px;
+    height: 100%;
   }
   &__title--nature {
     @include title(#0eac67);
@@ -69,8 +68,21 @@
     @include category(#eb7896);
   }
 }
-.card i {
-  position: absolute;
-  top: 47%;
-  left: 90%;
+  .card i {
+    position: absolute;
+    top:2%;
+    right: 2%;
+  }
+
+@media screen and (max-width: 767px) {
+  .card {
+    position: relative;
+    width: 90%;
+
+    &__figure img{
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
+
