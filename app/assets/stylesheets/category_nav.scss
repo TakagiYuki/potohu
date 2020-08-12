@@ -16,6 +16,13 @@
     margin-top: 42px;
     padding-right: 45px;
   }
+  &__list-root {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: table;
+    width: 100%;
+    padding-right: 45px;
+  }
   &__item0,
   &__item1,
   &__item2 {

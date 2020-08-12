@@ -7,6 +7,8 @@
   <div class="section top__sec1">
     <div class="top__sec1-img1">
       <%= image_tag asset_path("top__sec-img1.jpg", alt: "観光") %>
+      <h1 class="top__heading">ここいこへようこそ<br>
+      お気に入りの観光地を探してみよう</h1>
     </div>
     <div class="top__sec1-img2">
       <%= image_tag asset_path("top__sec1-img2.png", alt: "観光") %>
@@ -41,12 +43,9 @@
             <th><%= link_to "九州・沖縄", ranking_path(area_id: 8), remote: true %></th>
           </tr>
         </table>
-      </div>
-    </div>
-
-    <div id="area_ranking">
-      <div class="container">
-        <%= render 'events/event_small_content', events: @events_ranking_area %>
+        <div id="area_ranking">
+          <%= render 'events/event_small_content', events: @events_ranking_area %>
+        </div>
       </div>
     </div>
   </div>
@@ -68,9 +67,9 @@
     </div>
   </div>
   <div class ="footer__top">
-        <i class="fas fa-arrow-down"></i>
-        <%= link_to_next_page @events_new, 'もっと見る', remote: true, id: 'more_link' %>
-      </div>
+    <i class="fas fa-arrow-down"></i>
+      <%= link_to_next_page @events_new, 'もっと見る', remote: true, id: 'more_link' %>
+  </div>
   <footer class="footer__botom">
     <small class="footer__logo">© 2020 ここいこ</small>
   </footer>

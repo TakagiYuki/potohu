@@ -7,7 +7,7 @@
  @import 'category_nav.scss';
  @import 'ranking.scss';
  @import 'event.scss';
-
+ @import 'event_small-card.scss';
 * {
    box-sizing: border-box;
 }
@@ -195,14 +195,6 @@ a :hover {
   display: inline-block;
   margin: 1% 5%;
   padding: 10px;
-
-  &--mini{
-    @extend %heading;
-    margin: 0;
-    font-size:16px;
-    padding-top: 10px;
-    padding-left: 10px;
-  }
 }
 
 //バッジ
@@ -287,17 +279,6 @@ a :hover {
      @include badge_after;
      content: "5位";
   }
-  &__tag {
-  display: inline-block;
-  margin: 0px 0px 0px 7px;//余白
-  padding: .3em;//角丸の大きさ
-  font-size: 12px;
-  line-height: 1;//1固定
-  text-decoration: none;
-  color: #ffffff;//文字
-  background-color: #a9a9a9;
-  border-radius: 1em;//角丸
-  }
 }
 
 //画像
@@ -338,25 +319,14 @@ a :hover {
     padding-left: 15px;
     padding-right: 15px;
   }
-  &__sec4-img1 img{
-    display:flex;
-    width: 100%;
-    height: 200px;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-  }
+
   &__sec6-img1{
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
   }
 }
 
-/* いいね */
-.container__card--mini i {
-  position: absolute;/*絶対配置*/
-  top: 120px;
-  left: 140px;
-}
+
 // .main-visual {
 //    display: flex;
 //    justify-content: center;
@@ -433,31 +403,18 @@ table th{
 //アイコン
 .red{color:#e54747;}
 .white{color:#ffffff;}
-// .times_red{color:#e54747;}
 
-//swiper
-.swiper-slide .slide-content h1,
-.swiper-slide .slide-content h2,
-.swiper-slide .slide-content h3 {
+//ホーム見出し
+.top__heading {
   position: absolute;
-  top: 20%;
-  left: 50%;
+  top: 30%;
+  left: 53%;
   transform: translate(-50%, -50%);
   color: #FFF;
   font-size: 30px;
-  text-shadow: 2px 2px rgba(0,0,0,0.3);
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
-// .swiper-slide .container p {
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   color: #FFF;
-//   text-shadow: .5px .5px rgba(0,0,0,0.6);
-//   margin: 0;
-//   padding: 0;
-//   font-size: 18px;
-// }
 
 .select-hokkaido{
   position: absolute;
@@ -579,6 +536,7 @@ table th{
   border-radius: 50%;/* ←円を作る */
   cursor : pointer;
   display:none;
+  z-index: 9;
 }
 #page-top a {
   position: relative;

@@ -1,11 +1,15 @@
 <nav class="main-nav" aria-label="Main">
-  <ul class="main-nav__list">
-    <% @tags.each_with_index do |tag, i| %>
-      <li class="main-nav__item<%= i %>">
-        <%= link_to event_tag_path(tag), class: "main-nav__link#{i}" do %>
-          <%= tag.name %>
-        <% end %>
-      </li>
+  <% if current_page?(root_path) %>
+    <ul class="main-nav__list-root">
+  <% else %>
+    <ul class="main-nav__list">
     <% end %>
+  <% @tags.each_with_index do |tag, i| %>
+	<li class="main-nav__item<%= i %>">
+	  <%= link_to event_tag_path(tag), class: "main-nav__link#{i}" do %>
+	    <%= tag.name %>
+	  <% end %>
+	</li>
+  <% end  %>
   </ul>
 </nav>
