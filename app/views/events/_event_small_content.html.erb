@@ -1,29 +1,66 @@
-<div class="container__inner">
-  <% events.each_with_index do |event, i| %>
-    <div class="container__card--mini">
-      <div class="top__sec4-img1">
-        <%= link_to event_path(event) do %>
-          <% if events == @events_new %>
-            <div class="container__card--mini__badge--new">
+<article class="card-small">
+  <div class="container__inner">
+    <% events.each_with_index do |event, i| %>
+      <div class="container__card--mini">
+        <div class="top__sec4-img1">
+          <figure class="card-small__figure">
+            <%= link_to event_path(event) do %>
+              <% if events == @events_ranking_area %>
+                <div class="container__card--mini__badge--rank<%= i %>"></div>
+              <% end %>
               <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
-            </div>
-          <% elsif events == @events_ranking_area %>
-            <div class="container__card--mini__badge--rank<%= i %>">
-              <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
-            </div>
-          <% elsif events == @events %>
-            <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
+            <% end %>
+          </figure>
+        </div>
+      <header class="card__header">
+          <% event.tags.each do |tag| %>
+            <%= link_to event_path(event) do %>
+              <% if tag.id == 1 %>
+                <h2 class="card__title--nature"><%= event.name.truncate(15) %></h2>
+              <% elsif tag.id == 2 %>
+                <h2 class="card__title--histroy"><%= event.name.truncate(15) %></h2>
+              <% elsif tag.id == 3 %>
+                <h2 class="card__title--play"><%= event.name.truncate(15) %></h2>
+              <% else %>
+                <h2 class="card__title--stage"><%= event.name.truncate(15) %></h2>
+              <% end %>
+            <% end %>
+      </header>
+      <footer class="card__footer">
+          <a href = "http://cocoiko.blog/events/search?utf8=✓&search%5Bprefecture%5D=<%= event.prefecture %>&search%5Bname%5D=&commit=search">
+            <p class="card__copy">
+             【場所】<%= event.prefecture%>
+            </p>
+          </a>
+          <% if tag.id == 1 %>
+            <%= link_to event_tag_path(tag) do %>
+              <p class="card__category--nature"><%= tag.name %></p>
+            <% end %>
+          <% elsif tag.id == 2 %>
+            <%= link_to event_tag_path(tag) do %>
+              <p class="card__category--histroy"><%= tag.name %></p>
+            <% end %>
+          <% elsif tag.id == 3 %>
+            <%= link_to event_tag_path(tag) do %>
+              <p class="card__category--play"><%= tag.name %></p>
+            <% end %>
+          <% else %>
+            <%= link_to event_tag_path(tag) do %>
+              <p class="card__category--stage"><%= tag.name %></p>
+            <% end %>
           <% end %>
         <% end %>
+          <div id="favorites_buttons_<%= event.id %>">
+            <%= render partial: 'favorites/favorite', locals: { event: event} %>
+          </div>
+      </footer>
+
+        <div id="favorites_buttons_<%= event.id %>">
+          <%= render partial: 'favorites/favorite', locals: { event: event} %>
+        </div>
       </div>
-      <h2 div class="heading--mini"><%= event.name.truncate(9) %></h2>
-      <p class="text--mini"><%= event.prefecture%> | <%= event.city.truncate(6)%></p>
-        <% event.tags.each do |tag| %>
-          <span class="container__card--mini__tag"><%= tag.name %></span>
-        <% end %>
-      <div id="favorites_buttons_<%= event.id %>">
-        <%= render partial: 'favorites/favorite', locals: { event: event} %>
-      </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+</article>
+
+    

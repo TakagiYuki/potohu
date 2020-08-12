@@ -2,8 +2,8 @@ class HomesController < ApplicationController
   def top
   @tags = Tag.all
 	@events = Event.enabled # 有効のイベント
-	@events_new = Event.enabled.order(created_at: :desc).page(params[:page]).per(4) # 新しい順の投稿一覧
-    area_id = 0
+	@events_new = Event.enabled.order(created_at: :desc).page(params[:page]).per(8) # 新しい順の投稿一覧
+  area_id = 1
 	@events_ranking_area = Event.where(area_id: area_id, id: Favorite.group(:event_id).order('count(event_id) desc').pluck(:event_id)).limit(4)
   @events_pickup = Event.pickup.limit(4)
   @events_ranking  =Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(5).pluck(:event_id))
