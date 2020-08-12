@@ -7,9 +7,9 @@ RSpec.describe Event, type: :model do
       name: "asddd"
     )
 
-    event = Event.new(
-      name:"東京タワー",
-      article:"333メートルの電波塔",
+  event = Event.new(
+    name:"東京タワー",
+    article:"333メートルの電波塔",
 	  image_id:"abcdefg",
 	  prefecture:"東京都",
 	  city:"港区芝公園",
@@ -19,26 +19,9 @@ RSpec.describe Event, type: :model do
 	  close_time:"2020-2-22",
 	  area_id: area.id,
 	  latitude: "123",
-      longitude: "456"
-      )
+    longitude: "456",
+    pick_up: "true"
+    )
     expect(event).to be_valid
   end
-
-      event = Event.new(
-      name:"東京タワー",
-      article:"333メートルの電波塔",
-    image_id:"abcdefg",
-    prefecture:"東京都",
-    city:"港区芝公園",
-    street:"4丁目2-8",
-    is_valid:"true",
-    open_time:"2020-2-22",
-    close_time:"2020-2-22",
-    area_id: area.id,
-    latitude: "123",
-      longitude: "456"
-      )
-    expect(event).to be_valid
-  end
-
 end

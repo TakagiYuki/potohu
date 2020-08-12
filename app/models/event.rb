@@ -20,6 +20,7 @@ class Event < ApplicationRecord
   validates :open_time, presence: true
   validates :close_time, presence: true
   validates :area_id, presence: true
+  validates :pick_up, inclusion: { in: [true, false] }
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

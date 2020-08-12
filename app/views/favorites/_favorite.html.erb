@@ -1,5 +1,5 @@
 <!-- ログインしてて、いいねしてる時 -->
-<% if logged_in? && event.favorited_by?(current_user) %></p>
+<% if logged_in? && event.favorited_by?(current_user) %>
   <%= link_to event_favorites_path(event), method: :delete, remote: true do %>
     <i class="fas fa-heart red"><%= event.favorites.count%></i>
   <% end %>
