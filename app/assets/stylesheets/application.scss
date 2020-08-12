@@ -6,6 +6,8 @@
  @import 'event_card.scss';
  @import 'category_nav.scss';
  @import 'ranking.scss';
+ @import 'event.scss';
+
 * {
    box-sizing: border-box;
 }
@@ -514,6 +516,11 @@ table th{
   flex: 1;
   flex-wrap: wrap;
   display: inline-flex;
+  justify-content: center;
+}
+.box__left-event{
+  flex: 1;
+  flex-wrap: wrap;
   justify-content: center;
 }
 .box__right{
