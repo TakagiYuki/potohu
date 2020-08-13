@@ -37,3 +37,15 @@
     opacity: 0.6;
   }
 }
+
+@media screen and (max-width: 760px) {
+  .ranking {
+    &__section {
+    color: black;
+    padding: 15px;
+    border: solid 1px #000000;
+    font-size: 14px;
+    text-align: center;
+    }
+  }
+}

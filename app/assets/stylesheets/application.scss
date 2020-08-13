@@ -8,6 +8,10 @@
  @import 'ranking.scss';
  @import 'event.scss';
  @import 'event_small-card.scss';
+ @import 'header.scss';
+ @import 'top.scss';
+ @import 'footer.scss';
+
 * {
    box-sizing: border-box;
 }
@@ -29,77 +33,7 @@ a :hover {
   text-decoration: none;//アンダーラインの消去
 }
 
-//header
-.header {
-  padding: 10px 4% 10px;//内側の余白
-  position: fixed;
-  top: 0;//固定位置
-  width: 100%;
-  background-color: #ffffff;//背景色
-  opacity: 0.9;
-  display: flex;//固定
-  align-items: center;//縦方向の中心
-  z-index: 5;
 
-  &__left {
-    margin: 0; padding: 0;
-    font-size: 20px;
-    opacity: 0;
-    animation-name: fadein-left;
-    animation-duration: 1.5s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;//アニメーション終了後キープ
-  }
-
-  &__right {
-    margin: 0 0 0 auto;
-    opacity: 0;
-    animation-name: fadein-right;
-    animation-duration: 1.5s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
-  }
-
-  &__right-ul {
-    list-style: none;//「・」を非表示
-    margin: 0;//余白を消去
-    display: flex;//横並びに
-  }
-
-  &__right-link {
-    margin: 0 0 0 30px;//ヘッダー縦幅調整
-    font-size: 14px;
-    cursor: pointer;//指
-    cursor: hand;//指(IE6対応)
-  }
-  & a,
-    i,
-    li {
-    color: #000000;
-  }
-}
-//フェードイン
-@keyframes fadein-right {
-   0% {
-      opacity: 0;
-      transform: translateX(20px);
-   }
-   100% {
-      opacity: 1;
-      transform: translateX(0);
-   }
-}
-
-@keyframes fadein-left {
-   0% {
-      opacity: 0;
-      transform: translateX(-20px);
-   }
-   100% {
-      opacity: 1;
-      transform: translateX(0);
-   }
-}
 
 %container,.container {
   width:100%;
@@ -109,86 +43,11 @@ a :hover {
     justify-content: center;
     flex-wrap: wrap;
   }
-  &__item {
-    position: relative;/*相対配置*/
-    width: 22.5%;
-    margin-right:10px;/* 余白指定 */
-    margin-left: 10px;
-  }
-  &__item:hover {
-    opacity: 0.5;/* 透過率50% */
-    transition: 0.2s;/* 0.2秒アニメーション */
-    -webkit-transition: 0.2s;
-  }
-  &__card--mini {
-    position: relative;/*相対配置*/
-    width: 20%;
-    height: 300px;
-    background-color: #FFFFFF;
-    margin-right: 2%;
-    margin-left: 2%;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-    margin-bottom: 20px;
-  }
-  &__swiper3 {
-    position: relative;/*相対配置*/
-    width: 98%;
-    height: 20px;
-    margin-top: 10px;
-  }
-  &__swiper1 {/*親div*/
-    position: relative;/*相対配置*/
-  }
-  &__swiper2 {/*親div*/
-    position: relative;/*相対配置*/
-  }
-  
-}
-
-//文字
-%text,.text{
-&--picture{
-  position: absolute;/*絶対配置*/
-  font-size:20px;
-  color: #ffffff;
-  top: 45%;
-  left: 35%;
-}
-&--mini{
-  padding-top: 5px;
-  padding-left: 10px;
-  opacity: 0.65;//透明度
-  font-size: 12px;
-}
-&--swiper1 {
-  position: absolute;/*絶対配置*/
-  font-weight: bold;
-  color: white;/*文字は白に*/
-  top: 80%;
-  left: 10%;
-  }
-&--swiper3 {
-  position: absolute;/*絶対配置*/
-  font-weight: bold;
-  color: white;/*文字は白に*/
-  top: 10%;
-  left: 10%;
-  }
-&--swiper2 {
-  position: absolute;/*絶対配置*/
-  font-weight: bold;
-  color: white;/*文字は白に*/
-  top: 10%;
-  left: 10%;
-  }
 }
 
 
 //見出し
-%heading,.heading{
+.heading{
   font-size: 20px;
   background-image: linear-gradient(-45deg, #fff 25%, #f8f4f1 25%, #f8f4f1 50%, #fff 50%, #fff 75%, #f8f4f1 75%, #f8f4f1);
   background-size: 4px 4px;
@@ -281,52 +140,6 @@ a :hover {
   }
 }
 
-//画像
-%top,.top{
-  &__sec1-img1 img{
-    width: 100%;
-    height: 510px;
-    z-index: 1;
-  }
-  &__sec1-img2 img{
-    position: absolute;
-    width: 400px;
-    left: 400px;
-    top: 100px;
-    left: 68px;
-    z-index: 2;
-  }
-  //swiper-on時
-  // &__sec1-img2 img{
-  //   width: 100%;
-  //   height: 500px;
-  // }
-  // &__sec1-img3 img{
-  //   width: 100%;
-  //   height: 500px;
-  // }
-  // &__sec1-img4 img{
-  //   width: 100%;
-  //   height: 500px;
-  // }
-  &__sec2-img1 img{
-    width: 90%;
-    height: 140px;
-    padding-left: 15px;
-  }
-  &__sec3-img img{
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  &__sec6-img1{
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-  }
-}
-
-
 // .main-visual {
 //    display: flex;
 //    justify-content: center;
@@ -403,67 +216,6 @@ table th{
 //アイコン
 .red{color:#e54747;}
 .white{color:#ffffff;}
-
-//ホーム見出し
-.top__heading {
-  position: absolute;
-  top: 30%;
-  left: 53%;
-  transform: translate(-50%, -50%);
-  color: #FFF;
-  font-size: 30px;
-  text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
-  text-align: center;
-}
-
-.select-hokkaido{
-  position: absolute;
-  top: 100px;
-  left: 380px;
-  z-index: 4;
-}
-.select-tohoku{
-  position: absolute;
-  top: 300px;
-  left: 340px;
-  z-index: 3;
-}
-.select-kanto{
-  position: absolute;
-  top: 380px;
-  left: 310px;
-  z-index: 2;
-}
-.select-cyubu{
-  position: absolute;
-  top: 290px;
-  left: 220px;
-  z-index: 3;
-}
-.select-kansai{
-  position: absolute;
-  top: 410px;
-  left: 240px;
-  z-index: 2;
-}
-.select-cyugoku{
-  position: absolute;
-  top: 350px;
-  left: 110px;
-  z-index: 3;
-}
-.select-shikoku{
-  position: absolute;
-  top: 440px;
-  left: 160px;
-  z-index: 2;
-}
-.select-kyusyu{
-  position: absolute;
-  top: 400px;
-  left: 10px;
-  z-index: 3;
-}
 
 
 .box{
@@ -543,26 +295,10 @@ table th{
   top: 40%;
   left: 42%;
 }
+
 @media screen and (max-width: 760px) {
-  %container,.container {
-    &__item {
-      position: relative;/*相対配置*/
-      width: 44%;
-      margin: 1%;/* 余白指定 */
-    }
-    &__card--mini {
-    position: relative;/*相対配置*/
-    width: 40%;
-    height: 400px;
-    background-color: #FFFFFF;
-    margin-right: 40px;
-    margin-left: 40px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-    margin-bottom: 20px;
-    }
+  .box{
+  display: block;
   }
   .box__left{
   flex: 1;
@@ -571,8 +307,8 @@ table th{
   justify-content: center;
 }
   .box__right{
-  width: 300px;
-  margin-right: 2%;
+  width: 90%;
+  margin: 0 auto;
   }
 }
 

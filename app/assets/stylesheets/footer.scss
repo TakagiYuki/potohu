@@ -1,0 +1,52 @@
+.footer {
+  &__logo {
+    color: white;
+  }
+  &__top-ppp a{
+    display: none;
+  }
+  &__top-pc {
+    width: 62%;
+    margin-left: 6%;
+    margin-bottom: 15px;
+    color: black;
+    padding: 15px;
+    border: solid 1px #000000;
+    font-size: 14px;
+    text-align: center;
+  }
+  &__botom {
+    background-color: #212121;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+  &__body {
+    padding-top: 25px;
+    padding-bottom: 10px;
+    background-color: #333;
+    text-align: center;
+  }
+  &__ul {
+    color: #999;
+    display: inline-block;
+    padding-right: 30px;
+    vertical-align: top;
+  }
+  &__link a {
+    color: #999;
+    float: left;
+  }
+}
+  @media screen and (max-width: 767px) {
+    .footer {
+      &__top-ppp {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 2%;
+      }
+      &__top-pc {
+        display: none;
+      }
+    }
+  }

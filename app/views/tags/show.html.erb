@@ -1,5 +1,10 @@
+<!-- ページタイトル -->
 <% provide(:title, @tag.name) %>
+
+<!-- ナビゲーションバー -->
 <%= render 'shared/category_nav' %>
+
+<!-- パンくずリスト -->
 <div class = "pan-list">
 　<%= link_to root_url, class: "pan-list__link", method: :get do %>
     <i class="fas fa-home"></i>ホーム
@@ -9,14 +14,20 @@
     <%= @tag.name %>
   <% end %>
 </div>
+
 <div class="box">
   <div class="box__left">
+    <!-- 検索 -->
     <%= render 'shared/search_tag' %>
+    <!-- メイン記事 -->
     <%= render 'events/event_card', events: @events %>
   </div>
-    <div class="box__right">
-      <%= render 'events/event_ranking', events: @events_ranking %>
-      <%= render 'shared/section_favorite' %>
-      <%= render 'shared/section_pickup', events: @events_pickup %>
-    </div>
+  <!-- サブメニュー -->
+  <div class="box__right">
+    <%= render 'events/event_ranking', events: @events_ranking %>
+    <%= render 'shared/section_favorite' %>
+    <%= render 'shared/section_pickup', events: @events_pickup %>
+  </div>
 </div>
+<!-- フッター -->
+<%= render 'shared/footer' %>
