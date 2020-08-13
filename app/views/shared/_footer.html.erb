@@ -1,0 +1,23 @@
+<footer class="footer__body">
+<ul class="footer__ul">
+  <li class="footer__link"><%= link_to 'ホーム', root_url %></li>
+</ul>
+
+<ul class="footer__ul">
+  <% @tags.each do |tag| %>
+    <li class="footer__link">
+      <%= link_to event_tag_path(tag) do %>
+        <%= tag.name %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<ul class="footer__ul">
+  <li class="footer__link"><%= link_to '人気記事ランキング', ranking_path %></li>
+  <li class="footer__link"><%= link_to 'オススメ記事', pickup_path %></li>
+</ul>
+</footer>
+<footer class="footer__botom">
+  <small class="footer__logo">© 2020 ここいこ</small>
+</footer>

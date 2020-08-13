@@ -1,0 +1,70 @@
+.header {
+  padding: 10px 4% 10px;//内側の余白
+  position: fixed;
+  top: 0;//固定位置
+  width: 100%;
+  background-color: #ffffff;//背景色
+  opacity: 0.9;
+  display: flex;//固定
+  align-items: center;//縦方向の中心
+  z-index: 5;
+
+  &__left {
+    margin: 0; padding: 0;
+    font-size: 20px;
+    opacity: 0;
+    animation-name: fadein-left;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;//アニメーション終了後キープ
+  }
+
+  &__right {
+    margin: 0 0 0 auto;
+    opacity: 0;
+    animation-name: fadein-right;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
+
+  &__right-ul {
+    list-style: none;//「・」を非表示
+    margin: 0;//余白を消去
+    display: flex;//横並びに
+  }
+
+  &__right-link {
+    margin: 0 0 0 30px;//ヘッダー縦幅調整
+    font-size: 14px;
+    cursor: pointer;//指
+    cursor: hand;//指(IE6対応)
+  }
+  & a,
+    i,
+    li {
+    color: #000000;
+  }
+}
+//フェードイン
+@keyframes fadein-right {
+   0% {
+      opacity: 0;
+      transform: translateX(20px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+
+@keyframes fadein-left {
+   0% {
+      opacity: 0;
+      transform: translateX(-20px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}

@@ -2,19 +2,19 @@
 <%= javascript_include_tag "homes/top.js" %>
 <% provide(:title, 'ホーム') %>
 
-
+<!-- top -->
 <div class="top">
-  <div class="section top__sec1">
-    <div class="top__sec1-img1">
-      <%= image_tag asset_path("top__sec-img1.jpg", alt: "観光") %>
-      <h1 class="top__heading">ここいこへようこそ<br>
-      お気に入りの観光地を探してみよう</h1>
-    </div>
-    <div class="top__sec1-img2">
-      <%= image_tag asset_path("top__sec1-img2.png", alt: "観光") %>
-    </div>
+  <div class="top__figuer-1">
+    <%= image_tag asset_path("top__sec-img1.jpg", alt: "観光") %>
+    <h1 class="top__heading">ここいこへようこそ
+      <br>お気に入りの観光地を探してみよう
+    </h1>
+  </div>
+  <div class="top__figuer-2">
+    <%= image_tag asset_path("top__sec1-img2.png", alt: "観光") %>
+  </div>
 
-  <!-- ボタン -->
+  <!-- 日本地図のボタン -->
   <%= render 'homes/select_hokkaido' %>
   <%= render 'homes/select_tohoku' %>
   <%= render 'homes/select_kanto' %>
@@ -23,86 +23,55 @@
   <%= render 'homes/select_cyugoku' %>
   <%= render 'homes/select_shikoku' %>
   <%= render 'homes/select_kyusyu' %>
-  </div>
+</div>
 
+<!-- パンくずリスト -->
 <%= render 'shared/category_nav' %>
-<!-- 観光地のランキング -->
-  <div class="section top__sec4">
-    <h2 div class="heading">各地域の人気記事</h2>
-    <div class="container">
-      <div class="container__inner">
-        <table>
-          <tr>
-            <th><%= link_to "北海道", ranking_path(area_id: 1), remote: true %></th>
-            <th><%= link_to "東北", ranking_path(area_id: 2), remote: true %></th>
-            <th><%= link_to "関東", ranking_path(area_id: 3), remote: true %></th>
-            <th><%= link_to "中部", ranking_path(area_id: 4), remote: true %></th>
-            <th><%= link_to "関西", ranking_path(area_id: 5), remote: true %></th>
-            <th><%= link_to "中国", ranking_path(area_id: 6), remote: true %></th>
-            <th><%= link_to "四国", ranking_path(area_id: 7), remote: true %></th>
-            <th><%= link_to "九州・沖縄", ranking_path(area_id: 8), remote: true %></th>
-          </tr>
-        </table>
-        <div id="area_ranking">
-          <%= render 'events/event_small_content', events: @events_ranking_area %>
-        </div>
+
+<!-- 各地域の人気記事 -->
+<div class="section top__sec4">
+  <h2 div class="heading">各地域の人気記事</h2>
+  <div class="container">
+    <div class="container__inner">
+      <table>
+        <tr>
+          <th><%= link_to "北海道", ranking_path(area_id: 1), remote: true %></th>
+          <th><%= link_to "東北", ranking_path(area_id: 2), remote: true %></th>
+          <th><%= link_to "関東", ranking_path(area_id: 3), remote: true %></th>
+          <th><%= link_to "中部", ranking_path(area_id: 4), remote: true %></th>
+          <th><%= link_to "関西", ranking_path(area_id: 5), remote: true %></th>
+          <th><%= link_to "中国", ranking_path(area_id: 6), remote: true %></th>
+          <th><%= link_to "四国", ranking_path(area_id: 7), remote: true %></th>
+          <th><%= link_to "九州・沖縄", ranking_path(area_id: 8), remote: true %></th>
+        </tr>
+      </table>
+    </div>
+  </div>
+      <div id="area_ranking">
+        <%= render 'events/event_small_content', events: @events_ranking_area %>
       </div>
     </div>
   </div>
+</div>
 
-
-  <!-- 新着記事 -->
-  <h2 div class="heading">新着記事</h2>
-  <div class="box">
-
-    <div class="box__left new_event">
-      <%= render 'events/event_card', events: @events_new %>
-    </div>
-
-    <div class="box__right">
-      <%= render 'events/event_ranking', events: @events_ranking %>
-      <%= render 'shared/section_favorite' %>
-      <%= render 'shared/section_pickup', events: @events_pickup %>
-      <%= render 'shared/section_about' %>
-    </div>
+<!-- 新着記事 -->
+<h2 div class="heading">新着記事</h2>
+<div class="box">
+  <div class="box__left new_event">
+    <%= render 'events/event_card', events: @events_new %>
   </div>
-  <div class ="footer__top">
-    <i class="fas fa-arrow-down"></i>
-      <%= link_to_next_page @events_new, 'もっと見る', remote: true, id: 'more_link' %>
+　<!-- サブメニュー -->
+  <div class="box__right">
+    <%= render 'events/event_ranking', events: @events_ranking %>
+    <%= render 'shared/section_favorite' %>
+    <%= render 'shared/section_pickup', events: @events_pickup %>
+    <%= render 'shared/section_about' %>
   </div>
-  <footer class="footer__botom">
-    <small class="footer__logo">© 2020 ここいこ</small>
-  </footer>
+</div>
 
-
-<style>
-  .footer__logo{
-    color: white;
-  }
-  .footer__top{
-    width: 62%;
-    margin-left: 6%;
-    margin-bottom: 15px;
-    color: black;
-    padding: 15px;
-    border: solid 1px #000000;
-    font-size: 14px;
-    text-align: center;
-  }
-  .footer__botom {
-    background-color: #212121;
-    text-align: center;
-    padding-top: 25px;
-    padding-bottom: 25px;
-  }
-  @media screen and (max-width: 767px) {
-    .footer__top{
-    width: 90%;
-    margin: 0 auto;
-    margin-bottom: 2%;
-  }
-}
-</style>
-
-
-
+<!-- フッター -->
+<div class="footer__top-pc">
+  <i class="fas fa-arrow-down"></i>
+    <%= link_to_next_page @events_new, 'もっと見る', remote: true, id: 'more_link' %>
+</div>
+<%= render 'shared/footer' %>

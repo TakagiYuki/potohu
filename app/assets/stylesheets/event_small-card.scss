@@ -1,7 +1,20 @@
+.container__card--mini {
+    position: relative;/*相対配置*/
+    width: 260px;
+    min-width: 260px;
+    background-color: #FFFFFF;
+    margin-right: 2%;
+    margin-left: 2%;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+  }
+
 .card-small__figure img {
   display:flex;
   width: 100%;
-  height: 200px;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   }
@@ -10,4 +23,18 @@
   position: absolute;
   top: 61%;
   left: 80%;
+}
+@media screen and (max-width: 1240px) and (min-width: 884px){
+	.container__card--mini {
+    position: relative;/*相対配置*/
+    width: 400px;
+    }
+}
+
+@media screen and (max-width: 883px) {
+  .container__card--mini {
+    position: relative;/*相対配置*/
+    width: 45%;
+    min-width: 45%
+    }
 }

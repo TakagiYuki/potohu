@@ -1,5 +1,10 @@
+<!-- ページタイトル -->
 <% provide(:title, '人気記事ランキング') %>
+
+<!-- ナビゲーションバー -->
 <%= render 'shared/category_nav' %>
+
+<!-- パンくずリスト -->
 <div class = "pan-list">
 　<%= link_to root_url, class: "pan-list__link", method: :get do %>
     <i class="fas fa-home"></i>ホーム
@@ -16,13 +21,17 @@
     <div class="container">
     	 <h2>人気記事ランキング</h2>
     </div>
-   
     <%= render 'events/event_card', events: @events_ranking_all %>
   </div>
-    <div class="box__right">
-      <%= render 'events/event_ranking', events: @events_ranking %>
-      <%= render 'shared/section_favorite' %>
-      <%= render 'shared/section_pickup', events: @events_pickup %>
-      <%= render 'shared/section_about' %>
-    </div>
+
+<!-- サブメニュー -->
+  <div class="box__right">
+    <%= render 'events/event_ranking', events: @events_ranking %>
+    <%= render 'shared/section_favorite' %>
+    <%= render 'shared/section_pickup', events: @events_pickup %>
+    <%= render 'shared/section_about' %>
+  </div>
 </div>
+
+<!-- フッター -->
+<%= render 'shared/footer' %>

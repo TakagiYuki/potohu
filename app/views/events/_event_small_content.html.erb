@@ -2,7 +2,6 @@
   <div class="container__inner">
     <% events.each_with_index do |event, i| %>
       <div class="container__card--mini">
-        <div class="top__sec4-img1">
           <figure class="card-small__figure">
             <%= link_to event_path(event) do %>
               <% if events == @events_ranking_area %>
@@ -11,7 +10,6 @@
               <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
             <% end %>
           </figure>
-        </div>
       <header class="card__header">
           <% event.tags.each do |tag| %>
             <%= link_to event_path(event) do %>
