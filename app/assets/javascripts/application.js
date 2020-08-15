@@ -29,6 +29,14 @@
 
 
 // ツールチップ
+$(function() {
+      const hum = $('.hamburger, .close')
+      const nav = $('.sp-nav')
+      hum.on('click', function(){
+         nav.toggleClass('toggle');
+      });
+   });
+
 $(function () {
 	$('[data-toggle="tooltip"]').tooltip();
 });
@@ -44,7 +52,6 @@ $(function() {
 
 
 var height = 200;
-
 $(window).scroll(function() {
   var top = $(window).scrollTop();
   if (200 <  top) {

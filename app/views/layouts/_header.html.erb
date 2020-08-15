@@ -29,8 +29,6 @@
         </span>
       <% end %>
 
-
-
       <!-- ログインしていないユーザー -->
       <% else %>
         <li class="header__right-link"><%= link_to '  ログイン', new_session_path, class: 'glyphicon glyphicon-log-in' %></li>
@@ -45,4 +43,13 @@
       <% end %>
     </ul>
   </nav>
+
+    <li class="hamburger"><%= image_tag("hamburger.png") %></li>
+  <nav class="sp-nav">
+      <div class="close"><i class="fas fa-times"></i></div>
+         <ul>
+            <li><a href="#">新規登録</a></li>
+            <li><a href="#">ログイン</a></li>
+         </ul>
+      </nav>
 </header>
