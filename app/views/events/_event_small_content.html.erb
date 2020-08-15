@@ -1,5 +1,4 @@
 <article class="card-small">
-  <div class="container__inner">
     <% events.each_with_index do |event, i| %>
       <div class="container__card--mini">
           <figure class="card-small__figure">
@@ -8,6 +7,11 @@
                 <div class="container__card--mini__badge--rank<%= i %>"></div>
               <% end %>
               <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
+              <div class="card-small__mask">
+                <div class="card-small__caption">
+                  記事を読む
+                </div>
+              </div>
             <% end %>
           </figure>
       <header class="card__header">
@@ -52,11 +56,6 @@
             <%= render partial: 'favorites/favorite', locals: { event: event} %>
           </div>
       </footer>
-
-        <div id="favorites_buttons_<%= event.id %>">
-          <%= render partial: 'favorites/favorite', locals: { event: event} %>
-        </div>
       </div>
     <% end %>
-  </div>
 </article>

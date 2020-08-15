@@ -35,15 +35,6 @@ a :hover {
 
 
 
-%container,.container {
-  width:100%;
-  margin: 0 auto;
-  &__inner {
-    display:flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-}
 
 
 //見出し
@@ -295,6 +286,8 @@ table th{
   top: 40%;
   left: 42%;
 }
+
+
 
 @media screen and (max-width: 760px) {
   .box{

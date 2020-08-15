@@ -12,23 +12,54 @@
     margin-bottom: 20px;
   }
 
-.card-small__figure img {
-  display:flex;
-  width: 100%;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  }
 
-.container__card--mini i {
+.card-small {
+    width:100%;
+    margin: 0 auto;
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  &__figure {
+    position:   relative;
+  }
+  &__figure img {
+    display:flex;
+    width: 100%;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+  &__caption {
+    font-size: 16px;
+    text-align: center;
+    padding-top: 27%;
+    color: black;
+  }
+  &__mask {
+    width: 90%;
+    height: 85%;
+    margin: 5%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;  /* マスクを非表示 */
+    background-color: rgba(255,255,255,0.6);
+  }
+  &__figure:hover .card-small__mask {
+    opacity: 1;  /* マスクを表示*/
+    transition: 0.5s ;
+  }
+}
+
+.card-small i {
   position: absolute;
-  top: 61%;
-  left: 80%;
+  top: 2%;
+  right: 2%;
 }
 @media screen and (max-width: 1240px) and (min-width: 884px){
 	.container__card--mini {
     position: relative;/*相対配置*/
     width: 400px;
-    }
+  }
 }
 
 @media screen and (max-width: 883px) {
