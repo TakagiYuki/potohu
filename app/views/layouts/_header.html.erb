@@ -12,34 +12,25 @@
         <li class="header__right-link"><%= link_to ' イベント作成', admin_events_path, class: 'glyphicon glyphicon-log-in' %></li>
         <li class="header__right-link"><%= link_to ' エリア作成', admin_areas_path, class: 'glyphicon glyphicon-log-in' %></li>
         <li class="header__right-link"><%= link_to ' ログアウト', session_path(current_user), method: :delete, class: 'glyphicon glyphicon-log-in' %></li>
-        <li class="header__right-link">
-          <%= link_to "https://twitter.com/share?url=#{request.url}&text=文", target: :_blank do %>
-            <span data-toggle="tooltip" data-placement="bottom" title="Share"><i class="fab fa-twitter"></i></span>
-          <% end %>
-        </li>
+        <%= render 'layouts/header_dropdown' %>
       <!-- ユーザー -->
       <% elsif logged_in? && !current_user.admin %>
-      <li class="header__right-link"><%= "ログイン中" %></li>
-      <li class="header__right-link"><%= link_to '　マイページ', user_path(current_user), class: 'glyphicon glyphicon-log-in' %></li>
-      <li class="header__right-link"><%= link_to '  ログアウト', session_path(current_user), method: :delete, class: 'glyphicon glyphicon-log-in' %></li>
-
-      <%= link_to "https://twitter.com/share?url=#{request.url}&text=文", target: :_blank do %>
-        <span data-toggle="tooltip" data-placement="bottom" title="Share">
-          <li class="header__right-link"><i class="fab fa-twitter"></i></li>
-        </span>
-      <% end %>
-
+        <li class="header__right-link"><%= "ログイン中" %></li>
+        <li class="header__right-link"><%= link_to '　マイページ', user_path(current_user), class: 'glyphicon glyphicon-log-in' %></li>
+        <li class="header__right-link"><%= link_to '  ログアウト', session_path(current_user), method: :delete, class: 'glyphicon glyphicon-log-in' %></li>
+        <%= render 'layouts/header_dropdown' %>
       <!-- ログインしていないユーザー -->
       <% else %>
         <li class="header__right-link"><%= link_to '  ログイン', new_session_path, class: 'glyphicon glyphicon-log-in' %></li>
         <li class="header__right-link"><%= link_to '  新規登録', new_user_path, class: 'glyphicon glyphicon-log-in' %></li>
         <li class="header__right-link"><%= link_to '  簡単ログイン(user)', users_guest_new_path, method: :post, class: 'glyphicon glyphicon-log-in' %></li>
         <li class="header__right-link"><%= link_to '  簡単ログイン(admin)', users_admin_new_path, method: :post, class: 'glyphicon glyphicon-log-in' %></li>
-        <li class="header__right-link">
-          <%= link_to "https://twitter.com/share?url=#{request.url}&text=aa", target: :_blank do %>
+        <!-- <li class="header__right-link">
+          <%#= link_to "https://twitter.com/share?url=#{request.url}&text=aa", target: :_blank do %>
             <span data-toggle="tooltip" data-placement="bottom" title="Share"><i class="fab fa-twitter"></i></span>
-          <% end %>
-        </li>
+          <%# end %>
+        </li> -->
+        <%= render 'layouts/header_dropdown' %>
       <% end %>
     </ul>
   </nav>

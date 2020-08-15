@@ -34,9 +34,6 @@ a :hover {
 }
 
 
-
-
-
 //見出し
 .heading{
   font-size: 20px;
@@ -131,61 +128,20 @@ a :hover {
   }
 }
 
-// .main-visual {
-//    display: flex;
-//    justify-content: center;
-//    align-items: center;
+// .box-part {
+//   background: #dcdcdc;
+//   border-radius: 10px;
+//   padding: 60px 10px;
+//   margin: 0px 0px;
 // }
 
-/* formの余白 */
-// input, textarea, select, .uneditable-input {
-//   border: 1px solid #bbb;
-//   //width: 100%;
-//   margin-bottom: 15px;
+// .text {
+//   margin: 20px 0px;
 // }
 
-// input {
-//   height: auto !important;
+// .fa {
+//   color: #4183D7;
 // }
-
-/* errorメッセージ */
-// #error_explanation {
-//   color: red;
-//   ul {
-//     color: red;
-//     margin: 0 0 30px ;
-//   }
-// }
-
-// .field_with_errors {
-//   @extend .has-error;
-//   .form-control {
-//     color: $state-danger-text;
-//   }
-// }
-
-
-//User情報
-// .box {
-//   padding: 60px 0px;
-// }
-
-.box-part {
-  background: #dcdcdc;
-  border-radius: 10px;
-  padding: 60px 10px;
-  margin: 0px 0px;
-}
-
-.text {
-  margin: 20px 0px;
-}
-
-.fa {
-  color: #4183D7;
-}
-
-
 
 //table
 table{
@@ -287,7 +243,59 @@ table th{
   left: 42%;
 }
 
+.dropdwn{
+    display: flex;
+}
 
+.dropdwn ul{
+    text-align: center;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    color: #fff;
+}
+// li{
+//     position: relative;
+//     padding: 5px;
+//     display: block;
+//     cursor: pointer;
+//     font-size: 12px;
+// }
+
+//ドロップ前のタイルの色
+.dropdwn li{
+    width: 140px;
+    margin: 1px;
+    display: inline;
+    color: black;
+    font-size: 12px;
+}
+//ドロップ後のタイルの色
+.dropdwn_menu{
+    width: 140px;
+    display: none;
+    position: absolute;
+    margin-left: -5px;
+    margin-top: 5px;
+    padding: 0;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.dropdwn_menu li{
+    width: 140px;
+}
+
+.dropdwn_menu li a{
+    padding: 5px 0;
+    margin: -5px 5px -5px -5px;
+    color: #fff;
+    display: block;
+}
+
+//ドロップ後のメニュー
+.dropdwn_menu li a:hover{
+  color: #fff;
+}
 
 @media screen and (max-width: 760px) {
   .box{

@@ -28,7 +28,8 @@
 // });
 
 
-// ツールチップ
+
+//ハンバーガーメニュー
 $(function() {
       const hum = $('.hamburger, .close')
       const nav = $('.sp-nav')
@@ -37,10 +38,12 @@ $(function() {
       });
    });
 
+// ツールチップ
 $(function () {
-	$('[data-toggle="tooltip"]').tooltip();
+	  $('[data-toggle="tooltip"]').tooltip();
 });
 
+//上部に移動ボタン
 $(function() {
     $("#page-top").click(function() {
         $('html,body').animate({
@@ -50,13 +53,21 @@ $(function() {
     });
 });
 
-
-var height = 200;
-$(window).scroll(function() {
-  var top = $(window).scrollTop();
-  if (200 <  top) {
-    $('#page-top').fadeIn(400);
-    } else {
-    $('#page-top').fadeOut(400)
-  }
+$(function(){
+    $('.dropdwn li').hover(function(){
+        $("ul:not(:animated)", this).slideDown();
+    }, function(){
+        $("ul.dropdwn_menu",this).slideUp();
+    });
 });
+
+//header装飾
+// var height = 200;
+// $(window).scroll(function() {
+//   var top = $(window).scrollTop();
+//   if (200 <  top) {
+//     $('#page-top').fadeIn(400);
+//     } else {
+//     $('#page-top').fadeOut(400)
+//   }
+// });
