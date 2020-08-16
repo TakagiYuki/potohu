@@ -3,7 +3,7 @@ class Admin::TagsController < ApplicationController
   	@tag = Tag.new
   	@tags = Tag.all
   end
-  
+
   def create
   	@tag = Tag.new(tag_params)
   	  if @tag.save
@@ -11,6 +11,7 @@ class Admin::TagsController < ApplicationController
         redirect_to admin_tags_path
   	  else
         @tags = Tag.all
+        flash.now[:alert] = 'エラー'
         render 'index'
   	  end
   end
@@ -18,30 +19,33 @@ class Admin::TagsController < ApplicationController
   def edit
   	@tag = Tag.find(params[:id])
   end
-  
+
   def update
     @tag = Tag.find(params[:id])
       if @tag.update(tag_params)
+        flash[:success] = "変更完了"
         redirect_to admin_tags_path
       else
+        flash.now[:alert] = 'エラー'
         render 'edit'
-    end
+      end
   end
-  
+
   def destroy
     tag = Tag.find(params[:id])
     tag.destroy
+    flash[:success] = "消去完了"
     redirect_to admin_tags_path
   end
-  
+
   private
-	def admin_user
+	  def admin_user
       if !logged_in? || !current_user.admin?
         redirect_to(root_url)
+	    end
 	  end
-	end
 
-	def tag_params
+	  def tag_params
       params.require(:tag).permit(:name, :image)
     end
 end

@@ -1,5 +1,5 @@
 <div class="col-lg-6">
-  <%= form_with(model: @event, url:url, remote: true) do |f| %>
+  <%= form_with(model: @event, url:url, local: true) do |f| %>
   <%= render 'shared/error_messages', db: @event %>
     <%= f.label :地域選択 %><br>
     <%= f.collection_select :area_id, Area.all, :id, :name, class: 'form-control' %><br>

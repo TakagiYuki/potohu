@@ -1,12 +1,19 @@
 <% provide(:title, 'イベント作成') %>
+<!-- フラッシュメッセージ -->
+<div class="flash">
+  <%= flash[:success] %>
+</div>
+<div class="alert1">
+  <%= flash[:alert] %>
+</div>
 <div class="container">
-  <h3>イベント追加</h3>
+  <h3>イベント作成</h3>
   <hr>
   <!-- 入力フォーム -->
   <%= render 'admin/events/event_form', url: "/admin/events" %>
 
   <!-- イベント表示 -->
-  <div id="event_create">
+  <!-- <div id="event_create"> -->
     <%= render 'admin/events/event_all', events: @events %>
-  </div>
+  <!-- </div> -->
 </div>

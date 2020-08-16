@@ -7,12 +7,19 @@ class Admin::EventsController < ApplicationController
 
   def create
   	@event = Event.new(event_params)
-    ActiveRecord::Base.transaction do
-      @event.save!
-      EventTag.create!(event_id: @event.id, tag_id: params[:event][:tag_ids])
+      ActiveRecord::Base.transaction do
+        if @event.save!
+          EventTag.create!(event_id: @event.id, tag_id: params[:event][:tag_ids])
+          @events = Event.all
+          flash[:success] = "登録完了"
+          redirect_to admin_events_path
+        else
+          @events = Event.all
+          flash.now[:alert] = 'エラー'
+          render 'index'
+        end
+      end
     end
-    @events = Event.all
-  end
 
   def edit
     @event = Event.find(params[:id])
@@ -21,16 +28,19 @@ class Admin::EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
       if @event.update(event_params)
-        # redirect_to edit_admin_event_path
+        flash[:success] = "変更完了"
+        redirect_to admin_events_path
       else
-        # render edit
-    end
+        flash.now[:alert] = 'エラー'
+        render 'edit'
+      end
   end
 
   def destroy
     @event = Event.find(params[:id])
-    @events = Event.all
     @event.destroy
+    flash[:success] = "消去完了"
+    redirect_to admin_events_path
   end
 
   private
