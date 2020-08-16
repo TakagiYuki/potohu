@@ -7,10 +7,14 @@ class Admin::AreasController < ApplicationController
 
   def create
   	@area = Area.new(area_params)
-  	if @area.save!
+  	if @area.save
       @areas = Area.all
+      flash[:success] = "登録完了"
+      redirect_to admin_areas_path
   	else
-
+      @areas = Area.all
+      flash.now[:alert] = 'エラー'
+      render 'index'
   	end
   end
 
@@ -21,15 +25,19 @@ class Admin::AreasController < ApplicationController
   def update
     @area = Area.find(params[:id])
       if @area.update(area_params)
+        flash[:success] = "変更完了"
+        redirect_to admin_areas_path
       else
-        render edit
+        flash.now[:alert] = 'エラー'
+        render 'edit'
     end
   end
 
   def destroy
     @area = Area.find(params[:id])
-    @areas = Area.all
     @area.destroy
+    flash[:success] = "消去完了"
+    redirect_to admin_areas_path
   end
 
   private

@@ -1,5 +1,5 @@
-<%= javascript_include_tag "swiper.min.js" %>
-<%= javascript_include_tag "homes/top.js" %>
+<%#= javascript_include_tag "swiper.min.js" %>
+<%#= javascript_include_tag "homes/top.js" %>
 <% provide(:title, 'ホーム') %>
 
 <!-- top -->
@@ -29,29 +29,21 @@
 <%= render 'shared/category_nav' %>
 
 <!-- 各地域の人気記事 -->
-<div class="section top__sec4">
-  <h2 div class="heading">各地域の人気記事</h2>
-  <div class="container">
-    <div class="container__inner">
-      <table>
-        <tr>
-          <th><%= link_to "北海道", ranking_path(area_id: 1), remote: true %></th>
-          <th><%= link_to "東北", ranking_path(area_id: 2), remote: true %></th>
-          <th><%= link_to "関東", ranking_path(area_id: 3), remote: true %></th>
-          <th><%= link_to "中部", ranking_path(area_id: 4), remote: true %></th>
-          <th><%= link_to "関西", ranking_path(area_id: 5), remote: true %></th>
-          <th><%= link_to "中国", ranking_path(area_id: 6), remote: true %></th>
-          <th><%= link_to "四国", ranking_path(area_id: 7), remote: true %></th>
-          <th><%= link_to "九州・沖縄", ranking_path(area_id: 8), remote: true %></th>
-        </tr>
-      </table>
-    </div>
-  </div>
-      <div id="area_ranking">
-        <%= render 'events/event_small_content', events: @events_ranking_area %>
-      </div>
-    </div>
-  </div>
+<h2 div class="heading">各地域の人気記事</h2>
+  <table class="ranking__table">
+    <tr>
+      <th class="ranking__table-link"><%= link_to "北海道", ranking_path(area_id: 1), remote: true %></th>
+      <th class="ranking__table-link"><%= link_to "東北", ranking_path(area_id: 2), remote: true %></th>
+      <th class="ranking__table-link"><%= link_to "関東", ranking_path(area_id: 3), remote: true %></th>
+      <th class="ranking__table-link"><%= link_to "中部", ranking_path(area_id: 4), remote: true %></th>
+      <th class="ranking__table-link"><%= link_to "関西", ranking_path(area_id: 5), remote: true %></th>
+      <th class="ranking__table-link"><%= link_to "中国", ranking_path(area_id: 6), remote: true %></th>
+      <th class="ranking__table-link"><%= link_to "四国", ranking_path(area_id: 7), remote: true %></th>
+      <th class="ranking__table-link"><%= link_to "九州・沖縄", ranking_path(area_id: 8), remote: true %></th>
+    </tr>
+  </table>
+<div id="area_ranking">
+  <%= render 'events/event_small_content', events: @events_ranking_area %>
 </div>
 
 <!-- 新着記事 -->

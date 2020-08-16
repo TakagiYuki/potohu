@@ -38,10 +38,10 @@ $(function() {
       });
    });
 
-// ツールチップ
-$(function () {
-	  $('[data-toggle="tooltip"]').tooltip();
-});
+// // ツールチップ
+// $(function () {
+// 	  $('[data-toggle="tooltip"]').tooltip();
+// });
 
 //上部に移動ボタン
 $(function() {
@@ -60,7 +60,10 @@ $(function(){
         $("ul.dropdwn_menu",this).slideUp();
     });
 });
-
+//フラッシュメッセージ
+// $(function(){
+//   setTimeout("$('.flash').fadeOut('slow')", 2000);
+// });
 //header装飾
 // var height = 200;
 // $(window).scroll(function() {

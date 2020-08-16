@@ -3,46 +3,45 @@
     <thead>
       <tr>
         <br>
-        <th class="col-md-1">image</th>
-        <th class="col-md-1">名前</th>
-        <th class="col-md-1">場所</th>
-        <th class="col-md-1">非表示/表示</th>
-        <th class="col-md-1">オススメ</th>
-        <th class="col-md-1">編集</th>
-        <th class="col-md-1">消去</th>
-        <th class="col-md-1">カテゴリー</th>
+        <th class="col-md-1 text-center">画像</th>
+        <th class="col-md-1 text-center">名前</th>
+        <th class="col-md-1 text-center">場所</th>
+        <th class="col-md-1 text-center">カテゴリ</th>
+        <th class="col-md-1 text-center">非表示/表示</th>
+        <th class="col-md-1 text-center">オススメ</th>
+        <th class="col-md-1 text-center">編集</th>
+        <th class="col-md-1 text-center">消去</th>
       </tr>
     </thead>
     <tbody>
       <% events.each do |event| %>
       <tr>
         <td class="text-center"><%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '90x60')%></td>
-        <td><%= event.name %></td>
-        <td><%= event.prefecture %></td>
+        <td class="text-center"><%= event.name %></td>
+        <td class="text-center"><%= event.prefecture %></td>
+        <% event.tags.each do |tag| %>
+          <td class="text-center"><%= tag.name %></td>
+        <% end %>
         <% if event.is_valid == true %>
-          <td><span class="label label-primary"><%= "表示中" %></span></td>
+          <td class="text-center"><span class="label label-primary"><%= "表示中" %></span></td>
         <% else %>
-          <td><span class="label label-danger"><%= "非表示" %></span></td>
+          <td class="text-center"><span class="label label-danger"><%= "非表示" %></span></td>
         <% end %>
         <% if event.pick_up == true %>
-          <td><span class="label label-primary"><%= "表示中" %></span></td>
+          <td class="text-center"><span class="label label-primary"><%= "表示中" %></span></td>
         <% else %>
-          <td><span class="label label-danger"><%= "非表示" %></span></td>
+          <td class="text-center"><span class="label label-danger"><%= "非表示" %></span></td>
         <% end %>
         <td class="text-center">
           <%= link_to edit_admin_event_path(event), method: :get do %>
-            <i class="fas fa-edit sync-alt_green"></i>
+            <i class="fas fa-edit blue"></i>
           <% end %>
         </td>
         <td class="text-center">
-          <%= link_to admin_event_path(event), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} do %>
-            <i class="fa fa-times times_red"></i>
+          <%= link_to admin_event_path(event), method: :delete, local: true, data: {confirm: "本当に削除しますか？"} do %>
+            <i class="fa fa-times danger-color"></i>
           <% end %>
         </td>
-        <% event.tags.each do |tag| %>
-          <td><%= tag.name %></td>
-        <% end %>
-
       </tr>
       <% end %>
     </tbody>
