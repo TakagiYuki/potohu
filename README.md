@@ -2,7 +2,9 @@
 <h2 align="center">ここいこ</h2>
 
 <p align="center">
-  <a href="Ruby公式サイトURL"><img src="" width="80px;" /></a>
+  ![ruby-on-rails](https://user-images.githubusercontent.com/62293736/90363999-95266f00-e09e-11ea-83a4-327a634c7eed.jpg)
+　<img src="https://user-images.githubusercontent.com/62293736/90363999-95266f00-e09e-11ea-83a4-327a634c7eed.jpg" width="80px;" />
+  <a href="Ruby公式サイトURL"><img src="https://user-images.githubusercontent.com/62293736/90363999-95266f00-e09e-11ea-83a4-327a634c7eed.jpg" width="80px;" /></a>
   <br>
   <a href="PWA公式サイトURL"><img src="https://〜.png" height="45px;" /></a>
   <a href="Firebase公式サイトURL"><img src="https://〜.png" height="45px;" /></a>
