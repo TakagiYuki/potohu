@@ -12,6 +12,10 @@
 <div class="box">
   <div class="box__left">
     <%= render 'shared/search_prefacture' %>
+    <!-- メイン記事 -->
+    <div class="container">
+      <h2 class="heading">お気に入り一覧</h2>
+    </div>
     <% @user_favorites.each do |favorite| %>
   <article class="card">
     <aside class="card__aside">

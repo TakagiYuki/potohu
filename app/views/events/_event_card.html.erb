@@ -1,15 +1,18 @@
-<% events.each do |event| %>
+<% events.each_with_index do |event, i| %>
   <article class="card">
     <aside class="card__aside">
       <figure class="card__figure">
-        <%= link_to event_path(event) do %>
-          <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
-          <div class="card__mask">
-            <div class="card__caption">
-              記事を読む
-            </div>
-          </div>
+        <% if events == @events_ranking_all %>
+          <div class="container__card--mini__badge--rank<%= i %>"></div>
         <% end %>
+          <%= link_to event_path(event) do %>
+            <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
+            <div class="card__mask">
+              <div class="card__caption">
+                記事を読む
+              </div>
+            </div>
+          <% end %>
       </figure>
     </aside>
     <% event.tags.each do |tag| %>

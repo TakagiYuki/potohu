@@ -5,7 +5,7 @@
 <%= render 'shared/category_nav' %>
 
 <!-- パンくずリスト -->
-<div class = "pan-list">
+<div class ="pan-list">
 　<%= link_to root_url, class: "pan-list__link", method: :get do %>
     <i class="fas fa-home"></i>ホーム
   <% end %>
@@ -17,9 +17,11 @@
 
 <div class="box">
   <div class="box__left">
+    <!-- 検索 -->
     <%= render 'shared/search_prefacture' %>
+    <!-- メイン記事 -->
     <div class="container">
-    	 <h2>人気記事ランキング</h2>
+    	<h2 class="heading">人気記事ランキング(全国)</h2>
     </div>
     <%= render 'events/event_card', events: @events_ranking_all %>
   </div>

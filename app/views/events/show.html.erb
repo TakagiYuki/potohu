@@ -1,5 +1,10 @@
+<!-- ページタイトル -->
 <% provide(:title, '観光地情報') %>
+
+<!-- ナビゲーションバー -->
 <%= render 'shared/category_nav' %>
+
+<!-- パンくずリスト -->
 <div class = "pan-list">
 　<%= link_to root_url, class: "pan-list__link", method: :get do %>
     <i class="fas fa-home"></i>ホーム
@@ -21,53 +26,59 @@
 </div>
 
 <article class="event">
-<div class="box">
-  <div class="box__left-event">
-    <figure class="event__figure">
-      <%= attachment_image_tag(@event, :image, fallback: 'no_image.jpg')%>
-    </figure>
-    <h2 class="event__title"><%= @event.name %></h2>
-    <p class="event__text"><%= @event.article %></p>
-    <p class="event__text"><%= "【場所】#{@event.prefecture}" %></p>
+  <div class="box">
+    <!-- イベント詳細 -->
+    <div class="box__left-event">
+      <figure class="event__figure">
+        <%= attachment_image_tag(@event, :image, fallback: 'no_image.jpg')%>
+      </figure>
+      <h2 class="event__title"><%= @event.name %></h2>
+      <p class="event__text"><%= @event.article %></p>
+      <p class="event__text"><%= "【場所】#{@event.prefecture}" %></p>
 
-    <!-- マップ表示 -->
-    <div id='map' class="<%= @event.prefecture + @event.city + @event.street %>"></div>
+      <div class="event__show-heart">
+        <div id="favorites_buttons_<%= @event.id %>">
+          <%= render partial: 'favorites/favorite', locals: { event: @event} %>
+        </div>
+      </div>
+      <!-- マップ表示 -->
+      <h2 class="event__title">マップ情報</h2>
+      <div id='map' class="<%= @event.prefecture + @event.city + @event.street %>"></div>
+
+      <!-- 口コミ表示 -->
+      <h2 class="event__title">口コミ</h2>
+      <div class="event__comment">
+        <%= form_with model:[@event, @event_comment],method: :post, data: {remote: true} do |f| %>
+          <%= f.text_area :comment, class: "form-control", placeholder: "口コミをここに" %>
+          <% if logged_in? %>
+            <%= f.submit "投稿する", class:"btn btn-default event__btn" %>
+          <% else %>
+            <button type="button" class="btn btn-default event__btn" data-toggle="modal" data-target="#loginModal">投稿する</button>
+          <% end %>
+        <% end %>
+        <div class=" comment_<%= @event.id %>">
+          <%= render 'events/comment', event_comments: @event.event_comments %>
+        </div>
+      </div>
+    </div>
+
+    <!-- サブメニュー -->
+    <div class="box__right">
+      <%= render 'events/event_ranking', events: @events_ranking %>
+      <%= render 'shared/section_favorite' %>
+      <%= render 'shared/section_pickup', events: @events_pickup %>
+      <%= render 'shared/section_about' %>
+    </div>
   </div>
 
-  <div class="box__right">
-    <%= render 'events/event_ranking', events: @events_ranking %>
-    <%= render 'shared/section_favorite' %>
-    <%= render 'shared/section_pickup', events: @events_pickup %>
-    <%= render 'shared/section_about' %>
-  </div>
-</div>
-
-<div class="container">
-  <h3>近くのイベント</h3>
-  <hr>
+  <!-- 近くのイベント -->
+  <div class="a">
+  <h2 class="event__title-bottom">近くのイベント</h2>
   <%= render 'events/event_small_content', events: @events %>
 </div>
 
-<div class="container">
-  <div class="col-6">
-    <h3>コメント
-      <% if logged_in? %>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleModal">
-          口コミを書く
-          <%= render 'shared/comment_modal' %>
-        </button>
-      <% else %>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
-          口コミを書く
-          <%#= render 'shared/login_modal' %>
-        </button>
-      <% end %>
-    </h3>
-    <hr>
-  </div>
-</div>
-</article>
 
+</article>
 
 <script>
 let map//ピンの位置

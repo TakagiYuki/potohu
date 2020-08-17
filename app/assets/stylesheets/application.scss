@@ -16,7 +16,6 @@
    box-sizing: border-box;
 }
 
-/* ブラウザ間の差を無くす */
 body {
   margin: 0;
   font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -25,12 +24,12 @@ body {
 }
 
 a {
-   text-decoration: none;//アンダーラインの消去
+   text-decoration: none;
    color: black;
 }
 
 a :hover {
-  text-decoration: none;//アンダーラインの消去
+  text-decoration: none;
 }
 .flash {
   margin-top: 50px;
@@ -139,23 +138,6 @@ a :hover {
      content: "5位";
   }
 }
-
-// .box-part {
-//   background: #dcdcdc;
-//   border-radius: 10px;
-//   padding: 60px 10px;
-//   margin: 0px 0px;
-// }
-
-// .text {
-//   margin: 20px 0px;
-// }
-
-// .fa {
-//   color: #4183D7;
-// }
-
-
 
 //アイコン
 .red {

@@ -1,9 +1,9 @@
 <header class="ranking__header">
-<% if logged_in? && current_user %>
-  <%= link_to user_favorites_path(current_user), class: "ranking__link", method: :get do %>
-    <h2 class="ranking__section"><i class="fas fa-heart"></i>いいねした記事</h2>
+  <% if logged_in? && current_user %>
+    <%= link_to user_favorites_path(current_user), class: "ranking__link", method: :get do %>
+      <h2 class="ranking__section"><i class="fas fa-heart"></i>いいねした記事</h2>
+    <% end %>
+  <% else %>
+    <h2 class="ranking__section"><i class="fas fa-heart" data-toggle="modal" data-target="#loginModal"></i>いいねした記事</h2>
   <% end %>
-<% else %>
-  <h2 class="ranking__section"><i class="fas fa-heart" data-toggle="modal" data-target="#loginModal"></i>いいねした記事</h2>
-<% end %>
 </header>
