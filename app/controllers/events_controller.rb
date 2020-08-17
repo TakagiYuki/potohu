@@ -61,5 +61,3 @@ class EventsController < ApplicationController
     @events_ranking  =Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(5).pluck(:event_id))
   end
 end
-
-

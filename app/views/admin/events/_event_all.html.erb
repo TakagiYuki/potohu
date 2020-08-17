@@ -15,34 +15,34 @@
     </thead>
     <tbody>
       <% events.each do |event| %>
-      <tr>
-        <td class="text-center"><%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '90x60')%></td>
-        <td class="text-center"><%= event.name %></td>
-        <td class="text-center"><%= event.prefecture %></td>
-        <% event.tags.each do |tag| %>
-          <td class="text-center"><%= tag.name %></td>
-        <% end %>
-        <% if event.is_valid == true %>
-          <td class="text-center"><span class="label label-primary"><%= "表示中" %></span></td>
-        <% else %>
-          <td class="text-center"><span class="label label-danger"><%= "非表示" %></span></td>
-        <% end %>
-        <% if event.pick_up == true %>
-          <td class="text-center"><span class="label label-primary"><%= "表示中" %></span></td>
-        <% else %>
-          <td class="text-center"><span class="label label-danger"><%= "非表示" %></span></td>
-        <% end %>
-        <td class="text-center">
-          <%= link_to edit_admin_event_path(event), method: :get do %>
-            <i class="fas fa-edit blue"></i>
+        <tr>
+          <td class="text-center"><%= attachment_image_tag(event, :image, fallback: 'no_image.jpg', size: '90x60')%></td>
+          <td class="text-center"><%= event.name %></td>
+          <td class="text-center"><%= event.prefecture %></td>
+          <% event.tags.each do |tag| %>
+            <td class="text-center"><%= tag.name %></td>
           <% end %>
-        </td>
-        <td class="text-center">
-          <%= link_to admin_event_path(event), method: :delete, local: true, data: {confirm: "本当に削除しますか？"} do %>
-            <i class="fa fa-times danger-color"></i>
+          <% if event.is_valid == true %>
+            <td class="text-center"><span class="label label-primary"><%= "表示中" %></span></td>
+          <% else %>
+            <td class="text-center"><span class="label label-danger"><%= "非表示" %></span></td>
           <% end %>
-        </td>
-      </tr>
+          <% if event.pick_up == true %>
+            <td class="text-center"><span class="label label-primary"><%= "表示中" %></span></td>
+          <% else %>
+            <td class="text-center"><span class="label label-danger"><%= "非表示" %></span></td>
+          <% end %>
+          <td class="text-center">
+            <%= link_to edit_admin_event_path(event), method: :get do %>
+              <i class="fas fa-edit blue"></i>
+            <% end %>
+          </td>
+          <td class="text-center">
+            <%= link_to admin_event_path(event), method: :delete, local: true, data: {confirm: "本当に削除しますか？"} do %>
+              <i class="fa fa-times danger-color"></i>
+            <% end %>
+          </td>
+        </tr>
       <% end %>
     </tbody>
   </table>

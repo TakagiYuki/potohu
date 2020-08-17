@@ -1,11 +1,4 @@
 <% provide(:title, 'エリア編集') %>
-<!-- フラッシュメッセージ -->
-<div class="flash">
-  <%= flash[:success] %>
-</div>
-<div class="alert1">
-  <%= flash[:alert] %>
-</div>
 
 <div class="container">
   <div class="row">
@@ -15,9 +8,7 @@
       <hr>
     </div>
   </div>
-  <!-- <div id="area_update"> -->
-    <%= render 'admin/areas/area_form', url: "/admin/areas/#{@area.id}" %>
-  <!-- </div> -->
+  <%= render 'admin/areas/area_form', url: "/admin/areas/#{@area.id}" %>
 </div>
 
 

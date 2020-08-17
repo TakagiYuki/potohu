@@ -4,5 +4,5 @@ class Tag < ApplicationRecord
 
   validates :name, presence: true
   validates :name, uniqueness: true
-  attachment :image #refile用
+  attachment :image
 end

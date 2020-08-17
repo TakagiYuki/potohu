@@ -1,12 +1,12 @@
 .header {
-  padding: 10px 4% 10px;//内側の余白
+  padding: 10px 4% 10px;
   position: fixed;
-  top: 0;//固定位置
+  top: 0;
   width: 100%;
-  background-color: #ffffff;//背景色
+  background-color: #ffffff;
   opacity: 0.9;
-  display: flex;//固定
-  align-items: center;//縦方向の中心
+  display: flex;
+  align-items: center;
   z-index: 5;
 
   &__left {
@@ -16,7 +16,7 @@
     animation-name: fadein-left;
     animation-duration: 1.5s;
     animation-timing-function: ease-out;
-    animation-fill-mode: forwards;//アニメーション終了後キープ
+    animation-fill-mode: forwards;
   }
 
   &__right {
@@ -29,16 +29,16 @@
   }
 
   &__right-ul {
-    list-style: none;//「・」を非表示
-    margin: 0;//余白を消去
-    display: flex;//横並びに
+    list-style: none;
+    margin: 0;
+    display: flex;
   }
 
   &__right-link {
-    margin: 0 0 0 30px;//ヘッダー縦幅調整
+    margin: 0 0 0 30px;
     font-size: 12px;
-    cursor: pointer;//指
-    cursor: hand;//指(IE6対応)
+    cursor: pointer;
+    cursor: hand;
   }
   & a,
     i,

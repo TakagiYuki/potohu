@@ -1,6 +1,4 @@
 module SessionsHelper
-
-  #引数のUserモデルidを、sessionに格納
   def log_in(user)
     session[:user_id] = user.id
   end
@@ -8,8 +6,6 @@ module SessionsHelper
   def current_user
     if session[:user_id]
       @current_user ||= User.find_by(id: session[:user_id]) #下の短縮版
-      #@current_user = @current_user || User.find_by(id: session[:user_id])
-      #@current_user = User.find_by(id: session[:user_id]) <= DBへのクエリ増
     end
   end
 

@@ -13,13 +13,17 @@
   </head>
 
   <body>
+    <div class="flash">
+      <%= flash[:success] %>
+    </div>
+    <div class="alert1">
+      <%= flash[:alert] %>
+    </div>
     <%= render 'layouts/header' %>
     <%= render 'shared/login_modal' %>
     <p id="page-top">
       <a href="#"><i class="fas fa-arrow-up"></i></a>
     </p>
-
-
     <%= yield %>
   </body>
 </html>

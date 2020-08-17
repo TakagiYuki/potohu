@@ -1,12 +1,12 @@
 class Event < ApplicationRecord
-  belongs_to :area #エリア
-  has_many :event_tags, dependent: :destroy #タグ
-  has_many :tags, through: :event_tags #タグ
-  has_many :event_seasons, dependent: :destroy #タグ
-  has_many :seasons, through: :event_seasons #タグ
-  has_many :event_comments #コメント
-  attachment :image #refile用
-  has_many :favorites #いいな
+  belongs_to :area
+  has_many :event_tags, dependent: :destroy
+  has_many :tags, through: :event_tags
+  has_many :event_seasons, dependent: :destroy
+  has_many :seasons, through: :event_seasons
+  has_many :event_comments
+  attachment :image
+  has_many :favorites
 
   scope :enabled, -> {where(is_valid: true)}
   scope :pickup, -> {where(pick_up: true)}

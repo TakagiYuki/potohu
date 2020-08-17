@@ -1,4 +1,4 @@
 class Favorite < ApplicationRecord
-  belongs_to :user #いいな
-  belongs_to :event #いいな
+  belongs_to :user
+  belongs_to :event
 end

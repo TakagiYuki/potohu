@@ -38,11 +38,6 @@ $(function() {
       });
    });
 
-// // ツールチップ
-// $(function () {
-// 	  $('[data-toggle="tooltip"]').tooltip();
-// });
-
 //上部に移動ボタン
 $(function() {
     $("#page-top").click(function() {
@@ -51,6 +46,16 @@ $(function() {
         }, 1000);
         return false;
     });
+});
+
+var height = 200;
+$(window).scroll(function() {
+  var top = $(window).scrollTop();
+  if (200 <  top) {
+    $('#page-top').fadeIn(400);
+    } else {
+    $('#page-top').fadeOut(400)
+  }
 });
 
 $(function(){
@@ -64,13 +69,5 @@ $(function(){
 // $(function(){
 //   setTimeout("$('.flash').fadeOut('slow')", 2000);
 // });
-//header装飾
-// var height = 200;
-// $(window).scroll(function() {
-//   var top = $(window).scrollTop();
-//   if (200 <  top) {
-//     $('#page-top').fadeIn(400);
-//     } else {
-//     $('#page-top').fadeOut(400)
-//   }
-// });
+
+

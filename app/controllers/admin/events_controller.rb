@@ -1,5 +1,6 @@
 class Admin::EventsController < ApplicationController
   before_action :admin_user
+
   def index
   	@event = Event.new
   	@events = Event.all
@@ -7,19 +8,19 @@ class Admin::EventsController < ApplicationController
 
   def create
   	@event = Event.new(event_params)
-      ActiveRecord::Base.transaction do
-        if @event.save!
-          EventTag.create!(event_id: @event.id, tag_id: params[:event][:tag_ids])
-          @events = Event.all
-          flash[:success] = "登録完了"
-          redirect_to admin_events_path
-        else
-          @events = Event.all
-          flash.now[:alert] = 'エラー'
-          render 'index'
-        end
+    ActiveRecord::Base.transaction do
+      if @event.save!
+        EventTag.create!(event_id: @event.id, tag_id: params[:event][:tag_ids])
+        @events = Event.all
+        flash[:success] = "登録完了"
+        redirect_to admin_events_path
+      else
+        @events = Event.all
+        flash.now[:alert] = 'エラー'
+        render 'index'
       end
     end
+  end
 
   def edit
     @event = Event.find(params[:id])
@@ -27,13 +28,13 @@ class Admin::EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-      if @event.update(event_params)
-        flash[:success] = "変更完了"
-        redirect_to admin_events_path
-      else
-        flash.now[:alert] = 'エラー'
-        render 'edit'
-      end
+    if @event.update(event_params)
+      flash[:success] = "変更完了"
+      redirect_to admin_events_path
+    else
+      flash.now[:alert] = 'エラー'
+      render 'edit'
+    end
   end
 
   def destroy
@@ -55,4 +56,3 @@ class Admin::EventsController < ApplicationController
       :image, :prefecture, :city, :street, :area_id, :open_time, :close_time, :is_valid, :pick_up)
     end
 end
-

@@ -24,12 +24,12 @@ class Admin::AreasController < ApplicationController
 
   def update
     @area = Area.find(params[:id])
-      if @area.update(area_params)
-        flash[:success] = "変更完了"
-        redirect_to admin_areas_path
-      else
-        flash.now[:alert] = 'エラー'
-        render 'edit'
+    if @area.update(area_params)
+      flash[:success] = "変更完了"
+      redirect_to admin_areas_path
+    else
+      flash.now[:alert] = 'エラー'
+      render 'edit'
     end
   end
 
@@ -39,6 +39,7 @@ class Admin::AreasController < ApplicationController
     flash[:success] = "消去完了"
     redirect_to admin_areas_path
   end
+
 
   private
     def admin_user
