@@ -100,20 +100,19 @@
   }
 
   .sp-nav ul {
-   padding: 0;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
   }
   .sp-nav li {
-     margin: 0;
-     padding: 0;
+    margin: 0;
+    padding: 0;
   }
   .sp-nav li a {
-     display: block;
-     padding: 20px 0;
+    display: block;
+    padding: 20px 0;
   }
   .hamburger {
     display: block;
