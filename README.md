@@ -16,8 +16,14 @@
 
 ### 3,記事詳細
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/62293736/90461926-94471900-e142-11ea-9e33-dbf1788a7b59.png" />
+  <img src="https://user-images.githubusercontent.com/62293736/90463616-5d730200-e146-11ea-9969-ce0ce2c38e8d.png" />
 </p>
+
+## 📗Development
+### Ruby on Rails
+### AWS
+### Sass
+### Sublime Text
 
 ## 🌐 App URL
 
