@@ -33,6 +33,7 @@
 
 `$ git clone https://github.com/TakagiYuki/potohu.git`
 
-### 🛠機能一覧
-https://drive.google.com/file/d/1LdK-CVwLayqYO7BgRKTUHufINltYfJz6/view?usp=sharing
+## 🛠機能一覧
+
+### https://drive.google.com/file/d/1LdK-CVwLayqYO7BgRKTUHufINltYfJz6/view?usp=sharing
 
