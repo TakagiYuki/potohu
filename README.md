@@ -3,14 +3,21 @@
 
 ## 📦 Features
 
-### ホーム
+### 1,ホーム
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/62293736/90459474-652da900-e13c-11ea-9b7f-25c8af5444d7.png" />
 </p>
 
-### 検索画面
+### 2,検索画面
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/62293736/90461926-94471900-e142-11ea-9e33-dbf1788a7b59.png" />
+</p>
 
+### 3,記事詳細
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/62293736/90461926-94471900-e142-11ea-9e33-dbf1788a7b59.png" />
+</p>
 
 ## 🌐 App URL
 
