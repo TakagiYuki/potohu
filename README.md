@@ -34,6 +34,5 @@
 `$ git clone https://github.com/TakagiYuki/potohu.git`
 
 ### 🛠機能一覧
-https://docs.google.com/spreadsheets/d/1WpKszWRasr2gWD0o_67TRENytqc-Hmf4/edit#gid=1605641624
-
+https://drive.google.com/file/d/1LdK-CVwLayqYO7BgRKTUHufINltYfJz6/view?usp=sharing
 
