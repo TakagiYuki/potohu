@@ -19,7 +19,7 @@
   <img src="https://user-images.githubusercontent.com/62293736/90463616-5d730200-e146-11ea-9969-ce0ce2c38e8d.png" />
 </p>
 
-## 📗Development
+## 🎮Development
 ### Ruby on Rails
 ### AWS
 ### Sass
@@ -33,7 +33,7 @@
 
 `$ git clone https://github.com/TakagiYuki/potohu.git`
 
-### 機能一覧
+### 🛠機能一覧
 https://docs.google.com/spreadsheets/d/1WpKszWRasr2gWD0o_67TRENytqc-Hmf4/edit#gid=1605641624
 
 
