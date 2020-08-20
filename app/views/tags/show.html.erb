@@ -20,7 +20,9 @@
     <!-- 検索 -->
     <%= render 'shared/search_tag' %>
     <!-- メイン記事 -->
-    <%= render 'events/event_card', events: @events %>
+    <div class="search">
+      <%= render 'events/event_card', events: @events %>
+    </div>
   </div>
   <!-- サブメニュー -->
   <div class="box__right">
@@ -30,6 +32,5 @@
     <%= render 'shared/section_about' %>
   </div>
 </div>
-
 <!-- フッター -->
 <%= render 'shared/footer' %>
