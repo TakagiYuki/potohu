@@ -1,5 +1,5 @@
 <header class="ranking__header">
-  <%= link_to events_path, class: "ranking__link", method: :get do %>
+  <%= link_to rank_path, class: "ranking__link", method: :get do %>
     <h2 class="ranking__section"><i class="fas fa-crown"></i>人気記事ランキング(全国)</h2>
   <% end %>
 </header>
@@ -52,7 +52,7 @@
   </article>
 <% end %>
 <footer class="ranking__footer">
-  <%= link_to "人気ランキング一覧を見る", events_path, class: "section-btn" %>
+  <%= link_to "人気ランキング一覧を見る", rank_path, class: "section-btn" %>
 </footer>
 
 

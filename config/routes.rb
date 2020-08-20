@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'events/tag/:id', to: 'tags#show', as: "event_tag"
   get 'events/season/:id', to: 'seasons#show', as: "event_season"
   get 'users/:id/favorite', to: 'users#favorite', as:"user_favorites"
+  get 'rank', to: 'events#rank', as:"rank"
   post '/users/guest_new', to: 'users#new_guest'
   post '/users/admin_new', to: 'users#new_admin'
 end

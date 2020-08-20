@@ -1,0 +1,63 @@
+<div class="select-hokkaido">
+  <% if Rails.env.development? %>
+    <a class="btn btn-default btn-xs" href="<%= ENV['HOST_KEY']%>/events?area_id=1" role="button">北海道</a>
+  <% else %>
+    <a class="btn btn-default btn-xs" href="http://cocoiko.blog/events?area_id=1" role="button">北海道</a>
+  <% end %>
+</div>
+
+<div class="select-tohoku">
+  <% if Rails.env.development? %>
+    <a class="btn btn-default btn-xs" href="<%= ENV['HOST_KEY']%>/events?area_id=2" role="button">東北</a>
+  <% else %>
+    <a class="btn btn-default btn-xs" href="http://cocoiko.blog/events?area_id=2" role="button">東北</a>
+  <% end %>
+</div>
+
+<div class="select-kanto">
+  <% if Rails.env.development? %>
+    <a class="btn btn-default btn-xs" href="<%= ENV['HOST_KEY']%>/events?area_id=3" role="button">関東</a>
+  <% else %>
+    <a class="btn btn-default btn-xs" href="http://cocoiko.blog/events?area_id=3" role="button">関東</a>
+  <% end %>
+</div>
+
+<div class="select-cyubu">
+  <% if Rails.env.development? %>
+    <a class="btn btn-default btn-xs" href="<%= ENV['HOST_KEY']%>/events?area_id=4" role="button">中部</a>
+  <% else %>
+    <a class="btn btn-default btn-xs" href="http://cocoiko.blog/events?area_id=4" role="button">中部</a>
+  <% end %>
+</div>
+
+<div class="select-kansai">
+  <% if Rails.env.development? %>
+    <a class="btn btn-default btn-xs" href="<%= ENV['HOST_KEY']%>/events?area_id=5" role="button">関西</a>
+  <% else %>
+    <a class="btn btn-default btn-xs" href="http://cocoiko.blog/events?area_id=5" role="button">関西</a>
+  <% end %>
+</div>
+
+<div class="select-cyugoku">
+  <% if Rails.env.development? %>
+    <a class="btn btn-default btn-xs" href="<%= ENV['HOST_KEY']%>/events?area_id=6" role="button">中国</a>
+  <% else %>
+    <a class="btn btn-default btn-xs" href="http://cocoiko.blog/events?area_id=6" role="button">中国</a>
+  <% end %>
+</div>
+
+<div class="select-shikoku">
+  <% if Rails.env.development? %>
+    <a class="btn btn-default btn-xs" href="<%= ENV['HOST_KEY']%>/events?area_id=7" role="button">四国</a>
+  <% else %>
+    <a class="btn btn-default btn-xs" href="http://cocoiko.blog/events?area_id=7" role="button">四国</a>
+  <% end %>
+</div>
+
+<div class="select-kyusyu">
+  <% if Rails.env.development? %>
+    <a class="btn btn-default btn-xs" href="<%= ENV['HOST_KEY']%>/events?area_id=8" role="button">九州・沖縄</a>
+  <% else %>
+    <a class="btn btn-default btn-xs" href="http://cocoiko.blog/events?area_id=8" role="button">九州・沖縄</a>
+  <% end %>
+</div>

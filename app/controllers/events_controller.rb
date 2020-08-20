@@ -1,6 +1,15 @@
 class EventsController < ApplicationController
-
   def index
+    @tags = Tag.all
+    @events_ranking =Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(5).pluck(:event_id))
+    @events_pickup = Event.pickup.limit(4)
+    if params[:area_id]
+      @area = Area.find(params[:area_id])
+      @events = @area.events
+    end
+  end
+
+  def rank
     @tags = Tag.all
     # groupでFavorite内のevent_idを全取得 order昇順 pluckカラムの情報取得
     @events_ranking =Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(5).pluck(:event_id))
@@ -55,6 +64,7 @@ class EventsController < ApplicationController
     else
       @events = Event.joins(:tags).where('tags.name in (?)', params[:search][:name]).where(events: {prefecture: params[:search][:prefecture]})
     end
+
     @tags = Tag.all
     @events_ranking_area =Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(5).pluck(:event_id))
     @events_pickup = Event.pickup.limit(4)
