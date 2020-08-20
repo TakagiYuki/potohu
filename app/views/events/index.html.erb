@@ -18,7 +18,9 @@
     <!-- 検索 -->
     <%= render 'shared/search_area' %>
     <!-- メイン記事 -->
-    <%= render 'events/event_card', events: @events %>
+    <div class="search">
+      <%= render 'events/event_card', events: @events %>
+    </div>
   </div>
   <!-- サブメニュー -->
   <div class="box__right">
