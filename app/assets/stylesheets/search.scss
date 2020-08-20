@@ -1,0 +1,57 @@
+input[type=checkbox] {
+display: none; /* チェックボックスを非表示にする */
+}
+
+input[type="checkbox"]:checked + label {
+color: black;
+transition: 0.5s ;
+opacity: 1;
+}
+
+.tag1 input[type="checkbox"]:checked + label {
+color: #0eac67;
+transition: 0.5s ;
+opacity: 1;
+}
+
+.tag2 input[type="checkbox"]:checked + label {
+color: #34a9bc;
+transition: 0.5s ;
+opacity: 1;
+}
+
+.tag3 input[type="checkbox"]:checked + label {
+color: #f7da36;
+transition: 0.5s ;
+opacity: 1;
+}
+
+.tag4 input[type="checkbox"]:checked + label {
+color: #eb7896;
+transition: 0.5s ;
+opacity: 1;
+}
+.label1 {
+color: #ccc;
+transition: 0.5s ;
+display: inline-block;
+
+}
+.tag1,
+.tag2,
+.tag3,
+.tag4{
+   display: inline-block;
+}
+
+.search-tag .find-title1{
+  width: 100px;
+  display: block;
+  float: left;
+}
+.bbbb .find-title2{
+  width: 100px;
+  display: block;
+  float: left;
+  height: 160px;
+}
