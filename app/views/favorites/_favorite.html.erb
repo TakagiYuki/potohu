@@ -1,18 +1,20 @@
 <!-- ログインしてて、いいねしてる時 -->
-<% if logged_in? && event.favorited_by?(current_user) %>
-  <%= link_to event_favorites_path(event), method: :delete, remote: true do %>
-    <i class="fas fa-heart red"><%= event.favorites.count%></i>
-  <% end %>
-
-  <!-- ログインしてない時 -->
-  <% elsif !logged_in? %>
-    <i class="far fa-heart white" data-toggle="modal" data-target="#loginModal"><%= event.favorites.count%></i>
-    <!-- モーダル・ダイアログ -->
-	<%= render 'shared/login_modal' %>
-
-  <!--ログインしてて、いいねしてない時 -->
-  <% else %>
-    <%= link_to event_favorites_path(event), method: :post, remote: true do %>
-      <i class="far fa-heart white"><%= event.favorites.count%></i>
+<div class="favorite">
+  <% if logged_in? && event.favorited_by?(current_user) %>
+    <%= link_to event_favorites_path(event), method: :delete, remote: true do %>
+      <i class="fas fa-heart red"><%= event.favorites.count%></i>
     <% end %>
-<% end %>
+
+    <!-- ログインしてない時 -->
+    <% elsif !logged_in? %>
+      <i class="far fa-heart white" data-toggle="modal" data-target="#loginModal"><%= event.favorites.count%></i>
+      <!-- モーダル・ダイアログ -->
+  	<%= render 'shared/login_modal' %>
+
+    <!--ログインしてて、いいねしてない時 -->
+    <% else %>
+      <%= link_to event_favorites_path(event), method: :post, remote: true do %>
+        <i class="far fa-heart white"><%= event.favorites.count%></i>
+      <% end %>
+  <% end %>
+</div>

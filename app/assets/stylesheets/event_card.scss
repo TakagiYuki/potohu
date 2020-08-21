@@ -17,6 +17,7 @@
   border: 1px solid $color;
   border-radius: 2em;
   font-size: 14px;
+  padding: 0px 5px;
 }
 .card {
   position: relative;
@@ -92,11 +93,11 @@
     @include category(#eb7896);
   }
 }
-  .card i {
-    position: absolute;
-    top:2%;
-    right: 2%;
-  }
+.favorite i {
+  position: absolute;
+  top:2%;
+  right: 2%;
+}
 
 @media screen and (max-width: 767px) {
   .card {

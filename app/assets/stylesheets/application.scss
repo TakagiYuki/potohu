@@ -250,16 +250,9 @@ a :hover {
     padding: 0;
     color: #fff;
 }
-// li{
-//     position: relative;
-//     padding: 5px;
-//     display: block;
-//     cursor: pointer;
-//     font-size: 12px;
-// }
 
 //ドロップ前のタイルの色
-.dropdwn li{
+.dropdwn li {
     width: 140px;
     margin: 1px;
     display: inline;
@@ -267,7 +260,7 @@ a :hover {
     font-size: 12px;
 }
 //ドロップ後のタイルの色
-.dropdwn_menu{
+.dropdwn_menu {
     width: 140px;
     display: none;
     position: absolute;
@@ -277,11 +270,11 @@ a :hover {
     background-color: rgba(0,0,0,0.4);
 }
 
-.dropdwn_menu li{
+.dropdwn_menu li {
     width: 140px;
 }
 
-.dropdwn_menu li a{
+.dropdwn_menu li a {
     padding: 5px 0;
     margin: -5px 5px -5px -5px;
     color: #fff;
@@ -289,13 +282,23 @@ a :hover {
 }
 
 //ドロップ後のメニュー
-.dropdwn_menu li a:hover{
+.dropdwn_menu li a:hover {
   color: #fff;
 }
 
-.container{
+.container {
   width: 100%;
 }
+
+.math {
+  font-weight: bold;
+  font-size: 16px;
+  padding-left: 7%;
+}
+.math-text {
+  display: inline;
+}
+
 @media screen and (max-width: 760px) {
   .box{
   display: block;
@@ -311,5 +314,6 @@ a :hover {
   margin: 0 auto;
   }
 }
+
 
 
