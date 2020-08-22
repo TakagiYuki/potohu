@@ -1,10 +1,11 @@
-@mixin main-nav__link($color){
+@mixin main-nav__link($color) {
   display: block;
   padding: 15px 0;
   text-decoration: none;
   font-size: 24px;
   color: $color;
 }
+
 .main-nav {
   text-align:center;
 
@@ -38,6 +39,30 @@
     border-left: solid 1px #ccc;
     border-right: solid 1px #ccc;
   }
+  &__item0 :hover {
+    text-decoration: none;
+    background-color: #ccc;
+    transition: 0.5s;
+    color: #0eac67;
+  }
+  &__item1 :hover {
+    text-decoration: none;
+    background-color: #ccc;
+    transition: 0.5s;
+    color: #34a9bc;
+  }
+  &__item2 :hover {
+    text-decoration: none;
+    background-color: #ccc;
+    transition: 0.5s;
+    color: #f7da36;
+  }
+  &__item3 :hover {
+    text-decoration: none;
+    background-color: #ccc;
+    transition: 0.5s;
+    color: #eb7896;
+  }
   &__link0 {
     @include main-nav__link(#0eac67);
   }
@@ -50,5 +75,4 @@
   &__link3 {
     @include main-nav__link(#eb7896);
   }
-  
 }

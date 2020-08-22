@@ -17,10 +17,12 @@
   border: 1px solid $color;
   border-radius: 2em;
   font-size: 14px;
+  padding: 0px 5px;
 }
 .card {
   position: relative;
   width: 40%;
+  height: 440px;
   background-color: #FFFFFF;
   margin-right: 2%;
   margin-left: 2%;
@@ -92,11 +94,20 @@
     @include category(#eb7896);
   }
 }
-  .card i {
-    position: absolute;
-    top:2%;
-    right: 2%;
-  }
+.favorite i {
+  position: absolute;
+  top:2%;
+  right: 2%;
+}
+
+.math {
+  font-weight: bold;
+  font-size: 16px;
+  padding-left: 7%;
+}
+.math-text {
+  display: inline;
+}
 
 @media screen and (max-width: 767px) {
   .card {

@@ -1,4 +1,3 @@
-<div class="container">
   <%= form_with scope: :search, url: search_events_path, method: :get, remote: true do |f| %>
     <div class = search-tag >
       <span class = "find-title1">カテゴリー</span>
@@ -227,7 +226,6 @@
       <input type="checkbox" value="沖縄県" name="search[prefecture][]" id="search_prefecture46">
       <label for="search_prefecture46" class="label1">沖縄</label>
     </div>
-      <%= f.submit :search ,class: "btn btn-default" %>
+      <%= f.submit :search ,class: "btn btn-default " %>
     </div>
   <% end %>
-</div>

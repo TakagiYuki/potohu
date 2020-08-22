@@ -69,5 +69,21 @@ $(function(){
 // $(function(){
 //   setTimeout("$('.flash').fadeOut('slow')", 2000);
 // });
+//ローディング
+// jQuery(function($){
+//     $(document).ajaxSend(function() {
+//         $("#overlay").fadeIn(300);
+//     });
 
+//     $('#button').click(function(){
+//         $.ajax({
+//             type: 'GET',
+//         })
+//         .done(function() {
+//             setTimeout(function(){
+//                 $("#overlay").fadeOut(300);
+//             },500);
+//         });
+//     });
+// });
 

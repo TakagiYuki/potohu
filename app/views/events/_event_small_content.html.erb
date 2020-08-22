@@ -36,19 +36,19 @@
           </a>
           <% if tag.id == 1 %>
             <%= link_to event_tag_path(tag) do %>
-              <p class="card__category--nature"><%= tag.name %></p>
+              <p class="card__category--nature"><i class="fas fa-tag"></i><%= tag.name %></p>
             <% end %>
           <% elsif tag.id == 2 %>
             <%= link_to event_tag_path(tag) do %>
-              <p class="card__category--histroy"><%= tag.name %></p>
+              <p class="card__category--histroy"><i class="fas fa-tag"></i><%= tag.name %></p>
             <% end %>
           <% elsif tag.id == 3 %>
             <%= link_to event_tag_path(tag) do %>
-              <p class="card__category--play"><%= tag.name %></p>
+              <p class="card__category--play"><i class="fas fa-tag"></i><%= tag.name %></p>
             <% end %>
           <% else %>
             <%= link_to event_tag_path(tag) do %>
-              <p class="card__category--stage"><%= tag.name %></p>
+              <p class="card__category--stage"><i class="fas fa-tag"></i><%= tag.name %></p>
             <% end %>
           <% end %>
         <% end %>

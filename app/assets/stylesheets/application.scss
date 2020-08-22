@@ -31,6 +31,7 @@ a {
 a :hover {
   text-decoration: none;
 }
+
 .flash {
   margin-top: 50px;
   padding-left: 55px;
@@ -45,6 +46,7 @@ a :hover {
   color: #a94442;
   font-size: 12px;
 }
+
 //見出し
 .heading{
   font-size: 20px;
@@ -152,7 +154,13 @@ a :hover {
 .danger-color {
   color: #d9534f;
 }
+.slash{
+  color: #ccc;
+}
 
+.container {
+  width: 100%;
+}
 
 .box{
   display: flex;
@@ -178,10 +186,6 @@ a :hover {
 .box__right{
   width: 300px;
   margin-right: 2%;
-}
-
-.slash{
-  color: #ccc;
 }
 
 .pan-list {
@@ -250,16 +254,9 @@ a :hover {
     padding: 0;
     color: #fff;
 }
-// li{
-//     position: relative;
-//     padding: 5px;
-//     display: block;
-//     cursor: pointer;
-//     font-size: 12px;
-// }
 
 //ドロップ前のタイルの色
-.dropdwn li{
+.dropdwn li {
     width: 140px;
     margin: 1px;
     display: inline;
@@ -267,7 +264,7 @@ a :hover {
     font-size: 12px;
 }
 //ドロップ後のタイルの色
-.dropdwn_menu{
+.dropdwn_menu {
     width: 140px;
     display: none;
     position: absolute;
@@ -277,11 +274,11 @@ a :hover {
     background-color: rgba(0,0,0,0.4);
 }
 
-.dropdwn_menu li{
+.dropdwn_menu li {
     width: 140px;
 }
 
-.dropdwn_menu li a{
+.dropdwn_menu li a {
     padding: 5px 0;
     margin: -5px 5px -5px -5px;
     color: #fff;
@@ -289,13 +286,10 @@ a :hover {
 }
 
 //ドロップ後のメニュー
-.dropdwn_menu li a:hover{
+.dropdwn_menu li a:hover {
   color: #fff;
 }
 
-.container{
-  width: 100%;
-}
 @media screen and (max-width: 760px) {
   .box{
   display: block;
@@ -311,5 +305,6 @@ a :hover {
   margin: 0 auto;
   }
 }
+
 
 
