@@ -1,9 +1,3 @@
-<% unless current_page?(root_path) %>
-  <div class="container">
-    <span class="math"><%= events.count %></span>
-    <p class="math-text">件の「記事」を表示</p>
-  </div>
-<% end %>
 <% events.each_with_index do |event, i| %>
   <article class="card">
     <aside class="card__aside">

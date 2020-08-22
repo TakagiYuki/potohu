@@ -22,6 +22,7 @@
 .card {
   position: relative;
   width: 40%;
+  height: 440px;
   background-color: #FFFFFF;
   margin-right: 2%;
   margin-left: 2%;
@@ -97,6 +98,15 @@
   position: absolute;
   top:2%;
   right: 2%;
+}
+
+.math {
+  font-weight: bold;
+  font-size: 16px;
+  padding-left: 7%;
+}
+.math-text {
+  display: inline;
 }
 
 @media screen and (max-width: 767px) {

@@ -1,1 +1,2 @@
 $('.search').html("<%= j(render 'events/event_card', events: @events ) %>");
+$('.count').html("<%= j(render 'shared/count', events: @events ) %>");

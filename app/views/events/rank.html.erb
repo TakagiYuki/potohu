@@ -15,10 +15,13 @@
   <% end %>
 </div>
 
+<!-- 表示件数 -->
+<div class="count">
+  <%= render 'shared/count', events: @events_ranking_all %>
+</div>
+
 <div class="box">
   <div class="box__left">
-    <!-- 検索 -->
-    <%#= render 'shared/search_prefacture' %>
     <!-- メイン記事 -->
     <div class="container">
     	<h2 class="heading">人気記事ランキング(全国)</h2>

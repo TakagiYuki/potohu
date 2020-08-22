@@ -14,11 +14,18 @@
     <%= @tag.name %>
   <% end %>
 </div>
+<!-- 検索 -->
+<div class="search-container">
+  <%= render 'shared/search_tag' %>
+</div>
+
+<!-- 表示件数 -->
+<div class="count">
+  <%= render 'shared/count', events: @events %>
+</div>
 
 <div class="box">
   <div class="box__left">
-    <!-- 検索 -->
-    <%= render 'shared/search_tag' %>
     <!-- メイン記事 -->
     <div class="search">
       <%= render 'events/event_card', events: @events %>

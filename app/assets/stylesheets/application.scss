@@ -31,6 +31,7 @@ a {
 a :hover {
   text-decoration: none;
 }
+
 .flash {
   margin-top: 50px;
   padding-left: 55px;
@@ -45,6 +46,7 @@ a :hover {
   color: #a94442;
   font-size: 12px;
 }
+
 //見出し
 .heading{
   font-size: 20px;
@@ -152,7 +154,13 @@ a :hover {
 .danger-color {
   color: #d9534f;
 }
+.slash{
+  color: #ccc;
+}
 
+.container {
+  width: 100%;
+}
 
 .box{
   display: flex;
@@ -178,10 +186,6 @@ a :hover {
 .box__right{
   width: 300px;
   margin-right: 2%;
-}
-
-.slash{
-  color: #ccc;
 }
 
 .pan-list {
@@ -284,19 +288,6 @@ a :hover {
 //ドロップ後のメニュー
 .dropdwn_menu li a:hover {
   color: #fff;
-}
-
-.container {
-  width: 100%;
-}
-
-.math {
-  font-weight: bold;
-  font-size: 16px;
-  padding-left: 7%;
-}
-.math-text {
-  display: inline;
 }
 
 @media screen and (max-width: 760px) {
