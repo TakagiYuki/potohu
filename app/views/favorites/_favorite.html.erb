@@ -7,14 +7,14 @@
 
     <!-- ログインしてない時 -->
     <% elsif !logged_in? %>
-      <i class="far fa-heart white" data-toggle="modal" data-target="#loginModal"><%= event.favorites.count%></i>
+      <i class="far fa-heart red" data-toggle="modal" data-target="#loginModal"><%= event.favorites.count%></i>
       <!-- モーダル・ダイアログ -->
   	<%= render 'shared/login_modal' %>
 
     <!--ログインしてて、いいねしてない時 -->
     <% else %>
       <%= link_to event_favorites_path(event), method: :post, remote: true do %>
-        <i class="far fa-heart white"><%= event.favorites.count%></i>
+        <i class="far fa-heart red"><%= event.favorites.count%></i>
       <% end %>
   <% end %>
 </div>
