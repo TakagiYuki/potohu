@@ -4,7 +4,7 @@
     <!-- /loginにparams[:session]を渡す -->
     <br>
     <h2>ログイン</h2>
-    <%= form_with(url: new_session_path, scope: :session, local: true) do |f| %>
+    <%= form_with(url: sessions_path, scope: :session, local: true) do |f| %>
 
       <%= f.label :Eメール %>
       <%= f.email_field :email, class: 'form-control' %>
