@@ -228,7 +228,7 @@ a {
   margin-top: 10px;
   border: 1px solid #333;
 }
-
+//ページ上部に移動
 #page-top {
   position: absolute;
   bottom: 3%;
@@ -245,6 +245,7 @@ a {
 }
 #page-top a {
   position: relative;
+  color: #000;
   top: 40%;
   left: 42%;
 }
