@@ -86,4 +86,14 @@ $(function(){
 //         });
 //     });
 // });
-
+// function run() {
+//     var image = document.getElementById('background');
+//     image.onload = function() {
+//         var engine = new RainyDay({
+//             image: this
+//         });
+//     engine.rain([ [3, 2, 2] ], 100);//ここを変更することで動きが変わる
+//     };
+//     image.crossOrigin = 'anonymous';
+//     image.src = 'top__sec-img1.jpg';//画像を指定
+// }

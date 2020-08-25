@@ -34,17 +34,23 @@
     display: flex;
   }
 
-  &__right-link {
+  &__right-link a {
     margin: 0 0 0 30px;
     font-size: 12px;
     cursor: pointer;
     cursor: hand;
+    color: black;
   }
-  & a,
-    i,
-    li {
-    color: #000000;
+  &__right-link-red a {
+    margin: 0 0 0 30px;
+    font-size: 12px;
+    cursor: pointer;
+    cursor: hand;
+    color: red;
   }
+}
+.fa-circle:before {
+    color: #0eac67;
 }
 .sp-nav{
   display: none;
