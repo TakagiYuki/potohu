@@ -41,7 +41,7 @@ display: inline-block;
 .tag2,
 .tag3,
 .tag4{
-   display: inline-block;
+  display: inline-block;
 }
 
 .search-tag .find-title1{
@@ -49,13 +49,8 @@ display: inline-block;
   display: block;
   float: left;
 }
-// .search-tag .find-title2{
-//   width: 100px;
-//   display: block;
-//   float: left;
-//   height: 160px;
-// }
+
 .search-container {
-width: 80%;
-margin: 0% 6%;
+  width: 80%;
+  margin: 0% 6%;
 }

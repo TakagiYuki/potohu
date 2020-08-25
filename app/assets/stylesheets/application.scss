@@ -13,7 +13,6 @@
  @import 'footer.scss';
  @import 'search.scss';
 
-
 * {
    box-sizing: border-box;
 }
@@ -27,13 +26,9 @@ body {
 
 a {
    text-decoration: none;
-   // color: black;
 }
 
-a :hover {
-  text-decoration: none;
-}
-
+//フラッシュメッセージ
 .flash {
   margin-top: 50px;
   padding-left: 55px;
@@ -41,6 +36,7 @@ a :hover {
   color: white;
   font-size: 12px;
 }
+
 .alert1 {
   margin-top: 50px;
   padding-left: 55px;
@@ -50,7 +46,7 @@ a :hover {
 }
 
 //見出し
-.heading{
+.heading {
   font-size: 20px;
   background-image: linear-gradient(-45deg, #fff 25%, #f8f4f1 25%, #f8f4f1 50%, #fff 50%, #fff 75%, #f8f4f1 75%, #f8f4f1);
   background-size: 4px 4px;
@@ -60,7 +56,7 @@ a :hover {
 }
 
 //バッジ
-@mixin badge_before{
+@mixin badge_before {
   content: "";
   position: absolute;
   top: 0;
@@ -70,7 +66,7 @@ a :hover {
   border-right: 35px solid transparent;
 }
 
-@mixin badge_after{
+@mixin badge_after {
   position: absolute;
   top: 0;
   left: 0;
@@ -80,7 +76,7 @@ a :hover {
   transform: rotate(-45deg) translate(-2px, 3px);
 }
 
-.container__card--mini{
+.container__card--mini {
   &__badge--new,
   &__badge--rank0,
   &__badge--rank1,
@@ -143,34 +139,36 @@ a :hover {
   }
 }
 
-//アイコン
+//アイコンの色
 .red {
   color: #e54747;
 }
+
 .white {
   color: #ffffff;
 }
+
 .blue {
   color: #337ab7;
 }
-.green {
-  color: #0eac67
-}
+
 .danger-color {
   color: #d9534f;
 }
+
 .slash{
   color: #ccc;
 }
 
+//大枠
 .container {
   width: 100%;
 }
 
-.box{
+.box {
   display: flex;
 }
-.box__left{
+.box__left {
   flex: 1;
   flex-wrap: wrap;
   display: inline-flex;
@@ -183,16 +181,17 @@ a :hover {
   display: inline-flex;
   justify-content: center;
 }
-.box__left-event{
+.box__left-event {
   flex: 1;
   flex-wrap: wrap;
   justify-content: center;
 }
-.box__right{
+.box__right {
   width: 300px;
   margin-right: 2%;
 }
 
+//パンくずリスト
 .pan-list {
   border-bottom: solid 1px #ccc;
   padding: 4px;
@@ -202,6 +201,7 @@ a :hover {
   float: left;
 }
 
+//ボタン
 .section-btn {
   width: 80%;
   font-size: 14px;
@@ -228,6 +228,7 @@ a :hover {
   margin-top: 10px;
   border: 1px solid #333;
 }
+
 #page-top {
   position: absolute;
   bottom: 3%;
@@ -248,11 +249,11 @@ a :hover {
   left: 42%;
 }
 
-.dropdwn{
+.dropdwn {
     display: flex;
 }
 
-.dropdwn ul{
+.dropdwn ul {
     text-align: center;
     list-style-type: none;
     margin: 0 auto;
@@ -296,20 +297,17 @@ a :hover {
 }
 
 @media screen and (max-width: 760px) {
-  .box{
-  display: block;
+  .box {
+    display: block;
   }
-  .box__left{
-  flex: 1;
-  flex-wrap: wrap;
-  display: inline-flex;
-  justify-content: center;
+  .box__left {
+    flex: 1;
+    flex-wrap: wrap;
+    display: inline-flex;
+    justify-content: center;
   }
-  .box__right{
-  width: 90%;
-  margin: 0 auto;
+  .box__right {
+    width: 90%;
+    margin: 0 auto;
   }
 }
-
-
-

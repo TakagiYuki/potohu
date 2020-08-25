@@ -51,8 +51,17 @@
     color: white;
     border:solid 1px #808080;
   }
+  &__table a {
+    color: #000;
+  }
+   :hover a {
+    color: #000;
+  }
 }
-
+  // .ranking :hover a {
+  //   color: black;
+  //   opacity: 0.6;
+  // }
 @media screen and (max-width: 760px) {
   .ranking {
     &__section {
