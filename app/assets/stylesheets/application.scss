@@ -12,6 +12,8 @@
  @import 'top.scss';
  @import 'footer.scss';
  @import 'search.scss';
+
+
 * {
    box-sizing: border-box;
 }
@@ -25,7 +27,7 @@ body {
 
 a {
    text-decoration: none;
-   color: black;
+   // color: black;
 }
 
 a :hover {
@@ -151,6 +153,9 @@ a :hover {
 .blue {
   color: #337ab7;
 }
+.green {
+  color: #0eac67
+}
 .danger-color {
   color: #d9534f;
 }
@@ -223,7 +228,7 @@ a :hover {
   margin-top: 10px;
   border: 1px solid #333;
 }
-#page-top  {
+#page-top {
   position: absolute;
   bottom: 3%;
   right: 3%;
@@ -257,7 +262,7 @@ a :hover {
 
 //ドロップ前のタイルの色
 .dropdwn li {
-    width: 140px;
+    width: 120px;
     margin: 1px;
     display: inline;
     color: black;
@@ -265,7 +270,7 @@ a :hover {
 }
 //ドロップ後のタイルの色
 .dropdwn_menu {
-    width: 140px;
+    width: 120px;
     display: none;
     position: absolute;
     margin-left: -5px;
@@ -275,7 +280,7 @@ a :hover {
 }
 
 .dropdwn_menu li {
-    width: 140px;
+    width: 120px;
 }
 
 .dropdwn_menu li a {
@@ -299,7 +304,7 @@ a :hover {
   flex-wrap: wrap;
   display: inline-flex;
   justify-content: center;
-}
+  }
   .box__right{
   width: 90%;
   margin: 0 auto;
