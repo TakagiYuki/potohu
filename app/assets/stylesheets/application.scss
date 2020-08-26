@@ -251,45 +251,42 @@ a {
 }
 
 .dropdwn {
-    display: flex;
+  display: flex;
 }
 
 .dropdwn ul {
-    text-align: center;
-    list-style-type: none;
-    margin: 0 auto;
-    padding: 0;
-    color: #fff;
+  text-align: center;
+  list-style-type: none;
+  margin: 0 auto;
+  padding-left: 0px;
+  color: #fff;
 }
 
 //ドロップ前のタイルの色
 .dropdwn li {
-    width: 120px;
-    margin: 1px;
-    display: inline;
-    color: black;
-    font-size: 12px;
-}
-//ドロップ後のタイルの色
-.dropdwn_menu {
-    width: 120px;
-    display: none;
-    position: absolute;
-    margin-left: -5px;
-    margin-top: 5px;
-    padding: 0;
-    background-color: rgba(0,0,0,0.4);
+  margin: 1px;
+  display: inline;
+  color: #848484;
+  font-size: 12px;
+  font-weight: bold;
 }
 
-.dropdwn_menu li {
-    width: 120px;
+//ドロップ後のタイルの色
+.dropdwn_menu {
+  width: 120px;
+  display: none;
+  position: absolute;
+  margin-left: -5px;
+  margin-top: 5px;
+  padding: 0;
+  background-color: rgba(0,0,0,0.4);
 }
 
 .dropdwn_menu li a {
-    padding: 5px 0;
-    margin: -5px 5px -5px -5px;
-    color: #fff;
-    display: block;
+  padding: 5px 0;
+  margin: -5px 5px -5px -5px;
+  color: #fff;
+  display: block;
 }
 
 //ドロップ後のメニュー

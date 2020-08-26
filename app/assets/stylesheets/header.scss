@@ -37,16 +37,25 @@
   &__right-link a {
     margin: 0 0 0 30px;
     font-size: 12px;
+    font-weight: bold;
     cursor: pointer;
     cursor: hand;
-    color: black;
+    color: #848484;
+  }
+  &__right-link :hover  {
+    color: #000;
+    text-decoration: none;
   }
   &__right-link-red a {
     margin: 0 0 0 30px;
     font-size: 12px;
+    font-weight: bold;
     cursor: pointer;
     cursor: hand;
     color: red;
+  }
+  &__right-link-red :hover {
+    text-decoration: none;
   }
 }
 .fa-circle:before {
