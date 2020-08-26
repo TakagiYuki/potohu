@@ -31,6 +31,15 @@
   <li class="footer__link"><%= link_to '人気記事ランキング', ranking_path %></li>
   <li class="footer__link"><%= link_to 'オススメ記事', pickup_path %></li>
 </ul>
+
+<ul class="footer__ul">
+  <li class="footer__link-share">SNS SHARE</li>
+  <%= link_to "https://twitter.com/share?url=https://cocoiko.blog&text=ここいこ 公式サイト　　　　　　　　　", target: :_blank do %>
+        <span data-toggle="tooltip" data-placement="bottom" title="Share">
+          <li class="footer__link-share"><i class="fab fa-twitter-square fa-2x"></i></li>
+        </span>
+      <% end %>
+</ul>
 </footer>
 <footer class="footer__botom">
   <small class="footer__logo">© 2020 ここいこ</small>

@@ -40,6 +40,9 @@
   &__top-pc a {
     color: #000;
   }
+  &__link-share {
+    list-style: none;
+  }
 }
   @media screen and (max-width: 767px) {
     .footer {
