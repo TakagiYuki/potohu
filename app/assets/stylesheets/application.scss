@@ -64,6 +64,7 @@ a {
   width: 0;
   height: 0;
   border-right: 35px solid transparent;
+  z-index: 1;
 }
 
 @mixin badge_after {
@@ -74,9 +75,11 @@ a {
   font-weight:bold;
   color: black;
   transform: rotate(-45deg) translate(-2px, 3px);
+  z-index: 2;
 }
 
 .container__card--mini {
+  &__badge--nil,
   &__badge--new,
   &__badge--rank0,
   &__badge--rank1,
@@ -87,55 +90,55 @@ a {
     object-fit: cover;
   }
   &__badge--new:before {
-     @include badge_before;
-     border-top: 35px solid #f00;
+    @include badge_before;
+    border-top: 35px solid #f00;
   }
   &__badge--rank0:before {
-     @include badge_before;
-     border-top: 35px solid #ffd700;
+    @include badge_before;
+    border-top: 35px solid #ffd700;
   }
   &__badge--rank1:before {
-     @include badge_before;
-     border-top: 35px solid #c0c0c0;
+    @include badge_before;
+    border-top: 35px solid #c0c0c0;
   }
   &__badge--rank2:before {
-     @include badge_before;
-     border-top: 35px solid #d2691e;
+    @include badge_before;
+    border-top: 35px solid #d2691e;
   }
   &__badge--rank3:before {
-     @include badge_before;
-     border-top: 35px solid #fffacd;
+    @include badge_before;
+    border-top: 35px solid #fffacd;
   }
   &__badge--rank4:before {
-     @include badge_before;
-     border-top: 35px solid #fffacd;
+    @include badge_before;
+    border-top: 35px solid #fffacd;
   }
   &__badge--new:after {
-     @include badge_after;
-     content: "NEW";
-     font-size: 10px;
-     color: #FFF;
-     transform: rotate(-45deg) translate(-5px, 3px);
+    @include badge_after;
+    content: "NEW";
+    font-size: 10px;
+    color: #FFF;
+    transform: rotate(-45deg) translate(-5px, 3px);
   }
   &__badge--rank0:after {
-     @include badge_after;
-     content: "1位";
+    @include badge_after;
+    content: "1位";
   }
   &__badge--rank1:after {
-     @include badge_after;
-     content: "2位";
+    @include badge_after;
+    content: "2位";
   }
   &__badge--rank2:after {
-     @include badge_after;
-     content: "3位";
+    @include badge_after;
+    content: "3位";
   }
   &__badge--rank3:after {
-     @include badge_after;
-     content: "4位";
+    @include badge_after;
+    content: "4位";
   }
   &__badge--rank4:after {
-     @include badge_after;
-     content: "5位";
+    @include badge_after;
+    content: "5位";
   }
 }
 
