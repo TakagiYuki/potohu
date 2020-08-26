@@ -4,12 +4,19 @@
   <% end %>
 </header>
 
-<% events.each_with_index do |event, i| %>
+<% events.each_with_index do |event| %>
   <article class="ranking">
     <aside class="ranking__aside">
-      <%= link_to event_path(event) do %>
-        <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
-      <% end %>
+      <figure class="container__card--mini__badge--nil ranking__figure">
+        <%= link_to event_path(event) do %>
+          <%= attachment_image_tag(event, :image, fallback: 'no_image.jpg')%>
+          <div class="ranking__mask">
+            <div class="ranking__caption">
+              記事を読む
+            </div>
+          </div>
+        <% end %>
+      </figure>
     </aside>
       <div class="ranking__body">
         <% event.tags.each do |tag| %>

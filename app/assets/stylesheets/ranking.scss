@@ -57,11 +57,28 @@
    :hover a {
     color: #000;
   }
+  &__caption {
+    font-size: 14px;
+    text-align: center;
+    padding-top: 34%;
+    color: black;
+  }
+  &__mask {
+    width: 90%;
+    height: 90%;
+    margin: 5%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;  /* マスクを非表示 */
+    background-color: rgba(255,255,255,0.6);
+  }
+  &__figure:hover .ranking__mask {
+    opacity: 1;  /* マスクを表示*/
+    transition: 0.5s ;
+  }
 }
-  // .ranking :hover a {
-  //   color: black;
-  //   opacity: 0.6;
-  // }
+
 @media screen and (max-width: 760px) {
   .ranking {
     &__section {
