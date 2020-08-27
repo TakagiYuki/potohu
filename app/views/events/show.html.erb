@@ -32,7 +32,9 @@
       <figure class="event__figure">
         <%= attachment_image_tag(@event, :image, fallback: 'no_image.jpg')%>
       </figure>
-      <h2 class="event__title"><%= @event.name %></h2>
+      <h2 class="event__title"><%= @event.name %><br>
+        <span><i class="far fa-clock"></i><%= @event.created_at.strftime('%Y/%m/%d') %></span>
+      </h2>
       <p class="event__text"><%= @event.article %></p>
       <p class="event__text"><%= "【場所】#{@event.prefecture}" %></p>
 
