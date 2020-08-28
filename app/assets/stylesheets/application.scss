@@ -273,10 +273,12 @@ a {
   font-size: 12px;
   font-weight: bold;
 }
-
+.dropdwn li:hover {
+  color: #000;
+}
 //ドロップ後のタイルの色
 .dropdwn_menu {
-  width: 120px;
+  width: 100px;
   display: none;
   position: absolute;
   margin-left: -5px;
@@ -287,14 +289,8 @@ a {
 
 .dropdwn_menu li a {
   padding: 5px 0;
-  margin: -5px 5px -5px -5px;
   color: #fff;
   display: block;
-}
-
-//ドロップ後のメニュー
-.dropdwn_menu li a:hover {
-  color: #fff;
 }
 
 @media screen and (max-width: 760px) {

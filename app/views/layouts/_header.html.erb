@@ -7,17 +7,27 @@
     <ul class="header__right-ul">
       <!-- adminユーザー -->
       <% if logged_in? && current_user.admin %>
-        <li class="header__right-link"><i class="fas fa-circle green"></i><%= "ログイン中" %></li>
+        <ul class="dropdwn">
+          <li><i class="fas fa-circle green"></i>ログイン中
+            <ul class="dropdwn_menu">
+              <li><%= link_to ' ログアウト', session_path(current_user), method: :delete %></li>
+            </ul>
+          </li>
+        </ul>
         <li class="header__right-link"><%= link_to ' タグ作成', admin_tags_path %></li>
         <li class="header__right-link"><%= link_to ' イベント作成', admin_events_path %></li>
         <li class="header__right-link"><%= link_to ' エリア作成', admin_areas_path %></li>
-        <li class="header__right-link"><%= link_to ' ログアウト', session_path(current_user), method: :delete %></li>
         <%= render 'layouts/header_dropdown' %>
       <!-- ユーザー -->
       <% elsif logged_in? && !current_user.admin %>
-        <li class="header__right-link"><i class="fas fa-circle green"></i><%= "ログイン中" %></li>
-        <li class="header__right-link"><%= link_to '　マイページ', user_path(current_user) %></li>
-        <li class="header__right-link"><%= link_to '  ログアウト', session_path(current_user), method: :delete %></li>
+        <ul class="dropdwn">
+          <li><i class="fas fa-circle green"></i>ログイン中
+            <ul class="dropdwn_menu">
+              <li><%= link_to ' マイページ', user_path(current_user) %></li>
+              <li><%= link_to ' ログアウト', session_path(current_user), method: :delete %></li>
+            </ul>
+          </li>
+        </ul>
         <%= render 'layouts/header_dropdown' %>
       <!-- ログインしていないユーザー -->
       <% else %>
