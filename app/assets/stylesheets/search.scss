@@ -1,6 +1,6 @@
-// input[type=checkbox] {
-// display: none; /* チェックボックスを非表示にする */
-// }
+input[type=checkbox] {
+display: none; /* チェックボックスを非表示にする */
+}
 
 input[type="checkbox"]:checked + label {
 color: black;
