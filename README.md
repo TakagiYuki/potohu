@@ -21,8 +21,10 @@
 
 ## 🎮Development
 ### Ruby on Rails
-### AWS
 ### Sass
+### JavaScript
+### Photoshop
+### AWS
 ### Sublime Text
 
 ## 🌐 App URL
