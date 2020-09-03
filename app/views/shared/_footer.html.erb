@@ -29,13 +29,11 @@
   <li class="footer__link"><a href="https://cocoiko.blog/events?area_id=8">九州・沖縄</a></li>
 </ul>
 
-<ul class="footer__ul">
+<ul class="footer__ul-share">
   <li class="footer__link-share">SNS SHARE</li>
-  <%= link_to "https://twitter.com/share?url=https://cocoiko.blog&text=ここいこ 公式サイト　　　　　　　　　", target: :_blank do %>
-        <span data-toggle="tooltip" data-placement="bottom" title="Share">
-          <li class="footer__link-share"><i class="fab fa-twitter-square fa-2x"></i></li>
-        </span>
-      <% end %>
+  <a href="https://twitter.com/share?text=ここいこ公式サイト&url=https://cocoiko.blog"target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a>
+  <a href="https://social-plugins.line.me/lineit/share?url={https://cocoiko.blog}"target="_blank"><i class="fab fa-line fa-2x"></i></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u={https://cocoiko.blog}"target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
 </ul>
 </footer>
 <footer class="footer__botom">
