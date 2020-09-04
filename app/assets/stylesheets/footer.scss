@@ -40,9 +40,24 @@
   &__top-pc a {
     color: #000;
   }
-  &__link-share {
+  &__ul-share {
+    padding-left: 0px;
     list-style: none;
   }
+  &__link-share {
+    margin: 10px 0px;
+    color: #999;
+    list-style: none;
+  }
+}
+.fa-line {
+  color: #1dcd00;
+}
+.fa-twitter-square {
+  color: #55acee;
+}
+.fa-facebook-square {
+  color: #3B5998;
 }
   @media screen and (max-width: 767px) {
     .footer {
